@@ -1,5 +1,5 @@
 // Edit these if anything changes.
-const CONTACT = "hssmif@gmail.com";
+const CONTACT = "hello@getmenufix.com";
 const LINKS = {
   menu_fix: "https://buy.stripe.com/6oU6oI0bi1I4bDWfXY1sQ04",
   menu_photos: "https://buy.stripe.com/5kQaEYf6c5Yk6jCeTU1sQ05",
