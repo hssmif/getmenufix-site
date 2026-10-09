@@ -35,7 +35,12 @@ document.querySelectorAll("[data-p]").forEach((el) => {
   el.textContent = (el.dataset.p === "done_for_you" ? "+" : "") + SYM[CUR] + PRICES[el.dataset.p][CUR];
 });
 document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = NAME[CUR]));
-document.querySelectorAll("[data-buy]").forEach((a) => (a.href = LINKS[a.dataset.buy]));
+// A restaurant arriving from our offer email (?ref=<id>) keeps its id, so its payment is matched to it.
+let REF = new URLSearchParams(location.search).get("ref");
+try { if (REF) sessionStorage.setItem("ref", REF); else REF = sessionStorage.getItem("ref"); } catch (e) {}
+document.querySelectorAll("[data-buy]").forEach((a) => {
+  a.href = LINKS[a.dataset.buy] + (REF && /^\d+$/.test(REF) ? "?client_reference_id=" + REF : "");
+});
 
 document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTACT));
 
