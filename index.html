@@ -3,16 +3,17 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
 <title>MenuFix | Uber Eats page makeovers for restaurants, cafés and shops</title>
 <meta name="description" content="We make your Uber Eats page show how good your food is: clear names, descriptions that sell, the right order and better photos of your real food. Done for you. Free mockup first.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="canonical" href="https://getmenufix.com/">
 <meta property="og:title" content="MenuFix | Uber Eats page makeovers for restaurants, cafés and shops">
 <meta property="og:description" content="We make your Uber Eats page show how good your food is: clear names, descriptions that sell, the right order and better photos of your real food. Done for you. Free mockup first.">
-<meta property="og:image" content="https://getmenufix.com/img/hero.jpg">
+<meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,127 +22,136 @@
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
   <div class="links"><a href="services.html">Services</a><a href="examples.html">Examples</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a class="btn primary small" href="contact.html">Free mockup</a></div>
 </div></nav>
-<header class="hero"><div class="wrap">
+<header class="hero">
+  <img class="floaty" src="img/icons/pizza.png" alt="" style="left:45%;bottom:4%;animation-delay:-1s"><img class="floaty" src="img/icons/sushi.png" alt="" style="left:44%;top:6%;animation-delay:-4s"><img class="floaty" src="img/icons/coffee.png" alt="" style="right:2%;bottom:4%;animation-delay:-2s">
+  <div class="wrap">
   <div class="reveal">
-    <span class="eyebrow">Uber Eats page makeovers</span>
-    <h1>Your food is great. Your Uber Eats page should <em>show it.</em></h1>
-    <p class="lead">Customers order what they can see and understand. We rewrite your menu, put your best sellers first and make photos of your real food look their best. We can even make every change on your page for you.</p>
-    <div class="row"><a class="btn primary" href="contact.html">Get a free mockup <span class="arr">→</span></a><a class="btn" href="examples.html">See examples</a></div>
-    <div class="trust"><span><b>Free</b> mockup first</span><span><b>One time</b> price</span><span><b>Real food</b> photos only</span></div>
+    <span class="chip"><img src="img/icons/bag.png" alt="">For restaurants, cafés and shops on Uber Eats</span>
+    <h1>Make hungry people choose <span class="hl">you.</span></h1>
+    <p class="lead">Customers order what looks good. We rewrite your menu, put your best sellers first and make photos of your real food look delicious. We can even make every change on your page for you.</p>
+    <form class="search" action="contact.html" method="get">
+      <img src="img/icons/menu.png" alt=""><input name="biz" placeholder="Your restaurant or shop name" aria-label="Your restaurant or shop name">
+      <button class="btn primary" type="submit">Get my free mockup <span class="arr">→</span></button>
+    </form>
+    <div class="trust"><span>Free mockup first</span><span>One time price</span><span>Real food only</span></div>
   </div>
   <div class="hero-visual reveal">
-    <div class="hero-photo"><img src="img/hero.jpg" alt="A freshly baked pizza" fetchpriority="high"></div>
-    <div class="phone"><div class="screen">
-      <div class="app-top"><b>Popular</b><small>Most ordered right now</small></div>
-      <div class="app-item"><div><b>Smash Burger and Fries</b><small>Double beef, cheddar, pickles and house sauce on a toasted brioche bun.</small><i>$19.50</i></div><img src="img/burger-after.jpg" alt=""></div>
-      <div class="app-item"><div><b>Chicken Laksa</b><small>Rich coconut curry broth, rice noodles, poached chicken and lime.</small><i>$18.00</i></div><img src="img/laksa-after.jpg" alt=""></div>
-      <div class="app-item"><div><b>Pork and Chive Dumplings</b><small>Handmade, pan fried, with chilli oil and black vinegar.</small><i>$14.50</i></div><img src="img/dumplings-after.jpg" alt=""></div>
-    </div></div>
-    <div class="badge-float"><span class="tick">✓</span><div><b>Menu fixed</b><br><span class="muted">12 dishes rewritten</span></div></div>
+    <div class="hero-photo"><img src="img/spread.jpg" alt="A table full of takeaway dishes" fetchpriority="high"></div>
+    <div class="food-card b"><img src="img/laksa-after.jpg" alt=""><b>Chicken Laksa</b><small>Rich coconut curry broth, rice noodles and lime.</small><div class="tagline">$18.00<i>New photo</i></div></div>
+    <div class="food-card a"><img src="img/burger-after.jpg" alt=""><b>Smash Burger and Fries</b><small>Double beef, cheddar, pickles and house sauce.</small><div class="tagline">$19.50<i>Rewritten</i></div></div>
   </div>
 </div></header>
 
-<section class="bg2"><div class="wrap">
-  <div class="head reveal"><div><span class="eyebrow">Why it matters</span><h2>People decide in seconds.</h2></div>
-    <p class="lead">On a delivery app your page is your shop window. A missing photo, a typo or a dish nobody understands is enough for someone to scroll to the next place.</p></div>
-  <div class="grid3">
-    <div class="card reveal"><div class="icon">📷</div><h3>Photos that make people hungry</h3><p>Dark or missing photos get skipped. Your best dishes need a bright, clear picture of the real food.</p></div>
-    <div class="card reveal"><div class="icon">✍️</div><h3>Words that sell the dish</h3><p>A short line on what's in it and why it's good turns a name into a reason to order, especially at higher prices.</p></div>
-    <div class="card reveal"><div class="icon">⭐</div><h3>Best sellers first</h3><p>Your most loved dishes should be the first thing people see, in a menu that's easy to find your way around.</p></div>
-  </div>
+<section class="tight"><div class="wrap">
+  <div class="head reveal" style="margin-bottom:28px"><div><span class="eyebrow">Made for every kitchen</span><h2>Whatever you cook, we make it look delicious.</h2></div>
+    <p class="lead">Independent restaurants, cafés, bakeries, dessert spots and small shops. No big chains.</p></div>
+  <div class="reveal"><div class="cats"><div class="cat"><div class="ic"><img src="img/icons/pizza.png" alt="" loading="lazy"></div>Pizza</div><div class="cat"><div class="ic"><img src="img/icons/burger.png" alt="" loading="lazy"></div>Burgers</div><div class="cat"><div class="ic"><img src="img/icons/sushi.png" alt="" loading="lazy"></div>Sushi</div><div class="cat"><div class="ic"><img src="img/icons/noodles.png" alt="" loading="lazy"></div>Noodles</div><div class="cat"><div class="ic"><img src="img/icons/coffee.png" alt="" loading="lazy"></div>Coffee</div><div class="cat"><div class="ic"><img src="img/icons/cake.png" alt="" loading="lazy"></div>Cakes</div><div class="cat"><div class="ic"><img src="img/icons/taco.png" alt="" loading="lazy"></div>Mexican</div><div class="cat"><div class="ic"><img src="img/icons/curry.png" alt="" loading="lazy"></div>Indian</div><div class="cat"><div class="ic"><img src="img/icons/dumpling.png" alt="" loading="lazy"></div>Dumplings</div><div class="cat"><div class="ic"><img src="img/icons/chicken.png" alt="" loading="lazy"></div>Chicken</div><div class="cat"><div class="ic"><img src="img/icons/salad.png" alt="" loading="lazy"></div>Healthy</div><div class="cat"><div class="ic"><img src="img/icons/croissant.png" alt="" loading="lazy"></div>Bakery</div><div class="cat"><div class="ic"><img src="img/icons/bubbletea.png" alt="" loading="lazy"></div>Bubble tea</div><div class="cat"><div class="ic"><img src="img/icons/kebab.png" alt="" loading="lazy"></div>Kebabs</div><div class="cat"><div class="ic"><img src="img/icons/icecream.png" alt="" loading="lazy"></div>Desserts</div><div class="cat"><div class="ic"><img src="img/icons/grocery.png" alt="" loading="lazy"></div>Grocery</div></div></div>
+</div></section>
+
+<section class="bg-cream"><div class="wrap">
+  <div class="head reveal"><div><span class="eyebrow">Featured makeovers</span><h2>Same dish. Same price. Way more tempting.</h2></div>
+    <div><p class="lead">Small changes make people stop scrolling: a clear name, a tasty line about the dish and a bright photo.</p>
+    <a class="btn" href="examples.html">See all examples <span class="arr">→</span></a></div></div>
+  <div class="feat-row"><a class="fcard reveal" href="examples.html"><div class="ph"><img src="img/burger-after.jpg" alt="" loading="lazy"><span class="badge">Before and after</span></div>
+  <h3>Smash Burger and Fries</h3><p>New name, description and photo</p></a><a class="fcard reveal" href="examples.html"><div class="ph"><img src="img/poke-after.jpg" alt="" loading="lazy"><span class="badge">Before and after</span></div>
+  <h3>Salmon Poke Bowl</h3><p>Rewritten to sell, photo enhanced</p></a><a class="fcard reveal" href="examples.html"><div class="ph"><img src="img/dumplings-after.jpg" alt="" loading="lazy"><span class="badge">Before and after</span></div>
+  <h3>Pork and Chive Dumplings</h3><p>From a dark snap to a bright photo</p></a><a class="fcard reveal" href="examples.html"><div class="ph"><img src="img/cake-after.jpg" alt="" loading="lazy"><span class="badge">Before and after</span></div>
+  <h3>Triple Chocolate Layer Cake</h3><p>A dessert people can't skip</p></a></div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="head reveal"><div><span class="eyebrow">Before and after</span><h2>Same dish. Same price. More appetising.</h2></div>
-    <div><p class="lead">Drag the slider to compare. We turn quick phone snaps and unclear names into a page people want to order from.</p>
-    <a class="btn" href="examples.html">See all examples <span class="arr">→</span></a></div></div>
+  <div class="head center reveal"><span class="eyebrow">Drag to compare</span><h2>From a quick snap to <span class="hl">mouth watering.</span></h2>
+    <p class="lead">Slide each photo. On the left, a dark phone photo and the old menu text. On the right, the same dish after our makeover.</p></div>
   <div class="grid2">
     <div class="reveal"><div class="ba">
-  <img src="img/burger-before.jpg" alt="Before: a quick phone photo" loading="lazy">
-  <img class="after" src="img/burger-after.jpg" alt="After: a clear, bright photo" loading="lazy">
+  <img src="img/burger-before.jpg" alt="Before: a dark, blurry phone photo" loading="lazy">
+  <img class="after" src="img/burger-after.jpg" alt="After: a bright, clear photo of the same dish" loading="lazy">
   <div class="handle"></div><span class="tag l">Before</span><span class="tag r">After</span>
   <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
 </div>
-<div class="ba-caption"><div><b><s>dbl burgr + chips</s></b>No description.</div><div><b>Smash Burger and Fries</b>Double beef, aged cheddar, pickles and house sauce on a toasted brioche bun.</div></div></div>
+<div class="ba-caption"><div><b><s>dbl burgr + chips</s></b>No description.</div><div><b>Smash Burger and Fries</b>Double beef, aged cheddar, pickles and house sauce on a toasted brioche bun, with fries.</div></div></div>
     <div class="reveal"><div class="ba">
-  <img src="img/laksa-before.jpg" alt="Before: a quick phone photo" loading="lazy">
-  <img class="after" src="img/laksa-after.jpg" alt="After: a clear, bright photo" loading="lazy">
+  <img src="img/laksa-before.jpg" alt="Before: a dark, blurry phone photo" loading="lazy">
+  <img class="after" src="img/laksa-after.jpg" alt="After: a bright, clear photo of the same dish" loading="lazy">
   <div class="handle"></div><span class="tag l">Before</span><span class="tag r">After</span>
   <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
 </div>
-<div class="ba-caption"><div><b><s>LAKSA SPECIAL</s></b>see photo</div><div><b>Chicken Laksa</b>Rich coconut curry broth, rice noodles, poached chicken, tofu puffs and lime.</div></div></div>
+<div class="ba-caption"><div><b><s>LAKSA SPECIAL</s></b>see photo</div><div><b>Chicken Laksa</b>Rich coconut curry broth, rice noodles, shredded chicken, tofu puffs and lime.</div></div></div>
   </div>
-  <p class="note" style="margin-top:22px">Illustrative examples to show the kind of change we make. Images made with AI for this website.</p>
+  <p class="note" style="margin-top:22px;text-align:center">Illustrative examples to show the kind of change we make. Images made with AI for this website.</p>
 </div></section>
 
-<section class="bg-dark"><div class="wrap">
+<section class="bg-peach"><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Your free mockup</span><h2>See your whole page, before you pay.</h2></div>
-    <p class="lead">Every restaurant we talk to gets a free concept mockup of their own page, like this one. You see exactly what we'd change, with no obligation.</p></div>
+    <p class="lead">Every restaurant we talk to gets a free concept mockup of its own page, like this one. You see exactly what we'd change, with no obligation.</p></div>
   <div class="mockpair reveal">
   <figure><div class="device"><img src="img/mock2-before.jpg" alt="Nonna Rosa Pizzeria page before" loading="lazy"></div><figcaption><span class="pill">Before</span>Typos, no descriptions, missing photos</figcaption></figure>
   <div class="mockarrow">→</div>
-  <figure><div class="device"><img src="img/mock2-after.jpg" alt="Nonna Rosa Pizzeria page after" loading="lazy"></div><figcaption><span class="pill on">After</span>Clear names, descriptions that sell, bright photos of the real dishes</figcaption></figure>
+  <figure><div class="device"><img src="img/mock2-after.jpg" alt="Nonna Rosa Pizzeria page after" loading="lazy"></div><figcaption><span class="pill on">After</span>Clear names, descriptions that sell, bright photos</figcaption></figure>
 </div><p class="note" style="text-align:center;margin-top:18px">Concept mockup for a fictional restaurant, made with AI for this website.</p>
   <div class="row" style="justify-content:center;margin-top:34px"><a class="btn primary" href="contact.html">Get my free mockup <span class="arr">→</span></a></div>
 </div></section>
 
-<section class="bg2"><div class="wrap">
-  <div class="head reveal"><div><span class="eyebrow">What we do</span><h2>Everything your page needs, in one place.</h2></div>
+<section><div class="wrap">
+  <div class="head reveal"><div><span class="eyebrow">What we do</span><h2>Everything your page needs.</h2></div>
     <p class="lead">Pick what you need. We handle the details, or we send everything ready to copy if you'd rather do it yourself.</p></div>
   <div class="grid3">
-    <a class="photo-card reveal" href="services.html" style="text-decoration:none;color:inherit"><img src="img/desk.jpg" alt="" loading="lazy"><div class="body"><span class="num">01</span><h3>Menu rewrite</h3><p>Clear names, descriptions that sell, typos gone and categories in the right order.</p></div></a>
-    <a class="photo-card reveal" href="services.html#photos" style="text-decoration:none;color:inherit"><img src="img/phone.jpg" alt="" loading="lazy"><div class="body"><span class="num">02</span><h3>Photo enhancement</h3><p>Your real dishes with better light, a clean background and the right size for Uber Eats.</p></div></a>
-    <a class="photo-card reveal" href="services.html#done" style="text-decoration:none;color:inherit"><img src="img/kitchen.jpg" alt="" loading="lazy"><div class="body"><span class="num">03</span><h3>Done for you</h3><p>We make every change on your Uber Eats page ourselves. You keep cooking.</p></div></a>
+    <a class="photo-card reveal" href="services.html"><div class="ph"><img class="bg" src="img/desk.jpg" alt="" loading="lazy"><img class="icon3d" src="img/icons/pen.png" alt="" loading="lazy"></div><div class="body"><h3>Menu rewrite</h3><p>Clear names, descriptions that sell, typos gone and categories in the right order.</p></div></a>
+    <a class="photo-card reveal" href="services.html#photos"><div class="ph"><img class="bg" src="img/phone.jpg" alt="" loading="lazy"><img class="icon3d" src="img/icons/camera.png" alt="" loading="lazy"></div><div class="body"><h3>Photo enhancement</h3><p>Your real dishes with better light, a clean background and the right size for Uber Eats.</p></div></a>
+    <a class="photo-card reveal" href="services.html#done"><div class="ph"><img class="bg" src="img/kitchen.jpg" alt="" loading="lazy"><img class="icon3d" src="img/icons/chef.png" alt="" loading="lazy"></div><div class="body"><h3>Done for you</h3><p>We make every change on your Uber Eats page ourselves. You keep cooking.</p></div></a>
+  </div>
+</div></section>
+
+<section class="bg-butter"><div class="wrap">
+  <div class="head center reveal"><span class="eyebrow">How it works</span><h2>Simple, from start to finish.</h2></div>
+  <div class="steps">
+    <div class="step reveal"><span class="n">1</span><img class="icon3d" src="img/icons/gift.png" alt="" loading="lazy"><h3>Free mockup</h3><p>We look at your Uber Eats page and show you how it could look. Free.</p></div>
+    <div class="step reveal"><span class="n">2</span><img class="icon3d" src="img/icons/menu.png" alt="" loading="lazy"><h3>Choose a package</h3><p>One time price, paid securely by card. No subscription.</p></div>
+    <div class="step reveal"><span class="n">3</span><img class="icon3d" src="img/icons/phone.png" alt="" loading="lazy"><h3>Send your photos</h3><p>For photo packages, snap your dishes on your phone and email them.</p></div>
+    <div class="step reveal"><span class="n">4</span><img class="icon3d" src="img/icons/rocket.png" alt="" loading="lazy"><h3>Your new page</h3><p>We update it for you, or send it ready to copy with a simple guide.</p></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <div class="head center reveal"><span class="eyebrow">How it works</span><h2>Simple, from start to finish.</h2></div>
-  <div class="steps">
-    <div class="step reveal"><div class="n">1</div><h3>Free mockup</h3><p>We look at your Uber Eats page and show you how it could look. Free.</p></div>
-    <div class="step reveal"><div class="n">2</div><h3>Choose a package</h3><p>One time price, paid securely by card. No subscription.</p></div>
-    <div class="step reveal"><div class="n">3</div><h3>Send your photos</h3><p>For photo packages, snap your dishes on your phone and email them.</p></div>
-    <div class="step reveal"><div class="n">4</div><h3>Your new page</h3><p>We update it for you, or send it ready to copy with a simple guide.</p></div>
-  </div>
-</div></section>
-
-<section class="bg2"><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Pricing</span><h2>Clear prices. No surprises.</h2></div>
     <div><p class="lead">Choose a package. Add Done for you if you'd like us to make every change for you.</p><p class="curnote">Prices in <b data-curname>your currency</b>, charged in the same currency at checkout.</p></div></div>
   <div class="plans">
-  <div class="plan reveal"><h3>Menu Fix</h3><p class="muted">Clean, clear and ready to sell.</p>
+  <div class="plan reveal"><img class="icon3d" src="img/icons/pen.png" alt="" loading="lazy"><h3>Menu Fix</h3><p class="muted" style="margin:6px 0 0">Clean, clear and ready to sell.</p>
     <div class="price" data-p="menu_fix"></div><small class="muted">one time</small>
     <ul><li>Typos and wording fixed</li><li>Every description rewritten to sell</li><li>Best sellers moved to the top</li><li>Categories in the right order</li></ul>
     <a class="btn dark" data-buy="menu_fix" href="#">Get Menu Fix</a></div>
-  <div class="plan feat reveal"><span class="ribbon">Recommended</span><h3>Menu and Photos</h3><p class="muted">Everything in Menu Fix, plus your photos.</p>
+  <div class="plan feat reveal"><span class="ribbon">Most popular</span><img class="icon3d" src="img/icons/camera.png" alt="" loading="lazy"><h3>Menu and Photos</h3><p class="muted" style="margin:6px 0 0">Everything in Menu Fix, plus your photos.</p>
     <div class="price" data-p="menu_photos"></div><small class="muted">one time</small>
     <ul><li>Everything in Menu Fix</li><li>Your real photos of 5 dishes enhanced</li><li>Better light and a clean background</li><li>Sized for Uber Eats</li></ul>
     <a class="btn primary" data-buy="menu_photos" href="#">Get Menu and Photos</a></div>
-  <div class="plan reveal"><h3>Full Makeover</h3><p class="muted">The complete refresh.</p>
+  <div class="plan reveal"><img class="icon3d" src="img/icons/star.png" alt="" loading="lazy"><h3>Full Makeover</h3><p class="muted" style="margin:6px 0 0">The complete refresh.</p>
     <div class="price" data-p="full_makeover"></div><small class="muted">one time</small>
     <ul><li>Everything above for up to 15 dishes</li><li>New menu layout and structure</li><li>One month of updates when you change dishes or prices</li></ul>
     <a class="btn dark" data-buy="full_makeover" href="#">Get Full Makeover</a></div>
 </div>
-<div class="addon reveal"><div class="ic">✓</div>
-  <div><h3 style="font-size:22px">Done for you</h3><p class="muted" style="margin:6px 0 0">We make every change on your Uber Eats page ourselves. You don't touch anything: just add us as a user on Uber Eats Manager. Tick the box at checkout.</p></div>
+<div class="addon reveal"><img src="img/icons/chef.png" alt="">
+  <div><h3>Add Done for you</h3><p class="muted" style="margin:6px 0 0">We make every change on your Uber Eats page ourselves. You don't touch anything: just add us as a user on Uber Eats Manager. Tick the box at checkout.</p></div>
   <div class="price" data-p="done_for_you"></div></div>
 <p class="note" style="margin-top:18px">One time price, no subscription. Secure payment by Stripe. Prefer to do it yourself? We send everything ready to copy with a simple guide, included in every package.</p>
 </div></section>
 
-<section><div class="narrow">
+<section class="bg-cream"><div class="narrow">
   <div class="head center reveal" style="margin-bottom:30px"><span class="eyebrow">Questions</span><h2>Good to know</h2></div>
   <div class="faq"><details><summary>Do I need to give you my password?</summary><p>No. For Done for you, you add us as a user on your Uber Eats Manager, and you can remove us any time. We never ask for your password.</p></details><details><summary>Do you use fake food photos?</summary><p>Never. We only enhance photos of your real dishes: better light, a clean background and the right size. Customers should get exactly what they see, and Uber Eats requires real photos too. The free mockup is a concept preview only.</p></details><details><summary>How long does it take?</summary><p>Usually two to three working days after we have your photos and, for Done for you, access to your Uber Eats Manager.</p></details><details><summary>Will this guarantee more orders?</summary><p>No one can honestly promise that. What we do is make your page clearer and more appetising, which is what helps people choose you.</p></details></div>
-  <p style="margin-top:26px;text-align:center"><a href="faq.html">All questions →</a></p>
+  <p style="margin-top:26px;text-align:center"><a class="btn" href="faq.html">All questions <span class="arr">→</span></a></p>
 </div></section>
-<section class="tight"><div class="wrap"><div class="cta reveal"><img src="img/delivery.jpg" alt="" loading="lazy"><div>
-  <span class="eyebrow" style="color:#f6a184">Free mockup</span><h2>See your page improved, free</h2><p class="lead">Tell us your restaurant or shop on Uber Eats. We'll send you a free mockup of how your page could look. No payment, no obligation.</p>
-  <div class="row"><a class="btn primary" href="contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn" style="border-color:#fff;color:#fff" href="pricing.html">See pricing</a></div>
-</div></div></div></section>
+<section class="tight"><div class="wrap"><div class="cta reveal">
+  <div class="txt"><span class="eyebrow">Free mockup</span><h2>See your page improved, free.</h2><p class="lead">Tell us your restaurant, café or shop on Uber Eats. We'll send you a free mockup of how your page could look. No payment, no obligation.</p>
+    <div class="row"><a class="btn" href="contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn ghost" href="pricing.html">See pricing</a></div></div>
+  <div class="pic"><img class="bg" src="img/delivery.jpg" alt="" loading="lazy">
+    <img class="floaty" src="img/icons/burger.png" alt="" style="left:-34px;top:40px;animation-delay:-0s"><img class="floaty" src="img/icons/bubbletea.png" alt="" style="right:24px;bottom:24px;animation-delay:-3s"></div>
+</div></div></section>
 
 <footer><div class="wrap">
   <div class="top">
     <div><a class="logo" href="index.html"><img src="img/logo-mark.svg" alt=""><b>menu<span>fix</span></b></a>
-      <p style="max-width:330px">Uber Eats page makeovers for independent restaurants, cafés and small shops. Clear menus, better photos of your real food, done for you.</p></div>
+      <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and small shops. Clear menus, better photos of your real food, done for you.</p>
+      <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div></div>
     <div><h4>Services</h4><a href="services.html">Menu rewrite</a><a href="services.html#photos">Photo enhancement</a><a href="services.html#done">Done for you</a><a href="examples.html">Examples</a></div>
     <div><h4>Company</h4><a href="about.html">About</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a></div>
     <div><h4>Get started</h4><a href="contact.html">Free mockup</a><a class="mailto" href="#">Email us</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>

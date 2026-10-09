@@ -41,6 +41,7 @@ document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTAC
 
 // Free mockup form: opens the visitor's email app with everything filled in.
 const form = document.getElementById("mockForm");
+if (form) { const q = new URLSearchParams(location.search).get("biz"); if (q) document.getElementById("biz").value = q; }
 if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   const v = (id) => document.getElementById(id).value.trim();
