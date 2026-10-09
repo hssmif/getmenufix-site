@@ -96,29 +96,25 @@ def cta(title="See your page improved, free.",
 
 PLANS = f"""<div class="plans">
   <div class="plan reveal">{ic("pen")}<h3>Menu Fix</h3><p class="muted" style="margin:6px 0 0">Clean, clear and ready to sell.</p>
-    <div class="price" data-p="menu_fix"></div><small class="muted">one time</small>
-    <ul><li>Typos and wording fixed</li><li>Every description rewritten to sell</li><li>Best sellers moved to the top</li><li>Categories in the right order</li></ul>
+    <div class="price" data-p="menu_fix"></div><small class="once">One time price, no subscription</small>
+    <ul><li>Typos and wording fixed</li><li>Every description rewritten to sell</li><li>Best sellers moved to the top</li><li>Categories in the right order</li><li>Ready to copy, with a simple guide</li></ul>
     <a class="btn dark" data-buy="menu_fix" href="#">Get Menu Fix</a></div>
   <div class="plan feat reveal"><span class="ribbon">Most popular</span>{ic("camera")}<h3>Menu and Photos</h3><p class="muted" style="margin:6px 0 0">Everything in Menu Fix, plus your photos.</p>
-    <div class="price" data-p="menu_photos"></div><small class="muted">one time</small>
-    <ul><li>Everything in Menu Fix</li><li>Your real photos of 5 dishes enhanced</li><li>Better light and a clean background</li><li>Sized for Uber Eats</li></ul>
+    <div class="price" data-p="menu_photos"></div><small class="once">One time price, no subscription</small>
+    <ul><li>Everything in Menu Fix</li><li>Your real photos of 5 dishes enhanced</li><li>Better light and a clean background</li><li>Sized for Uber Eats</li><li>Ready to copy, with a simple guide</li></ul>
     <a class="btn primary" data-buy="menu_photos" href="#">Get Menu and Photos</a></div>
-  <div class="plan reveal">{ic("star")}<h3>Full Makeover</h3><p class="muted" style="margin:6px 0 0">The complete refresh.</p>
-    <div class="price" data-p="full_makeover"></div><small class="muted">one time</small>
-    <ul><li>Everything above for up to 15 dishes</li><li>New menu layout and structure</li><li>One month of updates when you change dishes or prices</li></ul>
+  <div class="plan reveal"><span class="ribbon green">Done for you</span>{ic("chef")}<h3>Full Makeover</h3><p class="muted" style="margin:6px 0 0">We do it all for you.</p>
+    <div class="price" data-p="full_makeover"></div><small class="once">One time price, no subscription</small>
+    <ul><li class="dfy">We make every change on your Uber Eats page. You don't touch anything</li><li>Everything above for up to 15 dishes</li><li>New menu layout and structure</li><li>One month of updates when you change dishes or prices</li></ul>
     <a class="btn dark" data-buy="full_makeover" href="#">Get Full Makeover</a></div>
-</div>
-<div class="addon reveal"><img src="img/icons/chef.png" alt="">
-  <div><h3>Add Done for you</h3><p class="muted" style="margin:6px 0 0">We make every change on your Uber Eats page ourselves. You don't touch anything: just add us as a user on Uber Eats Manager. Tick the box at checkout.</p></div>
-  <div class="price" data-p="done_for_you"></div></div>
-<p class="note" style="margin-top:18px">One time price, no subscription. Secure payment by Stripe. Prefer to do it yourself? We send everything ready to copy with a simple guide, included in every package.</p>"""
+</div>"""
 
 CUR = """<p class="curnote">Prices in <b data-curname>your currency</b>, charged in the same currency at checkout.</p>"""
 
 FAQ = [
-    ("Do I need to give you my password?", "No. For Done for you, you add us as a user on your Uber Eats Manager, and you can remove us any time. We never ask for your password."),
+    ("Do I need to give you my password?", "No. For the Full Makeover, you add us as a user on your Uber Eats Manager, and you can remove us any time. We never ask for your password."),
     ("Do you use fake food photos?", "Never. We only enhance photos of your real dishes: better light, a clean background and the right size. Customers should get exactly what they see, and Uber Eats requires real photos too. The free mockup is a concept preview only."),
-    ("How long does it take?", "Usually two to three working days after we have your photos and, for Done for you, access to your Uber Eats Manager."),
+    ("How long does it take?", "Usually two to three working days after we have your photos and, for the Full Makeover, access to your Uber Eats Manager."),
     ("Will this guarantee more orders?", "No one can honestly promise that. What we do is make your page clearer and more appetising, which is what helps people choose you."),
     ("What do I need to send you?", "For Menu Fix, nothing: we work from your current page. For the photo packages, photos of your dishes taken on your phone in good light. Near a window is perfect."),
     ("Do you work with cafés and shops too?", "Yes. Restaurants, cafés, bakeries, dessert places, grocers and other small businesses that sell on Uber Eats. We don't work with big chains."),
@@ -215,7 +211,7 @@ f"""<header class="hero">
   <div class="grid3">
     <a class="photo-card reveal" href="services.html"><div class="ph"><img class="bg" src="img/desk.jpg" alt="" loading="lazy">{ic("pen")}</div><div class="body"><h3>Menu rewrite</h3><p>Clear names, descriptions that sell, typos gone and categories in the right order.</p></div></a>
     <a class="photo-card reveal" href="services.html#photos"><div class="ph"><img class="bg" src="img/phone.jpg" alt="" loading="lazy">{ic("camera")}</div><div class="body"><h3>Photo enhancement</h3><p>Your real dishes with better light, a clean background and the right size for Uber Eats.</p></div></a>
-    <a class="photo-card reveal" href="services.html#done"><div class="ph"><img class="bg" src="img/kitchen.jpg" alt="" loading="lazy">{ic("chef")}</div><div class="body"><h3>Done for you</h3><p>We make every change on your Uber Eats page ourselves. You keep cooking.</p></div></a>
+    <a class="photo-card reveal" href="services.html#done"><div class="ph"><img class="bg" src="img/kitchen.jpg" alt="" loading="lazy">{ic("chef")}</div><div class="body"><h3>Done for you</h3><p>With the Full Makeover we make every change on your Uber Eats page ourselves. You keep cooking.</p></div></a>
   </div>
 </div></section>
 
@@ -231,7 +227,7 @@ f"""<header class="hero">
 
 <section><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Pricing</span><h2>Clear prices. No surprises.</h2></div>
-    <div><p class="lead">Choose a package. Add Done for you if you'd like us to make every change for you.</p>{CUR}</div></div>
+    <div><p class="lead">Do it yourself with Menu Fix or Menu and Photos. Or choose the Full Makeover and we do it all for you.</p>{CUR}</div></div>
   {PLANS}
 </div></section>
 
@@ -272,8 +268,8 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
 
 <section class="tight" id="done"><div class="wrap split">
   <div class="reveal">{ic("chef")}<span class="eyebrow" style="display:block">Done for you</span><h2>You cook. We update your page.</h2>
-    <p class="lead" style="margin-top:20px">Don't have time to copy everything in? Add us as a user on your Uber Eats Manager and we make every change ourselves.</p>
-    <ul class="ticks"><li>No passwords shared: you add us as a user</li><li>Names, descriptions, categories and photos updated</li><li>You can remove our access any time</li><li>Or do it yourself: we send everything ready to copy with a guide</li></ul>
+    <p class="lead" style="margin-top:20px">Included in the Full Makeover. Add us as a user on your Uber Eats Manager and we make every change ourselves.</p>
+    <ul class="ticks"><li>No passwords shared: you add us as a user</li><li>Names, descriptions, categories and photos updated</li><li>You can remove our access any time</li><li>Prefer to do it yourself? Menu Fix and Menu and Photos come ready to copy, with a guide</li></ul>
     <div class="row" style="margin-top:30px"><a class="btn primary" href="pricing.html">See pricing <span class="arr">→</span></a></div></div>
   <div class="img reveal"><img src="img/kitchen.jpg" alt="" loading="lazy"></div>
 </div></section>
@@ -323,7 +319,7 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
   <div class="reveal">{ic("menu")}<span class="eyebrow" style="display:block">Step 2</span><h2>Choose your package</h2>
-    <p class="lead" style="margin-top:18px">Pick Menu Fix, Menu and Photos or the Full Makeover. Tick Done for you if you'd like us to make the changes. Pay securely by card through Stripe. One time price, no subscription.</p>
+    <p class="lead" style="margin-top:18px">Pick Menu Fix or Menu and Photos to do it yourself, or the Full Makeover and we make every change for you. Pay securely by card through Stripe. One time price, no subscription.</p>
     <a class="btn primary" href="pricing.html" style="margin-top:10px">See pricing <span class="arr">→</span></a></div>
   <div class="img reveal"><img src="img/counter.jpg" alt="" loading="lazy"></div>
 </div></section>
@@ -334,14 +330,14 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
   <div class="reveal">{ic("rocket")}<span class="eyebrow" style="display:block">Step 4</span><h2>Your new page</h2>
-    <p class="lead" style="margin-top:18px">Done for you: add us as a user on Uber Eats Manager and we update everything. Do it yourself: we email you every new name, description and photo, ready to copy, with a simple step by step guide. Usually within two to three working days.</p></div>
+    <p class="lead" style="margin-top:18px">Full Makeover: add us as a user on Uber Eats Manager and we update everything. Menu Fix and Menu and Photos: we email you every new name, description and photo, ready to copy, with a simple step by step guide. Usually within two to three working days.</p></div>
   <div class="img reveal"><img src="img/delivery.jpg" alt="" loading="lazy"></div>
 </div></section>
 {cta()}
 """, "how-it-works.html")
 
 # ------------------------------------------------------------------------------------------------ pricing
-page("pricing.html", "Pricing | MenuFix", "Simple one time prices for Uber Eats menu makeovers. Menu Fix, Menu and Photos, Full Makeover, plus Done for you.",
+page("pricing.html", "Pricing | MenuFix", "Simple one time prices for Uber Eats menu makeovers. Menu Fix, Menu and Photos, and the Full Makeover where we do it all for you.",
 f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No subscription, no contract. Start with a free mockup if you'd like to see the idea first.", ("star", "bag"), CUR)}
 <section style="padding-top:40px"><div class="wrap">{PLANS}
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
@@ -354,7 +350,7 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
     <tr><td>New menu layout and structure</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
     <tr><td>One month of updates</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
     <tr><td>Ready to copy pack with guide</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Done for you</td><td colspan="3">Optional add on, tick the box at checkout</td></tr>
+    <tr><td>Done for you: we make every change on your page</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
   </table>
 </div></section>
 <section class="bg-cream"><div class="narrow"><div class="head center reveal" style="margin-bottom:30px"><h2>Pricing questions</h2></div>
@@ -378,7 +374,7 @@ f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div cl
   <div class="grid3">
     <div class="card reveal">{ic("salad")}<h3>Real food only</h3><p>We enhance photos of your real dishes. We never use fake food or add ingredients that aren't there.</p></div>
     <div class="card reveal">{ic("check")}<h3>Honest</h3><p>Clear prices, no hidden fees, and no promises we can't keep. A free mockup first, so you know what you're getting.</p></div>
-    <div class="card reveal">{ic("rocket")}<h3>Simple</h3><p>Everything by email, in a few days. Or Done for you, so you don't have to touch anything.</p></div>
+    <div class="card reveal">{ic("rocket")}<h3>Simple</h3><p>Everything by email, in a few days. Or the Full Makeover, so you don't have to touch anything.</p></div>
   </div>
 </div></section>
 {cta()}
