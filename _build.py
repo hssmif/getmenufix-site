@@ -5,7 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 NAV = [("services.html", "Services"), ("examples.html", "Examples"), ("how-it-works.html", "How it works"),
        ("pricing.html", "Pricing"), ("about.html", "About"), ("faq.html", "FAQ")]
-LOGO = '<a class="logo" href="index.html"><img src="img/logo-mark.svg" alt=""><b>menu<span>fix</span></b></a>'
+LOGO = '<a class="logo" href="index.html"><img src="img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>'
 
 
 def ic(name, cls="icon3d"):
@@ -27,7 +27,7 @@ def page(name, title, desc, body, active=""):
 <meta name="theme-color" content="#ffffff">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
