@@ -25,10 +25,39 @@ function setCur(c) {
 document.querySelectorAll(".cur button").forEach((b) => (b.onclick = () => setCur(b.dataset.c)));
 document.querySelectorAll("[data-buy]").forEach((a) => (a.href = LINKS[a.dataset.buy]));
 
-const mailFree = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Free mockup for my Uber Eats page") +
-  "&body=" + encodeURIComponent("Hi,\n\nMy restaurant or shop on Uber Eats is: \nCity: \n\nThanks");
-const free = document.getElementById("mailFree"); if (free) free.href = mailFree;
-document.querySelectorAll("#mailFoot, .mailto").forEach((a) => (a.href = "mailto:" + CONTACT));
+document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTACT));
+
+// Free mockup form: opens the visitor's email app with everything filled in.
+const form = document.getElementById("mockForm");
+if (form) form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = (id) => document.getElementById(id).value.trim();
+  const body = "Hi,\n\nI'd like a free mockup of my Uber Eats page.\n\nRestaurant or shop: " + v("biz") +
+    "\nCity: " + v("city") + "\nUber Eats link: " + v("link") + "\n\n" + v("msg") + "\n\nThanks,\n" + v("name");
+  location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Free mockup for " + v("biz")) +
+    "&body=" + encodeURIComponent(body);
+});
+
+// Before and after sliders.
+document.querySelectorAll(".ba").forEach((ba) => {
+  const range = ba.querySelector("input"), after = ba.querySelector(".after"), handle = ba.querySelector(".handle");
+  const set = () => { after.style.clipPath = "inset(0 0 0 " + range.value + "%)"; handle.style.left = range.value + "%"; };
+  range.addEventListener("input", set); set();
+});
+
+// Nav border on scroll, close the mobile menu after a tap.
+const nav = document.querySelector(".nav");
+const onScroll = () => nav && nav.classList.toggle("scrolled", scrollY > 10);
+addEventListener("scroll", onScroll, { passive: true }); onScroll();
+document.querySelectorAll(".nav .links a").forEach((a) => a.addEventListener("click", () =>
+  document.querySelector(".nav .links").classList.remove("open")));
+
+// Fade sections in as they appear.
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }),
+    { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+} else document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
 
 if (document.querySelector(".cur")) {
   const lang = (navigator.language || "").toLowerCase();
