@@ -234,3 +234,6 @@ footer .bottom { border-top: 1px solid #262a33; margin-top: 60px; padding-top: 2
   footer .top { grid-template-columns: 1fr; }
   table.compare { font-size: 13px; } table.compare th, table.compare td { padding: 12px 10px; }
 }
+
+.curnote { margin: 22px 0 0; font-size: 14.5px; color: var(--muted); }
+.curnote b { color: var(--ink); font-weight: 600; }

@@ -97,9 +97,9 @@ PLANS = """<div class="plans">
 <div class="addon reveal"><div class="ic">✓</div>
   <div><h3 style="font-size:22px">Done for you</h3><p class="muted" style="margin:6px 0 0">We make every change on your Uber Eats page ourselves. You don't touch anything: just add us as a user on Uber Eats Manager. Tick the box at checkout.</p></div>
   <div class="price" data-p="done_for_you"></div></div>
-<p class="note" style="margin-top:18px">One time price, no subscription. Secure payment by Stripe in your currency. Prefer to do it yourself? We send everything ready to copy with a simple guide, included in every package.</p>"""
+<p class="note" style="margin-top:18px">One time price, no subscription. Secure payment by Stripe. Prefer to do it yourself? We send everything ready to copy with a simple guide, included in every package.</p>"""
 
-CUR = """<div class="cur" role="group" aria-label="Currency"><button data-c="aud" class="on">AUD</button><button data-c="gbp">GBP</button><button data-c="eur">EUR</button><button data-c="usd">USD</button></div>"""
+CUR = """<p class="curnote">Prices in <b data-curname>your currency</b>, charged in the same currency at checkout.</p>"""
 
 FAQ = [
     ("Do I need to give you my password?", "No. For Done for you, you add us as a user on your Uber Eats Manager, and you can remove us any time. We never ask for your password."),
@@ -313,7 +313,7 @@ f"""<header class="page-head"><div class="wrap">
 page("pricing.html", "Pricing | MenuFix", "Simple one time prices for Uber Eats menu makeovers. Menu Fix, Menu and Photos, Full Makeover, plus Done for you.",
 f"""<header class="page-head"><div class="wrap">
   <span class="eyebrow">Pricing</span><h1>Simple, one time prices.</h1>
-  <p class="lead">No subscription, no contract. Prices show in your currency. Start with a free mockup if you'd like to see the idea first.</p>
+  <p class="lead">No subscription, no contract. Start with a free mockup if you'd like to see the idea first.</p>
   <div style="margin-top:30px">{CUR}</div>
 </div></header>
 <section style="padding-top:0"><div class="wrap">{PLANS}
@@ -331,7 +331,7 @@ f"""<header class="page-head"><div class="wrap">
   </table>
 </div></section>
 <section class="bg2"><div class="narrow"><div class="head center reveal" style="margin-bottom:30px"><h2>Pricing questions</h2></div>
-{faq_html([FAQ[2], FAQ[4], ("How do I pay?", "By card through Stripe, a secure payment provider. You'll see the price in your currency at checkout."), FAQ[0]])}</div></section>
+{faq_html([FAQ[2], FAQ[4], ("How do I pay?", "By card through Stripe, a secure payment provider. You pay in the currency shown on this page."), FAQ[0]])}</div></section>
 {cta()}
 """, "pricing.html")
 

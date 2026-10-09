@@ -13,16 +13,28 @@ const PRICES = {
   full_makeover: { aud: 969, gbp: 499, eur: 569, usd: 629 },
   done_for_you: { aud: 89, gbp: 45, eur: 50, usd: 59 },
 };
-const SYM = { aud: "A$", gbp: "£", eur: "€", usd: "$" };
+const SYM = { aud: "A$", gbp: "£", eur: "€", usd: "US$" };
+const NAME = { aud: "Australian dollars", gbp: "British pounds", eur: "euros", usd: "US dollars" };
 
-function setCur(c) {
-  document.querySelectorAll(".cur button").forEach((b) => b.classList.toggle("on", b.dataset.c === c));
-  document.querySelectorAll("[data-p]").forEach((el) => {
-    el.textContent = (el.dataset.p === "done_for_you" ? "+" : "") + SYM[c] + PRICES[el.dataset.p][c];
-  });
-  try { localStorage.setItem("cur", c); } catch (e) {}
+// Show the currency Stripe will charge this visitor. Stripe picks it from the visitor's country:
+// Australia AUD, euro countries EUR, United States USD, everyone else the base currency GBP.
+const EURO_TZ = /^(Europe\/(Dublin|Paris|Berlin|Madrid|Rome|Amsterdam|Brussels|Vienna|Lisbon|Helsinki|Athens|Riga|Tallinn|Vilnius|Bratislava|Ljubljana|Luxembourg|Malta|Monaco|Zagreb|Nicosia|Andorra|San_Marino|Vatican|Busingen)|Atlantic\/(Madeira|Canary|Azores)|Asia\/(Nicosia|Famagusta))$/;
+const US_TZ = /^(America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Juneau|Sitka|Yakutat|Nome|Metlakatla|Adak|Boise|Detroit|Menominee|Indiana\/.+|Kentucky\/.+|North_Dakota\/.+)|Pacific\/Honolulu|US\/.+)$/;
+const EURO_CC = /^(IE|FR|DE|ES|IT|NL|BE|AT|PT|FI|GR|LV|EE|LT|SK|SI|LU|MT|CY|HR|MC|AD|SM|VA)$/;
+function detectCur() {
+  let tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+  if (/^Australia\//.test(tz)) return "aud";
+  if (EURO_TZ.test(tz)) return "eur";
+  if (US_TZ.test(tz)) return "usd";
+  if (tz) return "gbp";
+  const cc = ((navigator.language || "").split("-")[1] || "").toUpperCase();
+  return cc === "AU" ? "aud" : cc === "US" ? "usd" : EURO_CC.test(cc) ? "eur" : "gbp";
 }
-document.querySelectorAll(".cur button").forEach((b) => (b.onclick = () => setCur(b.dataset.c)));
+const CUR = detectCur();
+document.querySelectorAll("[data-p]").forEach((el) => {
+  el.textContent = (el.dataset.p === "done_for_you" ? "+" : "") + SYM[CUR] + PRICES[el.dataset.p][CUR];
+});
+document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = NAME[CUR]));
 document.querySelectorAll("[data-buy]").forEach((a) => (a.href = LINKS[a.dataset.buy]));
 
 document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTACT));
@@ -58,10 +70,3 @@ if ("IntersectionObserver" in window) {
     { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 } else document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
-
-if (document.querySelector(".cur")) {
-  const lang = (navigator.language || "").toLowerCase();
-  let saved = null; try { saved = localStorage.getItem("cur"); } catch (e) {}
-  setCur(saved || (lang.endsWith("-gb") ? "gbp" : lang.endsWith("-us") ? "usd"
-    : /-(ie|fr|de|es|it|nl|be|pt|at|fi)$/.test(lang) ? "eur" : "aud"));
-}
