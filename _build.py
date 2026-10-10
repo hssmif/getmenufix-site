@@ -399,6 +399,12 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 page("pricing.html", "Uber Eats Menu Makeover Prices | MenuFix", "Simple one time prices for Uber Eats menu makeovers. Menu Fix, Menu and Photos, and the Full Makeover where we do it all for you.",
 f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No subscription, no contract. Start with a free mockup if you'd like to see the idea first.", ("star", "bag"), CUR)}
 <section style="padding-top:40px"><div class="wrap">{PLANS}
+  <div class="addon reveal" style="margin-top:40px;background:var(--butter);border-color:#ffe39a">
+    <img src="img/icons/rocket.png" alt="">
+    <div><h3>Care Plan, after your makeover</h3><p class="muted" style="margin:6px 0 0">Keep your page fresh: we update dishes
+      and prices whenever you change them, enhance up to 5 new dish photos a month and refresh your menu each season.
+      Cancel any time. Offered to MenuFix clients once their new page is live.</p></div>
+    <div style="text-align:right"><div class="price" data-p="care_plan" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
   <table class="compare reveal">
     <tr><th></th><th>Menu Fix</th><th>Menu and Photos</th><th>Full Makeover</th></tr>
@@ -497,18 +503,30 @@ for g in GUIDES:
            "author": {"@type": "Person", "name": "Abdel Iflillis"},
            "publisher": {"@type": "Organization", "name": "MenuFix", "logo": {"@type": "ImageObject",
                          "url": "https://getmenufix.com/img/logo-mark.png"}},
-           "mainEntityOfPage": f"https://getmenufix.com/guides/{g['slug']}.html", "datePublished": "2026-10-10"}
+           "mainEntityOfPage": f"https://getmenufix.com/guides/{g['slug']}.html", "datePublished": "2026-10-10",
+           "dateModified": "2026-10-10"}
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g.get("faq", [])]}
+    faq_block = (f'<section class="narrow" style="padding:10px 0 60px"><h2 style="font-size:30px;margin-bottom:20px">'
+                 f'Questions</h2>{faq_html(g["faq"])}</section>' if g.get("faq") else "")
     others = "".join(guide_card(o) for o in GUIDES if o is not g)[:0] or "".join(guide_card(o) for o in [x for x in GUIDES if x is not g][:3])
     page(f"guides/{g['slug']}.html", f"{g['title']} | MenuFix", g["desc"], f"""
 <script type="application/ld+json">{_json.dumps(art, ensure_ascii=False)}</script>
+{('<script type="application/ld+json">' + _json.dumps(faq_ld, ensure_ascii=False) + '</script>') if g.get("faq") else ""}
 <header class="page-head" style="padding-bottom:40px"><div class="narrow">
   <span class="eyebrow"><a href="/guides/index.html" style="color:inherit;text-decoration:none">Guides</a></span>
   <h1 style="font-size:clamp(34px,4.6vw,54px)">{g['title']}</h1>
   <p class="lead">{g['lead']}</p>
+  <p class="byline">Updated 10 October 2026 · By Abdel Iflillis, founder of MenuFix</p>
+  {f'<div class="answer"><b>Quick answer</b><p>{g["answer"]}</p></div>' if g.get("answer") else ""}
 </div></header>
 <div class="narrow"><div class="split" style="display:block"><div class="img" style="aspect-ratio:16/8">
   <img src="img/{g['img']}.jpg" alt="{g['short']}"></div></div></div>
 <article class="narrow prose" style="padding:50px 0 30px">{g['body']}</article>
+{faq_block}
+<div class="narrow"><div class="author"><img src="img/logo-mark.png" alt=""><div><b>Abdel Iflillis</b> is the founder of MenuFix,
+  a small independent service that rewrites Uber Eats menus and enhances photos of real dishes for independent restaurants,
+  cafés and bakeries. <a href="/about.html">About MenuFix</a></div></div></div>
 <section class="tight bg-cream"><div class="wrap">
   <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">More guides</span><h2>Keep improving your page</h2></div></div>
   <div class="grid3">{others}</div>

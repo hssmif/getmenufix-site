@@ -4,6 +4,8 @@ Rules: practical and honest, no invented numbers or promises, Australian English
 GUIDES = [
     {
         "slug": "get-more-orders-on-uber-eats",
+        "answer": 'To get more orders on Uber Eats, make your page easy to choose: put your best sellers first, give them bright photos of your real food, use names people understand, add a one line description to every item, and keep your menu short and up to date.',
+        "faq": [('How do I get more orders on Uber Eats?', 'Put your best sellers at the top, add clear photos of your real dishes, write short descriptions, fix typos and keep your menu up to date. These make your page easier to choose.'), ('Do photos help on Uber Eats?', 'Yes. A dish without a photo is easy to skip, and when an item has no photo Uber Eats can show photos taken by customers. Start with your best sellers.'), ('How many categories should my Uber Eats menu have?', 'As few as makes sense: group items the way people order, like starters, mains, sides, drinks and desserts, and remove empty or duplicate categories.')],
         "title": "How to Get More Orders on Uber Eats: 9 Fixes for Your Menu",
         "short": "How to get more orders on Uber Eats",
         "desc": "Practical ways independent restaurants and cafés can make their Uber Eats page more appetising and easier to order from: photos, names, descriptions, categories and more.",
@@ -43,6 +45,8 @@ GUIDES = [
     },
     {
         "slug": "write-uber-eats-menu-descriptions",
+        "answer": "A good Uber Eats menu description is 10 to 25 words: say what the dish is, name the main ingredients, and add one detail that makes it yours, like how it's cooked or where it comes from.",
+        "faq": [('How long should an Uber Eats menu description be?', 'Usually one or two short sentences, around 10 to 25 words. People skim on delivery apps.'), ('What should a menu description include?', 'What the dish is, its main ingredients, and one detail that makes it yours. Add spice level, portion size and dietary notes when useful.'), ('What words should I avoid in menu descriptions?', "Vague praise like delicious or amazing, ALL CAPS, internal codes, and claims you can't back up.")],
         "title": "How to Write Uber Eats Menu Descriptions That Sell (With Examples)",
         "short": "Writing menu descriptions that sell",
         "desc": "A simple formula and real examples for writing short, appetising Uber Eats menu descriptions for burgers, curries, pizza, coffee and more.",
@@ -77,23 +81,59 @@ GUIDES = [
 """,
     },
     {
+        "slug": "uber-eats-photo-requirements",
+        "title": "Uber Eats Photo Requirements in Australia (2026): Sizes, Ratio and Rejections",
+        "short": "Uber Eats photo requirements",
+        "desc": "Uber Eats photo requirements for restaurants in Australia: 5:4 ratio, 2880 × 2304 pixels, JPG under 10 MB, one item per photo, and the most common reasons photos get rejected.",
+        "img": "burger-after",
+        "lead": "Every photo on Uber Eats is reviewed before it goes live. Here's exactly what Uber asks for, taken from Uber's own merchant help pages, and how to avoid rejections.",
+        "answer": "Uber Eats asks for landscape photos in a <b>5:4 ratio</b>, ideally <b>2880 × 2304 pixels</b>, as a <b>JPG up to 10 MB</b> (PNG and GIF are also accepted for menu items). Each photo must show <b>one menu item</b>, centred, exactly as served, with <b>no text, prices, logos, watermarks or faces</b> (hands are fine). Photos are reviewed before they go live.",
+        "faq": [
+            ("What size should Uber Eats menu photos be?", "Uber recommends 2880 × 2304 pixels, which is a 5:4 ratio. Photos must be at least 550 pixels wide and 440 pixels tall, and no bigger than 10 MB."),
+            ("What aspect ratio does Uber Eats use?", "5:4, in landscape. The app also shows square thumbnails, so keep the dish centred with some space around it."),
+            ("Why was my Uber Eats photo rejected?", "The usual reasons are: more than one item in the photo, text or logos on the image, a face in the photo, a blurry or dark photo, or a stock photo instead of your real dish."),
+            ("Can I use stock photos on Uber Eats?", "No. Photos must show your own dish exactly as customers receive it."),
+            ("Can I edit or enhance my Uber Eats photos?", "Yes, as long as the photo still shows your real dish accurately. Improving light, colour and the background is fine; changing the food is not."),
+        ],
+        "body": """
+<h2>Uber Eats photo requirements at a glance</h2>
+<table class="compare"><tr><th>What</th><th>Requirement</th></tr>
+<tr><td>Shape</td><td>5:4, landscape</td></tr>
+<tr><td>Recommended size</td><td>2880 × 2304 pixels</td></tr>
+<tr><td>Minimum size</td><td>550 pixels wide, 440 pixels tall</td></tr>
+<tr><td>File type</td><td>JPG (PNG and GIF also accepted for menu items)</td></tr>
+<tr><td>Maximum file size</td><td>10 MB</td></tr>
+<tr><td>Cover image</td><td>5:4, 2880 × 2304 pixels, JPG</td></tr></table>
+
+<h2>What every menu photo must show</h2>
+<ul><li>One menu item only, exactly as the customer receives it.</li><li>The dish centred in the frame.</li><li>A sharp, well lit photo of your real food.</li></ul>
+
+<h2>What gets a photo rejected</h2>
+<ul><li>More than one item in the photo, unless it's sold together as one item.</li><li>Text, prices, discounts or banners on the image.</li><li>Logos or watermarks added on top.</li><li>People or faces (hands holding the food are fine).</li><li>Blurry, dark or very small photos.</li><li>Stock photos or photos that aren't your dish.</li></ul>
+
+<h2>Tips that save time</h2>
+<ul><li><b>Shoot wide, crop to 5:4.</b> Take the photo with space around the dish, then crop. It's easier than shooting exactly to size.</li><li><b>Keep it centred.</b> Uber shows small square thumbnails in the app, so anything near the edges can be cut off.</li><li><b>Start with your best sellers.</b> They're seen the most.</li><li><b>Be patient with reviews.</b> New photos are checked before they appear, so upload a few days before a menu change.</li></ul>
+
+<h2>How to take the photos</h2>
+<p>You don't need a photographer. Our guide on <a href="/guides/uber-eats-food-photos-phone.html">taking great Uber Eats photos on your phone</a> covers light, angles and backgrounds.</p>
+
+<h2>Sources</h2>
+<p>These requirements come from Uber's merchant help pages: <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> and <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">adding cover images and menu photos (Australia)</a>. Uber can change them, so check those pages if a photo is rejected.</p>
+
+<p>Want photos that pass review without the hassle? We enhance photos of your real dishes and deliver them at Uber's recommended 2880 × 2304 size. <a href="/examples.html">See examples</a>.</p>
+""",
+    },
+    {
         "slug": "uber-eats-food-photos-phone",
-        "title": "Uber Eats Photo Requirements and How to Take Great Food Photos on Your Phone",
+        "answer": 'You can take good Uber Eats photos with a phone: use daylight from a window, a plain background, the right angle for the dish, fill the frame with the food centred, and edit lightly without changing the food.',
+        "faq": [('Can I take Uber Eats photos with my phone?', 'Yes. A recent phone, daylight from a window and a clean background are enough for good menu photos.'), ('What is the best angle for food photos?', 'From above for flat dishes like pizza and bowls, from about 45 degrees for most plates, and from the side for tall food like burgers and drinks.'), ('Should I use flash for food photos?', 'No. Flash makes food look shiny and flat. Use soft daylight from the side instead.')],
+        "title": "How to Take Great Uber Eats Food Photos on Your Phone",
         "short": "Great food photos on your phone",
-        "desc": "Uber Eats photo requirements (size, 5:4 ratio, what gets rejected) plus simple tips to take bright, appetising food photos with your phone.",
+        "desc": "Simple tips for restaurant owners to take bright, appetising Uber Eats food photos with a phone: light, angle, background, framing and editing.",
         "img": "phone",
         "lead": "You don't need a photographer to have good photos on Uber Eats. With daylight, a clean background and a few simple habits, a phone is enough.",
         "body": """
-<h2>Uber Eats photo requirements</h2>
-<p>Every photo you upload in Uber Eats Manager is reviewed before it goes live. At the time of writing, Uber's merchant help pages ask for:</p>
-<table class="compare"><tr><th>What</th><th>Requirement</th></tr>
-<tr><td>Shape</td><td>5:4 (landscape)</td></tr>
-<tr><td>Recommended size</td><td>2880 × 2304 pixels (menu items and cover image)</td></tr>
-<tr><td>File</td><td>JPG (PNG and GIF also accepted for items), up to 10 MB</td></tr>
-<tr><td>Content</td><td>One menu item per photo, centred, exactly as the customer receives it</td></tr>
-<tr><td>Not allowed</td><td>Text, prices, logos or watermarks, people or faces (hands are fine), blurry photos</td></tr></table>
-<p>The app shows small square thumbnails, so keep the dish in the centre with some space around it. Uber can update these rules, so check the <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">Uber Eats photo guidelines</a> if a photo is rejected.</p>
-<p>One more reason to add your own photos: when an item has no photo, Uber Eats can show photos that customers took themselves. Your own photos keep you in control of how your food looks.</p>
+<p>Before you start, check the <a href="/guides/uber-eats-photo-requirements.html">Uber Eats photo requirements</a> (size, shape and what gets rejected), then follow these tips.</p>
 
 <h2>Use daylight, not the kitchen lights</h2>
 <p>Kitchen lights are often yellow or green and make food look flat. Take your photos near a window during the day, with the light coming from the side. Turn the flash off: it makes food shiny and harsh.</p>
@@ -124,6 +164,8 @@ GUIDES = [
     },
     {
         "slug": "edit-menu-uber-eats-manager",
+        "answer": 'To edit your Uber Eats menu, sign in at merchants.ubereats.com, open Menu, choose your delivery menu, click an item to change its name, description or photo, and save. To let someone help, add them as a user instead of sharing your password.',
+        "faq": [('How do I change my menu on Uber Eats?', 'Sign in to Uber Eats Manager at merchants.ubereats.com, open Menu, click the item and edit it, then save or publish.'), ('How long do Uber Eats menu changes take?', 'Text changes usually show within minutes. New photos are reviewed first, which can take longer.'), ('How do I give someone access to my Uber Eats Manager?', 'In Uber Eats Manager open Settings, then Users, add their email and give access to the Menu only. You can remove it any time.')],
         "title": "Uber Eats Manager: How to Edit Your Menu, Photos and Categories",
         "short": "Editing your menu in Uber Eats Manager",
         "desc": "A step by step guide for restaurant owners on updating item names, descriptions, photos and categories in Uber Eats Manager, plus how to add someone to help.",
@@ -156,6 +198,8 @@ GUIDES = [
     },
     {
         "slug": "new-on-uber-eats-checklist",
+        "answer": "If you're new on Uber Eats, before your first orders make sure your best sellers have bright photos, every item has a clear name and short description, your categories are short with best sellers first, your banner shows your best dish, and your hours and prices are correct.",
+        "faq": [('What should I do when I start on Uber Eats?', 'Add photos to your best sellers, write clear names and descriptions, order your categories with best sellers first, pick an appetising banner and check your hours and prices.'), ('How do I make a good first impression on Uber Eats?', 'Make sure what customers see matches what arrives: real photos, accurate descriptions and food that travels well.'), ('Should I order from my own restaurant on Uber Eats?', 'Once is a good idea: you see your page and packaging the way customers do.')],
         "title": "New on Uber Eats? A Checklist for Your First Weeks",
         "short": "New on Uber Eats: first weeks checklist",
         "desc": "Just launched on Uber Eats? A practical checklist for new restaurants and cafés to make a strong first impression: menu, photos, banner, hours and more.",
