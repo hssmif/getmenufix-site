@@ -221,4 +221,81 @@ GUIDES = [
 <p>Just launched? We'll send you a free mockup of how your page could look, so you can see what we'd change before deciding anything.</p>
 """,
     },
+    {
+        "slug": "price-menu-uber-eats",
+        "answer": "To price your menu on Uber Eats, start from your real cost per dish, add the commission and packaging you pay on each order, and set a delivery price that still leaves you a fair margin. Many restaurants charge a little more on delivery than in store; that's allowed, but be consistent and keep combos and sizes clear.",
+        "faq": [('Can I charge more on Uber Eats than in my shop?', 'In Australia, many restaurants set higher prices on delivery apps to cover commission and packaging. Check your current agreement with Uber Eats for any conditions, and keep the difference reasonable so regulars don\'t feel caught out.'), ('How do I work out my Uber Eats price for a dish?', 'Add up the food cost and packaging, then work out what is left after the commission on your plan. If that leftover amount is less than you need to make the dish worth cooking, raise the price, change the portion or take it off delivery.'), ('Should I offer promotions on Uber Eats?', 'Only if the numbers still work after the discount and the commission. A promotion that brings orders at a loss is not a win. Try one at a time and check the results in Uber Eats Manager.')],
+        "title": "How to Price Your Menu on Uber Eats (Australia)",
+        "short": "How to price your menu on Uber Eats",
+        "desc": "A practical, honest guide for Australian restaurants and cafés on setting Uber Eats prices: costs, commission, packaging, combos, sizes and promotions.",
+        "img": "desk",
+        "lead": "Pricing on Uber Eats is not the same as pricing at your counter. Commission and packaging come out of every order, so a price that works in store can lose money on delivery. Here is a simple way to get it right.",
+        "body": """
+<h2>1. Know your real cost per dish</h2>
+<p>Start with what each dish costs you to make: ingredients, plus the container, lid, bag, sauce pots and cutlery that go with it. Packaging is easy to forget and adds up across a busy night. Write the total next to each of your best sellers.</p>
+
+<h2>2. Check the commission on your plan</h2>
+<p>Uber Eats takes a percentage of each order, and the rate depends on the plan you chose and whether you use their couriers or your own. Look it up in your agreement or in Uber Eats Manager rather than relying on what someone told you. Then, for each dish, work out what you actually keep after commission.</p>
+
+<h2>3. Decide on your delivery price</h2>
+<p>Many Australian restaurants charge a bit more on delivery than in store to cover these costs. That's a normal business choice. A few tips:</p>
+<ul class="ticks"><li>Apply the same approach across the menu, so prices don't look random.</li><li>Round to clean prices, like $18.50 or $19, rather than odd cents.</li><li>Check your agreement for any conditions on price differences.</li><li>Be ready to explain it honestly if a regular asks.</li></ul>
+
+<h2>4. Look again at dishes that don't travel well</h2>
+<p>Some dishes cost a lot to pack properly or arrive worse than they leave. If a dish barely makes money on delivery and gets mixed reviews, it may be better off in store only. A shorter delivery menu is also easier to choose from.</p>
+
+<h2>5. Use combos and sizes carefully</h2>
+<p>Combos can raise the value of each order, which helps when commission is a percentage. Make sure the combo is clearly a better deal than buying the items separately, and say exactly what's included: "Burger, chips and a can of drink". Sizes work the same way: "Large (serves 2)" helps people choose with confidence.</p>
+
+<h2>6. Price add ons and extras</h2>
+<p>Extra cheese, a second sauce or a side of avocado cost you money. Listing them as paid options in Uber Eats Manager is fair and common, and it lets customers build what they want.</p>
+
+<h2>7. Treat promotions as a test, not a habit</h2>
+<p>Discounts and free delivery offers can bring new customers, but they come out of your margin, and commission is still charged. Before running one, work out what you keep per order at the promotional price. Run one at a time, check the results, and stop it if it isn't paying off.</p>
+
+<h2>8. Review your prices regularly</h2>
+<p>Ingredient costs change. Check your delivery prices every few months, or whenever a key supplier puts prices up, so you're not quietly losing money on your best sellers.</p>
+
+<h2>Price is only part of the decision</h2>
+<p>People compare what they see. A clear photo, a name they understand and a description that says what's in the dish make a fair price feel like good value. Our <a href="/guides/get-more-orders-on-uber-eats.html">guide to getting more orders</a> covers the rest of your page.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-doordash-menulog-menu-tips",
+        "answer": "Uber Eats, DoorDash and Menulog all reward the same basics: real photos, clear names, short descriptions, best sellers first and accurate prices. Keep one master menu, adapt it to each app's editor and photo rules, and update all three whenever something changes.",
+        "faq": [('Should I be on Uber Eats, DoorDash and Menulog at the same time?', 'Many Australian restaurants are on more than one. It can reach more customers, but each app means another tablet, another menu to keep up to date and another set of fees. Start with what you can manage well.'), ('Can I use the same menu on every delivery app?', 'Mostly, yes. Keep one master list of names, descriptions, prices and photos, then copy it into each app. Check each app\'s photo requirements and how it handles options and combos.'), ('Can I have different prices on each app?', 'You can, if the fees on your plans differ. Check each agreement for conditions, and keep the differences simple so you can manage them.')],
+        "title": "Uber Eats vs DoorDash vs Menulog: Menu Tips for Australian Restaurants",
+        "short": "Uber Eats vs DoorDash vs Menulog: menu tips",
+        "desc": "On more than one delivery app in Australia? Practical menu tips for Uber Eats, DoorDash and Menulog: what's the same, what differs, and how to keep every menu up to date.",
+        "img": "phone",
+        "lead": "If you're on Uber Eats, DoorDash and Menulog, you're really running three menus. The good news is that what makes a menu work is the same on all of them. Here is how to keep them consistent without doubling your workload.",
+        "body": """
+<h2>What's the same on every app</h2>
+<p>Whichever app a customer opens, they decide the same way: they scroll, look at photos and read names. On all three, these basics matter most:</p>
+<ul class="ticks"><li>Real, bright photos of your best sellers.</li><li>Names people understand, with your signature name kept if you like.</li><li>A one line description of what's in each dish.</li><li>Short, logical categories with best sellers first.</li><li>Correct prices, sizes, hours and sold out items.</li></ul>
+
+<h2>Keep one master menu</h2>
+<p>The easiest way to stay consistent is a single document or spreadsheet with every item's name, description, price, options and photo file. Make changes there first, then copy them into each app. This stops the common problem of a dish being removed on one app but still selling on another.</p>
+
+<h2>What differs between the apps</h2>
+<p>Each app has its own menu editor, its own photo rules and its own way of showing your page. Before you upload, check the current photo guidelines for each one: size, shape and what's allowed, like text or logos on the image. Crop from your original photos for each app rather than reusing an already cropped version.</p>
+<p>Options, combos and add ons are also set up differently in each editor. Build them carefully on each app and place a test order if you can, so customers aren't charged the wrong amount or missing an item.</p>
+<p>Fees and plans vary between apps and change over time. Look them up in your own agreements rather than relying on general comparisons, because what matters is what you actually pay.</p>
+
+<h2>Uber Eats tips</h2>
+<p>Uber Eats Manager lets you edit items, photos and categories, and add team members with menu access only. If items have no photo, Uber Eats may show photos taken by customers, so add your own to your best sellers. See our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a>.</p>
+
+<h2>DoorDash tips</h2>
+<p>DoorDash menus are managed through the DoorDash Merchant Portal. As on every app, put your most ordered dishes first and give them photos. Check how your categories and options appear in the app after saving, because what looks right in the editor doesn't always look right on a phone.</p>
+
+<h2>Menulog tips</h2>
+<p>Menulog has been in Australia for a long time and many regular customers still use it out of habit. Menu changes are made through its partner tools, and some changes may go through their team. Allow time for updates, and check your page once they're live.</p>
+
+<h2>Prices on more than one app</h2>
+<p>If the fees on your plans differ, you may choose different prices on each app. That's your call, but keep it simple: one clear rule per app is easier to manage than item by item differences. Our guide on <a href="/guides/price-menu-uber-eats.html">how to price your menu on Uber Eats</a> explains how to work out a delivery price.</p>
+
+<h2>Don't spread yourself too thin</h2>
+<p>Each app adds a tablet on the counter, a menu to update and orders to pack. Being on one app with a great, accurate page is better than three with old prices and missing photos. Add another app when you're confident you can keep it up to date.</p>
+""",
+    },
 ]
