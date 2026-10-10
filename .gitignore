@@ -4,3 +4,4 @@ _gen_images.py
 .DS_Store
 .claude/
 _gen_icons.py
+__pycache__/
