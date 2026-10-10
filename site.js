@@ -31,10 +31,13 @@ function detectCur() {
   return cc === "AU" ? "aud" : cc === "US" ? "usd" : EURO_CC.test(cc) ? "eur" : "gbp";
 }
 const CUR = detectCur();
+const FR = document.documentElement.lang === "fr";
+const NAME_FR = { aud: "dollars australiens", gbp: "livres sterling", eur: "euros", usd: "dollars américains" };
 document.querySelectorAll("[data-p]").forEach((el) => {
-  el.textContent = (el.dataset.p === "done_for_you" ? "+" : "") + SYM[CUR] + PRICES[el.dataset.p][CUR];
+  const n = PRICES[el.dataset.p][CUR], plus = el.dataset.p === "done_for_you" ? "+" : "";
+  el.textContent = FR ? plus + n + "\u00a0" + (CUR === "eur" ? "€" : SYM[CUR]) : plus + SYM[CUR] + n;
 });
-document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = NAME[CUR]));
+document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = (FR ? NAME_FR : NAME)[CUR]));
 // A restaurant arriving from our offer email (?ref=<id>) keeps its id, so its payment is matched to it.
 let REF = new URLSearchParams(location.search).get("ref");
 try { if (REF) sessionStorage.setItem("ref", REF); else REF = sessionStorage.getItem("ref"); } catch (e) {}

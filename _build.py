@@ -29,6 +29,8 @@ def page(name, title, desc, body, active=""):
 <meta name="description" content="{desc}">
 <link rel="icon" href="favicon.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
+<link rel="alternate" hreflang="en" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
+<link rel="alternate" hreflang="fr" href="https://getmenufix.com/fr/{'' if name == 'index.html' else name}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
@@ -41,13 +43,13 @@ def page(name, title, desc, body, active=""):
 <nav class="nav"><div class="wrap">
   {LOGO}
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
-  <div class="links">{links}<a class="btn primary small" href="contact.html">Free mockup</a></div>
+  <div class="links">{links}<a class="lang" href="fr/{name}" hreflang="fr" title="Français">FR</a><a class="btn primary small" href="contact.html">Free mockup</a></div>
 </div></nav>
 {body}
 <footer><div class="wrap">
   <div class="top">
     <div>{LOGO}
-      <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and small shops. Clear menus, better photos of your real food, done for you.</p>
+      <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.</p>
       <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div></div>
     <div><h4>Services</h4><a href="services.html">Menu rewrite</a><a href="services.html#photos">Photo enhancement</a><a href="services.html#done">Done for you</a><a href="examples.html">Examples</a></div>
     <div><h4>Company</h4><a href="about.html">About</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a></div>
@@ -84,7 +86,7 @@ def mockpair(key, note=True):
 
 
 def cta(title="See your page improved, free.",
-        text="Tell us your restaurant, café or shop on Uber Eats. We'll send you a free mockup of how your page could look. No payment, no obligation.",
+        text="Tell us your restaurant, café or bakery on Uber Eats. We'll send you a free mockup of how your page could look. No payment, no obligation.",
         img="delivery"):
     return f"""<section class="tight"><div class="wrap"><div class="cta reveal">
   <div class="txt"><span class="eyebrow">Free mockup</span><h2>{title}</h2><p class="lead">{text}</p>
@@ -117,7 +119,7 @@ FAQ = [
     ("How long does it take?", "Usually two to three working days after we have your photos and, for the Full Makeover, access to your Uber Eats Manager."),
     ("Will this guarantee more orders?", "No one can honestly promise that. What we do is make your page clearer and more appetising, which is what helps people choose you."),
     ("What do I need to send you?", "For Menu Fix, nothing: we work from your current page. For the photo packages, photos of your dishes taken on your phone in good light. Near a window is perfect."),
-    ("Do you work with cafés and shops too?", "Yes. Restaurants, cafés, bakeries, dessert places, grocers and other small businesses that sell on Uber Eats. We don't work with big chains."),
+    ("Do you work with cafés and bakeries too?", "Yes. Restaurants, takeaways, cafés, bakeries and dessert places that sell on Uber Eats. We don't work with big chains, or with shops that sell packaged products."),
     ("Is MenuFix part of Uber?", "No. MenuFix is an independent service and is not affiliated with Uber or Uber Eats."),
     ("Which countries do you work with?", "Australia, New Zealand, the UK, Ireland and more. Prices show in your currency."),
 ]
@@ -130,7 +132,7 @@ def faq_html(items):
 CATS = [("pizza", "Pizza"), ("burger", "Burgers"), ("sushi", "Sushi"), ("noodles", "Noodles"), ("coffee", "Coffee"),
         ("cake", "Cakes"), ("taco", "Mexican"), ("curry", "Indian"), ("dumpling", "Dumplings"), ("chicken", "Chicken"),
         ("salad", "Healthy"), ("croissant", "Bakery"), ("bubbletea", "Bubble tea"), ("kebab", "Kebabs"),
-        ("icecream", "Desserts"), ("grocery", "Grocery")]
+        ("icecream", "Desserts")]
 cats = '<div class="cats">' + "".join(f'<div class="cat"><div class="ic"><img src="img/icons/{k}.png" alt="" loading="lazy"></div>{t}</div>' for k, t in CATS) + "</div>"
 
 EX = [("burger", "dbl burgr + chips", "Smash Burger and Fries", "No description.", "Double beef, aged cheddar, pickles and house sauce on a toasted brioche bun, with fries."),
@@ -153,17 +155,17 @@ FEAT = "".join(f"""<a class="fcard reveal" href="examples.html"><div class="ph">
     ("cake", "Before and after", "A dessert people can't skip")])
 
 # ------------------------------------------------------------------------------------------------ home
-page("index.html", "MenuFix | Uber Eats page makeovers for restaurants, cafés and shops",
+page("index.html", "MenuFix | Uber Eats page makeovers for restaurants, cafés and bakeries",
      "We make your Uber Eats page show how good your food is: clear names, descriptions that sell, the right order and better photos of your real food. Done for you. Free mockup first.",
 f"""<header class="hero">
   {floaty("pizza", "left:45%;bottom:4%", 1)}{floaty("sushi", "left:44%;top:6%", 4)}{floaty("coffee", "right:2%;bottom:4%", 2)}
   <div class="wrap">
   <div class="reveal">
-    <span class="chip"><img src="img/icons/bag.png" alt="">For restaurants, cafés and shops on Uber Eats</span>
+    <span class="chip"><img src="img/icons/bag.png" alt="">For restaurants, cafés and bakeries on Uber Eats</span>
     <h1>Make hungry people choose <span class="hl">you.</span></h1>
     <p class="lead">Customers order what looks good. We rewrite your menu, put your best sellers first and make photos of your real food look delicious. We can even make every change on your page for you.</p>
     <form class="search" action="contact.html" method="get">
-      <img src="img/icons/menu.png" alt=""><input name="biz" placeholder="Your restaurant or shop name" aria-label="Your restaurant or shop name">
+      <img src="img/icons/menu.png" alt=""><input name="biz" placeholder="Your restaurant or café name" aria-label="Your restaurant or café name">
       <button class="btn primary" type="submit">Get my free mockup <span class="arr">→</span></button>
     </form>
     <div class="trust"><span>Free mockup first</span><span>One time price</span><span>Real food only</span></div>
@@ -177,7 +179,7 @@ f"""<header class="hero">
 
 <section class="tight"><div class="wrap">
   <div class="head reveal" style="margin-bottom:28px"><div><span class="eyebrow">Made for every kitchen</span><h2>Whatever you cook, we make it look delicious.</h2></div>
-    <p class="lead">Independent restaurants, cafés, bakeries, dessert spots and small shops. No big chains.</p></div>
+    <p class="lead">Independent restaurants, takeaways, cafés, bakeries and dessert spots. No big chains.</p></div>
   <div class="reveal">{cats}</div>
 </div></section>
 
@@ -280,7 +282,7 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
     <div class="card reveal">{ic("pizza")}<h3>Restaurants</h3><p>Pizza, burgers, Asian, Middle Eastern and everything in between.</p></div>
     <div class="card reveal">{ic("coffee")}<h3>Cafés</h3><p>Breakfast, lunch, coffee and cakes.</p></div>
     <div class="card reveal">{ic("croissant")}<h3>Bakeries and desserts</h3><p>Cakes, pastries, gelato and sweet treats.</p></div>
-    <div class="card reveal">{ic("grocery")}<h3>Small shops</h3><p>Grocers, delis and specialty stores.</p></div>
+    <div class="card reveal">{ic("kebab")}<h3>Takeaways</h3><p>Kebabs, burgers, fried chicken and late night favourites.</p></div>
   </div>
 </div></section>
 {cta()}
@@ -306,7 +308,7 @@ f"""{head("Examples", "See the <span class='hl'>difference.</span>", "Whole page
   <div class="grid2" style="gap:56px 32px">{grid}</div>
   <p class="note" style="margin-top:40px">Illustrative examples for fictional dishes and places, with images made with AI for this website. For your page we only work from photos of your real dishes.</p>
 </div></section>
-{cta("Want to see your own page?", "Send us your restaurant or shop on Uber Eats and we'll show you a free mockup of yours.")}
+{cta("Want to see your own page?", "Send us your restaurant or café on Uber Eats and we'll show you a free mockup of yours.")}
 """, "examples.html")
 
 # ------------------------------------------------------------------------------------------------ how it works
@@ -314,7 +316,7 @@ page("how-it-works.html", "How it works | MenuFix", "From free mockup to your ne
 f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everything can be done by email. You see the idea before you pay anything.", ("noodles", "croissant"))}
 <section class="tight"><div class="wrap split">
   <div class="reveal">{ic("gift")}<span class="eyebrow" style="display:block">Step 1</span><h2>Your free mockup</h2>
-    <p class="lead" style="margin-top:18px">Tell us your restaurant or shop on Uber Eats. We look at your page and send you a mockup of how it could look, with the main things we'd change. No payment, no obligation.</p></div>
+    <p class="lead" style="margin-top:18px">Tell us your restaurant or café on Uber Eats. We look at your page and send you a mockup of how it could look, with the main things we'd change. No payment, no obligation.</p></div>
   <div class="reveal" style="display:flex;justify-content:center"><div class="device solo"><img src="img/mock1-after.jpg" alt="A concept mockup of a restaurant page" loading="lazy"></div></div>
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
@@ -359,10 +361,10 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
 """, "pricing.html")
 
 # ------------------------------------------------------------------------------------------------ about
-page("about.html", "About | MenuFix", "MenuFix is a small independent service that helps restaurants, cafés and shops get more from their Uber Eats page.",
+page("about.html", "About | MenuFix", "MenuFix is a small independent service that helps restaurants, cafés and bakeries get more from their Uber Eats page.",
 f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div class="banner reveal"><img src="img/counter.jpg" alt=""><div>
   <span class="eyebrow">About MenuFix</span><h1>Great food deserves a great page.</h1>
-  <p class="lead">We help independent restaurants, cafés and small shops look as good on Uber Eats as they really are.</p></div></div></div></header>
+  <p class="lead">We help independent restaurants, cafés and bakeries look as good on Uber Eats as they really are.</p></div></div></div></header>
 <section style="padding-top:40px"><div class="wrap split">
   <div class="reveal"><span class="eyebrow">Our story</span><h2>Small places, real food.</h2>
     <p class="lead" style="margin-top:20px">Some of the best food in any city comes from small, independent kitchens. On delivery apps, though, they often look worse than the big chains: no photos, menus typed in a hurry, best dishes hidden at the bottom.</p>
@@ -396,7 +398,7 @@ f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class
     <div class="img reveal" style="margin-top:40px"><img src="img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
     <form id="mockForm">
-      <div class="f"><label for="biz">Restaurant or shop name</label><input id="biz" required placeholder="e.g. Sunny Thai Kitchen"></div>
+      <div class="f"><label for="biz">Restaurant or café name</label><input id="biz" required placeholder="e.g. Sunny Thai Kitchen"></div>
       <div class="f"><label for="city">City</label><input id="city" required placeholder="e.g. Sydney"></div>
       <div class="f"><label for="link">Your Uber Eats page link (optional)</label><input id="link" placeholder="https://www.ubereats.com/..."></div>
       <div class="f"><label for="name">Your name</label><input id="name" placeholder="First name"></div>
