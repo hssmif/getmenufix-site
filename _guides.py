@@ -78,12 +78,23 @@ GUIDES = [
     },
     {
         "slug": "uber-eats-food-photos-phone",
-        "title": "Uber Eats Food Photos: How to Take Great Photos on Your Phone",
+        "title": "Uber Eats Photo Requirements and How to Take Great Food Photos on Your Phone",
         "short": "Great food photos on your phone",
-        "desc": "Simple tips for restaurant owners to take bright, appetising Uber Eats food photos with a phone: light, angle, background, framing and editing.",
+        "desc": "Uber Eats photo requirements (size, 5:4 ratio, what gets rejected) plus simple tips to take bright, appetising food photos with your phone.",
         "img": "phone",
         "lead": "You don't need a photographer to have good photos on Uber Eats. With daylight, a clean background and a few simple habits, a phone is enough.",
         "body": """
+<h2>Uber Eats photo requirements</h2>
+<p>Every photo you upload in Uber Eats Manager is reviewed before it goes live. At the time of writing, Uber's merchant help pages ask for:</p>
+<table class="compare"><tr><th>What</th><th>Requirement</th></tr>
+<tr><td>Shape</td><td>5:4 (landscape)</td></tr>
+<tr><td>Recommended size</td><td>2880 × 2304 pixels (menu items and cover image)</td></tr>
+<tr><td>File</td><td>JPG (PNG and GIF also accepted for items), up to 10 MB</td></tr>
+<tr><td>Content</td><td>One menu item per photo, centred, exactly as the customer receives it</td></tr>
+<tr><td>Not allowed</td><td>Text, prices, logos or watermarks, people or faces (hands are fine), blurry photos</td></tr></table>
+<p>The app shows small square thumbnails, so keep the dish in the centre with some space around it. Uber can update these rules, so check the <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">Uber Eats photo guidelines</a> if a photo is rejected.</p>
+<p>One more reason to add your own photos: when an item has no photo, Uber Eats can show photos that customers took themselves. Your own photos keep you in control of how your food looks.</p>
+
 <h2>Use daylight, not the kitchen lights</h2>
 <p>Kitchen lights are often yellow or green and make food look flat. Take your photos near a window during the day, with the light coming from the side. Turn the flash off: it makes food shiny and harsh.</p>
 
@@ -108,7 +119,7 @@ GUIDES = [
 <h2>Start with your top ten</h2>
 <p>You don't need to photograph everything in one day. Your ten best sellers make the biggest difference, so start there.</p>
 
-<p>Already have photos that look dark or messy? We enhance photos of your real dishes: better light, a clean background and the right size for Uber Eats, without changing the food. <a href="/examples.html">See examples</a>.</p>
+<p>Already have photos that look dark or messy? We enhance photos of your real dishes: better light, a clean background and delivered at Uber's recommended 2880 × 2304 size, without changing the food. <a href="/examples.html">See examples</a>.</p>
 """,
     },
     {
