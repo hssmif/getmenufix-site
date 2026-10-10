@@ -65,11 +65,50 @@ def ld(name):
     return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
 
-def page(name, title, desc, body, active=""):
+NAV_FR = [("fr/services.html", "Services"), ("fr/examples.html", "Exemples"), ("fr/how-it-works.html", "Comment ça marche"),
+          ("fr/pricing.html", "Tarifs"), ("fr/guides/index.html", "Guides"), ("fr/about.html", "À propos"), ("fr/faq.html", "FAQ")]
+CHROME = {
+    "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
+           "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
+           "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("services.html#done", "Done for you"), ("examples.html", "Examples")]),
+                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ")]),
+                    ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
+                    ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
+           "rights": "© 2026 MenuFix. All rights reserved.", "indep": "MenuFix is independent and not affiliated with Uber or Uber Eats."},
+    "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
+           "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
+           "cols": [("Services", [("fr/services.html", "Réécriture du menu"), ("fr/services.html#photos", "Amélioration des photos"), ("fr/services.html#done", "Clé en main"), ("fr/examples.html", "Exemples")]),
+                    ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ")]),
+                    ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
+           "rights": "© 2026 MenuFix. Tous droits réservés.", "indep": "MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats."},
+}
+
+
+def _url(path):
+    return "https://getmenufix.com/" + (path[:-10] if path in ("index.html", "fr/index.html") else path)
+
+
+def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra=""):
+    """Write one page. name and every link in the chrome are relative to the site root; pages in folders get ../ prefixes.
+    alt is the root relative path of the same page in the other language (None when there isn't one)."""
+    c = CHROME[lang]
+    if alt == "auto":
+        alt = "fr/" + name if lang == "en" and "/" not in name else None
     on = ' class="on"'
-    links = "".join(f'<a href="{h}"{on if h == active else ""}>{t}</a>' for h, t in NAV)
+    links = "".join(f'<a href="{h}"{on if h == active else ""}>{t}</a>' for h, t in c["nav"])
+    logo = LOGO.replace('href="index.html"', f'href="{c["home"]}"')
+    if alt:
+        other = "fr" if lang == "en" else "en"
+        lang_link = (f'<a class="lang" href="{alt}" hreflang="{other}" title="{"Français" if other == "fr" else "English"}">{other.upper()}</a>')
+        en_path, fr_path = (name, alt) if lang == "en" else (alt, name)
+        alternates = (f'<link rel="alternate" hreflang="en" href="{_url(en_path)}">\n'
+                      f'<link rel="alternate" hreflang="fr" href="{_url(fr_path)}">\n')
+    else:
+        lang_link = alternates = ""
+    cols = "".join(f'<div><h4>{h}</h4>' + "".join(f'<a class="mailto" href="#">{t}</a>' if u == "mailto" else f'<a href="{u}">{t}</a>' for u, t in items) + "</div>"
+                   for h, items in c["cols"])
     html = f"""<!doctype html>
-<html lang="en">
+<html lang="{lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -77,11 +116,9 @@ def page(name, title, desc, body, active=""):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="icon" href="favicon.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link rel="canonical" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
-<script type="application/ld+json">{ld(name)}</script>
-<link rel="alternate" hreflang="en" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
-<link rel="alternate" hreflang="fr" href="https://getmenufix.com/fr/{'' if name == 'index.html' else name}">
-<meta property="og:title" content="{title}">
+<link rel="canonical" href="{_url(name)}">
+<script type="application/ld+json">{ld(name) if lang == "en" else LD_FR}</script>{ld_extra}
+{alternates}<meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
 <meta property="og:type" content="website">
@@ -91,34 +128,32 @@ def page(name, title, desc, body, active=""):
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  {LOGO}
+  {logo}
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
-  <div class="links">{links}<a class="lang" href="fr/{name}" hreflang="fr" title="Français">FR</a><a class="btn primary small" href="contact.html">Free mockup</a></div>
+  <div class="links">{links}{lang_link}<a class="btn primary small" href="{c["cta_href"]}">{c["cta"]}</a></div>
 </div></nav>
 {body}
 <footer><div class="wrap">
   <div class="top">
-    <div>{LOGO}
-      <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.</p>
+    <div>{logo}
+      <p class="muted" style="max-width:340px">{c["blurb"]}</p>
       <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div></div>
-    <div><h4>Services</h4><a href="services.html">Menu rewrite</a><a href="services.html#photos">Photo enhancement</a><a href="services.html#done">Done for you</a><a href="examples.html">Examples</a></div>
-    <div><h4>Company</h4><a href="about.html">About</a><a href="guides/index.html">Guides</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a></div>
-    <div><h4>Get started</h4><a href="contact.html">Free mockup</a><a class="mailto" href="#">hello@getmenufix.com</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    {cols}
   </div>
-  <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
+  <div class="bottom"><span>{c["rights"]}</span><span>{c["indep"]}</span></div>
 </div></footer>
 <script src="site.js"></script>
 </body>
 </html>
 """
-    if "/" in name:  # a page one folder down: point shared links and assets at the parent folder
-        import re
-        html = re.sub(r'<a class="lang" href="fr/[^"]*"[^>]*>FR</a>', "", html)  # no French version of these yet
-        html = re.sub(r'<link rel="alternate" hreflang="(en|fr)"[^>]*>\n?', "", html)
-        html = re.sub(r'(src|href)="(?!https?:|#|mailto:|/|\.\./|data:)([^"]+)"', r'\1="../\2"', html)
-        html = html.replace('href="../fr/', 'href="../fr/')
-        (ROOT / name).parent.mkdir(exist_ok=True)
-    (ROOT / name).write_text(_sized(html, "../" if "/" in name else ""))
+    up = "../" * name.count("/")
+    if up:  # a page in a folder: point root relative links and assets at the site root
+        html = re.sub(r'(src|href)="(?!https?:|#|mailto:|/|\.\./|data:)([^"]+)"', lambda m: f'{m.group(1)}="{up}{m.group(2)}"', html)
+        (ROOT / name).parent.mkdir(parents=True, exist_ok=True)
+    (ROOT / name).write_text(_sized(html, up))
+
+
+LD_FR = '{"@context": "https://schema.org", "@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/"}'
 
 
 def ba(n, before_name, after_name, before_desc, after_desc):
@@ -336,10 +371,10 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
 <section class="bg-butter"><div class="wrap">
   <div class="head center reveal"><span class="eyebrow">Who it's for</span><h2>Independent places on Uber Eats.</h2></div>
   <div class="grid4">
-    <div class="card reveal">{ic("pizza")}<h3>Restaurants</h3><p>Pizza, burgers, Asian, Middle Eastern and everything in between.</p></div>
-    <div class="card reveal">{ic("coffee")}<h3>Cafés</h3><p>Breakfast, lunch, coffee and cakes.</p></div>
+    <div class="card reveal">{ic("pizza")}<h3>Restaurants</h3><p><a href="uber-eats/pizza.html">Pizza</a>, burgers, <a href="uber-eats/asian-restaurants.html">Asian</a>, Middle Eastern and everything in between.</p></div>
+    <div class="card reveal">{ic("coffee")}<h3><a href="uber-eats/cafes.html" style="color:inherit">Cafés</a></h3><p>Breakfast, lunch, coffee and cakes.</p></div>
     <div class="card reveal">{ic("croissant")}<h3>Bakeries and desserts</h3><p>Cakes, pastries, gelato and sweet treats.</p></div>
-    <div class="card reveal">{ic("kebab")}<h3>Takeaways</h3><p>Kebabs, burgers, fried chicken and late night favourites.</p></div>
+    <div class="card reveal">{ic("kebab")}<h3><a href="uber-eats/takeaways.html" style="color:inherit">Takeaways</a></h3><p>Kebabs, burgers, fried chicken and late night favourites.</p></div>
   </div>
 </div></section>
 {cta()}
@@ -406,7 +441,7 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
       Cancel any time. Offered to MenuFix clients once their new page is live.</p></div>
     <div style="text-align:right"><div class="price" data-p="care_plan" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
-  <table class="compare reveal">
+  <div class="table-scroll reveal"><table class="compare">
     <tr><th></th><th>Menu Fix</th><th>Menu and Photos</th><th>Full Makeover</th></tr>
     <tr><td>Typos and names fixed</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Every dish rewritten to sell</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
@@ -416,7 +451,7 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
     <tr><td>One month of updates</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
     <tr><td>Ready to copy pack with guide</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Done for you: we make every change on your page</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
-  </table>
+  </table></div>
 </div></section>
 <section class="bg-cream"><div class="narrow"><div class="head center reveal" style="margin-bottom:30px"><h2>Pricing questions</h2></div>
 {faq_html([FAQ[2], FAQ[4], ("How do I pay?", "By card through Stripe, a secure payment provider. You pay in the currency shown on this page."), FAQ[0]])}</div></section>
@@ -487,57 +522,126 @@ page("404.html", "Page not found | MenuFix", "This page does not exist.",
   <div class="row" style="justify-content:center;margin-top:30px"><a class="btn primary" href="index.html">Back to home</a></div>
 </div></header>""")
 # ------------------------------------------------------------------------------------------------ guides
+import json as _json
+
 from _guides import GUIDES
+from _guides_fr import GUIDES_FR
+
+GT = {
+    "en": {"dir": "guides/", "eyebrow": "Guides", "updated": "Updated 10 October 2026 · By Abdel Iflillis, founder of MenuFix",
+           "answer": "Quick answer", "toc": "In this guide", "faq": "Questions", "more": "More guides", "more_h": "Keep improving your page",
+           "author": 'is the founder of MenuFix, a small independent service that rewrites Uber Eats menus and enhances photos of real dishes for independent restaurants, cafés and bakeries. <a href="/about.html">About MenuFix</a>',
+           "index_title": "Uber Eats Guides for Restaurants and Cafés | MenuFix",
+           "index_desc": "Free practical guides for restaurant and café owners: getting more Uber Eats orders, pricing, menu descriptions, food photos on your phone and editing your menu.",
+           "index_h": "Free guides to a better <span class='hl'>Uber Eats page.</span>",
+           "index_lead": "Practical, honest advice for independent restaurants, cafés and bakeries. Use it yourself, or let us do it for you."},
+    "fr": {"dir": "fr/guides/", "eyebrow": "Guides", "updated": "Mis à jour le 10 octobre 2026 · Par Abdel Iflillis, fondateur de MenuFix",
+           "answer": "En bref", "toc": "Dans ce guide", "faq": "Questions fréquentes", "more": "Autres guides", "more_h": "Continuez à améliorer votre page",
+           "author": 'est le fondateur de MenuFix, un petit service indépendant qui réécrit les menus Uber Eats et améliore les photos de vrais plats pour les restaurants indépendants, cafés et boulangeries. <a href="/fr/about.html">À propos de MenuFix</a>',
+           "index_title": "Guides Uber Eats pour restaurants et cafés | MenuFix",
+           "index_desc": "Guides pratiques et gratuits pour restaurateurs : plus de commandes sur Uber Eats, prix, descriptions de plats, photos au téléphone et modification du menu.",
+           "index_h": "Des guides gratuits pour une meilleure <span class='hl'>page Uber Eats.</span>",
+           "index_lead": "Des conseils pratiques et honnêtes pour les restaurants indépendants, cafés et boulangeries. À suivre seul, ou à nous confier."},
+}
 
 
-def guide_card(g):
-    return (f'<a class="photo-card reveal" href="/guides/{g["slug"]}.html"><div class="ph"><img class="bg" src="img/{g["img"]}.jpg" '
+def guide_card(g, lang="en"):
+    return (f'<a class="photo-card reveal" href="/{GT[lang]["dir"]}{g["slug"]}.html"><div class="ph"><img class="bg" src="img/{g["img"]}.jpg" '
             f'alt="" loading="lazy"></div><div class="body" style="padding-top:26px"><h3>{g["short"]}</h3>'
             f'<p>{g["desc"]}</p></div></a>')
 
 
-for g in GUIDES:
-    import json as _json
-    art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["desc"],
-           "image": f"https://getmenufix.com/img/{g['img']}.jpg", "inLanguage": "en",
-           "author": {"@type": "Person", "name": "Abdel Iflillis"},
-           "publisher": {"@type": "Organization", "name": "MenuFix", "logo": {"@type": "ImageObject",
-                         "url": "https://getmenufix.com/img/logo-mark.png"}},
-           "mainEntityOfPage": f"https://getmenufix.com/guides/{g['slug']}.html", "datePublished": "2026-10-10",
-           "dateModified": "2026-10-10"}
-    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g.get("faq", [])]}
-    faq_block = (f'<section class="narrow" style="padding:10px 0 60px"><h2 style="font-size:30px;margin-bottom:20px">'
-                 f'Questions</h2>{faq_html(g["faq"])}</section>' if g.get("faq") else "")
-    others = "".join(guide_card(o) for o in GUIDES if o is not g)[:0] or "".join(guide_card(o) for o in [x for x in GUIDES if x is not g][:3])
-    page(f"guides/{g['slug']}.html", f"{g['title']} | MenuFix", g["desc"], f"""
-<script type="application/ld+json">{_json.dumps(art, ensure_ascii=False)}</script>
-{('<script type="application/ld+json">' + _json.dumps(faq_ld, ensure_ascii=False) + '</script>') if g.get("faq") else ""}
+def _slugify(text):
+    text = re.sub(r"<[^>]+>", "", text).lower()
+    for a, b in (("àâä", "a"), ("éèêë", "e"), ("îï", "i"), ("ôö", "o"), ("ùûü", "u"), ("ç", "c")):
+        text = re.sub(f"[{a}]", b, text)
+    return re.sub(r"[^a-z0-9]+", "-", text).strip("-")
+
+
+def with_toc(body):
+    """Give every h2 an id and return (body, contents list)."""
+    items = []
+
+    def add(m):
+        hid = _slugify(m.group(1))
+        items.append((hid, re.sub(r"^\d+\.\s*", "", m.group(1))))
+        return f'<h2 id="{hid}">{m.group(1)}</h2>'
+    body = re.sub(r"<h2>(.*?)</h2>", add, body)
+    return body, items
+
+
+def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
+    t = GT[lang]
+    by_slug = {g["slug"]: g for g in guides}
+    for g in guides:
+        url = f"https://getmenufix.com/{t['dir']}{g['slug']}.html"
+        art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["desc"],
+               "image": f"https://getmenufix.com/img/{g['img']}.jpg", "inLanguage": lang,
+               "author": {"@type": "Person", "name": "Abdel Iflillis"},
+               "publisher": {"@type": "Organization", "name": "MenuFix", "logo": {"@type": "ImageObject",
+                             "url": "https://getmenufix.com/img/logo-mark.png"}},
+               "mainEntityOfPage": url, "datePublished": "2026-10-10", "dateModified": "2026-10-10"}
+        faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g.get("faq", [])]}
+        ld_extra = f'\n<script type="application/ld+json">{_json.dumps(art, ensure_ascii=False)}</script>'
+        if g.get("faq"):
+            ld_extra += f'\n<script type="application/ld+json">{_json.dumps(faq_ld, ensure_ascii=False)}</script>'
+        body, toc = with_toc(g["body"].replace('<table class="compare">', '<div class="table-scroll"><table class="compare">').replace("</table>", "</table></div>"))
+        toc_html = (f'<nav class="toc" aria-label="{t["toc"]}"><b>{t["toc"]}</b><ol>' +
+                    "".join(f'<li><a href="#{i}">{h}</a></li>' for i, h in toc) + "</ol></nav>") if len(toc) >= 4 else ""
+        faq_block = (f'<section class="narrow guide-faq" style="padding:10px 0 60px"><h2>{t["faq"]}</h2>{faq_html(g["faq"])}</section>'
+                     if g.get("faq") else "")
+        related = [by_slug[s] for s in g.get("related", []) if s in by_slug]
+        related += [o for o in guides if o is not g and o not in related]
+        others = "".join(guide_card(o, lang) for o in related[:3])
+        alt_slug = g.get("alt", g["slug"] if lang == "en" else None)
+        alt = f"{alt_dir}{alt_slug}.html" if alt_dir and alt_slug in alt_slugs else None
+        page(f"{t['dir']}{g['slug']}.html", f"{g['title']} | MenuFix", g["desc"], f"""
 <header class="page-head" style="padding-bottom:40px"><div class="narrow">
-  <span class="eyebrow"><a href="/guides/index.html" style="color:inherit;text-decoration:none">Guides</a></span>
-  <h1 style="font-size:clamp(34px,4.6vw,54px)">{g['title']}</h1>
+  <span class="eyebrow"><a href="/{t['dir']}index.html" style="color:inherit;text-decoration:none">{t['eyebrow']}</a></span>
+  <h1 style="font-size:clamp(32px,4.6vw,54px)">{g['title']}</h1>
   <p class="lead">{g['lead']}</p>
-  <p class="byline">Updated 10 October 2026 · By Abdel Iflillis, founder of MenuFix</p>
-  {f'<div class="answer"><b>Quick answer</b><p>{g["answer"]}</p></div>' if g.get("answer") else ""}
+  <p class="byline">{t['updated']}</p>
+  {f'<div class="answer"><b>{t["answer"]}</b><p>{g["answer"]}</p></div>' if g.get("answer") else ""}
 </div></header>
 <div class="narrow"><div class="split" style="display:block"><div class="img" style="aspect-ratio:16/8">
   <img src="img/{g['img']}.jpg" alt="{g['short']}"></div></div></div>
-<article class="narrow prose" style="padding:50px 0 30px">{g['body']}</article>
+<article class="narrow prose" style="padding:40px 0 30px">{toc_html}{body}</article>
 {faq_block}
-<div class="narrow"><div class="author"><img src="img/logo-mark.png" alt=""><div><b>Abdel Iflillis</b> is the founder of MenuFix,
-  a small independent service that rewrites Uber Eats menus and enhances photos of real dishes for independent restaurants,
-  cafés and bakeries. <a href="/about.html">About MenuFix</a></div></div></div>
+<div class="narrow"><div class="author"><img src="img/logo-mark.png" alt=""><div><b>Abdel Iflillis</b> {t['author']}</div></div></div>
 <section class="tight bg-cream"><div class="wrap">
-  <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">More guides</span><h2>Keep improving your page</h2></div></div>
+  <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">{t['more']}</span><h2>{t['more_h']}</h2></div></div>
   <div class="grid3">{others}</div>
 </div></section>
-{cta()}
-""", "guides/index.html")
+{cta_html}
+""", f"{t['dir']}index.html", lang=lang, alt=alt, ld_extra=ld_extra)
 
-page("guides/index.html", "Uber Eats Guides for Restaurants and Cafés | MenuFix",
-     "Free practical guides for restaurant and café owners: getting more Uber Eats orders, writing menu descriptions, food photos on your phone and editing your menu.",
-f"""{head("Guides", "Free guides to a better <span class='hl'>Uber Eats page.</span>", "Practical, honest advice for independent restaurants, cafés and bakeries. Use it yourself, or let us do it for you.", ("menu", "camera"))}
-<section style="padding-top:30px"><div class="wrap"><div class="grid3">{"".join(guide_card(g) for g in GUIDES)}</div></div></section>
-{cta()}
-""", "guides/index.html")
+    page(f"{t['dir']}index.html", t["index_title"], t["index_desc"],
+         f"""{head(t['eyebrow'], t['index_h'], t['index_lead'], ("menu", "camera"))}
+<section style="padding-top:30px"><div class="wrap"><div class="grid3">{"".join(guide_card(g, lang) for g in guides)}</div></div></section>
+{cta_html}
+""", f"{t['dir']}index.html", lang=lang, alt=f"{alt_dir}index.html" if alt_dir else None)
+
+
+CTA_FR = cta("Voyez votre page améliorée, gratuitement.",
+             "Envoyez le nom de votre restaurant, café ou boulangerie sur Uber Eats : vous recevez une maquette gratuite de votre future page. Sans paiement, sans engagement.").replace(
+    "Free mockup", "Maquette gratuite").replace("Get my free mockup", "Recevoir ma maquette gratuite").replace(
+    "See pricing", "Voir les tarifs").replace('href="contact.html"', 'href="fr/contact.html"').replace('href="pricing.html"', 'href="fr/pricing.html"')
+FR_SLUGS = {g["slug"] for g in GUIDES_FR}
+EN_SLUGS = {g["slug"] for g in GUIDES}
+for g in GUIDES:
+    g.setdefault("alt", next((f["slug"] for f in GUIDES_FR if f.get("alt") == g["slug"]), None))
+build_guides(GUIDES, "en", cta(), "fr/guides/", FR_SLUGS)
+build_guides(GUIDES_FR, "fr", CTA_FR, "guides/", EN_SLUGS)
+
+# ------------------------------------------------------------------------------------------------ landing pages
+from _landing import build_landing
+LANDING = build_landing(page, head, cta, faq_html, guide_card, GUIDES, ba, EXD, ic)
+# ------------------------------------------------------------------------------------------------ sitemap
+TOP = ["index.html", "services.html", "examples.html", "how-it-works.html", "pricing.html", "about.html", "faq.html",
+       "contact.html", "privacy.html", "terms.html"]
+URLS = (TOP + ["guides/index.html"] + [f"guides/{g['slug']}.html" for g in GUIDES] + LANDING +
+        ["fr/" + p for p in TOP] + ["fr/guides/index.html"] + [f"fr/guides/{g['slug']}.html" for g in GUIDES_FR])
+(ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+    "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-10</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")

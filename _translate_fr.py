@@ -39,6 +39,7 @@ def fix_paths(html: str) -> str:
                   r'<a class="lang" href="../\1" hreflang="en" title="English">EN</a>', html)
     html = re.sub(r'<link rel="canonical" href="https://getmenufix.com/([^"]*)">',
                   r'<link rel="canonical" href="https://getmenufix.com/fr/\1">', html)
+    html = re.sub(r'<div><h4>[^<]*</h4><a href="uber-eats/.*?</div>', "", html)  # the business and city pages are in English only
     return html
 
 

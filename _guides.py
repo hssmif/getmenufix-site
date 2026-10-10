@@ -298,4 +298,116 @@ GUIDES = [
 <p>Each app adds a tablet on the counter, a menu to update and orders to pack. Being on one app with a great, accurate page is better than three with old prices and missing photos. Add another app when you're confident you can keep it up to date.</p>
 """,
     },
+    {
+        "slug": "uber-eats-banner-photo",
+        "answer": "Your Uber Eats banner should be a bright, close photo of your most appetising real dish, shot in daylight with the food filling the frame. Avoid logos, text, shopfronts and dark kitchen shots, and check how it crops on a phone before you publish.",
+        "faq": [('What photo should I use as my Uber Eats banner?', 'A bright, close photo of your best selling or most appetising real dish. It is the first thing people see, so it should make them hungry straight away.'), ('Can I put my logo or text on my Uber Eats banner?', 'Check the current Uber Eats guidelines in Uber Eats Manager. In general, food photos without text or logos look cleaner, and your name already shows on the page.'), ('Why does my banner look cropped on the app?', 'The banner is shown at different shapes on phones, tablets and computers. Keep the dish in the centre with some space around it, so nothing important is cut off.')],
+        "title": "Your Uber Eats Banner Photo: How to Choose One That Sells",
+        "short": "Choosing your Uber Eats banner photo",
+        "desc": "How restaurants and cafés can choose and take a banner photo for their Uber Eats page: which dish to show, how to shoot it, cropping and common mistakes.",
+        "img": "spread",
+        "related": ["uber-eats-food-photos-phone", "uber-eats-photo-requirements", "get-more-orders-on-uber-eats"],
+        "lead": "The big photo at the top of your Uber Eats page is the first thing customers see. It sets the mood for everything else, so it's worth getting right.",
+        "body": """
+<h2>1. Pick the right dish</h2>
+<p>Choose the dish people love most, or the one that looks best in a photo. It doesn't have to be your most expensive item. Colourful, generous dishes usually work well: a loaded burger, a pizza straight from the oven, a bowl of noodles with fresh herbs on top, a stack of pancakes.</p>
+
+<h2>2. Show real food, close up</h2>
+<p>Customers want to see what they'll eat. Fill most of the frame with the dish, so the food is the hero. A shopfront, an empty dining room or a logo on a plain background tells people little about the food.</p>
+
+<h2>3. Use daylight</h2>
+<p>Take the photo near a window during the day, with the light coming from the side. Turn off overhead lights that give a yellow tint. Our guide to <a href="/guides/uber-eats-food-photos-phone.html">taking food photos on your phone</a> walks through it step by step.</p>
+
+<h2>4. Leave room for cropping</h2>
+<p>Uber Eats shows the banner at different shapes on phones, tablets and computers, and your logo may sit over part of it. Keep the dish in the middle with some space around it. Take the photo in landscape, then check it on your own phone after publishing.</p>
+
+<h2>5. Keep it clean</h2>
+<p>Wipe the plate edges, clear the table of bottles, cloths and receipts, and use a simple background like a wooden board or a plain bench. Small details stand out at banner size.</p>
+
+<h2>6. Make it match what arrives</h2>
+<p>Your banner should show food that looks like what customers receive. A photo that promises more than the dish delivers leads to disappointment. Uber Eats also expects photos to show your real food.</p>
+
+<h2>7. Refresh it now and then</h2>
+<p>If you change your menu or a new dish becomes the favourite, update the banner. A seasonal dish can also work for a while, as long as it stays on the menu while it's the banner.</p>
+
+<h2>Common mistakes</h2>
+<ul class="ticks"><li>Dark photos taken at night under kitchen lights.</li><li>A whole table of dishes shot from far away, so nothing stands out.</li><li>Logos or text over the food.</li><li>A dish that is no longer on the menu.</li></ul>
+""",
+    },
+    {
+        "slug": "uber-eats-menu-categories",
+        "answer": "Organise your Uber Eats menu into a small number of clear categories in the order people eat: a best sellers category first, then mains or your core dishes, then sides, drinks and desserts. Use plain names, avoid categories with one item, and remove anything empty or duplicated.",
+        "faq": [('How should I order my categories on Uber Eats?', 'Put a best sellers category first, then the dishes most people come for, then sides, extras, drinks and desserts at the end.'), ('Can an item be in more than one category?', 'Yes, Uber Eats Manager lets you place the same item in more than one category. It is handy for putting best sellers at the top without removing them from their usual place.'), ('What should I name my categories?', 'Use words customers already use: Burgers, Pizzas, Noodles, Sides, Drinks. Creative names are fine for your shop, but plain names are faster to scan on a phone.')],
+        "title": "How to Organise Your Uber Eats Menu Categories",
+        "short": "Organising your Uber Eats categories",
+        "desc": "A practical guide to Uber Eats menu categories for restaurants and cafés: how many to have, what to call them, what order to put them in, and what to remove.",
+        "img": "kitchen",
+        "related": ["edit-menu-uber-eats-manager", "get-more-orders-on-uber-eats", "write-uber-eats-menu-descriptions"],
+        "lead": "A clear menu structure helps hungry people find what they want quickly. Here is how to set up your categories so your page is easy to scan on a phone.",
+        "body": """
+<h2>1. Start with a best sellers category</h2>
+<p>Create a first category called <b>Most Popular</b>, <b>Best Sellers</b> or <b>House Favourites</b> and put your five or six most ordered dishes in it. Many people never scroll far, so this is where your best food should be.</p>
+
+<h2>2. Follow the order people eat</h2>
+<p>After your best sellers, list the dishes most people come for, then the rest. A typical order is:</p>
+<ol><li>Best sellers</li><li>Your main dishes, split by type if you have many (Burgers, Wraps, Bowls)</li><li>Sides and extras</li><li>Drinks</li><li>Desserts</li></ol>
+<p>A café might use Breakfast, Lunch, Coffee, Cold drinks and Cakes instead. Group things the way your customers think about them.</p>
+
+<h2>3. Use plain names</h2>
+<p>Category names are signposts. <b>Noodle Soups</b> is quicker to understand than "From the Pot". If you like a creative name, add the plain word: <b>Nonna's Kitchen: Pasta</b>.</p>
+
+<h2>4. Not too many, not too few</h2>
+<p>Lots of tiny categories make people scroll through headings instead of food. One huge category hides your best dishes. Aim for categories with a handful of items each, and merge any that only have one or two.</p>
+
+<h2>5. Remove what's empty, old or duplicated</h2>
+<p>Old categories from a previous menu, empty ones and near duplicates ("Drinks" and "Beverages") make a page look unloved. Take five minutes to clean them up in Uber Eats Manager.</p>
+
+<h2>6. Put the best item first in each category</h2>
+<p>The order inside a category matters too. Lead each category with its most popular or most photogenic dish, and keep items with photos near the top.</p>
+
+<h2>7. Use time based menus if you have them</h2>
+<p>If you serve breakfast and dinner, Uber Eats lets you set menus for different times of day. That way customers only see what you can actually make at that hour.</p>
+
+<h2>Need a hand?</h2>
+<p>Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where to change categories. Or we can restructure the whole menu for you as part of our <a href="/pricing.html">Menu Fix</a>.</p>
+""",
+    },
+    {
+        "slug": "reply-to-uber-eats-reviews",
+        "answer": "Reply to Uber Eats reviews briefly, politely and personally: thank the customer, acknowledge any problem without arguing, say what you've done about it, and keep it short. Then fix the cause on your menu or in the kitchen, so the same complaint doesn't come back.",
+        "faq": [('Can I reply to reviews on Uber Eats?', 'Uber Eats Manager lets restaurants respond to customer feedback, depending on your account and region. Look under Feedback or Reviews in Uber Eats Manager.'), ('Should I reply to bad reviews?', 'Yes, when you can do it calmly. A short, polite reply that owns the problem shows other customers that you care. Never argue or share private details.'), ('Can I remove a bad review on Uber Eats?', 'Generally no. If a review breaks Uber Eats rules, for example abusive language, you can report it through Uber Eats Manager or support. Otherwise, the best response is to fix the cause.')],
+        "title": "How to Reply to Uber Eats Reviews (With Examples)",
+        "short": "How to reply to Uber Eats reviews",
+        "desc": "How restaurants and cafés can reply to Uber Eats reviews and feedback: what to say to good and bad reviews, examples you can adapt, and what to fix on your menu.",
+        "img": "counter",
+        "related": ["get-more-orders-on-uber-eats", "write-uber-eats-menu-descriptions", "new-on-uber-eats-checklist"],
+        "lead": "Reviews can sting, especially when the problem was the delivery, not your food. A calm, short reply and a quick fix to the cause go a long way.",
+        "body": """
+<h2>1. Read every review</h2>
+<p>Look at your feedback in Uber Eats Manager regularly. One comment is one person's view; the same comment twice is a pattern worth acting on.</p>
+
+<h2>2. Keep replies short and personal</h2>
+<p>Two or three sentences is plenty. Use the customer's first name if it shows, mention the dish, and sign off with your own name. A copied and pasted reply on every review reads as if nobody is listening.</p>
+
+<h2>3. Thank people for good reviews</h2>
+<p>A quick thank you is enough:</p>
+<p><i>"Thanks so much, Priya! Glad the laksa hit the spot. See you next time. Minh, Pho Corner"</i></p>
+
+<h2>4. For a complaint, own it and stay calm</h2>
+<p>Don't argue, even when you're sure you're right. Acknowledge the problem, say what you've done, and leave the door open:</p>
+<p><i>"Sorry your chips arrived soggy, Tom. We've changed to vented boxes so they stay crisp on the way. We'd love another chance. Sam"</i></p>
+<p>If the issue was the delivery, you can say so gently without blaming anyone: <i>"Sorry it arrived late. We'll pass this on, and we always pack hot food to travel as well as possible."</i></p>
+
+<h2>5. Never share private details</h2>
+<p>Don't mention order numbers, addresses or anything personal in a public reply. If something needs sorting out, follow the refund and support options in Uber Eats Manager.</p>
+
+<h2>6. Fix the cause</h2>
+<p>Many complaints point to something on your page:</p>
+<ul class="ticks"><li><b>"Not what I expected"</b>: rewrite the description so it says what's in the dish and how big it is.</li><li><b>"Smaller than the photo"</b>: retake the photo so it shows a real serving.</li><li><b>"Missing item"</b>: check that combos and options say exactly what's included.</li><li><b>"Cold" or "soggy"</b>: look at packaging, and consider taking dishes that don't travel well off delivery.</li></ul>
+<p>Our guide to <a href="/guides/write-uber-eats-menu-descriptions.html">writing menu descriptions</a> helps with the first two.</p>
+
+<h2>7. Report reviews that break the rules</h2>
+<p>Abusive or offensive reviews can be reported through Uber Eats Manager or support. Honest negative feedback usually stays, and that's where a good reply and a real fix matter most.</p>
+""",
+    },
 ]
