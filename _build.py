@@ -4,7 +4,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 NAV = [("services.html", "Services"), ("examples.html", "Examples"), ("how-it-works.html", "How it works"),
-       ("pricing.html", "Pricing"), ("about.html", "About"), ("faq.html", "FAQ")]
+       ("pricing.html", "Pricing"), ("guides/index.html", "Guides"), ("about.html", "About"), ("faq.html", "FAQ")]
 LOGO = '<a class="logo" href="index.html"><img src="img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>'
 
 
@@ -14,6 +14,55 @@ def ic(name, cls="icon3d"):
 
 def floaty(name, style, delay=0):
     return f'<img class="floaty" src="img/icons/{name}.png" alt="" style="{style};animation-delay:-{delay}s">'
+
+
+def _sized(html, up=""):
+    """Give every local image its width and height (no layout jumps) and lazy, async decoding."""
+    import re
+    import struct
+
+    def dims(path):
+        b = (ROOT / path).read_bytes()
+        if b[:8] == b"\x89PNG\r\n\x1a\n":
+            return struct.unpack(">II", b[16:24])
+        i = 2
+        while i < len(b):
+            marker, size = b[i + 1], struct.unpack(">H", b[i + 2:i + 4])[0]
+            if marker in (0xC0, 0xC1, 0xC2):
+                h, w = struct.unpack(">HH", b[i + 5:i + 9])
+                return w, h
+            i += 2 + size
+        return None
+
+    def add(m):
+        tag, src = m.group(0), m.group(1)
+        if "width=" in tag or not (ROOT / src).is_file() or src.endswith(".svg"):
+            return tag
+        d = dims(src)
+        return tag.replace("<img ", f'<img width="{d[0]}" height="{d[1]}" decoding="async" ', 1) if d else tag
+    return re.sub(r'<img [^>]*?src="' + re.escape(up) + r'(img/[^"]+)"[^>]*>', add, html)
+
+
+def ld(name):
+    """Structured data so Google understands who we are, what we sell and our FAQs."""
+    import json
+    org = {"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/",
+           "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com",
+           "founder": {"@type": "Person", "name": "Abdel Iflillis"}}
+    graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
+                   "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]
+    if name in ("index.html", "services.html", "pricing.html"):
+        graph.append({"@type": "Service", "name": "Uber Eats menu optimisation and food photo enhancement",
+                      "serviceType": "Delivery app menu makeover", "provider": {"@id": "https://getmenufix.com/#org"},
+                      "areaServed": ["AU", "NZ", "GB", "IE"],
+                      "offers": [{"@type": "Offer", "name": n, "price": str(pr), "priceCurrency": "AUD",
+                                  "url": "https://getmenufix.com/pricing.html"}
+                                 for n, pr in (("Menu Fix", 289), ("Menu and Photos", 579), ("Full Makeover", 969))]})
+    if name in ("faq.html", "index.html"):
+        items = FAQ if name == "faq.html" else FAQ[:4]
+        graph.append({"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q,
+                      "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in items]})
+    return json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
 
 
 def page(name, title, desc, body, active=""):
@@ -29,6 +78,7 @@ def page(name, title, desc, body, active=""):
 <meta name="description" content="{desc}">
 <link rel="icon" href="favicon.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="canonical" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
+<script type="application/ld+json">{ld(name)}</script>
 <link rel="alternate" hreflang="en" href="https://getmenufix.com/{'' if name == 'index.html' else name}">
 <link rel="alternate" hreflang="fr" href="https://getmenufix.com/fr/{'' if name == 'index.html' else name}">
 <meta property="og:title" content="{title}">
@@ -52,7 +102,7 @@ def page(name, title, desc, body, active=""):
       <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.</p>
       <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div></div>
     <div><h4>Services</h4><a href="services.html">Menu rewrite</a><a href="services.html#photos">Photo enhancement</a><a href="services.html#done">Done for you</a><a href="examples.html">Examples</a></div>
-    <div><h4>Company</h4><a href="about.html">About</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a></div>
+    <div><h4>Company</h4><a href="about.html">About</a><a href="guides/index.html">Guides</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a></div>
     <div><h4>Get started</h4><a href="contact.html">Free mockup</a><a class="mailto" href="#">hello@getmenufix.com</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
   </div>
   <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
@@ -61,7 +111,14 @@ def page(name, title, desc, body, active=""):
 </body>
 </html>
 """
-    (ROOT / name).write_text(html)
+    if "/" in name:  # a page one folder down: point shared links and assets at the parent folder
+        import re
+        html = re.sub(r'<a class="lang" href="fr/[^"]*"[^>]*>FR</a>', "", html)  # no French version of these yet
+        html = re.sub(r'<link rel="alternate" hreflang="(en|fr)"[^>]*>\n?', "", html)
+        html = re.sub(r'(src|href)="(?!https?:|#|mailto:|/|\.\./|data:)([^"]+)"', r'\1="../\2"', html)
+        html = html.replace('href="../fr/', 'href="../fr/')
+        (ROOT / name).parent.mkdir(exist_ok=True)
+    (ROOT / name).write_text(_sized(html, "../" if "/" in name else ""))
 
 
 def ba(n, before_name, after_name, before_desc, after_desc):
@@ -155,7 +212,7 @@ FEAT = "".join(f"""<a class="fcard reveal" href="examples.html"><div class="ph">
     ("cake", "Before and after", "A dessert people can't skip")])
 
 # ------------------------------------------------------------------------------------------------ home
-page("index.html", "MenuFix | Uber Eats page makeovers for restaurants, cafés and bakeries",
+page("index.html", "Uber Eats Menu Optimisation and Food Photos | MenuFix",
      "We make your Uber Eats page show how good your food is: clear names, descriptions that sell, the right order and better photos of your real food. Done for you. Free mockup first.",
 f"""<header class="hero">
   {floaty("pizza", "left:45%;bottom:4%", 1)}{floaty("sushi", "left:44%;top:6%", 4)}{floaty("coffee", "right:2%;bottom:4%", 2)}
@@ -251,7 +308,7 @@ def head(eyebrow, title, lead, icons=("burger", "coffee"), extra=""):
 
 
 # ------------------------------------------------------------------------------------------------ services
-page("services.html", "Services | MenuFix", "Menu rewrites, photo enhancement of your real food and Done for you updates for your Uber Eats page.",
+page("services.html", "Uber Eats Menu Writing, Food Photo Enhancement and Setup | MenuFix", "We rewrite your Uber Eats menu, enhance photos of your real dishes and can update your Uber Eats page for you. For restaurants, cafés and bakeries.",
 f"""{head("Services", "Everything that makes people <span class='hl'>order.</span>", "We focus on one thing: your delivery app page. Here's exactly what we do and what you get.", ("pizza", "sushi"))}
 
 <section class="tight" id="menu"><div class="wrap split">
@@ -290,7 +347,7 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
 
 # ------------------------------------------------------------------------------------------------ examples
 grid = "".join(f"<div>{ba(*e)}</div>" for e in EX)
-page("examples.html", "Examples | MenuFix", "Before and after examples of Uber Eats menu makeovers: clearer names, descriptions that sell and better photos.",
+page("examples.html", "Uber Eats Menu Before and After Examples | MenuFix", "Before and after examples of Uber Eats menu makeovers: clearer names, descriptions that sell and better photos.",
 f"""{head("Examples", "See the <span class='hl'>difference.</span>", "Whole page mockups first, then dish by dish. Drag each slider to compare.", ("taco", "cake"))}
 <section style="padding-top:30px"><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Page mockups</span><h2>Whole page makeovers</h2></div>
@@ -312,7 +369,7 @@ f"""{head("Examples", "See the <span class='hl'>difference.</span>", "Whole page
 """, "examples.html")
 
 # ------------------------------------------------------------------------------------------------ how it works
-page("how-it-works.html", "How it works | MenuFix", "From free mockup to your new Uber Eats page in four simple steps, all by email.",
+page("how-it-works.html", "How Our Uber Eats Menu Makeover Works | MenuFix", "From free mockup to your new Uber Eats page in four simple steps, all by email.",
 f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everything can be done by email. You see the idea before you pay anything.", ("noodles", "croissant"))}
 <section class="tight"><div class="wrap split">
   <div class="reveal">{ic("gift")}<span class="eyebrow" style="display:block">Step 1</span><h2>Your free mockup</h2>
@@ -339,7 +396,7 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 """, "how-it-works.html")
 
 # ------------------------------------------------------------------------------------------------ pricing
-page("pricing.html", "Pricing | MenuFix", "Simple one time prices for Uber Eats menu makeovers. Menu Fix, Menu and Photos, and the Full Makeover where we do it all for you.",
+page("pricing.html", "Uber Eats Menu Makeover Prices | MenuFix", "Simple one time prices for Uber Eats menu makeovers. Menu Fix, Menu and Photos, and the Full Makeover where we do it all for you.",
 f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No subscription, no contract. Start with a free mockup if you'd like to see the idea first.", ("star", "bag"), CUR)}
 <section style="padding-top:40px"><div class="wrap">{PLANS}
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
@@ -383,14 +440,14 @@ f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div cl
 """, "about.html")
 
 # ------------------------------------------------------------------------------------------------ faq
-page("faq.html", "FAQ | MenuFix", "Answers to common questions about MenuFix Uber Eats page makeovers.",
+page("faq.html", "Uber Eats Menu Makeover Questions | MenuFix", "Answers to common questions about MenuFix Uber Eats page makeovers.",
 f"""{head("FAQ", "Questions and <span class='hl'>answers.</span>", "Can't find what you're looking for? <a class='mailto' href='#'>Email us</a> and we'll get back to you.", ("icecream", "dumpling"))}
 <section style="padding-top:30px"><div class="narrow">{faq_html(FAQ)}</div></section>
 {cta()}
 """, "faq.html")
 
 # ------------------------------------------------------------------------------------------------ contact
-page("contact.html", "Free mockup | MenuFix", "Get a free mockup of your Uber Eats page. No payment, no obligation.",
+page("contact.html", "Free Uber Eats Page Mockup | MenuFix", "Get a free mockup of your Uber Eats page. No payment, no obligation.",
 f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class="wrap split" style="align-items:start">
   <div><span class="eyebrow">Free mockup</span><h1>See your page improved, <span class="hl">free.</span></h1>
     <p class="lead">Tell us where to find you on Uber Eats. We'll email you a mockup of how your page could look and the main things we'd change. No payment, no obligation.</p>
@@ -423,4 +480,46 @@ page("404.html", "Page not found | MenuFix", "This page does not exist.",
   <p class="lead" style="margin-left:auto;margin-right:auto">The page you're looking for doesn't exist or has moved.</p>
   <div class="row" style="justify-content:center;margin-top:30px"><a class="btn primary" href="index.html">Back to home</a></div>
 </div></header>""")
+# ------------------------------------------------------------------------------------------------ guides
+from _guides import GUIDES
+
+
+def guide_card(g):
+    return (f'<a class="photo-card reveal" href="/guides/{g["slug"]}.html"><div class="ph"><img class="bg" src="img/{g["img"]}.jpg" '
+            f'alt="" loading="lazy"></div><div class="body" style="padding-top:26px"><h3>{g["short"]}</h3>'
+            f'<p>{g["desc"]}</p></div></a>')
+
+
+for g in GUIDES:
+    import json as _json
+    art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["desc"],
+           "image": f"https://getmenufix.com/img/{g['img']}.jpg", "inLanguage": "en",
+           "author": {"@type": "Person", "name": "Abdel Iflillis"},
+           "publisher": {"@type": "Organization", "name": "MenuFix", "logo": {"@type": "ImageObject",
+                         "url": "https://getmenufix.com/img/logo-mark.png"}},
+           "mainEntityOfPage": f"https://getmenufix.com/guides/{g['slug']}.html", "datePublished": "2026-10-10"}
+    others = "".join(guide_card(o) for o in GUIDES if o is not g)[:0] or "".join(guide_card(o) for o in [x for x in GUIDES if x is not g][:3])
+    page(f"guides/{g['slug']}.html", f"{g['title']} | MenuFix", g["desc"], f"""
+<script type="application/ld+json">{_json.dumps(art, ensure_ascii=False)}</script>
+<header class="page-head" style="padding-bottom:40px"><div class="narrow">
+  <span class="eyebrow"><a href="/guides/index.html" style="color:inherit;text-decoration:none">Guides</a></span>
+  <h1 style="font-size:clamp(34px,4.6vw,54px)">{g['title']}</h1>
+  <p class="lead">{g['lead']}</p>
+</div></header>
+<div class="narrow"><div class="split" style="display:block"><div class="img" style="aspect-ratio:16/8">
+  <img src="img/{g['img']}.jpg" alt="{g['short']}"></div></div></div>
+<article class="narrow prose" style="padding:50px 0 30px">{g['body']}</article>
+<section class="tight bg-cream"><div class="wrap">
+  <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">More guides</span><h2>Keep improving your page</h2></div></div>
+  <div class="grid3">{others}</div>
+</div></section>
+{cta()}
+""", "guides/index.html")
+
+page("guides/index.html", "Uber Eats Guides for Restaurants and Cafés | MenuFix",
+     "Free practical guides for restaurant and café owners: getting more Uber Eats orders, writing menu descriptions, food photos on your phone and editing your menu.",
+f"""{head("Guides", "Free guides to a better <span class='hl'>Uber Eats page.</span>", "Practical, honest advice for independent restaurants, cafés and bakeries. Use it yourself, or let us do it for you.", ("menu", "camera"))}
+<section style="padding-top:30px"><div class="wrap"><div class="grid3">{"".join(guide_card(g) for g in GUIDES)}</div></div></section>
+{cta()}
+""", "guides/index.html")
 print("built pages")

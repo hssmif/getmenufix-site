@@ -11,7 +11,7 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 500 17px/1.65 var(--font); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--brand-dark); }
 .wrap { width: min(1220px, 100% - 40px); margin: 0 auto; }
 .narrow { width: min(820px, 100% - 40px); margin: 0 auto; }
@@ -285,3 +285,12 @@ footer .bottom { display: flex; justify-content: space-between; flex-wrap: wrap;
   .card, .plan { padding: 26px; }
   .cat { width: 90px; } .cat .ic { width: 82px; height: 82px; border-radius: 24px; } .cat img { width: 56px; height: 56px; }
 }
+
+/* guides */
+.prose { font-size: 18px; color: var(--ink2); }
+.prose h2 { font-size: 28px; margin: 44px 0 14px; color: var(--ink); }
+.prose p, .prose li { line-height: 1.75; }
+.prose ul, .prose ol { padding-left: 22px; margin: 0 0 1.2em; }
+.prose li { margin: 6px 0; }
+.prose a { color: var(--brand-dark); font-weight: 700; }
+.prose table.compare td, .prose table.compare th { text-align: left; }
