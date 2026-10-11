@@ -81,3 +81,52 @@ if ("IntersectionObserver" in window) {
     { rootMargin: "0px 0px -8% 0px" });
   document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
 } else document.querySelectorAll(".reveal").forEach((el) => el.classList.add("in"));
+
+// Engagement events for GoatCounter: time on page, scroll depth and clicks, each sent once per page view.
+// Nothing is stored on the visitor's device. If an adblocker blocks GoatCounter, events are simply dropped.
+(() => {
+  const sent = {}, waiting = [];
+  const gc = () => window.goatcounter && typeof window.goatcounter.count === "function" ? window.goatcounter : null;
+  const fire = (name) => { try { gc().count({ path: name, title: location.pathname, event: true }); } catch (e) {} };
+  const track = (name) => {
+    if (sent[name]) return;
+    sent[name] = true;
+    if (gc()) fire(name); else waiting.push(name);
+  };
+  // count.js loads async: send what happened before it was ready, give up after a minute.
+  let tries = 0;
+  const flush = setInterval(() => {
+    if (gc()) { waiting.splice(0).forEach(fire); }
+    if (gc() || ++tries > 60) { clearInterval(flush); waiting.length = 0; }
+  }, 1000);
+
+  // Time on page, counted only while the tab is visible.
+  let seen = 0;
+  const steps = [10, 30, 60, 180];
+  const timer = setInterval(() => {
+    if (document.visibilityState !== "visible") return;
+    seen += 1;
+    steps.forEach((s) => { if (seen >= s) track("time-" + s + "s"); });
+    if (seen >= steps[steps.length - 1]) clearInterval(timer);
+  }, 1000);
+
+  // Scroll depth: how far down the page the bottom of the screen got.
+  const depth = () => {
+    const h = document.documentElement.scrollHeight, v = window.innerHeight;
+    if (!h || h <= v) return;  // a page that fits on one screen says nothing about scrolling
+    const pct = (window.scrollY + v) / h * 100;
+    [25, 50, 75].forEach((d) => { if (pct >= d) track("scroll-" + d); });
+    if (pct >= 98) track("scroll-100");
+  };
+  addEventListener("scroll", depth, { passive: true });
+
+  // Clicks on pricing links, pay buttons and email links.
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest && e.target.closest("a");
+    if (!a) return;
+    const buy = a.getAttribute("data-buy"), href = a.getAttribute("href") || "";
+    if (buy && Object.prototype.hasOwnProperty.call(LINKS, buy)) track("click-pay-" + buy);
+    else if (/^mailto:/i.test(href) || a.classList.contains("mailto")) track("click-email");
+    else if (/(^|\/)pricing\.html(\?|#|$)/.test(href)) track("click-pricing");
+  }, true);
+})();

@@ -84,6 +84,10 @@ CHROME = {
 }
 
 
+# Changes when site.js changes, so browsers fetch the new file instead of an old cached copy.
+SITE_JS_V = __import__("hashlib").md5((ROOT / "site.js").read_bytes()).hexdigest()[:8]
+
+
 def _url(path):
     return "https://getmenufix.com/" + (path[:-10] if path in ("index.html", "fr/index.html") else path)
 
@@ -142,7 +146,7 @@ def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra="")
   </div>
   <div class="bottom"><span>{c["rights"]}</span><span>{c["indep"]}</span></div>
 </div></footer>
-<script src="site.js"></script>
+<script src="site.js?v={SITE_JS_V}"></script>
 </body>
 </html>
 """
