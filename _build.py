@@ -115,7 +115,7 @@ def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra="")
 <meta name="theme-color" content="#ffffff">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="icon" href="favicon.png" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="canonical" href="{_url(name)}">
 <script type="application/ld+json">{ld(name) if lang == "en" else LD_FR}</script>{ld_extra}
 {alternates}<meta property="og:title" content="{title}">
