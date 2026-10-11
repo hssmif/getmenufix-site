@@ -45,8 +45,8 @@ GUIDES = [
     },
     {
         "slug": "write-uber-eats-menu-descriptions",
-        "answer": "A good Uber Eats menu description is 10 to 25 words: say what the dish is, name the main ingredients, and add one detail that makes it yours, like how it's cooked or where it comes from.",
-        "faq": [('How long should an Uber Eats menu description be?', 'Usually one or two short sentences, around 10 to 25 words. People skim on delivery apps.'), ('What should a menu description include?', 'What the dish is, its main ingredients, and one detail that makes it yours. Add spice level, portion size and dietary notes when useful.'), ('What words should I avoid in menu descriptions?', "Vague praise like delicious or amazing, ALL CAPS, internal codes, and claims you can't back up.")],
+        "answer": "Uber recommends menu descriptions of 140 to 260 characters, about two short sentences: say what the dish is, name the main ingredients, and add one detail that makes it yours, like how it's cooked or where it comes from.",
+        "faq": [('How long should an Uber Eats menu description be?', 'Uber\'s own Australian advice is 140 to 260 characters, about two short sentences. Long enough to say what\'s in the dish, short enough to skim.'), ('What should a menu description include?', 'What the dish is, its main ingredients, and one detail that makes it yours. Add spice level, portion size and dietary notes when useful.'), ('What words should I avoid in menu descriptions?', "Vague praise like delicious or amazing, ALL CAPS, internal codes, and claims you can't back up.")],
         "title": "How to Write Uber Eats Menu Descriptions That Sell (With Examples)",
         "short": "Writing menu descriptions that sell",
         "desc": "A simple formula and real examples for writing short, appetising Uber Eats menu descriptions for burgers, curries, pizza, coffee and more.",
@@ -56,7 +56,7 @@ GUIDES = [
 <h2>The formula: what it is, what's in it, why it's good</h2>
 <p>Most great descriptions follow three steps in one or two short sentences:</p>
 <ol><li><b>What it is</b> if the name doesn't say it already.</li><li><b>The main ingredients</b>, the ones people care about.</li><li><b>One detail</b> that makes it yours: how it's cooked, where it comes from, how it's served.</li></ol>
-<p>Aim for 10 to 25 words. Delivery app customers skim, so lead with the tastiest words.</p>
+<p>Uber's own advice is <b>140 to 260 characters</b>, about two short sentences (<a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">Uber Australia</a>). Customers skim, so lead with the tastiest words.</p>
 
 <h2>Before and after examples</h2>
 <table class="compare"><tr><th>Before</th><th>After</th></tr>
@@ -408,6 +408,40 @@ GUIDES = [
 
 <h2>7. Report reviews that break the rules</h2>
 <p>Abusive or offensive reviews can be reported through Uber Eats Manager or support. Honest negative feedback usually stays, and that's where a good reply and a real fix matter most.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-fees-australia",
+        "answer": "On the Uber Eats app in Australia, Uber's published rates are <b>30%</b> of each order when Uber delivers, <b>16%</b> when you deliver yourself and <b>8%</b> for pickup. New locations also pay a one off <b>A$700 activation fee</b> (excl. GST). The lower 6% rates you may see apply to Uber's Webshop, your own ordering site, not the app.",
+        "faq": [('How much does Uber Eats charge restaurants in Australia?', 'Uber\'s published Marketplace rates are 30% with Uber delivery, 16% with self delivery and 8% for pickup, plus a one off A$700 activation fee (excl. GST) for a new location. Your own agreement is what counts, so check it in Uber Eats Manager.'), ('Is Uber Eats pickup 6% or 8%?', 'On the Uber Eats app, pickup is 8%. The 6% rate is for Uber\'s Webshop, the ordering site Uber can host for your own customers.'), ('Is there a sign up fee for Uber Eats in Australia?', 'Yes. Uber lists a one off activation fee of A$700 (excl. GST) for a new location and A$350 for each extra location, taken in weekly instalments.')],
+        "title": "Uber Eats Fees in Australia (2026): What Restaurants Really Pay",
+        "short": "Uber Eats fees in Australia",
+        "desc": "Uber Eats commission for Australian restaurants and cafés in 2026: 30% delivery, 16% self delivery, 8% pickup, the A$700 activation fee, Webshop rates and how to work out what you keep.",
+        "img": "counter",
+        "lead": "Before you set prices or run a promotion, you need to know what Uber Eats takes from each order. Here are Uber's published Australian rates, taken from Uber's own pricing page, and a simple way to work out what you keep.",
+        "body": """
+<h2>The rates on the Uber Eats app</h2>
+<table class="compare"><tr><th>How the order reaches the customer</th><th>Uber's fee</th></tr>
+<tr><td>Uber delivers it</td><td>30% of the order</td></tr>
+<tr><td>You deliver it with your own staff</td><td>16% of the order</td></tr>
+<tr><td>The customer picks it up</td><td>8% of the order</td></tr></table>
+<p>These are the rates Uber publishes on its <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a>. Your own agreement is what counts, so check your plan and statements in Uber Eats Manager.</p>
+
+<h2>One off fees</h2>
+<ul class="ticks"><li><b>Activation fee:</b> A$700 (excl. GST) for a new location, A$350 for each extra location. It's taken from your payouts in weekly instalments.</li><li><b>Tablet damage fee:</b> A$200 (excl. GST) if the Uber device is damaged beyond normal wear, lost or not returned.</li></ul>
+
+<h2>Why some blogs say 6%</h2>
+<p>Uber also offers <b>Webshop</b>, an ordering site for your own customers. Its rates are lower: 25% with Uber delivery, 6% with self delivery and 6% for pickup. Those are not the rates for orders through the Uber Eats app.</p>
+
+<h2>How to work out what you keep</h2>
+<p>Take one of your best sellers and do this sum. Example only, with made up numbers: a dish sells for $20 on the app and Uber delivers it.</p>
+<ol><li>Uber's fee: 30% of $20 is $6.</li><li>Your food and packaging cost, say $8.</li><li>What's left: $20 minus $6 minus $8 is $6, before rent, wages and GST.</li></ol>
+<p>Do this for your top ten dishes. If a dish leaves you too little, change its price, its portion or take it off delivery. Our guide on <a href="/guides/price-menu-uber-eats.html">how to price your menu on Uber Eats</a> walks through it.</p>
+
+<h2>Make each order count</h2>
+<p>Because the fee is a percentage, every order costs you the same share. What you can change is how many people choose you and how much they add to their cart. Clear photos, names people understand and best sellers first help with both. See our <a href="/guides/get-more-orders-on-uber-eats.html">guide to getting more orders</a>.</p>
+
+<p>Want to see how your page could look? We send a free mockup first, so you can decide with no cost.</p>
 """,
     },
 ]
