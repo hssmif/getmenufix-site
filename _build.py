@@ -48,7 +48,8 @@ def ld(name):
     import json
     org = {"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/",
            "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com",
-           "founder": {"@type": "Person", "name": "Abdel Iflillis"}}
+           "founder": {"@type": "Person", "name": "Abdel Iflillis"},
+           "sameAs": ["https://www.instagram.com/menufix.official/"]}
     graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
                    "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]
     if name in ("index.html", "services.html", "pricing.html"):
@@ -144,7 +145,7 @@ def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra="")
       <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div></div>
     {cols}
   </div>
-  <div class="bottom"><span>{c["rights"]}</span><span>{c["indep"]}</span></div>
+  <div class="bottom"><span>{c["rights"]}</span><a href="https://www.instagram.com/menufix.official/" rel="me noopener" target="_blank">Instagram @menufix.official</a><span>{c["indep"]}</span></div>
 </div></footer>
 <script src="site.js?v={SITE_JS_V}"></script>
 </body>
