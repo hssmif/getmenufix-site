@@ -82,6 +82,9 @@ GUIDES = [
 <tr><td>Meat pie</td><td>Chunky beef in rich gravy, baked in flaky pastry every morning. Ask for sauce in the notes and we'll pack it on the side.</td></tr>
 <tr><td>Pad thai</td><td>Stir fried rice noodles with egg, bean sprouts, spring onion and crushed peanuts in a sweet tamarind sauce. Choose chicken, beef, prawn or tofu.</td></tr></table>
 
+<h2>Check yours, and see more examples</h2>
+<p>Paste a description into our free <a href="/tools/menu-description-checker.html">menu description checker</a> to check its length and wording. For 30 more ideas by cuisine, see <a href="/guides/uber-eats-menu-description-examples.html">Uber Eats menu description examples</a>.</p>
+
 <h2>Words that help, and words to avoid</h2>
 <p><b>Helpful:</b> cooking methods (slow cooked, wood fired, crispy, chargrilled), textures (crunchy, silky, fudgy), freshness (made daily, baked in house), and clear portions (serves 2, 10 pieces).</p>
 <p><b>Avoid:</b> vague praise (delicious, amazing, best in town), ALL CAPS, internal codes, and claims you can't back up. Let the ingredients do the selling.</p>
@@ -144,7 +147,7 @@ GUIDES = [
 <p>You don't need a photographer. Our guide on <a href="/guides/uber-eats-food-photos-phone.html">taking great Uber Eats photos on your phone</a> covers light, angles and backgrounds. If you're weighing up a photographer, see <a href="/guides/uber-eats-food-photography-cost.html">what Uber Eats food photography costs</a>.</p>
 
 <h2>Photo won't upload?</h2>
-<p>Our guide to <a href="/guides/uber-eats-photo-upload-not-working.html">fixing Uber Eats photo upload problems</a> goes through each cause and fix.</p>
+<p>Our guide to <a href="/guides/uber-eats-photo-upload-not-working.html">fixing Uber Eats photo upload problems</a> goes through each cause and fix. You can also check a photo's size and shape in your browser with our free <a href="/tools/uber-eats-photo-checker.html">Uber Eats photo checker</a>, and see <a href="/guides/how-to-add-photos-to-uber-eats-menu.html">how to add photos to your menu</a> step by step.</p>
 
 <h2>Sources</h2>
 <p>These requirements come from Uber's merchant help pages: <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> and <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">adding cover images and menu photos (Australia)</a>. Uber can change them, so check those pages if a photo is rejected.</p>
@@ -255,6 +258,8 @@ GUIDES = [
 
 <h2>A clear page sets the right expectations</h2>
 <p>When what arrives matches what people saw, they're more likely to be happy and order again. That's the idea behind everything on this list.</p>
+
+<p>Not on Uber Eats yet? See <a href="/guides/how-to-get-your-restaurant-on-uber-eats-australia.html">how to get your restaurant on Uber Eats in Australia</a>.</p>
 
 <p>Just launched? We'll send you a free mockup of how your page could look, so you can see what we'd change before deciding anything.</p>
 """,
@@ -407,7 +412,7 @@ GUIDES = [
 <p>If you serve breakfast and dinner, Uber Eats lets you set menus for different times of day. That way customers only see what you can actually make at that hour.</p>
 
 <h2>Need a hand?</h2>
-<p>Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where to change categories. Or we can restructure the whole menu for you as part of our <a href="/pricing.html">Menu Fix</a>.</p>
+<p>For a step by step on getting best sellers to the top, see <a href="/guides/best-sellers-uber-eats-menu-order.html">best sellers first</a>. Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where to change categories. Or we can restructure the whole menu for you as part of our <a href="/pricing.html">Menu Fix</a>.</p>
 """,
     },
     {
@@ -443,6 +448,9 @@ GUIDES = [
 <p>Many complaints point to something on your page:</p>
 <ul class="ticks"><li><b>"Not what I expected"</b>: rewrite the description so it says what's in the dish and how big it is.</li><li><b>"Smaller than the photo"</b>: retake the photo so it shows a real serving.</li><li><b>"Missing item"</b>: check that combos and options say exactly what's included.</li><li><b>"Cold" or "soggy"</b>: look at packaging, and consider taking dishes that don't travel well off delivery.</li></ul>
 <p>Our guide to <a href="/guides/write-uber-eats-menu-descriptions.html">writing menu descriptions</a> helps with the first two.</p>
+
+<h2>Improve the rating itself</h2>
+<p>Replies help, but the rating comes from the orders. See <a href="/guides/improve-uber-eats-rating-restaurant.html">how to improve your Uber Eats rating</a>.</p>
 
 <h2>7. Report reviews that break the rules</h2>
 <p>Abusive or offensive reviews can be reported through Uber Eats Manager or support. Honest negative feedback usually stays, and that's where a good reply and a real fix matter most.</p>
@@ -564,8 +572,239 @@ GUIDES = [
 <p>This is usually the browser, not the photo.</p>
 <p><b>Fix:</b> use Uber Eats Manager on a computer, update your browser or try another one, and reload the page. If it still fails, contact Uber Eats support from Uber Eats Manager. Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where photos are added.</p>
 
+<h2>Check it in your browser</h2>
+<p>Our free <a href="/tools/uber-eats-photo-checker.html">Uber Eats photo checker</a> checks the file type, file size, pixel size and shape, and can crop and resize a photo to 2880 × 2304 for you. Nothing is uploaded.</p>
+
 <h2>Quick checklist before you upload</h2>
 <ul class="ticks"><li>JPG, under 10 MB.</li><li>2880 × 2304 pixels, or at least 550 × 440, in a 5:4 shape.</li><li>One real dish, centred, nothing written on it.</li><li>Sharp and bright.</li></ul>
+""",
+    },
+    {
+        "slug": "how-to-get-your-restaurant-on-uber-eats-australia",
+        "answer": "To get your restaurant on Uber Eats in Australia, sign up on Uber's merchant site, give your business details and menu, and wait for Uber to approve your location. Uber lists a one off <b>A$700 activation fee</b> (excl. GST) for a new location, taken from your payouts. Then set up your menu, photos and hours in Uber Eats Manager before your first orders.",
+        "faq": [("How do I get my restaurant on Uber Eats in Australia?", "Sign up on Uber's Australian merchant site, give your business and location details, upload your menu, then wait for Uber to approve your location. After that you set everything up in Uber Eats Manager."),
+                ("How much does it cost to join Uber Eats as a restaurant?", "Uber's Australian pricing page lists a one off A$700 activation fee (excl. GST) for a new location, taken from your payouts in weekly instalments, plus a percentage of each order. Your own agreement is what counts."),
+                ("What do I need to sign up for Uber Eats?", "Uber asks for documents and information during sign up. Its help page lists a menu with prices and descriptions, your opening hours and a business or food licence. Uber tells you exactly what it needs for your location."),
+                ("How long until I get my first order?", "That depends on Uber's approval and how quickly you set up your menu. A complete page with photos and clear names gives you the best start.")],
+        "title": "How to Get Your Restaurant on Uber Eats in Australia",
+        "short": "Getting your restaurant on Uber Eats",
+        "desc": "How Australian restaurants and cafés join Uber Eats: the sign up steps, what you need, the A$700 activation fee, and a checklist for your first week.",
+        "img": "counter",
+        "related": ["new-on-uber-eats-checklist", "uber-eats-fees-australia", "how-to-add-photos-to-uber-eats-menu"],
+        "lead": "Joining Uber Eats is mostly paperwork and setting up your menu. Here are the steps for an Australian restaurant or café, what to have ready, what it costs, and what to do in your first week.",
+        "body": """
+<h2>The sign up steps</h2>
+<ol><li><b>Start on Uber's merchant site.</b> Go to the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">Uber Eats sign up page for Australia</a> and enter your business name, address and contact details.</li>
+<li><b>Give Uber what it asks for.</b> Uber's <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">Australian merchant terms</a> say your location is added only after you provide the documents and information Uber requests and Uber approves it.</li>
+<li><b>Set up your menu.</b> Add your dishes, prices, categories and opening hours.</li>
+<li><b>Add photos.</b> Start with your best sellers. See <a href="/guides/how-to-add-photos-to-uber-eats-menu.html">how to add photos to your Uber Eats menu</a>.</li>
+<li><b>Go live.</b> Once Uber approves your location, you start taking orders.</li></ol>
+
+<h2>What to have ready</h2>
+<p>Uber's help page on <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a> lists:</p>
+<ul class="ticks"><li>an up to date copy of your menu, with prices and descriptions;</li><li>your opening hours;</li><li>a business or food licence.</li></ul>
+<p>Requirements can differ by country, and Uber tells you exactly what it needs for your location during sign up. Have your ABN and bank details handy too, so you can finish without stopping.</p>
+
+<h2>What it costs</h2>
+<p>Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a> lists a one off <b>A$700 activation fee</b> (excl. GST) for a new location, taken from your payouts in weekly instalments, plus a percentage of each order. Our guide to <a href="/guides/uber-eats-fees-australia.html">Uber Eats fees for restaurants in Australia</a> explains each rate and how to work out what you keep. Check your own agreement too: it's what counts.</p>
+
+<h2>Set your prices before you go live</h2>
+<p>Commission comes out of every order, so a price that works at your counter can lose money on delivery. Work it out dish by dish with our guide on <a href="/guides/price-menu-uber-eats.html">how to price your menu on Uber Eats</a>.</p>
+
+<h2>Your first week</h2>
+<ul class="ticks"><li>Best sellers first, each with a clear photo of your real food.</li><li>A short description for every dish. Check yours with our free <a href="/tools/menu-description-checker.html">menu description checker</a>.</li><li>Hours that match when you can really cook and pack orders.</li><li>Order once from yourself, to see your page and packaging the way customers do.</li></ul>
+<p>The full list is in our <a href="/guides/new-on-uber-eats-checklist.html">first weeks checklist</a>.</p>
+
+<p>If you'd like help with the menu and photos, we start with a free mockup of how your page could look, so you can decide with no cost.</p>
+""",
+    },
+    {
+        "slug": "how-to-add-photos-to-uber-eats-menu",
+        "answer": "To add a photo to an Uber Eats menu item, open Menu Maker in Uber Eats Manager, click the item, add the photo in the Photo section (drag it in or browse), save, then request approval. Uber reviews each photo before it appears. Use a 5:4 landscape JPG, ideally 2880 × 2304 pixels and under 10 MB.",
+        "faq": [("How do I add photos to my Uber Eats menu?", "In Uber Eats Manager, open Menu Maker, click the menu item, add the photo in the Photo section, click Save, then Request Approval. Uber reviews it before it shows."),
+                ("Why isn't my Uber Eats photo showing yet?", "New photos are reviewed by Uber before they appear, so they take longer than a name or price change. Check the item again later."),
+                ("What size should my Uber Eats photo be?", "Uber recommends 2880 × 2304 pixels in a 5:4 landscape shape, at least 550 × 440, as a JPG under 10 MB."),
+                ("Can I add the same photo to more than one item?", "Each photo should show the item it's attached to, exactly as the customer receives it. A combo can show everything that comes in it.")],
+        "title": "How to Add Photos to Your Uber Eats Menu (Step by Step)",
+        "short": "How to add photos to your Uber Eats menu",
+        "desc": "Step by step for restaurant owners: how to add or replace menu photos in Uber Eats Manager, Uber's photo rules, and what to do if a photo won't upload.",
+        "img": "phone",
+        "related": ["uber-eats-photo-requirements", "uber-eats-photo-upload-not-working", "uber-eats-food-photos-phone"],
+        "lead": "Photos are added one menu item at a time in Uber Eats Manager. Here are the steps from Uber's own help pages, the rules your photo has to meet, and how to check it before you upload.",
+        "body": """
+<h2>Before you start: check the photo</h2>
+<p>Uber's <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> ask for a 5:4 landscape photo, ideally 2880 × 2304 pixels (at least 550 × 440), as a JPG under 10 MB, showing one real dish with no text, logos or faces. Our free <a href="/tools/uber-eats-photo-checker.html">Uber Eats photo checker</a> checks the size and shape in your browser and can crop it to 5:4 for you. Every rule is in our <a href="/guides/uber-eats-photo-requirements.html">Uber Eats photo size guide</a>.</p>
+
+<h2>How to add a photo to a menu item</h2>
+<p>These steps follow Uber's help page on <a href="https://help.uber.com/en/merchants-and-restaurants/article/adding-cover-images-and-menu-catalog-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">adding menu photos</a>:</p>
+<ol><li>Sign in to Uber Eats Manager and open <b>Menu Maker</b>.</li><li>Go to <b>Overview</b> and click the menu item.</li><li>In the <b>Edit item</b> panel, find <b>Photo</b>.</li><li>Drag your photo in, or click <b>Browse files</b> and choose it.</li><li>Click <b>Save</b> once it has uploaded.</li><li>Click <b>Request Approval</b> when Uber asks.</li></ol>
+<p>Button names can change a little between versions of Uber Eats Manager. Uber's <a href="https://help.uber.com/en/merchants-and-restaurants/article/editing-your-menu?nodeId=156909ff-4025-44c7-a200-20b339f9fa93" rel="nofollow">help page on editing your menu</a> has the current layout.</p>
+
+<h2>After you upload</h2>
+<p>Uber reviews every photo before it appears, so it takes longer than a name or price change. If a photo is turned down, Uber tells you why. The usual reasons are text or logos on the image, more than one item, or a blurry photo.</p>
+
+<h2>Photo won't upload?</h2>
+<p>File too big, the wrong format (like HEIC from an iPhone) or the wrong shape are the common causes. Our guide to <a href="/guides/uber-eats-photo-upload-not-working.html">Uber Eats photo upload problems</a> goes through each fix.</p>
+
+<h2>Which photos to add first</h2>
+<p>Start with your ten best sellers, then the rest of the menu. Take them in daylight, with the same background and angle for every dish. Our guide to <a href="/guides/uber-eats-food-photos-phone.html">food photos on your phone</a> shows how, and the <a href="/guides/uber-eats-banner-photo.html">banner photo guide</a> covers the big photo at the top of your page.</p>
+""",
+    },
+    {
+        "slug": "improve-uber-eats-rating-restaurant",
+        "answer": "To improve your Uber Eats rating as a restaurant, make sure what arrives matches what customers saw: accurate photos and descriptions, packaging that keeps food hot and crisp, sold out items switched off, and orders checked before handoff. Read your feedback in Uber Eats Manager and fix what comes up more than once. No one can promise a rating, but these are the parts you control.",
+        "faq": [("How do I improve my restaurant's rating on Uber Eats?", "Make what arrives match your page: accurate photos and descriptions, good packaging, sold out items switched off and orders checked before they leave. Then read your feedback in Uber Eats Manager and fix what repeats."),
+                ("How are Uber Eats restaurant ratings worked out?", "Customers rate their order from 1 to 5 stars after it arrives. Uber's ratings help page says your store rating is based on recent ratings, so improvements show over time."),
+                ("Where can I see my Uber Eats reviews?", "In Uber Eats Manager. Uber's help page explains where to see your store rating, ratings for each item and written feedback."),
+                ("Can I remove a bad rating on Uber Eats?", "Generally no. Focus on fixing the cause. If a review breaks Uber's rules, you can report it through Uber Eats Manager or support.")],
+        "title": "How to Improve Your Uber Eats Rating (for Restaurants)",
+        "short": "Improve your Uber Eats rating",
+        "desc": "For restaurant owners: practical ways to improve your Uber Eats rating. Accurate photos and descriptions, packaging, sold out items and reading your feedback. No promises, just the parts you control.",
+        "img": "delivery",
+        "related": ["reply-to-uber-eats-reviews", "get-more-orders-on-uber-eats", "write-uber-eats-menu-descriptions"],
+        "lead": "Your rating comes from what happens after someone orders. You can't control the traffic or the courier, but a lot of it is in your hands. Here's what restaurants can do, without promises.",
+        "body": """
+<h2>How Uber Eats ratings work</h2>
+<p>After their order arrives, customers rate it from 1 to 5 stars. Uber's <a href="https://help.uber.com/en/merchants-and-restaurants/article/ratings-faq?nodeId=142bda2b-1760-4570-8130-64cadc93eaee" rel="nofollow">ratings help page</a> says your store rating is based on recent ratings, so changes you make show up over time. You can see your rating, ratings for each item and written feedback in Uber Eats Manager (<a href="https://help.uber.com/en/merchants-and-restaurants/article/how-can-i-view-customer-reviews-and-feedback-in-uber-eats-manager?nodeId=25a280eb-2e90-4124-b52d-c79a83263ba1" rel="nofollow">where to find them</a>).</p>
+
+<h2>1. Make your page match what arrives</h2>
+<p>Most low ratings come from a gap between what people expected and what turned up. Use photos of your real dishes in real portions, and descriptions that say what's in the dish and how big it is. Our guide to <a href="/guides/write-uber-eats-menu-descriptions.html">writing menu descriptions</a> helps, and the <a href="/tools/menu-description-checker.html">description checker</a> flags vague wording.</p>
+
+<h2>2. Pack food so it travels</h2>
+<ul class="ticks"><li>Vented boxes for chips and anything crumbed, so they don't go soggy.</li><li>Sauces and dressings in sealed pots on the side.</li><li>Hot and cold items packed apart, with ice cream or salads in their own container.</li><li>A sealed bag, so nothing spills on the way.</li></ul>
+
+<h2>3. Switch off sold out items straight away</h2>
+<p>A missing item means a changed or cancelled order, and an unhappy customer. Pause items in Uber Eats Manager the moment you run out, and switch them back on when you can make them.</p>
+
+<h2>4. Check every order before it leaves</h2>
+<p>Uber's ratings help page suggests checking each order before handoff. A quick look at the ticket against the bag catches missing drinks, sides and sauces, which are an easy cause of bad ratings.</p>
+
+<h2>5. Read your feedback and fix what repeats</h2>
+<p>One comment is one person's view. The same comment twice is worth acting on. If it's about the food, look at the recipe or portion. If it's about expectations, fix the photo or description. See our guide on <a href="/guides/reply-to-uber-eats-reviews.html">replying to Uber Eats reviews</a>, with examples.</p>
+
+<h2>6. Keep your hours honest</h2>
+<p>Accept orders only when you can cook and pack them properly. Busy times are when mistakes happen, so if the kitchen is overloaded, it's better to pause for a while than send out rushed food.</p>
+
+<h2>What you can't control</h2>
+<p>Traffic, the courier and the weather affect some ratings, and that's frustrating. Focus on what you can change: a clear, accurate page and food that travels well.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-menu-description-examples",
+        "answer": "Here are 30 before and after Uber Eats menu description examples, grouped by cuisine: burgers, pizza, Indian, Thai, Chinese, kebab, café, bakery, dessert and healthy bowls. Each one is 140 to 260 characters, Uber's own advice for description length, and names the main ingredients, how it's cooked and what comes with it.",
+        "faq": [("How long should an Uber Eats menu description be?", "Uber's Australian advice is 140 to 260 characters, about two short sentences."),
+                ("What makes a good menu description?", "What the dish is, its main ingredients, one detail that makes it yours, and anything people need to know before ordering, like size, spice level or what comes with it."),
+                ("Can I copy these examples?", "Yes, as a starting point. Change the ingredients, sizes and sides to match exactly what you serve, so the description is true for your dish.")],
+        "title": "30 Uber Eats Menu Description Examples (Before and After)",
+        "short": "30 menu description examples",
+        "desc": "30 before and after Uber Eats menu description examples by cuisine: burgers, pizza, Indian, Thai, Chinese, kebab, café, bakery, dessert and healthy bowls. Each one 140 to 260 characters.",
+        "img": "desk",
+        "related": ["write-uber-eats-menu-descriptions", "best-sellers-uber-eats-menu-order", "improve-uber-eats-rating-restaurant"],
+        "lead": "The quickest way to write good descriptions is to start from good examples. Here are 30, grouped by cuisine. Swap in your own ingredients, sizes and sides so every word is true for your dish.",
+        "body": """
+<h2>How these examples are written</h2>
+<p>Each "after" is 140 to 260 characters, Uber's own advice for menu descriptions (<a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">Uber Australia</a>). Each one says what the dish is, names the main ingredients, adds one detail that makes it yours, and answers a question before it's asked: the size, the spice level or what comes with it. Paste yours into our free <a href="/tools/menu-description-checker.html">menu description checker</a> to check the length and wording.</p>
+
+<h2>Burgers menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Cheeseburger</td><td>Grilled beef patty with melted cheddar, pickles, onion, mustard and tomato sauce on a soft toasted bun. Simple, juicy and made to order. Add bacon or a second patty in the options.</td></tr>
+<tr><td>Chicken burger</td><td>Crispy buttermilk fried chicken thigh with slaw, pickles and chipotle mayo on a toasted brioche bun. Crunchy outside, juicy inside, with a little heat from the mayo.</td></tr>
+<tr><td>Veggie burger</td><td>House made black bean and corn patty with avocado, lettuce, tomato and smoky relish on a toasted bun. Fully vegetarian, and you can make it vegan without the aioli.</td></tr></table>
+
+<h2>Pizza menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Pepperoni</td><td>Spicy pepperoni, mozzarella and our slow cooked tomato sauce on a thin, crisp base, baked until the edges curl. Large pizza, cut into 8 slices. Add extra cheese in the options.</td></tr>
+<tr><td>Supreme</td><td>Ham, pepperoni, mushroom, capsicum, red onion and olives with mozzarella on our tomato base, baked crisp. A full pizza with a bit of everything. Large, 8 slices.</td></tr>
+<tr><td>Vegetarian</td><td>Roasted pumpkin, spinach, feta, red onion and pine nuts on a garlic and olive oil base, finished with fresh basil. Light and full of flavour. Large, cut into 8 slices.</td></tr></table>
+
+<h2>Indian menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Lamb curry</td><td>Tender lamb slow cooked in a rich onion, tomato and spice gravy, medium heat. Served with steamed basmati rice. Ask for mild or hot in the notes and we'll adjust it.</td></tr>
+<tr><td>Chicken tikka</td><td>Chicken thigh marinated in yoghurt and spices, cooked in the tandoor until lightly charred. Served with mint chutney, sliced onion and a wedge of lemon. Six pieces.</td></tr>
+<tr><td>Dal</td><td>Yellow lentils simmered with turmeric, garlic and ginger, finished with cumin and curry leaves fried in ghee. Comforting, mild and vegetarian. Served with basmati rice.</td></tr></table>
+
+<h2>Thai menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Green curry</td><td>Green curry with chicken, bamboo shoots, Thai eggplant and basil in creamy coconut milk, medium hot. Served with jasmine rice. Choose beef, prawn or tofu instead in the options.</td></tr>
+<tr><td>Tom yum</td><td>Hot and sour lemongrass broth with prawns, mushrooms, tomato, galangal and kaffir lime leaves, finished with fresh coriander. Big, bright flavours. Medium hot.</td></tr>
+<tr><td>Massaman</td><td>Slow cooked beef, potato and onion in a mild, rich massaman curry with peanuts and a touch of tamarind. Served with jasmine rice. A good choice if you don't like it spicy.</td></tr></table>
+
+<h2>Chinese menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Sweet and sour pork</td><td>Crispy pork pieces tossed with pineapple, capsicum and onion in a glossy sweet and sour sauce. Served with steamed rice. A classic, made fresh when you order.</td></tr>
+<tr><td>Fried rice</td><td>Wok fried rice with egg, char siu pork, prawns, peas and spring onion, seasoned with soy. Smoky from the wok and filling enough as a meal on its own.</td></tr>
+<tr><td>Dumplings</td><td>Pan fried pork and chive dumplings, crisp on the bottom and soft on top. Ten pieces with black vinegar and chilli oil for dipping. Handmade in our kitchen every day.</td></tr></table>
+
+<h2>Kebab menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Chicken kebab</td><td>Marinated chicken from the spit with lettuce, tomato, onion and garlic sauce, rolled in toasted Lebanese bread. Add chilli, cheese or tabouli in the options.</td></tr>
+<tr><td>Mixed plate</td><td>Lamb and chicken from the spit over rice with tabouli, hummus, garlic sauce and two falafel. Comes with warm pita. A full meal on one plate.</td></tr>
+<tr><td>Falafel wrap</td><td>Crispy falafel with hummus, tabouli, pickled turnip, tomato and tahini sauce in warm Lebanese bread. Fully vegan and made fresh to order. Add chilli if you like it hot.</td></tr></table>
+
+<h2>Café menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Big breakfast</td><td>Two eggs your way, bacon, pork sausage, roasted mushrooms, grilled tomato, hash brown and toasted sourdough. Built to travel: the eggs come in their own container.</td></tr>
+<tr><td>Avo toast</td><td>Smashed avocado with feta, cherry tomatoes and lemon on toasted sourdough, finished with dukkah. Add a poached egg or bacon in the options. Vegetarian as it comes.</td></tr>
+<tr><td>Iced latte</td><td>Our house espresso poured over ice with cold milk. Large, 16 oz. Choose oat, almond or soy milk and add a vanilla or caramel shot in the options.</td></tr></table>
+
+<h2>Bakery menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Sausage roll</td><td>Seasoned pork and fennel wrapped in flaky butter puff pastry, baked fresh each morning until golden. Big enough for lunch. Tomato sauce comes on the side.</td></tr>
+<tr><td>Croissant</td><td>All butter croissant, rolled and laminated by hand, then baked every morning until golden and flaky. Order it plain, or ask for ham and cheese warmed in the notes.</td></tr>
+<tr><td>Banana bread</td><td>Thick slice of house banana bread made with walnuts, toasted and served with butter on the side. Baked here every couple of days. Lovely with a flat white.</td></tr></table>
+
+<h2>Dessert menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Cheesecake</td><td>Baked vanilla cheesecake on a buttery biscuit base, topped with a mixed berry compote. Rich and creamy. One generous slice, packed in a box so it travels well.</td></tr>
+<tr><td>Churros</td><td>Six churros fried until crisp, rolled in cinnamon sugar, with a pot of warm dark chocolate sauce for dipping. Best eaten soon after they arrive.</td></tr>
+<tr><td>Sticky date</td><td>Warm sticky date pudding with butterscotch sauce, plus vanilla ice cream in a separate cup so it doesn't melt on the way. Serves one, or two to share.</td></tr></table>
+
+<h2>Healthy bowls menu description examples</h2>
+<table class="compare"><tr><th>Before</th><th>After</th></tr>
+<tr><td>Poke bowl</td><td>Fresh salmon, sushi rice, avocado, edamame, cucumber, pickled ginger and seaweed salad, with sesame soy dressing. Swap the salmon for tofu in the options.</td></tr>
+<tr><td>Chicken bowl</td><td>Grilled chicken with brown rice, roasted sweet potato, kale, cherry tomatoes and a lemon tahini dressing. High in protein and filling, packed with the dressing on the side.</td></tr>
+<tr><td>Acai bowl</td><td>Thick acai blended with banana, topped with granola, strawberries, blueberries, coconut flakes and a drizzle of honey. Packed cold so it arrives ready to eat.</td></tr></table>
+
+<h2>Make them yours</h2>
+<ul class="ticks"><li>Use the dish names your customers know, then explain them.</li><li>Only list ingredients that are really in the dish.</li><li>Say sizes and piece counts exactly.</li><li>Mark vegetarian, vegan or gluten free only when it's true.</li></ul>
+<p>For the method behind these, see <a href="/guides/write-uber-eats-menu-descriptions.html">how to write Uber Eats menu descriptions that sell</a>. If you'd rather not write them yourself, our Menu Fix package rewrites every dish on your menu.</p>
+""",
+    },
+    {
+        "slug": "best-sellers-uber-eats-menu-order",
+        "answer": "Put your best sellers first: make the first category a short list of your five or six most ordered dishes, then order the rest of your categories the way people eat (mains, sides, drinks, desserts), and put the most popular dish at the top of each category. Check your sales in Uber Eats Manager and update the order when it changes.",
+        "faq": [("How do I put my best sellers first on Uber Eats?", "Create a first category, for example Most Popular, with your five or six most ordered dishes, then drag it to the top of your menu in Uber Eats Manager."),
+                ("How do I know my best sellers?", "Look at your order history and sales in Uber Eats Manager, or your own till. Use the dishes people actually order, not the ones you'd like them to order."),
+                ("Can a dish be in two categories?", "Yes, Uber Eats Manager lets the same item sit in more than one category, so a best seller can be in Most Popular and in its usual place."),
+                ("How often should I change the order?", "Check it every few weeks, and when you add new dishes or change your menu for the season.")],
+        "title": "How to Order Your Uber Eats Menu So Best Sellers Come First",
+        "short": "Best sellers first: ordering your menu",
+        "desc": "How restaurants and cafés should order Uber Eats categories and items so best sellers come first: a Most Popular category, the right category order, and the best item at the top of each.",
+        "img": "spread",
+        "related": ["uber-eats-menu-categories", "get-more-orders-on-uber-eats", "uber-eats-menu-description-examples"],
+        "lead": "Many customers never scroll far. The order of your menu decides which dishes they see first. Here's how to set it up so your best food is right at the top.",
+        "body": """
+<h2>1. Find your real best sellers</h2>
+<p>Look at your order history in Uber Eats Manager or your own till. Pick the five or six dishes people order most. Use what actually sells, not what you'd like to sell more of.</p>
+
+<h2>2. Make a best sellers category and put it first</h2>
+<p>Create a category called <b>Most Popular</b>, <b>Best Sellers</b> or <b>House Favourites</b>, add those dishes, and drag it to the top. A dish can sit in this category and in its usual one too. Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where to do it.</p>
+
+<h2>3. Order the other categories the way people eat</h2>
+<ol><li>Best sellers</li><li>Your main dishes, split by type if you have many</li><li>Sides and extras</li><li>Drinks</li><li>Desserts</li></ol>
+<p>A café might use Breakfast, Lunch, Coffee, Cold drinks and Cakes instead. More on this in <a href="/guides/uber-eats-menu-categories.html">how to organise your Uber Eats menu categories</a>.</p>
+
+<h2>4. Put the best item first in every category</h2>
+<p>The order inside each category matters too. Lead with the most popular or best looking dish, and keep items with photos near the top. A row that starts with a great photo gets looked at.</p>
+
+<h2>5. Give the top dishes the best photos and descriptions</h2>
+<p>Your best sellers are seen the most, so they're where a clear photo and a good description count most. See <a href="/guides/how-to-add-photos-to-uber-eats-menu.html">how to add photos</a> and <a href="/guides/uber-eats-menu-description-examples.html">30 menu description examples</a>.</p>
+
+<h2>6. Check it again every few weeks</h2>
+<p>Favourites change with the seasons and new dishes. Look at your sales every few weeks and move dishes up or down.</p>
+
+<h2>Common mistakes</h2>
+<ul class="ticks"><li>Drinks or extras as the first category.</li><li>A long first category with every dish in it.</li><li>Best sellers buried at the bottom of a big category.</li><li>Old categories from a previous menu still at the top.</li></ul>
 """,
     },
 ]

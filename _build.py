@@ -74,6 +74,7 @@ CHROME = {
            "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("services.html#done", "Done for you"), ("examples.html", "Examples")]),
                     ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
+                    ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker")]),
                     ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
            "rights": "© 2026 MenuFix. All rights reserved.", "indep": "MenuFix is independent and not affiliated with Uber or Uber Eats."},
     "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
@@ -575,6 +576,14 @@ def with_toc(body):
     return body, items
 
 
+from _tools import build_tools, tool_cards
+TOOLS_SECTION = f"""<section class="tight bg-cream" id="tools"><div class="wrap">
+  <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">Free tools</span><h2>Check your page in seconds</h2></div>
+    <p class="lead">Simple checks that run in your browser. Nothing you add is uploaded or saved.</p></div>
+  <div class="grid2">{tool_cards()}</div>
+</div></section>"""
+
+
 def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
     t = GT[lang]
     by_slug = {g["slug"]: g for g in guides}
@@ -624,6 +633,7 @@ def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
     page(f"{t['dir']}index.html", t["index_title"], t["index_desc"],
          f"""{head(t['eyebrow'], t['index_h'], t['index_lead'], ("menu", "camera"))}
 <section style="padding-top:30px"><div class="wrap"><div class="grid3">{"".join(guide_card(g, lang) for g in guides)}</div></div></section>
+{TOOLS_SECTION if lang == "en" else ""}
 {cta_html}
 """, f"{t['dir']}index.html", lang=lang, alt=f"{alt_dir}index.html" if alt_dir else None)
 
@@ -642,10 +652,11 @@ build_guides(GUIDES_FR, "fr", CTA_FR, "guides/", EN_SLUGS)
 # ------------------------------------------------------------------------------------------------ landing pages
 from _landing import build_landing
 LANDING = build_landing(page, head, cta, faq_html, guide_card, GUIDES, ba, EXD, ic)
+TOOL_PAGES = build_tools(page, head, cta)
 # ------------------------------------------------------------------------------------------------ sitemap
 TOP = ["index.html", "services.html", "examples.html", "how-it-works.html", "pricing.html", "about.html", "faq.html",
        "contact.html", "privacy.html", "terms.html"]
-URLS = (TOP + ["guides/index.html"] + [f"guides/{g['slug']}.html" for g in GUIDES] + LANDING +
+URLS = (TOP + ["guides/index.html"] + [f"guides/{g['slug']}.html" for g in GUIDES] + TOOL_PAGES + LANDING +
         ["fr/" + p for p in TOP] + ["fr/guides/index.html"] + [f"fr/guides/{g['slug']}.html" for g in GUIDES_FR])
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-10</lastmod></url>\n" for u in URLS) + "</urlset>\n")

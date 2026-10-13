@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Free Uber Eats Photo Checker: Size, Ratio and File Type | MenuFix</title>
+<meta name="description" content="Check a menu photo against Uber Eats rules in your browser: 5:4 shape, at least 550 × 440 pixels, under 10 MB, JPG or PNG. Crop and resize to 2880 × 2304 in one click.">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="canonical" href="https://getmenufix.com/tools/uber-eats-photo-checker.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/", "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com", "founder": {"@type": "Person", "name": "Abdel Iflillis"}, "sameAs": ["https://www.instagram.com/menufix.official/"]}, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/", "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]}</script>
+<meta property="og:title" content="Free Uber Eats Photo Checker: Size, Ratio and File Type | MenuFix">
+<meta property="og:description" content="Check a menu photo against Uber Eats rules in your browser: 5:4 shape, at least 550 × 440 pixels, under 10 MB, JPG or PNG. Crop and resize to 2880 × 2304 in one click.">
+<meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="../index.html"><img width="256" height="256" decoding="async" src="../img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>
+  <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
+  <div class="links"><a href="../services.html">Services</a><a href="../examples.html">Examples</a><a href="../how-it-works.html">How it works</a><a href="../pricing.html">Pricing</a><a href="../guides/index.html" class="on">Guides</a><a href="../about.html">About</a><a href="../faq.html">FAQ</a><a class="btn primary small" href="../contact.html">Free mockup</a></div>
+</div></nav>
+<header class="page-head"><img width="160" height="160" decoding="async" class="floaty" src="../img/icons/camera.png" alt="" style="right:6%;top:22%;animation-delay:-0s"><img width="160" height="160" decoding="async" class="floaty" src="../img/icons/star.png" alt="" style="right:20%;bottom:8%;animation-delay:-3s"><div class="wrap">
+  <span class="eyebrow">Free tool</span><h1 style="max-width:820px">Free Uber Eats <span class='hl'>photo checker.</span></h1>
+  <p class="lead">Check a dish photo against Uber's size rules before you upload it, and fix the shape in one click.</p>
+</div></header>
+
+<section style="padding-top:20px"><div class="narrow">
+  <div class="tool" id="photoTool">
+    <label class="tool-drop" id="ptDrop"><input type="file" id="ptFile" accept="image/*">
+      <b>Choose a dish photo</b><span>or drop it here. It stays on your device: nothing is uploaded.</span></label>
+    <div id="ptOut" class="tool-out" aria-live="polite"></div>
+    <div class="row hidden" id="ptFixRow" style="margin-top:18px">
+      <button class="btn primary" type="button" id="ptFix">Crop to 5:4 and resize to 2880 × 2304</button>
+      <span class="note" id="ptFixNote"></span></div>
+    <canvas id="ptCanvas" class="tool-preview hidden" aria-label="Preview of the fixed photo"></canvas>
+  </div>
+  <div class="prose" style="margin-top:40px">
+    <h2>What this checks</h2>
+    <ul class="ticks"><li><b>Shape:</b> close to 5:4 landscape, the shape Uber recommends.</li>
+      <li><b>Size:</b> at least 550 × 440 pixels; 2880 × 2304 is ideal.</li>
+      <li><b>File size:</b> under 10 MB.</li><li><b>File type:</b> JPG or PNG.</li></ul>
+    <p>These come from Uber's <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a>. The tool can't check what's in the
+      photo: Uber also turns down photos with text, logos, more than one item or faces. See
+      <a href="/guides/uber-eats-photo-upload-not-working.html">photo upload not working</a> for every reason and fix.</p>
+    <p>The fix button crops the middle of your photo to 5:4 and saves a JPG at 2880 × 2304. If your photo is smaller than
+      that, it gets bigger but not sharper, so a larger original is always better.</p>
+  </div>
+</div></section>
+<section class="tight"><div class="wrap"><div class="cta reveal">
+  <div class="txt"><span class="eyebrow">Free mockup</span><h2>Want the whole page done?</h2><p class="lead">We rewrite your menu and enhance photos of your real dishes. Start with a free mockup, no payment and no obligation.</p>
+    <div class="row"><a class="btn" href="../contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn ghost" href="../pricing.html">See pricing</a></div></div>
+  <div class="pic"><img width="1400" height="933" decoding="async" class="bg" src="../img/delivery.jpg" alt="" loading="lazy">
+    <img width="160" height="160" decoding="async" class="floaty" src="../img/icons/burger.png" alt="" style="left:-34px;top:40px;animation-delay:-0s"><img width="160" height="160" decoding="async" class="floaty" src="../img/icons/bubbletea.png" alt="" style="right:24px;bottom:24px;animation-delay:-3s"></div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <div class="top">
+    <div><a class="logo" href="../index.html"><img width="256" height="256" decoding="async" src="../img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>
+      <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.</p>
+      <div class="icons"><img width="160" height="160" decoding="async" src="../img/icons/pizza.png" alt=""><img width="160" height="160" decoding="async" src="../img/icons/burger.png" alt=""><img width="160" height="160" decoding="async" src="../img/icons/sushi.png" alt=""><img width="160" height="160" decoding="async" src="../img/icons/coffee.png" alt=""><img width="160" height="160" decoding="async" src="../img/icons/taco.png" alt=""><img width="160" height="160" decoding="async" src="../img/icons/cake.png" alt=""></div></div>
+    <div><h4>Services</h4><a href="../services.html">Menu rewrite</a><a href="../services.html#photos">Photo enhancement</a><a href="../services.html#done">Done for you</a><a href="../examples.html">Examples</a></div><div><h4>Company</h4><a href="../about.html">About</a><a href="../guides/index.html">Guides</a><a href="../how-it-works.html">How it works</a><a href="../pricing.html">Pricing</a><a href="../faq.html">FAQ</a></div><div><h4>Who we help</h4><a href="../uber-eats/cafes.html">Cafés</a><a href="../uber-eats/pizza.html">Pizza shops</a><a href="../uber-eats/asian-restaurants.html">Asian restaurants</a><a href="../uber-eats/takeaways.html">Takeaways</a><a href="../uber-eats/index.html">Cities we work with</a></div><div><h4>Free tools</h4><a href="../tools/uber-eats-photo-checker.html">Photo checker</a><a href="../tools/menu-description-checker.html">Description checker</a></div><div><h4>Get started</h4><a href="../contact.html">Free mockup</a><a class="mailto" href="#">hello@getmenufix.com</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a></div>
+  </div>
+  <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><a href="https://www.instagram.com/menufix.official/" rel="me noopener" target="_blank">Instagram @menufix.official</a><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
+</div></footer>
+<script src="../site.js?v=c5304306"></script>
+</body>
+</html>

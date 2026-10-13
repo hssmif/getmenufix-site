@@ -130,3 +130,113 @@ if ("IntersectionObserver" in window) {
     else if (/(^|\/)pricing\.html(\?|#|$)/.test(href)) track("click-pricing");
   }, true);
 })();
+
+// Free tools (tools/*.html). Everything runs here in the browser: photos and text are never uploaded or sent.
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const msg = (kind, label, text) => `<div class="tool-msg ${kind}"><b>${label}</b><span>${text}</span></div>`;
+
+  // ---- Uber Eats photo checker: 5:4, at least 550 x 440, under 10 MB, JPG or PNG
+  const file = $("ptFile");
+  if (file) {
+    const drop = $("ptDrop"), out = $("ptOut"), fixRow = $("ptFixRow"), canvas = $("ptCanvas");
+    let img = null, name = "photo";
+    const check = (f) => {
+      if (!f) return;
+      name = (f.name || "photo").replace(/\.[^.]+$/, "");
+      const okType = /^image\/(jpeg|png)$/.test(f.type) || /\.(jpe?g|png)$/i.test(f.name || "");
+      const mb = f.size / 1048576;
+      const sizeText = mb < 0.1 ? Math.max(1, Math.round(f.size / 1024)) + " KB" : mb.toFixed(1) + " MB";
+      const url = URL.createObjectURL(f);
+      const im = new Image();
+      im.onload = () => {
+        img = im;
+        const w = im.naturalWidth, h = im.naturalHeight, r = w / h, shapeOk = Math.abs(r - 1.25) <= 0.03;
+        const rows = [
+          okType ? msg("pass", "Pass", "File type: " + (/png/i.test(f.type || f.name) ? "PNG" : "JPG") + ".")
+                 : msg("fix", "Fix", "File type: save or export it as a JPG before uploading."),
+          mb <= 10 ? msg("pass", "Pass", `File size: ${sizeText}, under 10 MB.`)
+                   : msg("fix", "Fix", `File size: ${sizeText}. Uber allows up to 10 MB. The fix button below makes a smaller JPG.`),
+          w >= 550 && h >= 440 ? msg(w >= 2880 && h >= 2304 ? "pass" : "info", w >= 2880 && h >= 2304 ? "Pass" : "OK",
+              `Size: ${w} × ${h} pixels. ${w >= 2880 && h >= 2304 ? "Big enough for Uber's ideal 2880 × 2304." : "Above Uber's minimum of 550 × 440. 2880 × 2304 is ideal, so use a bigger original if you have one."}`)
+            : msg("fix", "Fix", `Size: ${w} × ${h} pixels, smaller than Uber's minimum of 550 × 440. Use the original photo, not a screenshot or a copy from a chat app.`),
+          shapeOk ? msg("pass", "Pass", `Shape: ${r.toFixed(2)} to 1, close to 5:4.`)
+                  : msg("fix", "Fix", `Shape: ${r.toFixed(2)} to 1. Uber recommends 5:4 (1.25 to 1) landscape. Use the button below to crop it.`),
+        ];
+        const allOk = okType && mb <= 10 && w >= 550 && h >= 440 && shapeOk;
+        out.innerHTML = (allOk ? msg("pass", "Ready", "This photo meets Uber's size rules. Check it shows one real dish with no text or logos.") : "") + rows.join("");
+        fixRow.classList.remove("hidden");
+        $("ptFixNote").textContent = w < 2880 || h < 2304 ? "Your photo is smaller than 2880 × 2304, so it will be enlarged, not sharpened." : "";
+        canvas.classList.add("hidden");
+      };
+      im.onerror = () => {
+        img = null; fixRow.classList.add("hidden");
+        out.innerHTML = msg("fix", "Fix", "This browser can't open that file. It may be a HEIC photo from an iPhone: export or share it as a JPG, then try again.");
+      };
+      im.src = url;
+    };
+    file.addEventListener("change", () => check(file.files[0]));
+    ["dragover", "dragenter"].forEach((ev) => drop.addEventListener(ev, (e) => { e.preventDefault(); drop.classList.add("over"); }));
+    ["dragleave", "drop"].forEach((ev) => drop.addEventListener(ev, () => drop.classList.remove("over")));
+    drop.addEventListener("drop", (e) => { e.preventDefault(); check(e.dataTransfer.files[0]); });
+    $("ptFix").addEventListener("click", () => {
+      if (!img) return;
+      const W = 2880, H = 2304, w = img.naturalWidth, h = img.naturalHeight;
+      let sw = w, sh = Math.round(w * H / W);
+      if (sh > h) { sh = h; sw = Math.round(h * W / H); }
+      canvas.width = W; canvas.height = H;
+      const ctx = canvas.getContext("2d");
+      ctx.imageSmoothingQuality = "high";
+      ctx.drawImage(img, Math.round((w - sw) / 2), Math.round((h - sh) / 2), sw, sh, 0, 0, W, H);
+      canvas.classList.remove("hidden");
+      canvas.toBlob((blob) => {
+        if (!blob) return;
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = name + "-uber-eats-2880x2304.jpg";
+        document.body.appendChild(a); a.click(); a.remove();
+        const kb = blob.size / 1024;
+        $("ptFixNote").textContent = `Saved a ${kb < 100 ? Math.max(1, Math.round(kb)) + " KB" : (kb / 1024).toFixed(1) + " MB"} JPG at 2880 × 2304. Check the dish is still centred.`;
+      }, "image/jpeg", 0.88);
+    });
+  }
+
+  // ---- Menu description checker: 140 to 260 characters, ALL CAPS, vague words, ingredients
+  const text = $("dtText");
+  if (text) {
+    const VAGUE = ["delicious", "amazing", "best", "yummy", "tasty", "awesome", "perfect", "incredible", "world famous", "mouth watering", "to die for", "great", "nice", "lovely", "beautiful"];
+    const FOOD = ("beef chicken lamb pork fish prawn prawns salmon tuna egg eggs tofu cheese cheddar mozzarella feta haloumi parmesan " +
+      "rice noodles noodle pasta bread bun brioche sourdough pita wrap tortilla pastry chips fries potato salad lettuce tomato onion " +
+      "garlic chilli ginger lemon lime avocado mushroom mushrooms capsicum spinach basil coriander mint parsley sesame peanut peanuts " +
+      "coconut curry sauce gravy mayo aioli butter cream yoghurt honey chocolate caramel vanilla berries banana mango apple oat oats " +
+      "milk espresso coffee tea bacon ham sausage chorizo pepperoni olives pickles slaw kimchi soy teriyaki satay tamarind " +
+      "grilled chargrilled fried crumbed roasted smoked braised slow baked toasted crispy steamed stir wood fired marinated " +
+      "beans lentils chickpeas quinoa edamame cucumber carrot corn pumpkin beetroot dumpling dumplings broth soup patty").split(" ");
+    const run = () => {
+      const t = text.value.trim(), n = t.length;
+      const bar = $("dtBar"), out = $("dtOut");
+      $("dtCount").textContent = n + " character" + (n === 1 ? "" : "s");
+      bar.style.width = Math.min(100, n / 2.6) + "%";
+      bar.classList.toggle("ok", n >= 140 && n <= 260);
+      if (!n) { out.innerHTML = ""; return; }
+      const rows = [];
+      rows.push(n < 140 ? msg("fix", "Short", `${n} characters. Uber's advice is 140 to 260: add the main ingredients or one detail that makes it yours.`)
+        : n > 260 ? msg("fix", "Long", `${n} characters. Uber's advice is 140 to 260: cut it to the ingredients people care about.`)
+        : msg("pass", "Pass", `${n} characters, inside Uber's 140 to 260 advice.`));
+      const caps = (t.match(/\b[A-Z]{3,}\b/g) || []).filter((w) => !["BBQ", "XL", "GF", "VG", "DF"].includes(w));
+      rows.push(caps.length ? msg("fix", "Capitals", `Write ${esc(caps.slice(0, 5).join(", "))} in normal capitals. ALL CAPS is harder to read.`)
+        : msg("pass", "Pass", "No ALL CAPS words."));
+      const low = " " + t.toLowerCase().replace(/[^a-z\s]/g, " ") + " ";
+      const vague = VAGUE.filter((v) => low.includes(" " + v + " "));
+      rows.push(vague.length ? msg("fix", "Vague", `Swap "${esc(vague.join('", "'))}" for something specific: an ingredient, how it's cooked, or the portion.`)
+        : msg("pass", "Pass", "No vague praise words."));
+      const foods = [...new Set(FOOD.filter((f) => low.includes(" " + f + " ")))];
+      rows.push(foods.length >= 2 ? msg("pass", "Pass", `Names ingredients or cooking: ${esc(foods.slice(0, 6).join(", "))}.`)
+        : msg("fix", "Ingredients", "Name at least two main ingredients or how it's cooked, so people know what they're getting."));
+      out.innerHTML = rows.join("");
+    };
+    text.addEventListener("input", run);
+    run();
+  }
+})();
