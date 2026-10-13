@@ -1,3 +1,4 @@
 User-agent: *
+Disallow: /for/
 Allow: /
 Sitemap: https://getmenufix.com/sitemap.xml
