@@ -5,6 +5,23 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 NAV = [("services.html", "Services"), ("examples.html", "Examples"), ("how-it-works.html", "How it works"),
        ("pricing.html", "Pricing"), ("guides/index.html", "Guides"), ("about.html", "About"), ("faq.html", "FAQ")]
+INSTAGRAM = "https://www.instagram.com/menufix.official/"
+FACEBOOK = ""  # the MenuFix Facebook Page; its icon shows once this is set
+IG_SVG = ('<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" '
+          'fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" '
+          'stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg>')
+FB_SVG = ('<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3'
+          'V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg>')
+
+
+def social():
+    """Round brand coloured icons for our Instagram and Facebook Page (footer)."""
+    out = f'<a class="ig" href="{INSTAGRAM}" rel="me noopener" target="_blank" aria-label="Instagram @menufix.official" title="Instagram @menufix.official">{IG_SVG}</a>'
+    if FACEBOOK:
+        out += f'<a class="fb" href="{FACEBOOK}" rel="me noopener" target="_blank" aria-label="Facebook MenuFix" title="Facebook MenuFix">{FB_SVG}</a>'
+    return f'<div class="social">{out}</div>'
+
+
 LOGO = '<a class="logo" href="index.html"><img src="img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>'
 
 
@@ -49,7 +66,7 @@ def ld(name):
     org = {"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/",
            "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com",
            "founder": {"@type": "Person", "name": "Abdel Iflillis"},
-           "sameAs": ["https://www.instagram.com/menufix.official/"]}
+           "sameAs": [u for u in (INSTAGRAM, FACEBOOK) if u]}
     graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
                    "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]
     if name in ("index.html", "services.html", "pricing.html"):
@@ -78,6 +95,8 @@ CHROME = {
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
                     ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker")]),
                     ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
+           "promo": ("referral.html", "Know restaurant owners? <b>Earn 15%</b> for every restaurant you send us.", "See how"),
+           "follow": "Follow us",
            "rights": "© 2026 MenuFix. All rights reserved.", "indep": "MenuFix is independent and not affiliated with Uber or Uber Eats."},
     "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
            "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
@@ -85,6 +104,8 @@ CHROME = {
                     ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 15 %")]),
                     ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description")]),
                     ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
+           "promo": ("fr/parrainage.html", "Vous connaissez des restaurateurs ? <b>Gagnez 15 %</b> pour chaque restaurant recommandé.", "En savoir plus"),
+           "follow": "Suivez nous",
            "rights": "© 2026 MenuFix. Tous droits réservés.", "indep": "MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats."},
     "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/contact.html", "cta": "Maqueta gratis",
            "blurb": "Mejoramos páginas de Uber Eats para restaurantes independientes, cafeterías y panaderías. Cartas claras, mejores fotos de sus platos reales y todo hecho por nosotros.",
@@ -92,6 +113,8 @@ CHROME = {
                     ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 15 %")]),
                     ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones")]),
                     ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
+           "promo": ("es/referidos.html", "¿Conoce a dueños de restaurantes? <b>Gane un 15 %</b> por cada restaurante que nos recomiende.", "Ver cómo"),
+           "follow": "Síganos",
            "rights": "© 2026 MenuFix. Todos los derechos reservados.", "indep": "MenuFix es independiente y no está afiliado a Uber ni a Uber Eats."},
 }
 
@@ -133,6 +156,7 @@ def page(name, title, desc, body, active="", lang="en", ld_extra=""):
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a class="promo" href="{c["promo"][0]}"><span>{c["promo"][1]}</span> <u>{c["promo"][2]} →</u></a>
 <nav class="nav"><div class="wrap">
   {logo}
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
@@ -143,10 +167,11 @@ def page(name, title, desc, body, active="", lang="en", ld_extra=""):
   <div class="top">
     <div>{logo}
       <p class="muted" style="max-width:340px">{c["blurb"]}</p>
-      <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div></div>
+      <div class="icons"><img src="img/icons/pizza.png" alt=""><img src="img/icons/burger.png" alt=""><img src="img/icons/sushi.png" alt=""><img src="img/icons/coffee.png" alt=""><img src="img/icons/taco.png" alt=""><img src="img/icons/cake.png" alt=""></div>
+      <h4 class="follow">{c["follow"]}</h4>{social()}</div>
     {cols}
   </div>
-  <div class="bottom"><span>{c["rights"]}</span><a href="https://www.instagram.com/menufix.official/" rel="me noopener" target="_blank">Instagram @menufix.official</a><span>{c["indep"]}</span></div>
+  <div class="bottom"><span>{c["rights"]}</span><span>{c["indep"]}</span></div>
 </div></footer>
 <script src="site.js?v={SITE_JS_V}"></script>
 </body>
@@ -179,6 +204,22 @@ def _href(path):
 def _lang_of(path):
     return path.split("/")[0] if path.split("/")[0] in ("fr", "es") else "en"
 
+
+
+def add_chrome_extras():
+    """The referral bar and the social icons on pages that are not built by page() (the translated French pages)."""
+    for f in sorted(ROOT.rglob("*.html")):
+        path = f.relative_to(ROOT).as_posix()
+        if path.startswith((".", "_", "for/")):
+            continue
+        html = f.read_text()
+        if '<nav class="nav">' not in html or 'class="promo"' in html:
+            continue
+        c, up = CHROME[_lang_of(path)], "../" * path.count("/")
+        bar = f'<a class="promo" href="{up}{c["promo"][0]}"><span>{c["promo"][1]}</span> <u>{c["promo"][2]} →</u></a>\n'
+        html = html.replace('<nav class="nav">', bar + '<nav class="nav">', 1)
+        html = re.sub(r'(<div class="icons">.*?</div>)</div>', lambda m: m.group(1) + f'\n      <h4 class="follow">{c["follow"]}</h4>{social()}</div>', html, count=1, flags=re.S)
+        f.write_text(html)
 
 def add_languages():
     """Give every page the EN FR ES switch, and hreflang links (plus x-default, the English page) to the same page in
@@ -758,6 +799,7 @@ for _name in TOP + ["404.html"]:
     for _lang, _pre in (("en", ""), ("fr", "fr/"), ("es", "es/")):
         same_page("top:" + _name, _lang, _pre + _name)
 # ------------------------------------------------------------------------------------------------ languages
+add_chrome_extras()
 add_languages()
 # ------------------------------------------------------------------------------------------------ sitemap
 URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
