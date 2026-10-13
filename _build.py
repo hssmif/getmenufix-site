@@ -6,11 +6,11 @@ ROOT = Path(__file__).parent
 NAV = [("services.html", "Services"), ("examples.html", "Examples"), ("how-it-works.html", "How it works"),
        ("pricing.html", "Pricing"), ("guides/index.html", "Guides"), ("about.html", "About"), ("faq.html", "FAQ")]
 INSTAGRAM = "https://www.instagram.com/menufix.official/"
-FACEBOOK = ""  # the MenuFix Facebook Page; its icon shows once this is set
+FACEBOOK = "https://www.facebook.com/profile.php?id=61584153426184"  # the MenuFix Facebook Page
 IG_SVG = ('<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" '
           'fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" '
           'stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg>')
-FB_SVG = ('<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3'
+FB_SVG = ('<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3'
           'V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg>')
 
 
@@ -213,8 +213,10 @@ def add_chrome_extras():
         if path.startswith((".", "_", "for/")):
             continue
         html = f.read_text()
-        if '<nav class="nav">' not in html or 'class="promo"' in html:
+        if '<nav class="nav">' not in html:
             continue
+        html = re.sub(r'<a class="promo".*?</a>\n', "", html)  # an earlier version: put the current one back
+        html = re.sub(r'\n      <h4 class="follow">.*?</div>(</div>)', r"\1", html, flags=re.S)
         c, up = CHROME[_lang_of(path)], "../" * path.count("/")
         bar = f'<a class="promo" href="{up}{c["promo"][0]}"><span>{c["promo"][1]}</span> <u>{c["promo"][2]} →</u></a>\n'
         html = html.replace('<nav class="nav">', bar + '<nav class="nav">', 1)
