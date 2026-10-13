@@ -121,6 +121,7 @@ CHROME = {
 
 # Changes when site.js changes, so browsers fetch the new file instead of an old cached copy.
 SITE_JS_V = __import__("hashlib").md5((ROOT / "site.js").read_bytes()).hexdigest()[:8]
+STYLE_V = __import__("hashlib").md5((ROOT / "style.css").read_bytes()).hexdigest()[:8]
 
 
 def _url(path):
@@ -215,6 +216,7 @@ def add_chrome_extras():
         html = f.read_text()
         if '<nav class="nav">' not in html:
             continue
+        html = re.sub(r'href="((?:\.\./)*)style\.css(?:\?v=\w+)?"', rf'href="\1style.css?v={STYLE_V}"', html)  # new design: no old cached copy
         html = re.sub(r'<a class="promo".*?</a>\n', "", html)  # an earlier version: put the current one back
         html = re.sub(r'\n      <h4 class="follow">.*?</div>(</div>)', r"\1", html, flags=re.S)
         c, up = CHROME[_lang_of(path)], "../" * path.count("/")
