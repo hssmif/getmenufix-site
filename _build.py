@@ -74,7 +74,7 @@ CHROME = {
     "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
            "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
            "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("services.html#done", "Done for you"), ("examples.html", "Examples")]),
-                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ")]),
+                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 15%")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
                     ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker")]),
                     ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
@@ -82,14 +82,14 @@ CHROME = {
     "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
            "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
            "cols": [("Services", [("fr/services.html", "Réécriture du menu"), ("fr/services.html#photos", "Amélioration des photos"), ("fr/services.html#done", "Clé en main"), ("fr/examples.html", "Exemples")]),
-                    ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ")]),
+                    ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 15 %")]),
                     ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description")]),
                     ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
            "rights": "© 2026 MenuFix. Tous droits réservés.", "indep": "MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats."},
     "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/contact.html", "cta": "Maqueta gratis",
            "blurb": "Mejoramos páginas de Uber Eats para restaurantes independientes, cafeterías y panaderías. Cartas claras, mejores fotos de sus platos reales y todo hecho por nosotros.",
            "cols": [("Servicios", [("es/services.html", "Reescritura de la carta"), ("es/services.html#photos", "Mejora de fotos"), ("es/services.html#done", "Hecho por nosotros"), ("es/examples.html", "Ejemplos")]),
-                    ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes")]),
+                    ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 15 %")]),
                     ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones")]),
                     ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
            "rights": "© 2026 MenuFix. Todos los derechos reservados.", "indep": "MenuFix es independiente y no está afiliado a Uber ni a Uber Eats."},
@@ -217,6 +217,9 @@ def add_languages():
 
 def _fr_static(html):
     """Keep the hand translated French pages in step with the built ones: free tools in the footer, current site.js."""
+    html = html.replace("<h4>Company</h4>", "<h4>Entreprise</h4>").replace("<h4>Société</h4>", "<h4>Entreprise</h4>").replace("<h4>Get started</h4>", "<h4>Commencer</h4>")
+    if "parrainage.html" not in html:  # the referral program, in the Entreprise column
+        html = re.sub(r'(<div><h4>Entreprise</h4>.*?)</div>', lambda m: m.group(1) + '<a href="parrainage.html">Gagnez 15 %</a></div>', html, count=1, flags=re.S)
     if "outils/" not in html:
         html = html.replace('<div><h4>Commencer</h4>', '<div><h4>Outils gratuits</h4><a href="outils/verificateur-photo-uber-eats.html">Vérificateur de photo</a>'
                             '<a href="outils/verificateur-description-menu.html">Vérificateur de description</a></div>\n    <div><h4>Commencer</h4>', 1)
@@ -546,6 +549,7 @@ f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div cl
     <div class="card reveal">{ic("check")}<h3>Honest</h3><p>Clear prices, no hidden fees, and no promises we can't keep. A free mockup first, so you know what you're getting.</p></div>
     <div class="card reveal">{ic("rocket")}<h3>Simple</h3><p>Everything by email, in a few days. Or the Full Makeover, so you don't have to touch anything.</p></div>
   </div>
+  <p class="lead reveal" style="text-align:center;margin:40px auto 0">Know restaurant owners? <a href="referral.html">Earn 15% for every restaurant you send us</a>.</p>
 </div></section>
 {cta()}
 """, "about.html")
@@ -742,6 +746,12 @@ for _lang, _cta in (("en", cta()), ("fr", CTA_FR), ("es", CTA_ES)):
 # ------------------------------------------------------------------------------------------------ Spanish site pages
 from _site_es import build_site_es
 build_site_es(page, head, ic, floaty, faq_html, guide_card, GUIDES_ES)
+# ------------------------------------------------------------------------------------------------ referral program
+from _referral import build_referral
+REFERRAL_PAGES = []
+for _lang, _name in build_referral(page, head, ic, faq_html, {"en": cta(), "fr": CTA_FR, "es": CTA_ES}):
+    same_page("referral", _lang, _name)
+    REFERRAL_PAGES.append(_name)
 TOP = ["index.html", "services.html", "examples.html", "how-it-works.html", "pricing.html", "about.html", "faq.html",
        "contact.html", "privacy.html", "terms.html"]
 for _name in TOP + ["404.html"]:
@@ -750,7 +760,7 @@ for _name in TOP + ["404.html"]:
 # ------------------------------------------------------------------------------------------------ languages
 add_languages()
 # ------------------------------------------------------------------------------------------------ sitemap
-URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + GUIDE_PAGES + TOOL_PAGES + LANDING)
+URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-13</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")

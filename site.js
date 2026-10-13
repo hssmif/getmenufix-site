@@ -45,8 +45,30 @@ document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = (F
 // A restaurant arriving from our offer email (?ref=<id>) keeps its id, so its payment is matched to it.
 let REF = new URLSearchParams(location.search).get("ref");
 try { if (REF) sessionStorage.setItem("ref", REF); else REF = sessionStorage.getItem("ref"); } catch (e) {}
+// Referral links (?via=<code>): the code is kept in this browser for 60 days after the first click (the first
+// referrer counts), and goes with the payment to Stripe as client_reference_id "<restaurant id or 0>_<code>".
+// Stripe only accepts letters, digits, dashes and underscores there, so the two parts are joined with "_".
+const VIA_DAYS = 60;
+const VIA_NEW = ((new URLSearchParams(location.search).get("via") || "").toLowerCase().match(/^[a-z0-9]{3,24}$/) || [""])[0];
+let VIA = VIA_NEW;
+try {
+  const saved = JSON.parse(localStorage.getItem("via") || "null");
+  if (saved && /^[a-z0-9]{3,24}$/.test(saved.code || "") && Date.now() - saved.at < VIA_DAYS * 864e5) VIA = saved.code;
+  else if (VIA_NEW) localStorage.setItem("via", JSON.stringify({ code: VIA_NEW, at: Date.now() }));
+  else if (saved) localStorage.removeItem("via");
+} catch (e) {}
+const RID = REF && /^\d+$/.test(REF) ? REF : "";
+const CRID = VIA ? (RID || "0") + "_" + VIA : RID;
 document.querySelectorAll("[data-buy]").forEach((a) => {
-  a.href = LINKS[a.dataset.buy] + (REF && /^\d+$/.test(REF) ? "?client_reference_id=" + REF : "");
+  a.href = LINKS[a.dataset.buy] + (CRID ? "?client_reference_id=" + CRID : "");
+});
+if (VIA) document.querySelectorAll('a[href*="pricing.html"]').forEach((a) => {  // also when storage is blocked
+  try {
+    const u = new URL(a.getAttribute("href"), location.href);
+    if (u.origin !== location.origin) return;
+    u.searchParams.set("via", VIA);
+    a.href = u.pathname + u.search + u.hash;
+  } catch (e) {}
 });
 
 document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTACT));
@@ -65,6 +87,21 @@ if (form) form.addEventListener("submit", (e) => {
   const body = M[0] + v("biz") + "\n" + M[1] + v("city") + "\n" + M[2] + v("link") + "\n\n" + v("msg") + "\n\n" + M[3] + "\n" + v("name");
   location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(M[4] + v("biz")) +
     "&body=" + encodeURIComponent(body);
+});
+
+// Referral sign up form: opens the visitor's email app with everything filled in, like the mockup form.
+const refForm = document.getElementById("refForm");
+if (refForm) refForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const v = (id) => document.getElementById(id).value.trim();
+  const M = {
+    en: ["Hi,\n\nI'd like a referral link for MenuFix.\n\nName: ", "Email: ", "Business: ", "How I will share it: ", "Thanks,", "Referral program: "],
+    fr: ["Bonjour,\n\nJe souhaite un lien de parrainage MenuFix.\n\nNom : ", "Email : ", "Entreprise : ", "Comment je vais le partager : ", "Merci,", "Parrainage : "],
+    es: ["Hola:\n\nMe gustaría recibir un enlace de referidos de MenuFix.\n\nNombre: ", "Correo: ", "Negocio: ", "Cómo lo voy a compartir: ", "Gracias,", "Programa de referidos: "],
+  }[FR ? "fr" : ES ? "es" : "en"];
+  const body = M[0] + v("rName") + "\n" + M[1] + v("rEmail") + "\n" + M[2] + v("rBiz") + "\n" + M[3] + v("rHow") +
+    "\n\n" + M[4] + "\n" + v("rName");
+  location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(M[5] + v("rName")) + "&body=" + encodeURIComponent(body);
 });
 
 // Before and after sliders.
@@ -125,6 +162,9 @@ if ("IntersectionObserver" in window) {
     if (pct >= 98) track("scroll-100");
   };
   addEventListener("scroll", depth, { passive: true });
+
+  // A visit through a referral link (?via=<code>), not counted again while they move between our own pages.
+  if (VIA_NEW && !(document.referrer || "").startsWith(location.origin)) track("via-" + VIA_NEW);
 
   // Clicks on pricing links, pay buttons and email links.
   document.addEventListener("click", (e) => {
