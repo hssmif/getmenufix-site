@@ -68,6 +68,8 @@ def ld(name):
 
 NAV_FR = [("fr/services.html", "Services"), ("fr/examples.html", "Exemples"), ("fr/how-it-works.html", "Comment ça marche"),
           ("fr/pricing.html", "Tarifs"), ("fr/guides/index.html", "Guides"), ("fr/about.html", "À propos"), ("fr/faq.html", "FAQ")]
+NAV_ES = [("es/services.html", "Servicios"), ("es/examples.html", "Ejemplos"), ("es/how-it-works.html", "Cómo funciona"),
+          ("es/pricing.html", "Precios"), ("es/guias/index.html", "Guías"), ("es/about.html", "Nosotros"), ("es/faq.html", "Preguntas")]
 CHROME = {
     "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
            "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
@@ -81,8 +83,16 @@ CHROME = {
            "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
            "cols": [("Services", [("fr/services.html", "Réécriture du menu"), ("fr/services.html#photos", "Amélioration des photos"), ("fr/services.html#done", "Clé en main"), ("fr/examples.html", "Exemples")]),
                     ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ")]),
+                    ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description")]),
                     ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
            "rights": "© 2026 MenuFix. Tous droits réservés.", "indep": "MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats."},
+    "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/contact.html", "cta": "Maqueta gratis",
+           "blurb": "Mejoramos páginas de Uber Eats para restaurantes independientes, cafeterías y panaderías. Cartas claras, mejores fotos de sus platos reales y todo hecho por nosotros.",
+           "cols": [("Servicios", [("es/services.html", "Reescritura de la carta"), ("es/services.html#photos", "Mejora de fotos"), ("es/services.html#done", "Hecho por nosotros"), ("es/examples.html", "Ejemplos")]),
+                    ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes")]),
+                    ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones")]),
+                    ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
+           "rights": "© 2026 MenuFix. Todos los derechos reservados.", "indep": "MenuFix es independiente y no está afiliado a Uber ni a Uber Eats."},
 }
 
 
@@ -91,26 +101,16 @@ SITE_JS_V = __import__("hashlib").md5((ROOT / "site.js").read_bytes()).hexdigest
 
 
 def _url(path):
-    return "https://getmenufix.com/" + (path[:-10] if path in ("index.html", "fr/index.html") else path)
+    return "https://getmenufix.com/" + (path[:-10] if path in ("index.html", "fr/index.html", "es/index.html") else path)
 
 
-def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra=""):
+def page(name, title, desc, body, active="", lang="en", ld_extra=""):
     """Write one page. name and every link in the chrome are relative to the site root; pages in folders get ../ prefixes.
-    alt is the root relative path of the same page in the other language (None when there isn't one)."""
+    The language switch and the hreflang links are added later by add_languages(), once every page exists."""
     c = CHROME[lang]
-    if alt == "auto":
-        alt = "fr/" + name if lang == "en" and "/" not in name else None
     on = ' class="on"'
     links = "".join(f'<a href="{h}"{on if h == active else ""}>{t}</a>' for h, t in c["nav"])
     logo = LOGO.replace('href="index.html"', f'href="{c["home"]}"')
-    if alt:
-        other = "fr" if lang == "en" else "en"
-        lang_link = (f'<a class="lang" href="{alt}" hreflang="{other}" title="{"Français" if other == "fr" else "English"}">{other.upper()}</a>')
-        en_path, fr_path = (name, alt) if lang == "en" else (alt, name)
-        alternates = (f'<link rel="alternate" hreflang="en" href="{_url(en_path)}">\n'
-                      f'<link rel="alternate" hreflang="fr" href="{_url(fr_path)}">\n')
-    else:
-        lang_link = alternates = ""
     cols = "".join(f'<div><h4>{h}</h4>' + "".join(f'<a class="mailto" href="#">{t}</a>' if u == "mailto" else f'<a href="{u}">{t}</a>' for u, t in items) + "</div>"
                    for h, items in c["cols"])
     html = f"""<!doctype html>
@@ -123,8 +123,8 @@ def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra="")
 <meta name="description" content="{desc}">
 <link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="canonical" href="{_url(name)}">
-<script type="application/ld+json">{ld(name) if lang == "en" else LD_FR}</script>{ld_extra}
-{alternates}<meta property="og:title" content="{title}">
+<script type="application/ld+json">{ld(name) if lang == "en" else LD_OTHER}</script>{ld_extra}
+<meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
 <meta property="og:type" content="website">
@@ -136,7 +136,7 @@ def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra="")
 <nav class="nav"><div class="wrap">
   {logo}
   <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
-  <div class="links">{links}{lang_link}<a class="btn primary small" href="{c["cta_href"]}">{c["cta"]}</a></div>
+  <div class="links">{links}<a class="btn primary small" href="{c["cta_href"]}">{c["cta"]}</a></div>
 </div></nav>
 {body}
 <footer><div class="wrap">
@@ -159,7 +159,71 @@ def page(name, title, desc, body, active="", lang="en", alt="auto", ld_extra="")
     (ROOT / name).write_text(_sized(html, up))
 
 
-LD_FR = '{"@context": "https://schema.org", "@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/"}'
+# ------------------------------------------------------------------------------------------------ languages
+# Pages that are the same page in another language, by topic: {topic: {lang: root relative path}}.
+# A page with no group (the Australian city pages and Australian guides) stays in its own language only.
+SAME = {}
+LANGS = [("en", "EN", "English"), ("fr", "FR", "Français"), ("es", "ES", "Español")]
+HOMES = {"en": "index.html", "fr": "fr/index.html", "es": "es/index.html"}
+GUIDE_HOMES = {"en": "guides/index.html", "fr": "fr/guides/index.html", "es": "es/guias/index.html"}
+
+
+def same_page(topic, lang, path):
+    SAME.setdefault(topic, {})[lang] = path
+
+
+def _href(path):
+    return "/" + (path[:-10] if path in HOMES.values() else path)
+
+
+def _lang_of(path):
+    return path.split("/")[0] if path.split("/")[0] in ("fr", "es") else "en"
+
+
+def add_languages():
+    """Give every page the EN FR ES switch, and hreflang links (plus x-default, the English page) to the same page in
+    the other languages. Runs over every page on the site, including the French pages that are not built here."""
+    group_of = {path: g for g in SAME.values() if len(g) > 1 for path in g.values()}
+    for f in sorted(ROOT.rglob("*.html")):
+        path = f.relative_to(ROOT).as_posix()
+        if path.startswith((".", "_")):
+            continue
+        html = f.read_text()
+        if "<nav class=\"nav\">" not in html:
+            continue
+        lang, group = _lang_of(path), group_of.get(path, {})
+        html = re.sub(r'<link rel="alternate" hreflang="[^"]*" href="[^"]*">\n', "", html)
+        html = re.sub(r'<span class="langs">.*?</span>|<a class="lang"[^>]*>[^<]*</a>', "", html)
+        if group and not path.endswith("404.html"):
+            alts = "".join(f'<link rel="alternate" hreflang="{l}" href="{_url(group[l])}">\n' for l, _, _ in LANGS if l in group)
+            if "en" in group:
+                alts += f'<link rel="alternate" hreflang="x-default" href="{_url(group["en"])}">\n'
+            html = re.sub(r'(<link rel="canonical" href="[^"]*">\n)', lambda m: m.group(1) + alts, html, count=1)
+        links = []
+        for l, short, full in LANGS:
+            if l == lang:
+                links.append(f'<a class="lang on" href="{_href(path)}" lang="{l}" title="{full}" aria-current="true">{short}</a>')
+            elif l in group:
+                links.append(f'<a class="lang" href="{_href(group[l])}" hreflang="{l}" lang="{l}" title="{full}">{short}</a>')
+            else:  # no copy in that language: its guides or its home page
+                target = GUIDE_HOMES[l] if "/" in path and path.split("/")[-2] in ("guides", "guias", "tools", "outils", "herramientas") else HOMES[l]
+                links.append(f'<a class="lang" href="{_href(target)}" lang="{l}" title="{full}">{short}</a>')
+        switch = f'<span class="langs">{"".join(links)}</span>'
+        html = html.replace('<a class="btn primary small"', switch + '<a class="btn primary small"', 1)
+        if lang == "fr" and path.count("/") == 1:  # the French pages written by _translate_fr.py
+            html = _fr_static(html)
+        f.write_text(html)
+
+
+def _fr_static(html):
+    """Keep the hand translated French pages in step with the built ones: free tools in the footer, current site.js."""
+    if "outils/" not in html:
+        html = html.replace('<div><h4>Commencer</h4>', '<div><h4>Outils gratuits</h4><a href="outils/verificateur-photo-uber-eats.html">Vérificateur de photo</a>'
+                            '<a href="outils/verificateur-description-menu.html">Vérificateur de description</a></div>\n    <div><h4>Commencer</h4>', 1)
+    return re.sub(r'src="\.\./site\.js(\?v=[0-9a-f]+)?"', f'src="../site.js?v={SITE_JS_V}"', html)
+
+
+LD_OTHER = '{"@context": "https://schema.org", "@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/"}'
 
 
 def ba(n, before_name, after_name, before_desc, after_desc):
@@ -531,6 +595,7 @@ page("404.html", "Page not found | MenuFix", "This page does not exist.",
 import json as _json
 
 from _guides import GUIDES
+from _guides_es import GUIDES_ES
 from _guides_fr import GUIDES_FR
 
 GT = {
@@ -548,6 +613,14 @@ GT = {
            "index_desc": "Guides pratiques et gratuits pour restaurateurs : plus de commandes sur Uber Eats, prix, descriptions de plats, photos au téléphone et modification du menu.",
            "index_h": "Des guides gratuits pour une meilleure <span class='hl'>page Uber Eats.</span>",
            "index_lead": "Des conseils pratiques et honnêtes pour les restaurants indépendants, cafés et boulangeries. À suivre seul, ou à nous confier."},
+    "es": {"dir": "es/guias/", "eyebrow": "Guías", "updated": "Actualizado el 13 de octubre de 2026 · Por Abdel Iflillis, fundador de MenuFix",
+           "date": "2026-10-13",
+           "answer": "Respuesta rápida", "toc": "En esta guía", "faq": "Preguntas frecuentes", "more": "Más guías", "more_h": "Siga mejorando su página",
+           "author": 'es el fundador de MenuFix, un pequeño servicio independiente que reescribe cartas de Uber Eats y mejora las fotos de platos reales para restaurantes independientes, cafeterías y panaderías. <a href="/es/about.html">Quiénes somos</a>',
+           "index_title": "Guías de Uber Eats para restaurantes y cafeterías | MenuFix",
+           "index_desc": "Guías prácticas y gratuitas para dueños de restaurantes en España: más pedidos en Uber Eats, comisiones, precios, descripciones de platos y fotos con el móvil.",
+           "index_h": "Guías gratuitas para una mejor <span class='hl'>página de Uber Eats.</span>",
+           "index_lead": "Consejos prácticos y honestos para restaurantes independientes, cafeterías y panaderías. Aplíquelos usted mismo o déjelo en nuestras manos."},
 }
 
 
@@ -576,17 +649,23 @@ def with_toc(body):
     return body, items
 
 
-from _tools import build_tools, tool_cards
-TOOLS_SECTION = f"""<section class="tight bg-cream" id="tools"><div class="wrap">
-  <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">Free tools</span><h2>Check your page in seconds</h2></div>
-    <p class="lead">Simple checks that run in your browser. Nothing you add is uploaded or saved.</p></div>
-  <div class="grid2">{tool_cards()}</div>
+from _tools import TOOLS_TEXT, build_tools, tool_cards
+
+
+def tools_section(lang):
+    t = TOOLS_TEXT[lang]
+    return f"""<section class="tight bg-cream" id="tools"><div class="wrap">
+  <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">{t["eyebrow"]}</span><h2>{t["h2"]}</h2></div>
+    <p class="lead">{t["lead"]}</p></div>
+  <div class="grid2">{tool_cards(lang)}</div>
 </div></section>"""
 
 
-def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
+def build_guides(guides, lang, cta_html):
     t = GT[lang]
+    date = t.get("date", "2026-10-10")
     by_slug = {g["slug"]: g for g in guides}
+    out = []
     for g in guides:
         url = f"https://getmenufix.com/{t['dir']}{g['slug']}.html"
         art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["desc"],
@@ -594,7 +673,7 @@ def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
                "author": {"@type": "Person", "name": "Abdel Iflillis"},
                "publisher": {"@type": "Organization", "name": "MenuFix", "logo": {"@type": "ImageObject",
                              "url": "https://getmenufix.com/img/logo-mark.png"}},
-               "mainEntityOfPage": url, "datePublished": "2026-10-10", "dateModified": "2026-10-10"}
+               "mainEntityOfPage": url, "datePublished": date, "dateModified": date}
         faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g.get("faq", [])]}
         ld_extra = f'\n<script type="application/ld+json">{_json.dumps(art, ensure_ascii=False)}</script>'
@@ -608,9 +687,10 @@ def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
         related = [by_slug[s] for s in g.get("related", []) if s in by_slug]
         related += [o for o in guides if o is not g and o not in related]
         others = "".join(guide_card(o, lang) for o in related[:3])
-        alt_slug = g.get("alt", g["slug"] if lang == "en" else None)
-        alt = f"{alt_dir}{alt_slug}.html" if alt_dir and alt_slug in alt_slugs else None
-        page(f"{t['dir']}{g['slug']}.html", f"{g['title']} | MenuFix", g["desc"], f"""
+        name = f"{t['dir']}{g['slug']}.html"
+        # The same topic in each language: English slug, or a shared key for the France and Spain only guides.
+        same_page("guide:" + (g.get("key") or (g["slug"] if lang == "en" else g.get("alt")) or name), lang, name)
+        page(name, f"{g['title']} | MenuFix", g["desc"], f"""
 <header class="page-head" style="padding-bottom:40px"><div class="narrow">
   <span class="eyebrow"><a href="/{t['dir']}index.html" style="color:inherit;text-decoration:none">{t['eyebrow']}</a></span>
   <h1 style="font-size:clamp(32px,4.6vw,54px)">{g['title']}</h1>
@@ -628,36 +708,49 @@ def build_guides(guides, lang, cta_html, alt_dir=None, alt_slugs=()):
   <div class="grid3">{others}</div>
 </div></section>
 {cta_html}
-""", f"{t['dir']}index.html", lang=lang, alt=alt, ld_extra=ld_extra)
+""", f"{t['dir']}index.html", lang=lang, ld_extra=ld_extra)
+        out.append(name)
 
+    same_page("guides", lang, f"{t['dir']}index.html")
     page(f"{t['dir']}index.html", t["index_title"], t["index_desc"],
          f"""{head(t['eyebrow'], t['index_h'], t['index_lead'], ("menu", "camera"))}
 <section style="padding-top:30px"><div class="wrap"><div class="grid3">{"".join(guide_card(g, lang) for g in guides)}</div></div></section>
-{TOOLS_SECTION if lang == "en" else ""}
+{tools_section(lang)}
 {cta_html}
-""", f"{t['dir']}index.html", lang=lang, alt=f"{alt_dir}index.html" if alt_dir else None)
+""", f"{t['dir']}index.html", lang=lang)
+    return [f"{t['dir']}index.html"] + out
 
 
 CTA_FR = cta("Voyez votre page améliorée, gratuitement.",
              "Envoyez le nom de votre restaurant, café ou boulangerie sur Uber Eats : vous recevez une maquette gratuite de votre future page. Sans paiement, sans engagement.").replace(
     "Free mockup", "Maquette gratuite").replace("Get my free mockup", "Recevoir ma maquette gratuite").replace(
     "See pricing", "Voir les tarifs").replace('href="contact.html"', 'href="fr/contact.html"').replace('href="pricing.html"', 'href="fr/pricing.html"')
-FR_SLUGS = {g["slug"] for g in GUIDES_FR}
-EN_SLUGS = {g["slug"] for g in GUIDES}
-for g in GUIDES:
-    g.setdefault("alt", next((f["slug"] for f in GUIDES_FR if f.get("alt") == g["slug"]), None))
-build_guides(GUIDES, "en", cta(), "fr/guides/", FR_SLUGS)
-build_guides(GUIDES_FR, "fr", CTA_FR, "guides/", EN_SLUGS)
+CTA_ES = cta("Vea su página mejorada, gratis.",
+             "Díganos el nombre de su restaurante, cafetería o panadería en Uber Eats y le enviaremos una maqueta gratuita de cómo podría quedar su página. Sin pago y sin compromiso.").replace(
+    "Free mockup", "Maqueta gratis").replace("Get my free mockup", "Quiero mi maqueta gratis").replace(
+    "See pricing", "Ver precios").replace('href="contact.html"', 'href="es/contact.html"').replace('href="pricing.html"', 'href="es/pricing.html"')
+GUIDE_PAGES = build_guides(GUIDES, "en", cta()) + build_guides(GUIDES_FR, "fr", CTA_FR) + build_guides(GUIDES_ES, "es", CTA_ES)
 
 # ------------------------------------------------------------------------------------------------ landing pages
 from _landing import build_landing
-LANDING = build_landing(page, head, cta, faq_html, guide_card, GUIDES, ba, EXD, ic)
-TOOL_PAGES = build_tools(page, head, cta)
-# ------------------------------------------------------------------------------------------------ sitemap
+LANDING = build_landing(page, head, cta, faq_html, guide_card, GUIDES, ba, EXD, ic)  # Australia: English only
+TOOL_PAGES = []
+for _lang, _cta in (("en", cta()), ("fr", CTA_FR), ("es", CTA_ES)):
+    for _key, _name in build_tools(page, head, _cta, _lang):
+        same_page("tool:" + _key, _lang, _name)
+        TOOL_PAGES.append(_name)
+# ------------------------------------------------------------------------------------------------ Spanish site pages
+from _site_es import build_site_es
+build_site_es(page, head, ic, floaty, faq_html, guide_card, GUIDES_ES)
 TOP = ["index.html", "services.html", "examples.html", "how-it-works.html", "pricing.html", "about.html", "faq.html",
        "contact.html", "privacy.html", "terms.html"]
-URLS = (TOP + ["guides/index.html"] + [f"guides/{g['slug']}.html" for g in GUIDES] + TOOL_PAGES + LANDING +
-        ["fr/" + p for p in TOP] + ["fr/guides/index.html"] + [f"fr/guides/{g['slug']}.html" for g in GUIDES_FR])
+for _name in TOP + ["404.html"]:
+    for _lang, _pre in (("en", ""), ("fr", "fr/"), ("es", "es/")):
+        same_page("top:" + _name, _lang, _pre + _name)
+# ------------------------------------------------------------------------------------------------ languages
+add_languages()
+# ------------------------------------------------------------------------------------------------ sitemap
+URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + GUIDE_PAGES + TOOL_PAGES + LANDING)
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-10</lastmod></url>\n" for u in URLS) + "</urlset>\n")
+    "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-13</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")

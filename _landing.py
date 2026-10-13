@@ -131,7 +131,7 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
   {guide_row(c["guides"])}
 </div></section>
 {cta()}
-""", "", alt=None)
+""", "")
 
     city_faq = lambda n: [  # noqa: E731
         (f"Do you meet restaurants in person in {n}?", "No. We work entirely by email, which keeps our prices simple. You send your Uber Eats link and photos, we send back your new menu and photos, or make the changes for you."),
@@ -164,7 +164,7 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
   {others(c["slug"], CITIES, "Other cities")}
 </div></section>
 {cta(f"See your {n} page improved, free.")}
-""", "", alt=None)
+""", "")
 
     city_links = "".join(f'<a href="uber-eats/{c["slug"]}.html">{c["name"]}</a>' for c in CITIES)
     page("uber-eats/index.html", "Who We Help: Restaurants, Cafés and Takeaways on Uber Eats | MenuFix",
@@ -177,5 +177,5 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
   <p class="muted" style="margin-top:18px">Not on the list? It doesn't matter: everything is done by email, wherever you are.</p>
 </div></section>
 {cta()}
-""", "uber-eats/index.html", alt=None)
+""", "uber-eats/index.html")
     return [f"uber-eats/{x['slug']}.html" for x in CUISINES + CITIES] + ["uber-eats/index.html"]

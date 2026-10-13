@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<title>Vérificateur de photo Uber Eats gratuit : taille, format et fichier | MenuFix</title>
+<meta name="description" content="Vérifiez une photo de menu selon les règles Uber Eats, dans votre navigateur : format 5:4, au moins 550 × 440 pixels, moins de 10 Mo, JPG ou PNG. Recadrage en 2880 × 2304 en un clic.">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="canonical" href="https://getmenufix.com/fr/outils/verificateur-photo-uber-eats.html">
+<link rel="alternate" hreflang="en" href="https://getmenufix.com/tools/uber-eats-photo-checker.html">
+<link rel="alternate" hreflang="fr" href="https://getmenufix.com/fr/outils/verificateur-photo-uber-eats.html">
+<link rel="alternate" hreflang="es" href="https://getmenufix.com/es/herramientas/comprobador-fotos-uber-eats.html">
+<link rel="alternate" hreflang="x-default" href="https://getmenufix.com/tools/uber-eats-photo-checker.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/"}</script>
+<meta property="og:title" content="Vérificateur de photo Uber Eats gratuit : taille, format et fichier | MenuFix">
+<meta property="og:description" content="Vérifiez une photo de menu selon les règles Uber Eats, dans votre navigateur : format 5:4, au moins 550 × 440 pixels, moins de 10 Mo, JPG ou PNG. Recadrage en 2880 × 2304 en un clic.">
+<meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="../../fr/index.html"><img width="256" height="256" decoding="async" src="../../img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>
+  <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
+  <div class="links"><a href="../../fr/services.html">Services</a><a href="../../fr/examples.html">Exemples</a><a href="../../fr/how-it-works.html">Comment ça marche</a><a href="../../fr/pricing.html">Tarifs</a><a href="../../fr/guides/index.html" class="on">Guides</a><a href="../../fr/about.html">À propos</a><a href="../../fr/faq.html">FAQ</a><span class="langs"><a class="lang" href="/tools/uber-eats-photo-checker.html" hreflang="en" lang="en" title="English">EN</a><a class="lang on" href="/fr/outils/verificateur-photo-uber-eats.html" lang="fr" title="Français" aria-current="true">FR</a><a class="lang" href="/es/herramientas/comprobador-fotos-uber-eats.html" hreflang="es" lang="es" title="Español">ES</a></span><a class="btn primary small" href="../../fr/contact.html">Maquette gratuite</a></div>
+</div></nav>
+<header class="page-head"><img width="160" height="160" decoding="async" class="floaty" src="../../img/icons/camera.png" alt="" style="right:6%;top:22%;animation-delay:-0s"><img width="160" height="160" decoding="async" class="floaty" src="../../img/icons/star.png" alt="" style="right:20%;bottom:8%;animation-delay:-3s"><div class="wrap">
+  <span class="eyebrow">Outil gratuit</span><h1 style="max-width:820px">Vérificateur de <span class='hl'>photo Uber Eats.</span></h1>
+  <p class="lead">Vérifiez une photo de plat selon les règles de taille d'Uber avant de l'envoyer, et corrigez le format en un clic.</p>
+</div></header>
+
+<section style="padding-top:20px"><div class="narrow">
+  <div class="tool" id="photoTool">
+    <label class="tool-drop" id="ptDrop"><input type="file" id="ptFile" accept="image/*">
+      <b>Choisissez une photo de plat</b><span>ou déposez la ici. Elle reste sur votre appareil : rien n'est envoyé.</span></label>
+    <div id="ptOut" class="tool-out" aria-live="polite"></div>
+    <div class="row hidden" id="ptFixRow" style="margin-top:18px">
+      <button class="btn primary" type="button" id="ptFix">Recadrer en 5:4 et redimensionner en 2880 × 2304</button>
+      <span class="note" id="ptFixNote"></span></div>
+    <canvas id="ptCanvas" class="tool-preview hidden" aria-label="Aperçu de la photo corrigée"></canvas>
+  </div>
+  <div class="prose" style="margin-top:40px">
+    <h2>Ce que l'outil vérifie</h2>
+    <ul class="ticks"><li><b>Format :</b> proche du 5:4 à l'horizontale, le format recommandé par Uber.</li>
+      <li><b>Taille :</b> au moins 550 × 440 pixels ; 2880 × 2304 est idéal.</li>
+      <li><b>Poids :</b> moins de 10 Mo.</li><li><b>Type de fichier :</b> JPG ou PNG.</li></ul>
+    <p>Ces règles viennent des <a href="https://help.uber.com/fr-FR/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">consignes photo du menu</a> d'Uber. L'outil ne peut pas
+      juger le contenu de la photo : Uber refuse aussi les photos avec du texte, un logo, plusieurs articles ou des visages. Toutes
+      les causes de refus et leurs solutions sont dans notre guide <a href="/fr/guides/photo-uber-eats-ne-se-charge-pas.html">photo Uber Eats qui ne se charge pas</a>.</p>
+    <p>Le bouton de correction recadre le centre de votre photo en 5:4 et enregistre un JPG en 2880 × 2304. Si votre photo est
+      plus petite, elle est agrandie mais pas plus nette : partez toujours de la photo d'origine la plus grande possible.</p>
+  </div>
+</div></section>
+<section class="tight"><div class="wrap"><div class="cta reveal">
+  <div class="txt"><span class="eyebrow">Maquette gratuite</span><h2>Envie que toute votre page soit refaite ?</h2><p class="lead">Nous réécrivons votre menu et améliorons les photos de vos vrais plats. Commencez par une maquette gratuite, sans paiement et sans engagement.</p>
+    <div class="row"><a class="btn" href="../../fr/contact.html">Recevoir ma maquette gratuite <span class="arr">→</span></a><a class="btn ghost" href="../../fr/pricing.html">Voir les tarifs</a></div></div>
+  <div class="pic"><img width="1400" height="933" decoding="async" class="bg" src="../../img/delivery.jpg" alt="" loading="lazy">
+    <img width="160" height="160" decoding="async" class="floaty" src="../../img/icons/burger.png" alt="" style="left:-34px;top:40px;animation-delay:-0s"><img width="160" height="160" decoding="async" class="floaty" src="../../img/icons/bubbletea.png" alt="" style="right:24px;bottom:24px;animation-delay:-3s"></div>
+</div></div></section>
+
+<footer><div class="wrap">
+  <div class="top">
+    <div><a class="logo" href="../../fr/index.html"><img width="256" height="256" decoding="async" src="../../img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>
+      <p class="muted" style="max-width:340px">Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.</p>
+      <div class="icons"><img width="160" height="160" decoding="async" src="../../img/icons/pizza.png" alt=""><img width="160" height="160" decoding="async" src="../../img/icons/burger.png" alt=""><img width="160" height="160" decoding="async" src="../../img/icons/sushi.png" alt=""><img width="160" height="160" decoding="async" src="../../img/icons/coffee.png" alt=""><img width="160" height="160" decoding="async" src="../../img/icons/taco.png" alt=""><img width="160" height="160" decoding="async" src="../../img/icons/cake.png" alt=""></div></div>
+    <div><h4>Services</h4><a href="../../fr/services.html">Réécriture du menu</a><a href="../../fr/services.html#photos">Amélioration des photos</a><a href="../../fr/services.html#done">Clé en main</a><a href="../../fr/examples.html">Exemples</a></div><div><h4>Entreprise</h4><a href="../../fr/about.html">À propos</a><a href="../../fr/guides/index.html">Guides</a><a href="../../fr/how-it-works.html">Comment ça marche</a><a href="../../fr/pricing.html">Tarifs</a><a href="../../fr/faq.html">FAQ</a></div><div><h4>Outils gratuits</h4><a href="../../fr/outils/verificateur-photo-uber-eats.html">Vérificateur de photo</a><a href="../../fr/outils/verificateur-description-menu.html">Vérificateur de description</a></div><div><h4>Commencer</h4><a href="../../fr/contact.html">Maquette gratuite</a><a class="mailto" href="#">hello@getmenufix.com</a><a href="../../fr/privacy.html">Confidentialité</a><a href="../../fr/terms.html">Conditions</a></div>
+  </div>
+  <div class="bottom"><span>© 2026 MenuFix. Tous droits réservés.</span><a href="https://www.instagram.com/menufix.official/" rel="me noopener" target="_blank">Instagram @menufix.official</a><span>MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats.</span></div>
+</div></footer>
+<script src="../../site.js?v=73ce4b5d"></script>
+</body>
+</html>

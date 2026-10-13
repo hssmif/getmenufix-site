@@ -32,14 +32,16 @@ function detectCur() {
   const cc = ((navigator.language || "").split("-")[1] || "").toUpperCase();
   return cc === "AU" ? "aud" : cc === "US" ? "usd" : EURO_CC.test(cc) ? "eur" : "gbp";
 }
-const CUR = detectCur();
-const FR = document.documentElement.lang === "fr";
+const LANG = document.documentElement.lang;
+const FR = LANG === "fr", ES = LANG === "es";
+// The Spanish pages are for Spain and always show euros.
+const CUR = ES ? "eur" : detectCur();
 const NAME_FR = { aud: "dollars australiens", gbp: "livres sterling", eur: "euros", usd: "dollars américains" };
 document.querySelectorAll("[data-p]").forEach((el) => {
   const n = PRICES[el.dataset.p][CUR], plus = el.dataset.p === "done_for_you" ? "+" : "";
-  el.textContent = FR ? plus + n + "\u00a0" + (CUR === "eur" ? "€" : SYM[CUR]) : plus + SYM[CUR] + n;
+  el.textContent = FR || ES ? plus + n + "\u00a0" + (CUR === "eur" ? "€" : SYM[CUR]) : plus + SYM[CUR] + n;
 });
-document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = (FR ? NAME_FR : NAME)[CUR]));
+document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = (FR ? NAME_FR : ES ? { eur: "euros" } : NAME)[CUR]));
 // A restaurant arriving from our offer email (?ref=<id>) keeps its id, so its payment is matched to it.
 let REF = new URLSearchParams(location.search).get("ref");
 try { if (REF) sessionStorage.setItem("ref", REF); else REF = sessionStorage.getItem("ref"); } catch (e) {}
@@ -55,9 +57,13 @@ if (form) { const q = new URLSearchParams(location.search).get("biz"); if (q) do
 if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   const v = (id) => document.getElementById(id).value.trim();
-  const body = "Hi,\n\nI'd like a free mockup of my Uber Eats page.\n\nRestaurant or shop: " + v("biz") +
-    "\nCity: " + v("city") + "\nUber Eats link: " + v("link") + "\n\n" + v("msg") + "\n\nThanks,\n" + v("name");
-  location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Free mockup for " + v("biz")) +
+  const M = {
+    en: ["Hi,\n\nI'd like a free mockup of my Uber Eats page.\n\nRestaurant or shop: ", "City: ", "Uber Eats link: ", "Thanks,", "Free mockup for "],
+    fr: ["Bonjour,\n\nJe souhaite une maquette gratuite de ma page Uber Eats.\n\nRestaurant ou commerce : ", "Ville : ", "Lien Uber Eats : ", "Merci,", "Maquette gratuite pour "],
+    es: ["Hola:\n\nMe gustaría recibir una maqueta gratis de mi página de Uber Eats.\n\nRestaurante o negocio: ", "Ciudad: ", "Enlace de Uber Eats: ", "Gracias,", "Maqueta gratis para "],
+  }[FR ? "fr" : ES ? "es" : "en"];
+  const body = M[0] + v("biz") + "\n" + M[1] + v("city") + "\n" + M[2] + v("link") + "\n\n" + v("msg") + "\n\n" + M[3] + "\n" + v("name");
+  location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(M[4] + v("biz")) +
     "&body=" + encodeURIComponent(body);
 });
 
@@ -131,11 +137,103 @@ if ("IntersectionObserver" in window) {
   }, true);
 })();
 
-// Free tools (tools/*.html). Everything runs here in the browser: photos and text are never uploaded or sent.
+// Free tools (tools/*.html, fr/outils, es/herramientas). Everything runs here in the browser: photos and text are never uploaded or sent.
 (() => {
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const msg = (kind, label, text) => `<div class="tool-msg ${kind}"><b>${label}</b><span>${text}</span></div>`;
+  const L = FR ? "fr" : ES ? "es" : "en";
+  // Words shown by the tools, in each language. {x} parts are filled in below.
+  const T = {
+    en: { pass: "Pass", fix: "Fix", ok: "OK", ready: "Ready", kb: "KB", mb: "MB",
+      typeOk: "File type: {t}.", typeFix: "File type: save or export it as a JPG before uploading.",
+      sizeOk: "File size: {s}, under 10 MB.", sizeFix: "File size: {s}. Uber allows up to 10 MB. The fix button below makes a smaller JPG.",
+      dims: "Size: {w} × {h} pixels. ", dimsBig: "Big enough for Uber's ideal 2880 × 2304.",
+      dimsMin: "Above Uber's minimum of 550 × 440. 2880 × 2304 is ideal, so use a bigger original if you have one.",
+      dimsFix: "Size: {w} × {h} pixels, smaller than Uber's minimum of 550 × 440. Use the original photo, not a screenshot or a copy from a chat app.",
+      shapeOk: "Shape: {r} to 1, close to 5:4.", shapeFix: "Shape: {r} to 1. Uber recommends 5:4 (1.25 to 1) landscape. Use the button below to crop it.",
+      allOk: "This photo meets Uber's size rules. Check it shows one real dish with no text or logos.",
+      small: "Your photo is smaller than 2880 × 2304, so it will be enlarged, not sharpened.",
+      heic: "This browser can't open that file. It may be a HEIC photo from an iPhone: export or share it as a JPG, then try again.",
+      saved: "Saved a {s} JPG at 2880 × 2304. Check the dish is still centred.", dec: (n, d = 2) => n.toFixed(d),
+      chars: (n) => n + " character" + (n === 1 ? "" : "s"),
+      short: "Short", long: "Long", caps: "Capitals", vague: "Vague", ingr: "Ingredients",
+      lenShort: "{n} characters. Uber's advice is 140 to 260: add the main ingredients or one detail that makes it yours.",
+      lenLong: "{n} characters. Uber's advice is 140 to 260: cut it to the ingredients people care about.",
+      lenOk: "{n} characters, inside Uber's 140 to 260 advice.",
+      capsFix: "Write {w} in normal capitals. ALL CAPS is harder to read.", capsOk: "No ALL CAPS words.",
+      vagueFix: "Swap \"{w}\" for something specific: an ingredient, how it's cooked, or the portion.", vagueOk: "No vague praise words.",
+      foodOk: "Names ingredients or cooking: {w}.", foodFix: "Name at least two main ingredients or how it's cooked, so people know what they're getting.",
+      keep: ["BBQ", "XL", "GF", "VG", "DF"],
+      VAGUE: ["delicious", "amazing", "best", "yummy", "tasty", "awesome", "perfect", "incredible", "world famous", "mouth watering", "to die for", "great", "nice", "lovely", "beautiful"],
+      FOOD: "beef chicken lamb pork fish prawn prawns salmon tuna egg eggs tofu cheese cheddar mozzarella feta haloumi parmesan " +
+        "rice noodles noodle pasta bread bun brioche sourdough pita wrap tortilla pastry chips fries potato salad lettuce tomato onion " +
+        "garlic chilli ginger lemon lime avocado mushroom mushrooms capsicum spinach basil coriander mint parsley sesame peanut peanuts " +
+        "coconut curry sauce gravy mayo aioli butter cream yoghurt honey chocolate caramel vanilla berries banana mango apple oat oats " +
+        "milk espresso coffee tea bacon ham sausage chorizo pepperoni olives pickles slaw kimchi soy teriyaki satay tamarind " +
+        "grilled chargrilled fried crumbed roasted smoked braised slow baked toasted crispy steamed stir wood fired marinated " +
+        "beans lentils chickpeas quinoa edamame cucumber carrot corn pumpkin beetroot dumpling dumplings broth soup patty" },
+    fr: { pass: "OK", fix: "À corriger", ok: "Correct", ready: "Prête", kb: "Ko", mb: "Mo",
+      typeOk: "Type de fichier : {t}.", typeFix: "Type de fichier : enregistrez ou exportez la photo en JPG avant de l'envoyer.",
+      sizeOk: "Poids : {s}, moins de 10 Mo.", sizeFix: "Poids : {s}. Uber accepte 10 Mo au maximum. Le bouton plus bas crée un JPG plus léger.",
+      dims: "Taille : {w} × {h} pixels. ", dimsBig: "Assez grande pour le format idéal d'Uber, 2880 × 2304.",
+      dimsMin: "Au dessus du minimum d'Uber, 550 × 440. Le format idéal est 2880 × 2304 : utilisez une photo d'origine plus grande si vous en avez une.",
+      dimsFix: "Taille : {w} × {h} pixels, sous le minimum d'Uber de 550 × 440. Utilisez la photo d'origine, pas une capture d'écran ni une copie reçue par messagerie.",
+      shapeOk: "Format : {r} pour 1, proche du 5:4.", shapeFix: "Format : {r} pour 1. Uber recommande le 5:4 (1,25 pour 1) à l'horizontale. Utilisez le bouton plus bas pour recadrer.",
+      allOk: "Cette photo respecte les règles de taille d'Uber. Vérifiez qu'elle montre un seul vrai plat, sans texte ni logo.",
+      small: "Votre photo est plus petite que 2880 × 2304 : elle sera agrandie, pas rendue plus nette.",
+      heic: "Ce navigateur ne peut pas ouvrir ce fichier. C'est peut être une photo HEIC d'iPhone : exportez la ou partagez la en JPG, puis réessayez.",
+      saved: "JPG de {s} enregistré en 2880 × 2304. Vérifiez que le plat est toujours bien centré.", dec: (n, d = 2) => n.toFixed(d).replace(".", ","),
+      chars: (n) => n + " caractère" + (n > 1 ? "s" : ""),
+      short: "Trop court", long: "Trop long", caps: "Majuscules", vague: "Mots vagues", ingr: "Ingrédients",
+      lenShort: "{n} caractères. Notre repère est de 140 à 260 : ajoutez les ingrédients principaux ou un détail qui vous ressemble.",
+      lenLong: "{n} caractères. Notre repère est de 140 à 260 : gardez les ingrédients qui comptent pour le client.",
+      lenOk: "{n} caractères, dans notre repère de 140 à 260.",
+      capsFix: "Écrivez {w} en minuscules. Les MAJUSCULES se lisent moins bien.", capsOk: "Aucun mot en MAJUSCULES.",
+      vagueFix: "Remplacez « {w} » par quelque chose de précis : un ingrédient, une cuisson ou la portion.", vagueOk: "Aucun compliment vague.",
+      foodOk: "Ingrédients ou cuissons cités : {w}.", foodFix: "Citez au moins deux ingrédients principaux ou la cuisson, pour que le client sache ce qu'il commande.",
+      keep: ["BBQ", "XL", "XXL", "AOP", "AOC", "IGP"],
+      VAGUE: ["délicieux", "délicieuse", "délicieuses", "incroyable", "incroyables", "meilleur", "meilleure", "parfait", "parfaite", "génial", "géniale", "top", "super", "extra", "excellent", "excellente", "succulent", "succulente", "exceptionnel", "exceptionnelle", "trop bon", "à tomber"],
+      FOOD: "boeuf bœuf poulet agneau porc veau canard poisson saumon thon cabillaud crevettes crevette oeuf œuf oeufs œufs tofu fromage cheddar mozzarella " +
+        "burrata feta chèvre comté emmental raclette parmesan riz nouilles pâtes pain brioche baguette wrap tortilla galette crêpe pâte frites pommes " +
+        "salade tomate tomates oignon oignons ail piment gingembre citron avocat champignons champignon poivron épinards basilic coriandre menthe persil " +
+        "sésame cacahuètes coco curry sauce mayonnaise aïoli beurre crème yaourt miel chocolat caramel vanille fruits fraises framboises banane mangue pomme " +
+        "lait espresso café thé lardons jambon saucisse chorizo olives cornichons pickles chou kimchi soja teriyaki citronnelle " +
+        "grillé grillée grillés rôti rôtie frit frite frits pané panée fumé fumée braisé braisée mijoté mijotée cuit cuite toasté toastée croustillant croustillante " +
+        "vapeur mariné marinée confit confite haricots lentilles pois chiches quinoa edamame concombre carotte maïs potiron betterave raviolis bouillon soupe steak " +
+        "amandes noisettes pistache herbes thym romarin vinaigrette moutarde" },
+    es: { pass: "Bien", fix: "Corregir", ok: "Correcto", ready: "Lista", kb: "KB", mb: "MB",
+      typeOk: "Tipo de archivo: {t}.", typeFix: "Tipo de archivo: guárdela o expórtela como JPG antes de subirla.",
+      sizeOk: "Peso: {s}, menos de 10 MB.", sizeFix: "Peso: {s}. Uber admite hasta 10 MB. El botón de abajo crea un JPG más ligero.",
+      dims: "Tamaño: {w} × {h} píxeles. ", dimsBig: "Suficiente para el tamaño ideal de Uber, 2880 × 2304.",
+      dimsMin: "Por encima del mínimo de Uber, 550 × 440. Lo ideal es 2880 × 2304: use una foto original más grande si la tiene.",
+      dimsFix: "Tamaño: {w} × {h} píxeles, por debajo del mínimo de Uber de 550 × 440. Use la foto original, no una captura de pantalla ni una copia recibida por chat.",
+      shapeOk: "Formato: {r} a 1, cerca de 5:4.", shapeFix: "Formato: {r} a 1. Uber recomienda 5:4 (1,25 a 1) en horizontal. Use el botón de abajo para recortarla.",
+      allOk: "Esta foto cumple las reglas de tamaño de Uber. Compruebe que muestra un solo plato real, sin texto ni logotipos.",
+      small: "Su foto es más pequeña que 2880 × 2304, así que se ampliará pero no ganará nitidez.",
+      heic: "Este navegador no puede abrir el archivo. Puede ser una foto HEIC de iPhone: expórtela o compártala como JPG y vuelva a intentarlo.",
+      saved: "Se ha guardado un JPG de {s} a 2880 × 2304. Compruebe que el plato sigue centrado.", dec: (n, d = 2) => n.toFixed(d).replace(".", ","),
+      chars: (n) => n + (n === 1 ? " carácter" : " caracteres"),
+      short: "Corta", long: "Larga", caps: "Mayúsculas", vague: "Vaga", ingr: "Ingredientes",
+      lenShort: "{n} caracteres. Nuestra referencia es de 140 a 260: añada los ingredientes principales o un detalle propio.",
+      lenLong: "{n} caracteres. Nuestra referencia es de 140 a 260: deje solo los ingredientes que importan al cliente.",
+      lenOk: "{n} caracteres, dentro de nuestra referencia de 140 a 260.",
+      capsFix: "Escriba {w} en minúsculas. Las MAYÚSCULAS se leen peor.", capsOk: "No hay palabras en MAYÚSCULAS.",
+      vagueFix: "Cambie «{w}» por algo concreto: un ingrediente, cómo se cocina o la ración.", vagueOk: "No hay elogios vagos.",
+      foodOk: "Nombra ingredientes o cocciones: {w}.", foodFix: "Nombre al menos dos ingredientes principales o cómo se cocina, para que el cliente sepa qué pide.",
+      keep: ["BBQ", "XL", "XXL", "DOP", "IGP"],
+      VAGUE: ["delicioso", "deliciosa", "deliciosos", "deliciosas", "increíble", "increíbles", "mejor", "perfecto", "perfecta", "riquísimo", "riquísima", "buenísimo", "buenísima", "espectacular", "brutal", "top", "excelente", "exquisito", "exquisita", "sabroso", "sabrosa"],
+      FOOD: "ternera vaca buey pollo cordero cerdo ibérico pescado salmón atún bacalao merluza gambas langostinos calamares pulpo huevo huevos tofu queso cheddar mozzarella " +
+        "burrata feta manchego parmesano arroz fideos pasta pan brioche bocadillo chapata tortilla wrap masa patatas fritas ensalada lechuga tomate cebolla " +
+        "ajo guindilla jengibre limón lima aguacate champiñones setas pimiento pimientos espinacas albahaca cilantro menta perejil sésamo cacahuete coco curry " +
+        "salsa mayonesa alioli mantequilla nata yogur miel chocolate caramelo vainilla frutos fresas plátano mango manzana leche espresso café té " +
+        "jamón chorizo salchicha bacon beicon aceitunas pepinillos kimchi soja teriyaki pimentón azafrán " +
+        "plancha brasa frito frita fritos fritas rebozado rebozada asado asada ahumado ahumada guisado guisada horno tostado tostada crujiente crujientes " +
+        "vapor marinado marinada confitado confitada garbanzos lentejas alubias quinoa edamame pepino zanahoria maíz calabaza remolacha croquetas caldo sopa " +
+        "almendras avellanas pistacho hierbas romero tomillo aceite oliva" },
+  }[L];
+  const fill = (s, o) => s.replace(/\{(\w)\}/g, (_, k) => o[k]);
+  const sizeText = (bytes) => { const mb = bytes / 1048576; return mb < 0.1 ? Math.max(1, Math.round(bytes / 1024)) + " " + T.kb : T.dec(mb, 1) + " " + T.mb; };
 
   // ---- Uber Eats photo checker: 5:4, at least 550 x 440, under 10 MB, JPG or PNG
   const file = $("ptFile");
@@ -146,33 +244,28 @@ if ("IntersectionObserver" in window) {
       if (!f) return;
       name = (f.name || "photo").replace(/\.[^.]+$/, "");
       const okType = /^image\/(jpeg|png)$/.test(f.type) || /\.(jpe?g|png)$/i.test(f.name || "");
-      const mb = f.size / 1048576;
-      const sizeText = mb < 0.1 ? Math.max(1, Math.round(f.size / 1024)) + " KB" : mb.toFixed(1) + " MB";
+      const mb = f.size / 1048576, s = sizeText(f.size);
       const url = URL.createObjectURL(f);
       const im = new Image();
       im.onload = () => {
         img = im;
-        const w = im.naturalWidth, h = im.naturalHeight, r = w / h, shapeOk = Math.abs(r - 1.25) <= 0.03;
+        const w = im.naturalWidth, h = im.naturalHeight, r = w / h, shapeOk = Math.abs(r - 1.25) <= 0.03, big = w >= 2880 && h >= 2304;
         const rows = [
-          okType ? msg("pass", "Pass", "File type: " + (/png/i.test(f.type || f.name) ? "PNG" : "JPG") + ".")
-                 : msg("fix", "Fix", "File type: save or export it as a JPG before uploading."),
-          mb <= 10 ? msg("pass", "Pass", `File size: ${sizeText}, under 10 MB.`)
-                   : msg("fix", "Fix", `File size: ${sizeText}. Uber allows up to 10 MB. The fix button below makes a smaller JPG.`),
-          w >= 550 && h >= 440 ? msg(w >= 2880 && h >= 2304 ? "pass" : "info", w >= 2880 && h >= 2304 ? "Pass" : "OK",
-              `Size: ${w} × ${h} pixels. ${w >= 2880 && h >= 2304 ? "Big enough for Uber's ideal 2880 × 2304." : "Above Uber's minimum of 550 × 440. 2880 × 2304 is ideal, so use a bigger original if you have one."}`)
-            : msg("fix", "Fix", `Size: ${w} × ${h} pixels, smaller than Uber's minimum of 550 × 440. Use the original photo, not a screenshot or a copy from a chat app.`),
-          shapeOk ? msg("pass", "Pass", `Shape: ${r.toFixed(2)} to 1, close to 5:4.`)
-                  : msg("fix", "Fix", `Shape: ${r.toFixed(2)} to 1. Uber recommends 5:4 (1.25 to 1) landscape. Use the button below to crop it.`),
+          okType ? msg("pass", T.pass, fill(T.typeOk, { t: /png/i.test(f.type || f.name) ? "PNG" : "JPG" })) : msg("fix", T.fix, T.typeFix),
+          mb <= 10 ? msg("pass", T.pass, fill(T.sizeOk, { s })) : msg("fix", T.fix, fill(T.sizeFix, { s })),
+          w >= 550 && h >= 440 ? msg(big ? "pass" : "info", big ? T.pass : T.ok, fill(T.dims, { w, h }) + (big ? T.dimsBig : T.dimsMin))
+            : msg("fix", T.fix, fill(T.dimsFix, { w, h })),
+          shapeOk ? msg("pass", T.pass, fill(T.shapeOk, { r: T.dec(r) })) : msg("fix", T.fix, fill(T.shapeFix, { r: T.dec(r) })),
         ];
         const allOk = okType && mb <= 10 && w >= 550 && h >= 440 && shapeOk;
-        out.innerHTML = (allOk ? msg("pass", "Ready", "This photo meets Uber's size rules. Check it shows one real dish with no text or logos.") : "") + rows.join("");
+        out.innerHTML = (allOk ? msg("pass", T.ready, T.allOk) : "") + rows.join("");
         fixRow.classList.remove("hidden");
-        $("ptFixNote").textContent = w < 2880 || h < 2304 ? "Your photo is smaller than 2880 × 2304, so it will be enlarged, not sharpened." : "";
+        $("ptFixNote").textContent = w < 2880 || h < 2304 ? T.small : "";
         canvas.classList.add("hidden");
       };
       im.onerror = () => {
         img = null; fixRow.classList.add("hidden");
-        out.innerHTML = msg("fix", "Fix", "This browser can't open that file. It may be a HEIC photo from an iPhone: export or share it as a JPG, then try again.");
+        out.innerHTML = msg("fix", T.fix, T.heic);
       };
       im.src = url;
     };
@@ -197,7 +290,7 @@ if ("IntersectionObserver" in window) {
         a.download = name + "-uber-eats-2880x2304.jpg";
         document.body.appendChild(a); a.click(); a.remove();
         const kb = blob.size / 1024;
-        $("ptFixNote").textContent = `Saved a ${kb < 100 ? Math.max(1, Math.round(kb)) + " KB" : (kb / 1024).toFixed(1) + " MB"} JPG at 2880 × 2304. Check the dish is still centred.`;
+        $("ptFixNote").textContent = fill(T.saved, { s: kb < 100 ? Math.max(1, Math.round(kb)) + " " + T.kb : T.dec(kb / 1024, 1) + " " + T.mb });
       }, "image/jpeg", 0.88);
     });
   }
@@ -205,35 +298,25 @@ if ("IntersectionObserver" in window) {
   // ---- Menu description checker: 140 to 260 characters, ALL CAPS, vague words, ingredients
   const text = $("dtText");
   if (text) {
-    const VAGUE = ["delicious", "amazing", "best", "yummy", "tasty", "awesome", "perfect", "incredible", "world famous", "mouth watering", "to die for", "great", "nice", "lovely", "beautiful"];
-    const FOOD = ("beef chicken lamb pork fish prawn prawns salmon tuna egg eggs tofu cheese cheddar mozzarella feta haloumi parmesan " +
-      "rice noodles noodle pasta bread bun brioche sourdough pita wrap tortilla pastry chips fries potato salad lettuce tomato onion " +
-      "garlic chilli ginger lemon lime avocado mushroom mushrooms capsicum spinach basil coriander mint parsley sesame peanut peanuts " +
-      "coconut curry sauce gravy mayo aioli butter cream yoghurt honey chocolate caramel vanilla berries banana mango apple oat oats " +
-      "milk espresso coffee tea bacon ham sausage chorizo pepperoni olives pickles slaw kimchi soy teriyaki satay tamarind " +
-      "grilled chargrilled fried crumbed roasted smoked braised slow baked toasted crispy steamed stir wood fired marinated " +
-      "beans lentils chickpeas quinoa edamame cucumber carrot corn pumpkin beetroot dumpling dumplings broth soup patty").split(" ");
+    const FOOD = T.FOOD.split(" ");
     const run = () => {
       const t = text.value.trim(), n = t.length;
       const bar = $("dtBar"), out = $("dtOut");
-      $("dtCount").textContent = n + " character" + (n === 1 ? "" : "s");
+      $("dtCount").textContent = T.chars(n);
       bar.style.width = Math.min(100, n / 2.6) + "%";
       bar.classList.toggle("ok", n >= 140 && n <= 260);
       if (!n) { out.innerHTML = ""; return; }
       const rows = [];
-      rows.push(n < 140 ? msg("fix", "Short", `${n} characters. Uber's advice is 140 to 260: add the main ingredients or one detail that makes it yours.`)
-        : n > 260 ? msg("fix", "Long", `${n} characters. Uber's advice is 140 to 260: cut it to the ingredients people care about.`)
-        : msg("pass", "Pass", `${n} characters, inside Uber's 140 to 260 advice.`));
-      const caps = (t.match(/\b[A-Z]{3,}\b/g) || []).filter((w) => !["BBQ", "XL", "GF", "VG", "DF"].includes(w));
-      rows.push(caps.length ? msg("fix", "Capitals", `Write ${esc(caps.slice(0, 5).join(", "))} in normal capitals. ALL CAPS is harder to read.`)
-        : msg("pass", "Pass", "No ALL CAPS words."));
-      const low = " " + t.toLowerCase().replace(/[^a-z\s]/g, " ") + " ";
-      const vague = VAGUE.filter((v) => low.includes(" " + v + " "));
-      rows.push(vague.length ? msg("fix", "Vague", `Swap "${esc(vague.join('", "'))}" for something specific: an ingredient, how it's cooked, or the portion.`)
-        : msg("pass", "Pass", "No vague praise words."));
+      rows.push(n < 140 ? msg("fix", T.short, fill(T.lenShort, { n })) : n > 260 ? msg("fix", T.long, fill(T.lenLong, { n }))
+        : msg("pass", T.pass, fill(T.lenOk, { n })));
+      const caps = (t.match(/(?<![\p{L}])\p{Lu}{3,}(?![\p{L}])/gu) || []).filter((w) => !T.keep.includes(w));
+      rows.push(caps.length ? msg("fix", T.caps, fill(T.capsFix, { w: esc(caps.slice(0, 5).join(", ")) })) : msg("pass", T.pass, T.capsOk));
+      const low = " " + t.toLowerCase().replace(/[^\p{L}\s]/gu, " ").replace(/\s+/g, " ") + " ";
+      const vague = T.VAGUE.filter((v) => low.includes(" " + v + " "));
+      rows.push(vague.length ? msg("fix", T.vague, fill(T.vagueFix, { w: esc(vague.join(L === "en" ? '", "' : L === "fr" ? " », « " : "», «")) }))
+        : msg("pass", T.pass, T.vagueOk));
       const foods = [...new Set(FOOD.filter((f) => low.includes(" " + f + " ")))];
-      rows.push(foods.length >= 2 ? msg("pass", "Pass", `Names ingredients or cooking: ${esc(foods.slice(0, 6).join(", "))}.`)
-        : msg("fix", "Ingredients", "Name at least two main ingredients or how it's cooked, so people know what they're getting."));
+      rows.push(foods.length >= 2 ? msg("pass", T.pass, fill(T.foodOk, { w: esc(foods.slice(0, 6).join(", ")) })) : msg("fix", T.ingr, T.foodFix));
       out.innerHTML = rows.join("");
     };
     text.addEventListener("input", run);
