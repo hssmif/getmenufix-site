@@ -145,7 +145,7 @@ def page(name, title, desc, body, active="", lang="en", ld_extra=""):
 <meta name="theme-color" content="#ffffff">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><script>window.goatcounter={{filter:function(){{if(navigator.webdriver)return "automation";try{{if(localStorage.getItem("skipgc")==="t")return "skip";}}catch(e){{}}if("visibilityState" in document&&document.visibilityState==="prerender")return "prerender";return false;}}}};</script><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="canonical" href="{_url(name)}">
 <script type="application/ld+json">{ld(name) if lang == "en" else LD_OTHER}</script>{ld_extra}
 <meta property="og:title" content="{title}">
@@ -207,6 +207,10 @@ def _lang_of(path):
 
 
 
+GC_PLAIN = '<script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+GC_FILTERED = '<script>window.goatcounter={filter:function(){if(navigator.webdriver)return "automation";try{if(localStorage.getItem("skipgc")==="t")return "skip";}catch(e){}if("visibilityState" in document&&document.visibilityState==="prerender")return "prerender";return false;}};</script><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>'
+
+
 def add_chrome_extras():
     """The referral bar and the social icons on pages that are not built by page() (the translated French pages)."""
     for f in sorted(ROOT.rglob("*.html")):
@@ -217,6 +221,7 @@ def add_chrome_extras():
         if '<nav class="nav">' not in html:
             continue
         html = re.sub(r'href="((?:\.\./)*)style\.css(?:\?v=\w+)?"', rf'href="\1style.css?v={STYLE_V}"', html)  # new design: no old cached copy
+        html = html.replace(GC_PLAIN, GC_FILTERED) if GC_FILTERED not in html else html  # our own browsers don't count
         html = re.sub(r'<a class="promo".*?</a>\n', "", html)  # an earlier version: put the current one back
         html = re.sub(r'\n      <h4 class="follow">.*?</div>(</div>)', r"\1", html, flags=re.S)
         c, up = CHROME[_lang_of(path)], "../" * path.count("/")
