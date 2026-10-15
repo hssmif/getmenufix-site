@@ -2,7 +2,7 @@
 const CONTACT = "hello@getmenufix.com";
 // The free page check form posts here: the Google Apps Script web app MenuFix already uses (MUSE_SHEET_URL in
 // MenuFix Settings). Only its public "check" action works without the secret. Empty: the form opens the email app.
-const CHECK_URL = "";
+const CHECK_URL = "https://script.google.com/macros/s/AKfycbwFvkB2O8HXfjVmtQOFHOlxQskpVEtGRdotAtznV8kDvG4ZrUkL-4jrSCFkt5pEHmz90w/exec";
 const LINKS = {
   menu_fix: "https://buy.stripe.com/6oU6oI0bi1I4bDWfXY1sQ04",
   menu_photos: "https://buy.stripe.com/5kQaEYf6c5Yk6jCeTU1sQ05",
