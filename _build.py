@@ -802,16 +802,43 @@ REFERRAL_PAGES = []
 for _lang, _name in build_referral(page, head, ic, faq_html, {"en": cta(), "fr": CTA_FR, "es": CTA_ES}):
     same_page("referral", _lang, _name)
     REFERRAL_PAGES.append(_name)
+# ------------------------------------------------------------------------------------------------ free page check
+from _check import CTA as CHECK_CTA, build_check, cta_strip
+CHECK_PAGES = []
+for _lang, _name in build_check(page, head, ic, faq_html, {"en": cta(), "fr": CTA_FR, "es": CTA_ES}):
+    same_page("check", _lang, _name)
+    CHECK_PAGES.append(_name)
+CHECK_HOME = {"en": "check.html", "fr": "fr/check.html", "es": "es/check.html"}
+CHECK_ON = ("index.html", "fr/index.html", "es/index.html", "guides/", "fr/guides/", "es/guias/", "tools/", "fr/outils/",
+            "es/herramientas/")
+
+
+def add_check_cta():
+    """The "Free Uber Eats page check" button on the home pages, every guide and both free tools, in each language,
+    right under the page's first header. Marked, so a rebuild replaces it instead of adding a second one."""
+    import os
+    for f in sorted(ROOT.rglob("*.html")):
+        path = f.relative_to(ROOT).as_posix()
+        if not (path in CHECK_ON[:3] or path.startswith(CHECK_ON[3:])):
+            continue
+        html = re.sub(r"\n?<!--check-cta-->.*?<!--/check-cta-->", "", f.read_text(), flags=re.S)
+        lang = _lang_of(path)
+        href = os.path.relpath(CHECK_HOME[lang], os.path.dirname(path) or ".")
+        html = html.replace("</header>", "</header>\n" + cta_strip(lang, href), 1)
+        f.write_text(html)
+
+
 TOP = ["index.html", "services.html", "examples.html", "how-it-works.html", "pricing.html", "about.html", "faq.html",
        "contact.html", "privacy.html", "terms.html"]
 for _name in TOP + ["404.html"]:
     for _lang, _pre in (("en", ""), ("fr", "fr/"), ("es", "es/")):
         same_page("top:" + _name, _lang, _pre + _name)
 # ------------------------------------------------------------------------------------------------ languages
+add_check_cta()
 add_chrome_extras()
 add_languages()
 # ------------------------------------------------------------------------------------------------ sitemap
-URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
+URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + CHECK_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-13</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")

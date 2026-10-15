@@ -1,5 +1,8 @@
 // Edit these if anything changes.
 const CONTACT = "hello@getmenufix.com";
+// The free page check form posts here: the Google Apps Script web app MenuFix already uses (MUSE_SHEET_URL in
+// MenuFix Settings). Only its public "check" action works without the secret. Empty: the form opens the email app.
+const CHECK_URL = "";
 const LINKS = {
   menu_fix: "https://buy.stripe.com/6oU6oI0bi1I4bDWfXY1sQ04",
   menu_photos: "https://buy.stripe.com/5kQaEYf6c5Yk6jCeTU1sQ05",
@@ -102,6 +105,37 @@ if (refForm) refForm.addEventListener("submit", (e) => {
   const body = M[0] + v("rName") + "\n" + M[1] + v("rEmail") + "\n" + M[2] + v("rBiz") + "\n" + M[3] + v("rHow") +
     "\n\n" + M[4] + "\n" + v("rName");
   location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(M[5] + v("rName")) + "&body=" + encodeURIComponent(body);
+});
+
+// Free Uber Eats page check (check.html): one row in the sheet's "Page checks" tab, then a thank you.
+const checkForm = document.getElementById("checkForm");
+if (checkForm) checkForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const v = (id) => document.getElementById(id).value.trim();
+  const err = document.getElementById("cErr");
+  const say = (msg) => { err.textContent = msg; err.hidden = !msg; };
+  const url = v("cUrl"), lang = checkForm.dataset.lang || "en";
+  if (!/^https:\/\/(www\.)?ubereats\.com\/([a-z]{2}(-[a-z]{2})?\/)?store\/[^\/?#\s]+\/[A-Za-z0-9_-]+/.test(url)) return say(checkForm.dataset.bad_url);
+  if (!checkForm.checkValidity()) { checkForm.reportValidity(); return; }
+  say("");
+  const data = { action: "check", store_url: url, restaurant: v("cName"), email: v("cEmail"), first_name: v("cFirst"),
+                 lang, consent: document.getElementById("cConsent").checked, website: v("cSite") };
+  const btn = checkForm.querySelector("button"); btn.disabled = true;
+  try {
+    if (CHECK_URL) {  // no-cors: the answer can't be read, the sheet script checks everything again
+      await fetch(CHECK_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    } else {
+      const lines = ["Free Uber Eats page check", "Store link: " + url, "Restaurant: " + data.restaurant, "Email: " + data.email,
+                     "First name: " + data.first_name, "Language: " + lang, "Consent: " + document.querySelector(".consent span").textContent];
+      location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Free page check: " + data.restaurant) + "&body=" + encodeURIComponent(lines.join("\n"));
+    }
+    checkForm.hidden = true;
+    document.getElementById("checkThanks").hidden = false;
+    try { window.goatcounter && window.goatcounter.count({ path: "check-sent", title: location.pathname, event: true }); } catch (x) {}
+  } catch (x) {
+    btn.disabled = false;
+    say(checkForm.dataset.error);
+  }
 });
 
 // Before and after sliders.
