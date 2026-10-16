@@ -45,11 +45,12 @@ document.querySelectorAll("[data-p]").forEach((el) => {
   el.textContent = FR || ES ? plus + n + "\u00a0" + (CUR === "eur" ? "€" : SYM[CUR]) : plus + SYM[CUR] + n;
 });
 document.querySelectorAll("[data-curname]").forEach((el) => (el.textContent = (FR ? NAME_FR : ES ? { eur: "euros" } : NAME)[CUR]));
-// A restaurant arriving from our offer email (?ref=<id>) keeps its id, so its payment is matched to it.
+// A restaurant arriving from our emails (?ref=<id>) keeps its id, so its request is matched to it.
 let REF = new URLSearchParams(location.search).get("ref");
 try { if (REF) sessionStorage.setItem("ref", REF); else REF = sessionStorage.getItem("ref"); } catch (e) {}
 // Referral links (?via=<code>): the code is kept in this browser for 60 days after the first click (the first
-// referrer counts), and goes with the payment to Stripe as client_reference_id "<restaurant id or 0>_<code>".
+// referrer counts). It goes in the plan request (contact form), and on with the payment link we send after the
+// finished page, as Stripe client_reference_id "<restaurant id or 0>_<code>".
 // Stripe only accepts letters, digits, dashes and underscores there, so the two parts are joined with "_".
 const VIA_DAYS = 60;
 const VIA_NEW = ((new URLSearchParams(location.search).get("via") || "").toLowerCase().match(/^[a-z0-9]{3,24}$/) || [""])[0];
@@ -61,9 +62,13 @@ try {
   else if (saved) localStorage.removeItem("via");
 } catch (e) {}
 const RID = REF && /^\d+$/.test(REF) ? REF : "";
-const CRID = VIA ? (RID || "0") + "_" + VIA : RID;
+// Our guarantee: nobody pays on this website. A plan button starts the work (the contact form, with the plan chosen):
+// we make the finished page first, and the payment link comes with it, once they've seen it and are happy.
 document.querySelectorAll("[data-buy]").forEach((a) => {
-  a.href = LINKS[a.dataset.buy] + (CRID ? "?client_reference_id=" + CRID : "");
+  const q = new URLSearchParams({ plan: a.dataset.buy });
+  if (RID) q.set("ref", RID);
+  if (VIA) q.set("via", VIA);
+  a.href = "contact.html?" + q.toString();
 });
 if (VIA) document.querySelectorAll('a[href*="pricing.html"]').forEach((a) => {  // also when storage is blocked
   try {
@@ -79,6 +84,20 @@ document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTAC
 // Free mockup form: opens the visitor's email app with everything filled in.
 const form = document.getElementById("mockForm");
 if (form) { const q = new URLSearchParams(location.search).get("biz"); if (q) document.getElementById("biz").value = q; }
+// Arriving from a plan button: the message says which plan, and the guarantee (and a referral code, so it is counted).
+const PLAN = new URLSearchParams(location.search).get("plan");
+const PLAN_NAMES = {
+  en: { menu_fix: "Menu Fix", menu_photos: "Menu and Photos", full_makeover: "Full Makeover" },
+  fr: { menu_fix: "Menu Fix", menu_photos: "Menu et Photos", full_makeover: "Refonte Complète" },
+  es: { menu_fix: "Menu Fix", menu_photos: "Menu y Fotos", full_makeover: "Renovación Completa" },
+}[FR ? "fr" : ES ? "es" : "en"];
+if (form && PLAN && PLAN_NAMES[PLAN]) {
+  const msg = document.getElementById("msg");
+  const line = FR ? "Je souhaite " + PLAN_NAMES[PLAN] + ". Je ne paie qu'après avoir vu ma page terminée, et seulement si elle me plaît."
+    : ES ? "Me interesa " + PLAN_NAMES[PLAN] + ". Solo pago cuando haya visto mi página terminada y esté contento con ella."
+    : "I'd like " + PLAN_NAMES[PLAN] + ". I only pay once I've seen my finished page and I'm happy with it.";
+  if (msg && !msg.value) msg.value = line + (VIA ? (FR ? "\nCode de parrainage : " : ES ? "\nCódigo de referido: " : "\nReferral code: ") + VIA : "");
+}
 if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   const v = (id) => document.getElementById(id).value.trim();
@@ -205,7 +224,7 @@ if ("IntersectionObserver" in window) {
     const a = e.target.closest && e.target.closest("a");
     if (!a) return;
     const buy = a.getAttribute("data-buy"), href = a.getAttribute("href") || "";
-    if (buy && Object.prototype.hasOwnProperty.call(LINKS, buy)) track("click-pay-" + buy);
+    if (buy && Object.prototype.hasOwnProperty.call(LINKS, buy)) track("click-plan-" + buy);
     else if (/^mailto:/i.test(href) || a.classList.contains("mailto")) track("click-email");
     else if (/(^|\/)pricing\.html(\?|#|$)/.test(href)) track("click-pricing");
   }, true);

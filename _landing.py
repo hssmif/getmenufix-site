@@ -151,6 +151,8 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
   <h2>How it works from {n}</h2>
   <p>Everything happens by email, so it works the same wherever you are. You send us your restaurant's name or Uber Eats link, and we send a free mockup of how your page could look. If you like it, you choose a package, send photos of your dishes taken on your phone, and we do the rest.</p>
   <p>Prices are shown in Australian dollars for visitors in Australia. See <a href="/pricing.html">pricing</a>.</p>
+  <h2>Moving from Menulog?</h2>
+  <p>If you're moving your restaurant from Menulog to Uber Eats, our guide <a href="/guides/moving-from-menulog-to-uber-eats.html">Moving from Menulog to Uber Eats: set up your page right</a> goes through what Uber asks for and how to set up your new page, from Uber's own merchant pages.</p>
   <h2>Honest about what we are</h2>
   <p>MenuFix is a small independent service, not a local agency and not part of Uber. We can't promise more orders, and nobody honestly can. What we do is make your page clearer and more appetising, which is what helps people choose you.</p>
 </div></section>

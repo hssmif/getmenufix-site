@@ -580,6 +580,57 @@ GUIDES = [
 """,
     },
     {
+        "slug": "moving-from-menulog-to-uber-eats",
+        "related": ["new-on-uber-eats-checklist", "uber-eats-photo-requirements", "how-to-get-your-restaurant-on-uber-eats-australia"],
+        "title": "Moving from Menulog to Uber Eats: Set Up Your Page Right",
+        "short": "Moving from Menulog to Uber Eats",
+        "desc": "Moving your restaurant from Menulog to Uber Eats? What Uber asks for when you sign up, its photo and cover image rules, and how to set up a new Uber Eats page that people choose.",
+        "img": "phone",
+        "lead": "A new Uber Eats page starts from zero: no ratings, no regulars on the app yet. The first weeks decide who tries you, so it pays to set the page up properly instead of copying your old menu across as it is. Every requirement below comes from Uber's own merchant pages.",
+        "answer": "Sign up on Uber's Australian merchant site with an up to date menu (prices and descriptions), your opening hours and your business or food licence. Uber adds your location once it approves what you sent. Then set up the page properly: best sellers first, clear names, a short description for every dish, and photos that meet Uber's rules: <b>5:4 landscape</b>, ideally <b>2880 × 2304 pixels</b>, <b>JPG up to 10 MB</b>, one dish, no text or logos.",
+        "faq": [
+            ("Can I copy my Menulog menu to Uber Eats?", "Use it as a starting point. Uber asks for an up to date menu with prices and descriptions when you sign up. Check every name, price and option as you enter it, and put your best sellers first."),
+            ("Can I use my Menulog photos on Uber Eats?", "Only if they meet Uber's photo guidelines: 5:4 landscape, ideally 2880 × 2304 pixels, at least 550 × 440, one dish as served, no text, logos or faces. Crop again from your original photos rather than reusing an already cropped version."),
+            ("When will my Uber Eats page go live?", "Uber's Australian merchant terms say your location is added once you have given Uber the documents and information it asks for and Uber approves it. Having your menu, opening hours and licence ready avoids delays."),
+            ("What does Uber Eats cost?", "Uber's Australian pricing page lists its current fees, and your own agreement is what counts. If Uber has offered you special terms, check them in your agreement."),
+        ],
+        "body": """
+<h2>1. Sign up with what Uber asks for</h2>
+<p>Start on the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">Uber Eats sign up page for Australia</a> with your business name, address and contact details. Uber's help page on <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a> lists what to have ready:</p>
+<ul class="ticks"><li>an up to date copy of your menu, with prices and descriptions;</li><li>your opening hours;</li><li>a business or food licence.</li></ul>
+<p>Uber's <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">Australian merchant terms</a> say your location is added only after you provide the documents and information Uber requests and Uber approves it. Have everything ready before you start, so you can finish in one go.</p>
+
+<h2>2. Don't copy your old menu across as it is</h2>
+<p>Your menu is the part of your new page you control completely, and a fresh page is the easiest moment to get it right:</p>
+<ul class="ticks"><li><b>Best sellers first.</b> Put the five or six dishes people order most in your first category.</li><li><b>Names people understand.</b> Keep your signature names, and add what the dish is.</li><li><b>A short description for every dish.</b> One line with the main ingredients is enough. Our <a href="/guides/write-uber-eats-menu-descriptions.html">guide to menu descriptions</a> has examples.</li><li><b>Short, logical categories.</b> Group the menu the way people order. See <a href="/guides/uber-eats-menu-categories.html">how to set up your categories</a>.</li><li><b>Correct prices, sizes and options.</b> Build combos and add ons carefully and place a test order if you can.</li></ul>
+
+<h2>3. Photos that pass Uber's review</h2>
+<p>Uber reviews every photo before it goes live. Its <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> ask for:</p>
+<table class="compare"><tr><th>What</th><th>Uber's requirement</th></tr>
+<tr><td>Shape</td><td>5:4, landscape</td></tr>
+<tr><td>Recommended size</td><td>2880 × 2304 pixels</td></tr>
+<tr><td>Minimum size</td><td>550 pixels wide, 440 pixels tall</td></tr>
+<tr><td>File</td><td>JPG (PNG and GIF also accepted for menu items), up to 10 MB</td></tr>
+<tr><td>Content</td><td>One menu item, as served, centred. No text, prices, logos, watermarks or faces (hands are fine)</td></tr></table>
+<p>Photos made for another app can be a different shape. Crop again from your original photos to 5:4 rather than stretching an old crop. Start with your best sellers. Our <a href="/tools/uber-eats-photo-checker.html">free photo checker</a> tells you if a photo has the right size and shape.</p>
+
+<h2>4. A cover image that shows your food</h2>
+<p>Uber's <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">guide to cover images and menu photos</a> asks for <b>2880 × 2304 pixels</b>, a <b>5:4</b> shape, as a <b>JPG</b>, filling the whole size, showing food customers can actually buy, with no logos or text apart from your store name. Our guide to <a href="/guides/uber-eats-banner-photo.html">choosing your banner photo</a> helps you pick the dish.</p>
+
+<h2>5. Plan your first weeks</h2>
+<p>A new page has no ratings yet, so what people see on it does the work. Our <a href="/guides/new-on-uber-eats-checklist.html">first weeks checklist</a> covers the rest: hours that match when you can really cook, pausing sold out items, and reading every review.</p>
+
+<h2>6. Fees: check your own agreement</h2>
+<p>Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a> lists its current fees. What you actually pay is in your own agreement, so check it there, including any special terms Uber has offered you.</p>
+
+<h2>Sources</h2>
+<p>Everything above about Uber Eats comes from Uber's own merchant pages: the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">sign up page</a>, <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a>, the <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">Australian merchant terms</a>, the <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a>, <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">cover images and menu photos</a> and the <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a>. Uber can change them, so check those pages if something doesn't match.</p>
+
+<h2>See where your new page stands, free</h2>
+<p>Once your Uber Eats page is up, our <a href="/check.html">free Uber Eats page check</a> looks at it for you: a score from what's on your page and the three fixes that matter most, by email. No card, no login.</p>
+""",
+    },
+    {
         "slug": "how-to-get-your-restaurant-on-uber-eats-australia",
         "answer": "To get your restaurant on Uber Eats in Australia, sign up on Uber's merchant site, give your business details and menu, and wait for Uber to approve your location. Uber lists a one off <b>A$700 activation fee</b> (excl. GST) for a new location, taken from your payouts. Then set up your menu, photos and hours in Uber Eats Manager before your first orders.",
         "faq": [("How do I get my restaurant on Uber Eats in Australia?", "Sign up on Uber's Australian merchant site, give your business and location details, upload your menu, then wait for Uber to approve your location. After that you set everything up in Uber Eats Manager."),

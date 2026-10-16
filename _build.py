@@ -333,6 +333,7 @@ FAQ = [
     ("Do you use fake food photos?", "Never. We only enhance photos of your real dishes: better light, a clean background and the right size. Customers should get exactly what they see, and Uber Eats requires real photos too. The free mockup is a concept preview only."),
     ("How long does it take?", "Usually two to three working days after we have your photos and, for the Full Makeover, access to your Uber Eats Manager."),
     ("Will this guarantee more orders?", "No one can honestly promise that. What we do is make your page clearer and more appetising, which is what helps people choose you."),
+    ("What if I don't like it?", "You don't pay. We make your finished page first and send it to you, before and after, with every change listed. If you're happy, you pay. If not, tell us what to change, or simply say no and you owe nothing."),
     ("What do I need to send you?", "For Menu Fix, nothing: we work from your current page. For the photo packages, photos of your dishes taken on your phone in good light. Near a window is perfect."),
     ("Do you work with cafés and bakeries too?", "Yes. Restaurants, takeaways, cafés, bakeries and dessert places that sell on Uber Eats. We don't work with big chains, or with shops that sell packaged products."),
     ("Is MenuFix part of Uber?", "No. MenuFix is an independent service and is not affiliated with Uber or Uber Eats."),
@@ -577,7 +578,7 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
   </table></div>
 </div></section>
 <section class="bg-cream"><div class="narrow"><div class="head center reveal" style="margin-bottom:30px"><h2>Pricing questions</h2></div>
-{faq_html([FAQ[2], FAQ[4], ("How do I pay?", "By card through Stripe, a secure payment provider. You pay in the currency shown on this page."), FAQ[0]])}</div></section>
+{faq_html([FAQ[2], FAQ[5], FAQ[4], ("How do I pay?", "By card through Stripe, a secure payment provider, once you've seen your finished page and you're happy with it. You pay in the currency shown on this page."), FAQ[0]])}</div></section>
 {cta()}
 """, "pricing.html")
 
@@ -835,6 +836,8 @@ for _name in TOP + ["404.html"]:
         same_page("top:" + _name, _lang, _pre + _name)
 # ------------------------------------------------------------------------------------------------ languages
 add_check_cta()
+from _guarantee import add_guarantee
+add_guarantee(ROOT, _lang_of)
 add_chrome_extras()
 add_languages()
 # ------------------------------------------------------------------------------------------------ sitemap

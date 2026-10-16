@@ -28,6 +28,7 @@ FAQ = [
     ("¿Usan fotos falsas de comida?", "Nunca. Solo mejoramos fotos de sus platos reales: mejor luz, un fondo limpio y el tamaño correcto. El cliente debe recibir exactamente lo que ve. La maqueta gratis es solo una vista previa del concepto."),
     ("¿Cuánto tarda?", "Normalmente dos o tres días laborables desde que tenemos sus fotos y, para la Renovación Completa, el acceso a su Uber Eats Manager."),
     ("¿Me garantizan más pedidos?", "Nadie puede prometerlo con honestidad. Lo que hacemos es que su página sea más clara y más apetecible, que es lo que ayuda a que la gente le elija."),
+    ("¿Y si no me gusta?", "No paga. Primero preparamos su página terminada y se la enviamos, antes y después, con cada cambio indicado. Si le gusta, paga. Si no, díganos qué cambiar, o simplemente diga que no y no nos debe nada."),
     ("¿Qué tengo que enviarles?", "Para Menu Fix, nada: trabajamos a partir de su página actual. Para los paquetes con fotos, fotos de sus platos hechas con el móvil y con buena luz. Junto a una ventana es perfecto."),
     ("¿Trabajan también con cafeterías y panaderías?", "Sí. Restaurantes, comida para llevar, cafeterías, panaderías y heladerías o pastelerías que venden en Uber Eats. No trabajamos con grandes cadenas ni con tiendas de productos envasados."),
     ("¿MenuFix forma parte de Uber?", "No. MenuFix es un servicio independiente y no está afiliado a Uber ni a Uber Eats."),
@@ -264,7 +265,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 """, "es/how-it-works.html", lang="es")
 
     # ------------------------------------------------------------------------------------------------ pricing
-    pricing_faq = [FAQ[2], FAQ[4], ("¿Cómo se paga?", "Con tarjeta a través de Stripe, un proveedor de pagos seguro. Los precios de esta página están en euros."), FAQ[0]]
+    pricing_faq = [FAQ[2], FAQ[5], FAQ[4], ("¿Cómo se paga?", "Con tarjeta a través de Stripe, un proveedor de pagos seguro, cuando haya visto su página terminada y esté contento con ella. Los precios de esta página están en euros."), FAQ[0]]
     page("es/pricing.html", "Precios para renovar su carta de Uber Eats | MenuFix",
          "Precios únicos y sencillos, en euros, para renovar su página de Uber Eats: Menu Fix, Menu y Fotos y la Renovación Completa, en la que lo hacemos todo por usted.",
          f"""{head("Precios", "Precios sencillos, <span class='hl'>pago único.</span>", "Sin suscripción ni permanencia. Empiece con una maqueta gratis si quiere ver la idea antes.", ("star", "bag"), cur)}
