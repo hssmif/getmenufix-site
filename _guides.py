@@ -51,7 +51,7 @@ GUIDES = [
     {
         "slug": "write-uber-eats-menu-descriptions",
         "answer": "Uber recommends menu descriptions of 140 to 260 characters, about two short sentences: say what the dish is, name the main ingredients, and add one detail that makes it yours, like how it's cooked or where it comes from.",
-        "faq": [('How long should an Uber Eats menu description be?', 'Uber\'s own Australian advice is 140 to 260 characters, about two short sentences. Long enough to say what\'s in the dish, short enough to skim.'), ('What should a menu description include?', 'What the dish is, its main ingredients, and one detail that makes it yours. Add spice level, portion size and dietary notes when useful.'), ('What words should I avoid in menu descriptions?', "Vague praise like delicious or amazing, ALL CAPS, internal codes, and claims you can't back up.")],
+        "faq": [('How long should an Uber Eats menu description be?', 'Uber\'s own advice is 140 to 260 characters, about two short sentences. Long enough to say what\'s in the dish, short enough to skim.'), ('What should a menu description include?', 'What the dish is, its main ingredients, and one detail that makes it yours. Add spice level, portion size and dietary notes when useful.'), ('What words should I avoid in menu descriptions?', "Vague praise like delicious or amazing, ALL CAPS, internal codes, and claims you can't back up.")],
         "title": "How to Write Uber Eats Menu Descriptions That Sell (With Examples)",
         "short": "Writing menu descriptions that sell",
         "desc": "A simple formula and menu description examples for Uber Eats: burgers, curries, pizza, coffee and Aussie takeaway favourites like the parmi, HSP, fish and chips and meat pies.",
@@ -61,7 +61,7 @@ GUIDES = [
 <h2>The formula: what it is, what's in it, why it's good</h2>
 <p>Most great descriptions follow three steps in one or two short sentences:</p>
 <ol><li><b>What it is</b> if the name doesn't say it already.</li><li><b>The main ingredients</b>, the ones people care about.</li><li><b>One detail</b> that makes it yours: how it's cooked, where it comes from, how it's served.</li></ol>
-<p>Uber's own advice is <b>140 to 260 characters</b>, about two short sentences (<a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">Uber Australia</a>). Customers skim, so lead with the tastiest words.</p>
+<p>Uber's own advice is <b>140 to 260 characters</b>, about two short sentences (<a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">Uber</a>). Customers skim, so lead with the tastiest words.</p>
 
 <h2>Before and after menu description examples</h2>
 <table class="compare"><tr><th>Before</th><th>After</th></tr>
@@ -101,9 +101,9 @@ GUIDES = [
     {
         "slug": "uber-eats-photo-requirements",
         "related": ["uber-eats-photo-upload-not-working", "uber-eats-food-photography-cost", "uber-eats-banner-photo"],
-        "title": "Uber Eats Photo Size and Requirements in Australia (2026)",
+        "title": "Uber Eats Photo Size and Requirements (2026)",
         "short": "Uber Eats photo size and requirements",
-        "desc": "Uber Eats photo requirements for restaurants in Australia: 5:4 ratio, 2880 × 2304 pixels, JPG under 10 MB, one item per photo, and the most common reasons photos get rejected.",
+        "desc": "Uber Eats photo requirements for restaurants: 5:4 ratio, 2880 × 2304 pixels, JPG under 10 MB, one item per photo, and the most common reasons photos get rejected.",
         "img": "burger-after",
         "lead": "Every photo on Uber Eats is reviewed before it goes live. Here's exactly what Uber asks for, taken from Uber's own merchant help pages, and how to avoid rejections.",
         "answer": "Uber Eats asks for landscape photos in a <b>5:4 ratio</b>, ideally <b>2880 × 2304 pixels</b>, as a <b>JPG up to 10 MB</b> (PNG and GIF are also accepted for menu items). Each photo must show <b>one menu item</b>, centred, exactly as served, with <b>no text, prices, logos, watermarks or faces</b> (hands are fine). Photos are reviewed before they go live.",
@@ -150,7 +150,7 @@ GUIDES = [
 <p>Our guide to <a href="/guides/uber-eats-photo-upload-not-working.html">fixing Uber Eats photo upload problems</a> goes through each cause and fix. You can also check a photo's size and shape in your browser with our free <a href="/tools/uber-eats-photo-checker.html">Uber Eats photo checker</a>, and see <a href="/guides/how-to-add-photos-to-uber-eats-menu.html">how to add photos to your menu</a> step by step.</p>
 
 <h2>Sources</h2>
-<p>These requirements come from Uber's merchant help pages: <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> and <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">adding cover images and menu photos (Australia)</a>. Uber can change them, so check those pages if a photo is rejected.</p>
+<p>These requirements come from Uber's merchant help pages: <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> and <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">adding cover images and menu photos</a>. Uber can change them, so check those pages if a photo is rejected.</p>
 
 <p>Want photos that pass review without the hassle? We enhance photos of your real dishes and deliver them at Uber's recommended 2880 × 2304 size. <a href="/examples.html">See examples</a>.</p>
 """,
@@ -259,7 +259,7 @@ GUIDES = [
 <h2>A clear page sets the right expectations</h2>
 <p>When what arrives matches what people saw, they're more likely to be happy and order again. That's the idea behind everything on this list.</p>
 
-<p>Not on Uber Eats yet? See <a href="/guides/how-to-get-your-restaurant-on-uber-eats-australia.html">how to get your restaurant on Uber Eats in Australia</a>.</p>
+<p>Not on Uber Eats yet? See <a href="/guides/how-to-get-your-restaurant-on-uber-eats-australia.html">how to get your restaurant on Uber Eats</a>.</p>
 
 <p>Just launched? We'll send you a free mockup of how your page could look, so you can see what we'd change before deciding anything.</p>
 """,
@@ -267,10 +267,10 @@ GUIDES = [
     {
         "slug": "price-menu-uber-eats",
         "answer": "To price your menu on Uber Eats, start from your real cost per dish, add the commission and packaging you pay on each order, and set a delivery price that still leaves you a fair margin. Many restaurants charge a little more on delivery than in store; that's allowed, but be consistent and keep combos and sizes clear.",
-        "faq": [('Can I charge more on Uber Eats than in my shop?', 'In Australia, many restaurants set higher prices on delivery apps to cover commission and packaging. Check your current agreement with Uber Eats for any conditions, and keep the difference reasonable so regulars don\'t feel caught out.'), ('How do I work out my Uber Eats price for a dish?', 'Add up the food cost and packaging, then work out what is left after the commission on your plan. If that leftover amount is less than you need to make the dish worth cooking, raise the price, change the portion or take it off delivery.'), ('Should I offer promotions on Uber Eats?', 'Only if the numbers still work after the discount and the commission. A promotion that brings orders at a loss is not a win. Try one at a time and check the results in Uber Eats Manager.')],
-        "title": "How to Price Your Menu on Uber Eats (Australia)",
+        "faq": [('Can I charge more on Uber Eats than in my shop?', 'Many restaurants set higher prices on delivery apps to cover commission and packaging. Check your current agreement with Uber Eats for any conditions, and keep the difference reasonable so regulars don\'t feel caught out.'), ('How do I work out my Uber Eats price for a dish?', 'Add up the food cost and packaging, then work out what is left after the commission on your plan. If that leftover amount is less than you need to make the dish worth cooking, raise the price, change the portion or take it off delivery.'), ('Should I offer promotions on Uber Eats?', 'Only if the numbers still work after the discount and the commission. A promotion that brings orders at a loss is not a win. Try one at a time and check the results in Uber Eats Manager.')],
+        "title": "How to Price Your Menu on Uber Eats",
         "short": "How to price your menu on Uber Eats",
-        "desc": "A practical, honest guide for Australian restaurants and cafés on setting Uber Eats prices: costs, commission, packaging, combos, sizes and promotions.",
+        "desc": "A practical, honest guide for restaurants and cafés on setting Uber Eats prices: costs, commission, packaging, combos, sizes and promotions.",
         "img": "desk",
         "lead": "Pricing on Uber Eats is not the same as pricing at your counter. Commission and packaging come out of every order, so a price that works in store can lose money on delivery. Here is a simple way to get it right.",
         "body": """
@@ -281,7 +281,7 @@ GUIDES = [
 <p>Uber Eats takes a percentage of each order, and the rate depends on the plan you chose and whether you use their couriers or your own. Look it up in your agreement or in Uber Eats Manager rather than relying on what someone told you. Then, for each dish, work out what you actually keep after commission.</p>
 
 <h2>3. Decide on your delivery price</h2>
-<p>Many Australian restaurants charge a bit more on delivery than in store to cover these costs. That's a normal business choice. A few tips:</p>
+<p>Many restaurants charge a bit more on delivery than in store to cover these costs. That's a normal business choice. A few tips:</p>
 <ul class="ticks"><li>Apply the same approach across the menu, so prices don't look random.</li><li>Round to clean prices, like $18.50 or $19, rather than odd cents.</li><li>Check your agreement for any conditions on price differences.</li><li>Be ready to explain it honestly if a regular asks.</li></ul>
 
 <h2>4. Look again at dishes that don't travel well</h2>
@@ -306,10 +306,10 @@ GUIDES = [
     {
         "slug": "uber-eats-doordash-menulog-menu-tips",
         "answer": "Uber Eats, DoorDash and Menulog all reward the same basics: real photos, clear names, short descriptions, best sellers first and accurate prices. Keep one master menu, adapt it to each app's editor and photo rules, and update all three whenever something changes.",
-        "faq": [('Should I be on Uber Eats, DoorDash and Menulog at the same time?', 'Many Australian restaurants are on more than one. It can reach more customers, but each app means another tablet, another menu to keep up to date and another set of fees. Start with what you can manage well.'), ('Can I use the same menu on every delivery app?', 'Mostly, yes. Keep one master list of names, descriptions, prices and photos, then copy it into each app. Check each app\'s photo requirements and how it handles options and combos.'), ('Can I have different prices on each app?', 'You can, if the fees on your plans differ. Check each agreement for conditions, and keep the differences simple so you can manage them.')],
-        "title": "Uber Eats vs DoorDash vs Menulog: Menu Tips for Australian Restaurants",
+        "faq": [('Should I be on Uber Eats, DoorDash and Menulog at the same time?', 'Many restaurants are on more than one. It can reach more customers, but each app means another tablet, another menu to keep up to date and another set of fees. Start with what you can manage well.'), ('Can I use the same menu on every delivery app?', 'Mostly, yes. Keep one master list of names, descriptions, prices and photos, then copy it into each app. Check each app\'s photo requirements and how it handles options and combos.'), ('Can I have different prices on each app?', 'You can, if the fees on your plans differ. Check each agreement for conditions, and keep the differences simple so you can manage them.')],
+        "title": "Uber Eats vs DoorDash vs Menulog: Menu Tips for Restaurants",
         "short": "Uber Eats vs DoorDash vs Menulog: menu tips",
-        "desc": "On more than one delivery app in Australia? Practical menu tips for Uber Eats, DoorDash and Menulog: what's the same, what differs, and how to keep every menu up to date.",
+        "desc": "On more than one delivery app? Practical menu tips for Uber Eats, DoorDash and Menulog: what's the same, what differs, and how to keep every menu up to date.",
         "img": "phone",
         "lead": "If you're on Uber Eats, DoorDash and Menulog, you're really running three menus. The good news is that what makes a menu work is the same on all of them. Here is how to keep them consistent without doubling your workload.",
         "body": """
@@ -332,7 +332,7 @@ GUIDES = [
 <p>DoorDash menus are managed through the DoorDash Merchant Portal. As on every app, put your most ordered dishes first and give them photos. Check how your categories and options appear in the app after saving, because what looks right in the editor doesn't always look right on a phone.</p>
 
 <h2>Menulog tips</h2>
-<p>Menulog has been in Australia for a long time and many regular customers still use it out of habit. Menu changes are made through its partner tools, and some changes may go through their team. Allow time for updates, and check your page once they're live.</p>
+<p>Menulog has been around for a long time and many regular customers still use it out of habit. Menu changes are made through its partner tools, and some changes may go through their team. Allow time for updates, and check your page once they're live.</p>
 
 <h2>Prices on more than one app</h2>
 <p>If the fees on your plans differ, you may choose different prices on each app. That's your call, but keep it simple: one clear rule per app is easier to manage than item by item differences. Our guide on <a href="/guides/price-menu-uber-eats.html">how to price your menu on Uber Eats</a> explains how to work out a delivery price.</p>
@@ -473,7 +473,7 @@ GUIDES = [
 <tr><td>Uber delivers it</td><td>30% of the order</td></tr>
 <tr><td>You deliver it with your own staff</td><td>16% of the order</td></tr>
 <tr><td>The customer picks it up</td><td>8% of the order</td></tr></table>
-<p>These are the rates Uber publishes on its <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a>. Your own agreement is what counts, so check your plan and statements in Uber Eats Manager.</p>
+<p>These are the rates Uber publishes on its <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">pricing page</a>. Your own agreement is what counts, so check your plan and statements in Uber Eats Manager.</p>
 
 <h2>The Uber Eats activation fee</h2>
 <p>New restaurants pay a one off activation fee when they join. Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">pricing page</a> says it's taken from your payments in weekly instalments, so you don't pay it up front. The amounts are below.</p>
@@ -503,7 +503,7 @@ GUIDES = [
                 ("What should I ask a food photographer?", "Ask for a price for your number of dishes, edited files at 2880 × 2304 pixels, how soon you get them, and whether you can use the photos on every delivery app.")],
         "title": "Uber Eats Food Photography Cost: Photographer, Uber's Photoshoot or Your Phone",
         "short": "Uber Eats food photography cost",
-        "desc": "What Uber Eats food photography costs for Australian restaurants: hiring a photographer, Uber's own photography session for restaurants, or enhancing photos from your phone.",
+        "desc": "What Uber Eats food photography costs for restaurants: hiring a photographer, Uber's own photography session for restaurants, or enhancing photos from your phone.",
         "img": "phone",
         "related": ["uber-eats-food-photos-phone", "uber-eats-photo-requirements", "uber-eats-photo-upload-not-working"],
         "lead": "Good photos are one of the easiest ways to make your Uber Eats page more appetising. There are three ways to get them, and they cost very different amounts. Here's what each involves, with no made up prices.",
@@ -522,7 +522,7 @@ GUIDES = [
 <p>If you'd rather not edit them yourself, our <a href="/pricing.html">Menu and Photos</a> package enhances your real photos of up to 15 dishes and delivers them sized for Uber Eats.</p>
 
 <h2>What if a dish has no photo at all?</h2>
-<p>In Australia, Uber Eats can show photos taken by customers on items that have no photo from the restaurant (<a href="https://www.uber.com/au/en/blog/customer-photos/" rel="nofollow">Uber Australia</a>). Adding your own photos to your best sellers means customers see the dish the way you serve it.</p>
+<p>Uber Eats can show photos taken by customers on items that have no photo from the restaurant (<a href="https://www.uber.com/au/en/blog/customer-photos/" rel="nofollow">Uber</a>). Adding your own photos to your best sellers means customers see the dish the way you serve it.</p>
 
 <h2>Which option is right for you?</h2>
 <ul class="ticks"><li><b>Just joined Uber Eats:</b> ask support about Uber's photography session first.</li><li><b>Want a premium look across a big menu:</b> get quotes from photographers.</li><li><b>Want to start this week with little cost:</b> phone photos, enhanced.</li></ul>
@@ -587,18 +587,18 @@ GUIDES = [
         "desc": "Moving your restaurant from Menulog to Uber Eats? What Uber asks for when you sign up, its photo and cover image rules, and how to set up a new Uber Eats page that people choose.",
         "img": "phone",
         "lead": "A new Uber Eats page starts from zero: no ratings, no regulars on the app yet. The first weeks decide who tries you, so it pays to set the page up properly instead of copying your old menu across as it is. Every requirement below comes from Uber's own merchant pages.",
-        "answer": "Sign up on Uber's Australian merchant site with an up to date menu (prices and descriptions), your opening hours and your business or food licence. Uber adds your location once it approves what you sent. Then set up the page properly: best sellers first, clear names, a short description for every dish, and photos that meet Uber's rules: <b>5:4 landscape</b>, ideally <b>2880 × 2304 pixels</b>, <b>JPG up to 10 MB</b>, one dish, no text or logos.",
+        "answer": "Sign up on Uber's merchant site with an up to date menu (prices and descriptions), your opening hours and your business or food licence. Uber adds your location once it approves what you sent. Then set up the page properly: best sellers first, clear names, a short description for every dish, and photos that meet Uber's rules: <b>5:4 landscape</b>, ideally <b>2880 × 2304 pixels</b>, <b>JPG up to 10 MB</b>, one dish, no text or logos.",
         "faq": [
             ("Can I copy my Menulog menu to Uber Eats?", "Use it as a starting point. Uber asks for an up to date menu with prices and descriptions when you sign up. Check every name, price and option as you enter it, and put your best sellers first."),
             ("Can I use my Menulog photos on Uber Eats?", "Only if they meet Uber's photo guidelines: 5:4 landscape, ideally 2880 × 2304 pixels, at least 550 × 440, one dish as served, no text, logos or faces. Crop again from your original photos rather than reusing an already cropped version."),
-            ("When will my Uber Eats page go live?", "Uber's Australian merchant terms say your location is added once you have given Uber the documents and information it asks for and Uber approves it. Having your menu, opening hours and licence ready avoids delays."),
-            ("What does Uber Eats cost?", "Uber's Australian pricing page lists its current fees, and your own agreement is what counts. If Uber has offered you special terms, check them in your agreement."),
+            ("When will my Uber Eats page go live?", "Uber's merchant terms say your location is added once you have given Uber the documents and information it asks for and Uber approves it. Having your menu, opening hours and licence ready avoids delays."),
+            ("What does Uber Eats cost?", "Uber's pricing page lists its current fees, and your own agreement is what counts. If Uber has offered you special terms, check them in your agreement."),
         ],
         "body": """
 <h2>1. Sign up with what Uber asks for</h2>
-<p>Start on the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">Uber Eats sign up page for Australia</a> with your business name, address and contact details. Uber's help page on <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a> lists what to have ready:</p>
+<p>Start on the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">Uber Eats sign up page</a> with your business name, address and contact details. Uber's help page on <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a> lists what to have ready:</p>
 <ul class="ticks"><li>an up to date copy of your menu, with prices and descriptions;</li><li>your opening hours;</li><li>a business or food licence.</li></ul>
-<p>Uber's <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">Australian merchant terms</a> say your location is added only after you provide the documents and information Uber requests and Uber approves it. Have everything ready before you start, so you can finish in one go.</p>
+<p>Uber's <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">merchant terms</a> say your location is added only after you provide the documents and information Uber requests and Uber approves it. Have everything ready before you start, so you can finish in one go.</p>
 
 <h2>2. Don't copy your old menu across as it is</h2>
 <p>Your menu is the part of your new page you control completely, and a fresh page is the easiest moment to get it right:</p>
@@ -621,10 +621,10 @@ GUIDES = [
 <p>A new page has no ratings yet, so what people see on it does the work. Our <a href="/guides/new-on-uber-eats-checklist.html">first weeks checklist</a> covers the rest: hours that match when you can really cook, pausing sold out items, and reading every review.</p>
 
 <h2>6. Fees: check your own agreement</h2>
-<p>Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a> lists its current fees. What you actually pay is in your own agreement, so check it there, including any special terms Uber has offered you.</p>
+<p>Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">pricing page</a> lists its current fees. What you actually pay is in your own agreement, so check it there, including any special terms Uber has offered you.</p>
 
 <h2>Sources</h2>
-<p>Everything above about Uber Eats comes from Uber's own merchant pages: the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">sign up page</a>, <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a>, the <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">Australian merchant terms</a>, the <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a>, <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">cover images and menu photos</a> and the <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a>. Uber can change them, so check those pages if something doesn't match.</p>
+<p>Everything above about Uber Eats comes from Uber's own merchant pages: the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">sign up page</a>, <a href="https://help.uber.com/en/merchants-and-restaurants/article/what-documents-do-i-need-to-complete-sign-up?nodeId=aa38b316-1406-46fa-8d9b-1177c549eeae" rel="nofollow">documents for sign up</a>, the <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">merchant terms</a>, the <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a>, <a href="https://help.uber.com/en-AU/merchants-and-restaurants/article/adding-cover-images-and-menu-catalogue-photos?nodeId=b2dfa2b7-20f2-4f5f-81a3-32fa4c2aea89" rel="nofollow">cover images and menu photos</a> and the <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">pricing page</a>. Uber can change them, so check those pages if something doesn't match.</p>
 
 <h2>See where your new page stands, free</h2>
 <p>Once your Uber Eats page is up, our <a href="/check.html">free Uber Eats page check</a> looks at it for you: a score from what's on your page and the three fixes that matter most, by email. No card, no login.</p>
@@ -633,8 +633,8 @@ GUIDES = [
     {
         "slug": "how-to-get-your-restaurant-on-uber-eats-australia",
         "answer": "To get your restaurant on Uber Eats in Australia, sign up on Uber's merchant site, give your business details and menu, and wait for Uber to approve your location. Uber lists a one off <b>A$700 activation fee</b> (excl. GST) for a new location, taken from your payouts. Then set up your menu, photos and hours in Uber Eats Manager before your first orders.",
-        "faq": [("How do I get my restaurant on Uber Eats in Australia?", "Sign up on Uber's Australian merchant site, give your business and location details, upload your menu, then wait for Uber to approve your location. After that you set everything up in Uber Eats Manager."),
-                ("How much does it cost to join Uber Eats as a restaurant?", "Uber's Australian pricing page lists a one off A$700 activation fee (excl. GST) for a new location, taken from your payouts in weekly instalments, plus a percentage of each order. Your own agreement is what counts."),
+        "faq": [("How do I get my restaurant on Uber Eats in Australia?", "Sign up on Uber's merchant site, give your business and location details, upload your menu, then wait for Uber to approve your location. After that you set everything up in Uber Eats Manager."),
+                ("How much does it cost to join Uber Eats as a restaurant?", "Uber's pricing page lists a one off A$700 activation fee (excl. GST) for a new location, taken from your payouts in weekly instalments, plus a percentage of each order. Your own agreement is what counts."),
                 ("What do I need to sign up for Uber Eats?", "Uber asks for documents and information during sign up. Its help page lists a menu with prices and descriptions, your opening hours and a business or food licence. Uber tells you exactly what it needs for your location."),
                 ("How long until I get my first order?", "That depends on Uber's approval and how quickly you set up your menu. A complete page with photos and clear names gives you the best start.")],
         "title": "How to Get Your Restaurant on Uber Eats in Australia",
@@ -645,8 +645,8 @@ GUIDES = [
         "lead": "Joining Uber Eats is mostly paperwork and setting up your menu. Here are the steps for an Australian restaurant or café, what to have ready, what it costs, and what to do in your first week.",
         "body": """
 <h2>The sign up steps</h2>
-<ol><li><b>Start on Uber's merchant site.</b> Go to the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">Uber Eats sign up page for Australia</a> and enter your business name, address and contact details.</li>
-<li><b>Give Uber what it asks for.</b> Uber's <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">Australian merchant terms</a> say your location is added only after you provide the documents and information Uber requests and Uber approves it.</li>
+<ol><li><b>Start on Uber's merchant site.</b> Go to the <a href="https://merchants.ubereats.com/au/en/s/signup/" rel="nofollow">Uber Eats sign up page</a> and enter your business name, address and contact details.</li>
+<li><b>Give Uber what it asks for.</b> Uber's <a href="https://www.uber.com/legal/en/document/?country=australia&lang=en-au&name=new-uber-eats-merchant-terms-and-conditions" rel="nofollow">merchant terms</a> say your location is added only after you provide the documents and information Uber requests and Uber approves it.</li>
 <li><b>Set up your menu.</b> Add your dishes, prices, categories and opening hours.</li>
 <li><b>Add photos.</b> Start with your best sellers. See <a href="/guides/how-to-add-photos-to-uber-eats-menu.html">how to add photos to your Uber Eats menu</a>.</li>
 <li><b>Go live.</b> Once Uber approves your location, you start taking orders.</li></ol>
@@ -657,7 +657,7 @@ GUIDES = [
 <p>Requirements can differ by country, and Uber tells you exactly what it needs for your location during sign up. Have your ABN and bank details handy too, so you can finish without stopping.</p>
 
 <h2>What it costs</h2>
-<p>Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">Australian pricing page</a> lists a one off <b>A$700 activation fee</b> (excl. GST) for a new location, taken from your payouts in weekly instalments, plus a percentage of each order. Our guide to <a href="/guides/uber-eats-fees-australia.html">Uber Eats fees for restaurants in Australia</a> explains each rate and how to work out what you keep. Check your own agreement too: it's what counts.</p>
+<p>Uber's <a href="https://merchants.ubereats.com/au/en/pricing/" rel="nofollow">pricing page</a> lists a one off <b>A$700 activation fee</b> (excl. GST) for a new location, taken from your payouts in weekly instalments, plus a percentage of each order. Our guide to <a href="/guides/uber-eats-fees-australia.html">Uber Eats fees for restaurants in Australia</a> explains each rate and how to work out what you keep. Check your own agreement too: it's what counts.</p>
 
 <h2>Set your prices before you go live</h2>
 <p>Commission comes out of every order, so a price that works at your counter can lose money on delivery. Work it out dish by dish with our guide on <a href="/guides/price-menu-uber-eats.html">how to price your menu on Uber Eats</a>.</p>
@@ -743,7 +743,7 @@ GUIDES = [
     {
         "slug": "uber-eats-menu-description-examples",
         "answer": "Here are 30 before and after Uber Eats menu description examples, grouped by cuisine: burgers, pizza, Indian, Thai, Chinese, kebab, café, bakery, dessert and healthy bowls. Each one is 140 to 260 characters, Uber's own advice for description length, and names the main ingredients, how it's cooked and what comes with it.",
-        "faq": [("How long should an Uber Eats menu description be?", "Uber's Australian advice is 140 to 260 characters, about two short sentences."),
+        "faq": [("How long should an Uber Eats menu description be?", "Uber's advice is 140 to 260 characters, about two short sentences."),
                 ("What makes a good menu description?", "What the dish is, its main ingredients, one detail that makes it yours, and anything people need to know before ordering, like size, spice level or what comes with it."),
                 ("Can I copy these examples?", "Yes, as a starting point. Change the ingredients, sizes and sides to match exactly what you serve, so the description is true for your dish.")],
         "title": "30 Uber Eats Menu Description Examples (Before and After)",
@@ -754,7 +754,7 @@ GUIDES = [
         "lead": "The quickest way to write good descriptions is to start from good examples. Here are 30, grouped by cuisine. Swap in your own ingredients, sizes and sides so every word is true for your dish.",
         "body": """
 <h2>How these examples are written</h2>
-<p>Each "after" is 140 to 260 characters, Uber's own advice for menu descriptions (<a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">Uber Australia</a>). Each one says what the dish is, names the main ingredients, adds one detail that makes it yours, and answers a question before it's asked: the size, the spice level or what comes with it. Paste yours into our free <a href="/tools/menu-description-checker.html">menu description checker</a> to check the length and wording.</p>
+<p>Each "after" is 140 to 260 characters, Uber's own advice for menu descriptions (<a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">Uber</a>). Each one says what the dish is, names the main ingredients, adds one detail that makes it yours, and answers a question before it's asked: the size, the spice level or what comes with it. Paste yours into our free <a href="/tools/menu-description-checker.html">menu description checker</a> to check the length and wording.</p>
 
 <h2>Burgers menu description examples</h2>
 <table class="compare"><tr><th>Before</th><th>After</th></tr>

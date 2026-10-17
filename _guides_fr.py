@@ -14,7 +14,7 @@ GUIDES_FR = [
                 ("Combien de catégories faut il sur un menu Uber Eats ?", "Le moins possible : regroupez les plats comme les clients commandent (entrées, plats, accompagnements, boissons, desserts) et supprimez les catégories vides ou en double.")],
         "title": "Plus de commandes sur Uber Eats : 9 améliorations pour votre menu",
         "short": "Plus de commandes sur Uber Eats",
-        "desc": "Des conseils concrets pour les restaurants et cafés indépendants en France : rendre leur page Uber Eats plus appétissante et plus simple à commander. Photos, noms, descriptions, catégories.",
+        "desc": "Des conseils concrets pour les restaurants et cafés indépendants : rendre leur page Uber Eats plus appétissante et plus simple à commander. Photos, noms, descriptions, catégories.",
         "img": "spread",
         "related": ["descriptions-menu-uber-eats", "photo-banniere-uber-eats", "categories-menu-uber-eats"],
         "lead": "La plupart des clients décident en quelques secondes s'ils commandent chez vous. Ces neuf changements rendent votre page Uber Eats plus facile à choisir, et la plupart se font en une semaine.",
@@ -255,7 +255,7 @@ GUIDES_FR = [
                 ("Faut il faire des promotions sur Uber Eats ?", "Seulement si les chiffres tiennent après la remise et la commission. Une promotion qui apporte des commandes à perte n'est pas une réussite. Testez en une à la fois et suivez les résultats dans Uber Eats Manager.")],
         "title": "Comment fixer les prix de votre menu sur Uber Eats",
         "short": "Fixer ses prix sur Uber Eats",
-        "desc": "Un guide pratique et honnête pour les restaurants et cafés en France : fixer ses prix sur Uber Eats en tenant compte des coûts, de la commission, de l'emballage, des formules et des promotions.",
+        "desc": "Un guide pratique et honnête pour les restaurants et cafés : fixer ses prix sur Uber Eats en tenant compte des coûts, de la commission, de l'emballage, des formules et des promotions.",
         "img": "desk",
         "related": ["uber-eats-deliveroo-just-eat-conseils-menu", "plus-de-commandes-uber-eats", "categories-menu-uber-eats"],
         "lead": "Fixer ses prix sur Uber Eats, ce n'est pas comme au comptoir. La commission et l'emballage sont prélevés sur chaque commande : un prix rentable en salle peut faire perdre de l'argent en livraison. Voici une méthode simple.",
@@ -298,7 +298,7 @@ GUIDES_FR = [
                 ("Peut on avoir des prix différents selon l'application ?", "C'est possible si les frais de vos contrats diffèrent. Vérifiez les conditions de chaque contrat, et gardez des écarts simples à gérer.")],
         "title": "Uber Eats, Deliveroo ou Just Eat : conseils menu pour les restaurants",
         "short": "Uber Eats, Deliveroo, Just Eat : conseils menu",
-        "desc": "Vous êtes sur plusieurs applications de livraison en France ? Des conseils concrets pour vos menus Uber Eats, Deliveroo et Just Eat : ce qui est pareil, ce qui change, et comment tout garder à jour.",
+        "desc": "Vous êtes sur plusieurs applications de livraison ? Des conseils concrets pour vos menus Uber Eats, Deliveroo et Just Eat : ce qui est pareil, ce qui change, et comment tout garder à jour.",
         "img": "phone",
         "related": ["prix-menu-uber-eats", "modifier-menu-uber-eats-manager", "photos-uber-eats-exigences"],
         "lead": "Si vous êtes sur Uber Eats, Deliveroo et Just Eat, vous gérez en réalité trois menus. Bonne nouvelle : ce qui fait vendre un menu est le même partout. Voici comment rester cohérent sans doubler votre travail.",
@@ -322,7 +322,7 @@ GUIDES_FR = [
 <p>Le menu Deliveroo se gère depuis l'espace partenaire Deliveroo. Comme partout, placez vos plats les plus commandés en premier et donnez leur une photo. Après chaque enregistrement, regardez comment catégories et options s'affichent sur un téléphone : ce qui paraît juste dans l'éditeur ne l'est pas toujours dans l'application.</p>
 
 <h2>Conseils pour Just Eat</h2>
-<p>Just Eat est présent en France depuis longtemps et certains clients l'utilisent par habitude. Les changements de menu passent par les outils partenaires de Just Eat, et certains peuvent être traités par leurs équipes. Prévoyez du temps pour les mises à jour, et vérifiez votre page une fois en ligne.</p>
+<p>Just Eat existe depuis longtemps et certains clients l'utilisent par habitude. Les changements de menu passent par les outils partenaires de Just Eat, et certains peuvent être traités par leurs équipes. Prévoyez du temps pour les mises à jour, et vérifiez votre page une fois en ligne.</p>
 
 <h2>Les prix sur plusieurs applications</h2>
 <p>Si les frais de vos contrats diffèrent, vous pouvez choisir des prix différents selon l'application. C'est votre décision, mais restez simple : une règle claire par application se gère mieux que des écarts plat par plat. Notre guide pour <a href="/fr/guides/prix-menu-uber-eats.html">fixer vos prix sur Uber Eats</a> explique comment calculer un prix de livraison.</p>
@@ -710,7 +710,7 @@ GUIDES_FR_B = [
 
 <h2>Adaptez ces exemples à votre carte</h2>
 <ul class="ticks"><li>Gardez le nom que vos clients connaissent, puis expliquez le plat.</li><li>Ne citez que les ingrédients vraiment présents.</li><li>Indiquez tailles, poids et nombre de pièces exacts.</li><li>N'écrivez végétarien, vegan ou sans gluten que si c'est vrai.</li><li>Évitez les mots vagues comme délicieux ou incroyable : les ingrédients en disent plus.</li></ul>
-<p>Les photos et descriptions comptent aussi pour Uber : sa politique Merchant Success Score pour la France inclut une mesure du menu, le pourcentage d'articles qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>).</p>
+<p>Les photos et descriptions comptent aussi pour Uber : sa politique Merchant Success Score inclut une mesure du menu, le pourcentage d'articles qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>).</p>
 <p>Pour la méthode derrière ces exemples, voir notre guide pour <a href="/fr/guides/descriptions-menu-uber-eats.html">écrire des descriptions de plats qui donnent envie</a>. Si vous préférez déléguer l'écriture, notre offre <a href="/fr/pricing.html">Menu Fix</a> réécrit chaque plat de votre menu.</p>
 """,
     },
@@ -743,7 +743,7 @@ GUIDES_FR_B = [
 <p>L'ordre à l'intérieur d'une catégorie compte aussi. Commencez par le plat le plus populaire ou le plus photogénique, et gardez les articles avec photo vers le haut. Une rangée qui commence par une belle photo attire le regard.</p>
 
 <h2>5. Les meilleures photos et descriptions pour les plats du haut</h2>
-<p>Vos meilleures ventes sont les plats les plus vus : c'est là qu'une photo claire et une bonne description comptent le plus. Uber en tient compte aussi : sa politique Merchant Success Score pour la France inclut le pourcentage d'articles du menu qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>).</p>
+<p>Vos meilleures ventes sont les plats les plus vus : c'est là qu'une photo claire et une bonne description comptent le plus. Uber en tient compte aussi : sa politique Merchant Success Score inclut le pourcentage d'articles du menu qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>).</p>
 <p>Voir <a href="/fr/guides/ajouter-photos-menu-uber-eats.html">comment ajouter des photos à votre menu</a> et nos <a href="/fr/guides/exemples-descriptions-menu-uber-eats.html">30 exemples de descriptions de plats</a>.</p>
 
 <h2>6. Revoyez l'ordre toutes les quelques semaines</h2>
@@ -806,8 +806,8 @@ GUIDES_FR_B = [
     {
         "slug": "cout-photos-plats-uber-eats",
         "alt": "uber-eats-food-photography-cost",
-        "answer": "Le coût des photos de plats pour Uber Eats dépend de la voie choisie. Uber propose une séance photo aux restaurants partenaires, mais ce qu'elle comprend et son éventuel coût ne sont pas publiés pour la France : demandez à l'assistance. Un photographe facture selon son devis, et des photos prises au téléphone puis améliorées restent en général la solution la plus économique.",
-        "faq": [("Combien coûtent des photos de plats pour Uber Eats ?", "Cela dépend de la voie choisie. Pour la séance photo d'Uber, rien n'est publié pour la France : posez la question à l'assistance. Un photographe facture selon son devis, qui varie selon la ville et le nombre de plats. Les photos au téléphone coûtent le moins."),
+        "answer": "Le coût des photos de plats pour Uber Eats dépend de la voie choisie. Uber propose une séance photo aux restaurants partenaires, mais ce qu'elle comprend et son éventuel coût ne sont pas publiés : demandez à l'assistance. Un photographe facture selon son devis, et des photos prises au téléphone puis améliorées restent en général la solution la plus économique.",
+        "faq": [("Combien coûtent des photos de plats pour Uber Eats ?", "Cela dépend de la voie choisie. Pour la séance photo d'Uber, rien n'est publié : posez la question à l'assistance. Un photographe facture selon son devis, qui varie selon la ville et le nombre de plats. Les photos au téléphone coûtent le moins."),
                 ("Uber Eats propose des séances photo aux restaurants ?", "Uber a une page d'aide qui l'explique : un restaurant partenaire qui n'a pas eu sa séance photo peut contacter l'assistance pour en organiser une. Demandez ce qui est inclus et vérifiez votre bon de commande."),
                 ("Utiliser ses propres photos sur Uber Eats, c'est possible ?", "Oui, à condition de respecter les règles photo d'Uber : un seul article, centré, sans texte ni logo, en JPG ou PNG de 10 Mo au maximum, et au moins 550 × 440 pixels.")],
         "title": "Photos de plats pour Uber Eats : combien ça coûte et quelles options",
@@ -819,7 +819,7 @@ GUIDES_FR_B = [
         "body": """
 <h2>Option 1 : la séance photo proposée par Uber</h2>
 <p>Uber a une page d'aide sur <a href="https://help.uber.com/fr-FR/merchants-and-restaurants/article/how-does-my-restaurant-schedule-photography?nodeId=5fe79460-9ac3-4c41-a246-fdda017120b4" rel="nofollow">l'organisation d'une séance photo</a>. Elle indique qu'un restaurant partenaire d'Uber Eats qui n'a pas encore eu sa séance photo peut contacter l'assistance pour en organiser une.</p>
-<p>Ce que la séance comprend, et si elle coûte quelque chose, n'est pas publié pour la France. Posez la question à l'assistance avant d'accepter, et vérifiez votre bon de commande : c'est là que figurent les frais qui vous concernent (<a href="https://www.uber.com/fr/fr/legal/uber-eats-merchant-terms-and-conditions/" rel="nofollow">conditions Uber Eats pour les partenaires</a>).</p>
+<p>Ce que la séance comprend, et si elle coûte quelque chose, n'est pas publié. Posez la question à l'assistance avant d'accepter, et vérifiez votre bon de commande : c'est là que figurent les frais qui vous concernent (<a href="https://www.uber.com/fr/fr/legal/uber-eats-merchant-terms-and-conditions/" rel="nofollow">conditions Uber Eats pour les partenaires</a>).</p>
 <ul class="ticks"><li><b>Avantage :</b> organisée par Uber, pour l'application Uber Eats.</li><li><b>À garder en tête :</b> vous dépendez du calendrier d'Uber, et les nouveaux plats ajoutés plus tard demanderont de nouvelles photos.</li></ul>
 
 <h2>Option 2 : faire appel à un photographe culinaire</h2>
@@ -835,7 +835,7 @@ GUIDES_FR_B = [
 <p>D'après les <a href="https://help.uber.com/fr-FR/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">règles photo d'Uber</a>, chaque photo d'article montre un seul article, centré, sans personne (les mains sont acceptées), sans logo, filigrane ni texte, nette et sans ombres dures. Le fichier est en JPG ou PNG, de 10 Mo au maximum et d'au moins 550 × 440 pixels. Montrez ces règles à votre photographe avant la séance.</p>
 
 <h2>Pourquoi des photos sur chaque plat</h2>
-<p>La politique Merchant Success Score d'Uber pour la France inclut une mesure du menu : le pourcentage d'articles qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>). Des photos de vos vrais plats montrent aussi au client ce qu'il va recevoir.</p>
+<p>La politique Merchant Success Score d'Uber inclut une mesure du menu : le pourcentage d'articles qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>). Des photos de vos vrais plats montrent aussi au client ce qu'il va recevoir.</p>
 
 <h2>Quelle option choisir ?</h2>
 <ul class="ticks"><li><b>Vous venez d'arriver sur Uber Eats :</b> demandez d'abord à l'assistance ce que comprend la séance photo d'Uber.</li><li><b>Vous voulez un rendu haut de gamme sur une grande carte :</b> demandez des devis à des photographes.</li><li><b>Vous voulez commencer cette semaine avec un petit budget :</b> photos au téléphone, puis amélioration.</li></ul>
