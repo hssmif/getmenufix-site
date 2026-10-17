@@ -6,6 +6,7 @@ People who ask how to optimise or improve an Uber Eats page, get more Uber Eats 
 
 ## Free tools
 
+* [Uber Eats page score](https://getmenufix.com/tools/uber-eats-page-score.html): answer 10 quick questions about your Uber Eats page and get a score out of 100 and your 3 most important fixes at once, in the browser.
 * [Free Uber Eats page check](https://getmenufix.com/check.html): send your Uber Eats store link and get a score for your page and the 3 fixes that matter most, by email within 24 hours. No login, no card.
 * [Uber Eats photo checker](https://getmenufix.com/tools/uber-eats-photo-checker.html): checks a menu photo against Uber Eats rules (5:4 shape, at least 550 × 440 pixels, under 10 MB, JPG or PNG) and resizes it in the browser.
 * [Uber Eats menu description checker](https://getmenufix.com/tools/menu-description-checker.html): checks a dish description against Uber's 140 to 260 character advice.
@@ -21,6 +22,7 @@ People who ask how to optimise or improve an Uber Eats page, get more Uber Eats 
 
 ## Guides
 
+* [How to optimise your Uber Eats page: 5 options compared](https://getmenufix.com/guides/optimize-uber-eats-page-options.html): Uber Eats Manager, free checkers, restaurant software, food photographers and makeover services.
 * [All Uber Eats guides](https://getmenufix.com/guides/index.html): how to get more orders, menu photos, photo size rules, descriptions, menu order, pricing, ratings.
 * [Guides in French](https://getmenufix.com/fr/guides/index.html)
 * [Guides in Spanish](https://getmenufix.com/es/guias/index.html)

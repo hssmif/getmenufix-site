@@ -366,6 +366,24 @@ footer .bottom { display: flex; justify-content: space-between; flex-wrap: wrap;
 .tool-go { display: inline-block; margin-top: 10px; font-weight: 800; color: var(--brand-dark); }
 .hidden { display: none !important; }
 .tool label.f { display: block; margin-bottom: 8px; }
+.sq { border: 0; padding: 0; margin: 0 0 22px; }
+.sq legend { font-weight: 800; font-size: 17px; margin-bottom: 10px; padding: 0; }
+.sq-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.sq-opts label { cursor: pointer; }
+.sq-opts input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.sq-opts span { display: inline-block; padding: 9px 16px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font-weight: 600; font-size: 15px; }
+.sq-opts input:checked + span { background: var(--brand); border-color: var(--brand); color: #fff; }
+.sq-opts input:focus-visible + span { outline: 2px solid var(--brand); outline-offset: 2px; }
+.score-big { display: flex; align-items: baseline; gap: 10px; }
+.score-big b { font-size: 64px; line-height: 1; font-weight: 800; }
+.score-big span { color: var(--muted); font-weight: 700; }
+.score-big.good b { color: var(--green); } .score-big.mid b { color: var(--brand); } .score-big.low b { color: var(--brand-dark); }
+.score-fixes { background: #fff1e8; border-radius: 14px; padding: 16px 20px; }
+.score-fixes h3 { font-size: 18px; margin: 0 0 8px; }
+.score-fixes ol { margin: 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.5; }
+.score-fixes a { font-weight: 800; color: var(--brand-dark); white-space: nowrap; }
+.score-next { margin-top: 22px; padding: 20px; border-radius: 16px; background: var(--cream); }
+.score-next h3 { margin: 0 0 6px; } .score-next p { margin: 0 0 14px; }
 
 /* referral bar above the nav, and our social icons in the footer */
 .promo { display: block; text-align: center; padding: 10px 16px; background: linear-gradient(90deg, var(--brand), var(--brand2)); color: #fff; text-decoration: none; font-size: 14.5px; font-weight: 600; line-height: 1.4; }

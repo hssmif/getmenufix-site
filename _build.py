@@ -92,7 +92,7 @@ CHROME = {
            "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("services.html#done", "Done for you"), ("examples.html", "Examples")]),
                     ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 15%")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
-                    ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker")]),
+                    ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker"), ("tools/uber-eats-page-score.html", "Page score")]),
                     ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
            "promo": ("referral.html", "Know restaurant owners? <b>Earn 15%</b> for every restaurant you send us.", "See how"),
            "follow": "Follow us",
@@ -101,7 +101,7 @@ CHROME = {
            "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
            "cols": [("Services", [("fr/services.html", "Réécriture du menu"), ("fr/services.html#photos", "Amélioration des photos"), ("fr/services.html#done", "Clé en main"), ("fr/examples.html", "Exemples")]),
                     ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 15 %")]),
-                    ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description")]),
+                    ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description"), ("fr/outils/score-page-uber-eats.html", "Score de page")]),
                     ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
            "promo": ("fr/parrainage.html", "Vous connaissez des restaurateurs ? <b>Gagnez 15 %</b> pour chaque restaurant recommandé.", "En savoir plus"),
            "follow": "Suivez nous",
@@ -110,7 +110,7 @@ CHROME = {
            "blurb": "Mejoramos páginas de Uber Eats para restaurantes independientes, cafeterías y panaderías. Cartas claras, mejores fotos de sus platos reales y todo hecho por nosotros.",
            "cols": [("Servicios", [("es/services.html", "Reescritura de la carta"), ("es/services.html#photos", "Mejora de fotos"), ("es/services.html#done", "Hecho por nosotros"), ("es/examples.html", "Ejemplos")]),
                     ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 15 %")]),
-                    ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones")]),
+                    ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones"), ("es/herramientas/puntuacion-pagina-uber-eats.html", "Puntuación de página")]),
                     ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
            "promo": ("es/referidos.html", "¿Conoce a dueños de restaurantes? <b>Gane un 15 %</b> por cada restaurante que nos recomiende.", "Ver cómo"),
            "follow": "Síganos",
@@ -273,6 +273,10 @@ def _fr_static(html):
     if "outils/" not in html:
         html = html.replace('<div><h4>Commencer</h4>', '<div><h4>Outils gratuits</h4><a href="outils/verificateur-photo-uber-eats.html">Vérificateur de photo</a>'
                             '<a href="outils/verificateur-description-menu.html">Vérificateur de description</a></div>\n    <div><h4>Commencer</h4>', 1)
+    if "outils/score-page-uber-eats.html" not in html:
+        html = html.replace('<a href="outils/verificateur-description-menu.html">Vérificateur de description</a>',
+                            '<a href="outils/verificateur-description-menu.html">Vérificateur de description</a>'
+                            '<a href="outils/score-page-uber-eats.html">Score de page</a>', 1)
     return re.sub(r'src="\.\./site\.js(\?v=[0-9a-f]+)?"', f'src="../site.js?v={SITE_JS_V}"', html)
 
 
@@ -709,7 +713,7 @@ def tools_section(lang):
     return f"""<section class="tight bg-cream" id="tools"><div class="wrap">
   <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">{t["eyebrow"]}</span><h2>{t["h2"]}</h2></div>
     <p class="lead">{t["lead"]}</p></div>
-  <div class="grid2">{tool_cards(lang)}</div>
+  <div class="grid3">{tool_cards(lang)}</div>
 </div></section>"""
 
 

@@ -415,4 +415,31 @@ if ("IntersectionObserver" in window) {
     text.addEventListener("input", run);
     run();
   }
+
+  // ---- Uber Eats page score: the owner's own answers, added up here. Nothing is read from Uber Eats or sent anywhere.
+  const form = $("scoreTool");
+  if (form) {
+    const D = JSON.parse($("scoreData").textContent);
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const out = $("scoreOut"), keys = Object.keys(D.max);
+      const got = {};
+      keys.forEach((k) => { const r = form.querySelector(`input[name="${k}"]:checked`); if (r) got[k] = +r.value; });
+      if (keys.some((k) => !(k in got))) {
+        out.innerHTML = msg("fix", "!", esc(D.missing));
+        const first = keys.find((k) => !(k in got));
+        form.querySelector(`input[name="${first}"]`).closest("fieldset").scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+      const score = keys.reduce((n, k) => n + got[k], 0);
+      const band = D.bands.find(([min]) => score >= min)[1];
+      const lost = keys.map((k) => [k, D.max[k] - got[k]]).filter(([, n]) => n > 0).sort((a, b) => b[1] - a[1]).slice(0, 3);
+      const fixes = lost.map(([k]) => `<li>${esc(D.fix[k][0])} <a href="${D.fix[k][1]}">${esc(D.read)} →</a></li>`).join("");
+      out.innerHTML = `<div class="score-big ${score >= 65 ? "good" : score >= 40 ? "mid" : "low"}"><b>${score}</b><span>${esc(D.out_of)}</span></div>` +
+        msg("info", "", esc(band)) +
+        (fixes ? `<div class="score-fixes"><h3>${esc(D.top3)}</h3><ol>${fixes}</ol></div>` : msg("pass", "✓", esc(D.none)));
+      $("scoreNext").classList.remove("hidden");
+      out.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 })();

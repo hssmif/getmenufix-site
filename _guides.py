@@ -858,4 +858,57 @@ GUIDES = [
 <ul class="ticks"><li>Drinks or extras as the first category.</li><li>A long first category with every dish in it.</li><li>Best sellers buried at the bottom of a big category.</li><li>Old categories from a previous menu still at the top.</li></ul>
 """,
     },
+    {
+        "slug": "optimize-uber-eats-page-options",
+        "answer": "There are five ways to optimise an Uber Eats page: do it yourself in Uber Eats Manager, use free checkers to find what to fix, use restaurant software that connects to the delivery apps, hire a food photographer, or pay a service to make the page over for you. Start by scoring your page for free, then fix photos and descriptions of your best sellers first.",
+        "faq": [("What is the best tool to optimise an Uber Eats page?", "It depends on what is wrong with your page. Score it first (our free Uber Eats page score takes two minutes), then fix the biggest gap: usually photos and descriptions of your best sellers. Software that connects to the delivery apps helps you run orders and menus; a photographer or a makeover service changes how the page looks."),
+                ("Is there a tool that analyses my Uber Eats page from its link?", "Our free page check does: send your Uber Eats link and a person checks your page and emails you a score with the 3 fixes that matter most, within 24 hours. For an instant answer, the free page score asks you 10 questions about your page."),
+                ("Does Uber Eats help restaurants improve their menu?", "Uber publishes menu tips, such as descriptions of 140 to 260 characters and photos for as many items as possible, and you make changes yourself in Uber Eats Manager. Uber also has a help page on arranging a photography session for restaurants."),
+                ("How much does it cost to optimise an Uber Eats page?", "Doing it yourself and the free checkers cost nothing but your time. Software is usually a monthly subscription, photographers quote per shoot, and makeover services charge a fixed or monthly price. MenuFix charges a one time price, shown on our pricing page."),
+                ("What should I ask before paying someone to fix my Uber Eats page?", "Ask whether they use photos of your real dishes, who makes the changes on your page, whether the price is fixed, whether you can see a free sample first, and whether you keep the photos and texts.")],
+        "title": "How to Optimise Your Uber Eats Page: 5 Options Compared, From Free Tools to Done for You",
+        "short": "Ways to optimise your Uber Eats page compared",
+        "desc": "The five ways to optimise a restaurant's Uber Eats page compared: Uber Eats Manager, free checkers, restaurant software, food photographers and makeover services. Costs, who does the work and what each one fixes.",
+        "img": "desk",
+        "related": ["get-more-orders-on-uber-eats", "uber-eats-food-photography-cost", "write-uber-eats-menu-descriptions"],
+        "lead": "If you search for help with your Uber Eats page, you find tools, apps, photographers and agencies that all promise more orders. They do very different jobs. Here is what each kind of help really fixes, what it costs you and who it suits, so you can pick the right one.",
+        "body": """
+<h2>The short answer</h2>
+<table class="compare">
+<tr><th>Option</th><th>Cost</th><th>Who does the work</th><th>What it fixes</th></tr>
+<tr><td>Uber Eats Manager, yourself</td><td>Free</td><td>You</td><td>Anything, if you know what to change</td></tr>
+<tr><td>Free checkers</td><td>Free</td><td>You, with a list of fixes</td><td>Shows what is wrong first</td></tr>
+<tr><td>Restaurant software</td><td>Usually monthly</td><td>You, in one dashboard</td><td>Orders and menus across apps</td></tr>
+<tr><td>Food photographer</td><td>Quoted per shoot</td><td>The photographer</td><td>Photos only</td></tr>
+<tr><td>Makeover service</td><td>Fixed or monthly price</td><td>The service</td><td>Menu, descriptions, photos, page</td></tr>
+</table>
+
+<h2>1. Do it yourself in Uber Eats Manager</h2>
+<p>Every restaurant on Uber Eats can edit its own menu, photos and descriptions in Uber Eats Manager. Uber publishes <a href="https://www.uber.com/au/en/blog/6-ways-to-optimise-your-uber-eats-menu/" rel="nofollow">menu tips</a>: photos for as many items as possible, descriptions of 140 to 260 characters, more drink options and add ons. Our guide on <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where everything is.</p>
+<ul class="ticks"><li><b>Good:</b> free, and you control every word.</li><li><b>Keep in mind:</b> it takes time, and it is hard to see your own page the way a hungry stranger does.</li></ul>
+
+<h2>2. Free checkers: find out what to fix first</h2>
+<p>Before you change anything, find your biggest gaps. These free tools run in your browser and nothing is sent anywhere:</p>
+<ul class="ticks"><li><a href="/tools/uber-eats-page-score.html">Uber Eats page score</a>: answer 10 questions, get a score out of 100 and your 3 most important fixes.</li><li><a href="/tools/uber-eats-photo-checker.html">Photo checker</a>: checks a dish photo against Uber's size rules and fixes the shape.</li><li><a href="/tools/menu-description-checker.html">Description checker</a>: checks length, capitals, vague words and ingredients.</li></ul>
+<p>We make these tools, and they are free with no sign up. If you would rather a person looked at your real page, our <a href="/check.html">free page check</a> emails you a score and 3 fixes within 24 hours.</p>
+
+<h2>3. Restaurant software that connects to the delivery apps</h2>
+<p>Platforms such as <a href="https://www.tryotter.com/" rel="nofollow">Otter</a> bring orders from Uber Eats and other apps into one system and let you update your menu once for every app. In France, <a href="https://www.fooderise.com/en" rel="nofollow">Fooderise</a> offers delivery app tools for reviews, order disputes and menu sync. Check each one's website for its current features and prices.</p>
+<ul class="ticks"><li><b>Good:</b> saves time if you sell on several apps, and gives you reports.</li><li><b>Keep in mind:</b> software runs your delivery business, but you still write the descriptions and take the photos yourself.</li></ul>
+
+<h2>4. A food photographer, or Uber's photography session</h2>
+<p>Photos are the biggest single change on most pages. Uber has a help page on how restaurants arrange a photography session, and a local photographer can shoot your whole menu. Our guide to <a href="/guides/uber-eats-food-photography-cost.html">Uber Eats food photography cost</a> compares the routes without made up prices.</p>
+<ul class="ticks"><li><b>Good:</b> real, professional photos of your dishes.</li><li><b>Keep in mind:</b> photos only. Names, descriptions and menu order stay as they are.</li></ul>
+
+<h2>5. A done for you makeover service</h2>
+<p>A makeover service fixes the whole page: dish names, descriptions, menu order, photos and the changes on Uber Eats itself. That is what we do at <a href="/services.html">MenuFix</a>: we rewrite your menu, enhance photos of your real dishes (never fake food) and can make every change on your page for you. Our <a href="/pricing.html">prices</a> are one time, with no subscription, and you see a free mockup of your new page before you pay anything.</p>
+<ul class="ticks"><li><b>Good:</b> the least work for you, and everything changes together.</li><li><b>Keep in mind:</b> it costs more than doing it yourself, so compare what is included.</li></ul>
+
+<h2>Questions to ask before you pay anyone</h2>
+<ul class="ticks"><li>Do you use photos of my real dishes, or stock and AI food?</li><li>Who makes the changes on my Uber Eats page, you or me?</li><li>Is the price fixed, or a monthly subscription?</li><li>Can I see a free sample of my own page first?</li><li>Do I keep the photos and texts if I stop?</li></ul>
+
+<h2>Where to start</h2>
+<p>Whatever you choose, start with your ten best sellers: a bright photo, a clear name and a description that names the main ingredients. Our guide on <a href="/guides/get-more-orders-on-uber-eats.html">getting more orders on Uber Eats</a> explains why those dishes matter most.</p>
+""",
+    },
 ]

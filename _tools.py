@@ -22,6 +22,11 @@ TOOLS = {
          "title": "Free Uber Eats Menu Description Checker | MenuFix",
          "desc": "Paste an Uber Eats dish description and check it against Uber's 140 to 260 character advice. Flags ALL CAPS, vague words and descriptions that don't name the ingredients.",
          "icon": "pen"},
+        {"key": "uber-eats-page-score", "slug": "uber-eats-page-score", "name": "Uber Eats page score",
+         "short": "Answer 10 quick questions about your page and get your score and your 3 most important fixes now.",
+         "title": "Free Uber Eats Page Score: Check Your Restaurant Page in 2 Minutes | MenuFix",
+         "desc": "How good is your Uber Eats page? Answer 10 quick questions about your photos, descriptions, menu order and rating. Get a score out of 100 and your 3 most important fixes at once. Free.",
+         "icon": "star"},
     ],
     "fr": [
         {"key": "uber-eats-photo-checker", "slug": "verificateur-photo-uber-eats", "name": "Vérificateur de photo Uber Eats",
@@ -34,6 +39,11 @@ TOOLS = {
          "title": "Vérificateur de description de plat Uber Eats gratuit | MenuFix",
          "desc": "Collez la description d'un plat Uber Eats et vérifiez sa longueur, les mots en MAJUSCULES, les mots vagues et la présence des ingrédients. Gratuit, dans votre navigateur.",
          "icon": "pen"},
+        {"key": "uber-eats-page-score", "slug": "score-page-uber-eats", "name": "Score de votre page Uber Eats",
+         "short": "Répondez à 10 questions rapides sur votre page : votre score et vos 3 corrections les plus importantes, tout de suite.",
+         "title": "Score gratuit de votre page Uber Eats : vérifiez votre restaurant en 2 minutes | MenuFix",
+         "desc": "Votre page Uber Eats est efficace ? Répondez à 10 questions rapides sur vos photos, descriptions, l'ordre du menu et votre note. Un score sur 100 et vos 3 corrections prioritaires, tout de suite. Gratuit.",
+         "icon": "star"},
     ],
     "es": [
         {"key": "uber-eats-photo-checker", "slug": "comprobador-fotos-uber-eats", "name": "Comprobador de fotos para Uber Eats",
@@ -46,6 +56,11 @@ TOOLS = {
          "title": "Comprobador de descripciones de platos para Uber Eats gratis | MenuFix",
          "desc": "Pegue la descripción de un plato de Uber Eats y compruebe su longitud, las palabras en MAYÚSCULAS, las palabras vagas y si nombra los ingredientes. Gratis, en su navegador.",
          "icon": "pen"},
+        {"key": "uber-eats-page-score", "slug": "puntuacion-pagina-uber-eats", "name": "Puntuación de su página de Uber Eats",
+         "short": "Responda 10 preguntas rápidas sobre su página: su puntuación y sus 3 mejoras más importantes, al momento.",
+         "title": "Puntuación gratis de su página de Uber Eats: revise su restaurante en 2 minutos | MenuFix",
+         "desc": "¿Funciona bien su página de Uber Eats? Responda 10 preguntas rápidas sobre fotos, descripciones, orden de la carta y valoración. Una puntuación sobre 100 y sus 3 mejoras más importantes al momento. Gratis.",
+         "icon": "star"},
     ],
 }
 
@@ -199,8 +214,8 @@ def build_tools(page, head, cta, lang="en") -> list[tuple[str, str]]:
     t = TOOLS_TEXT[lang]
     out = []
     for x in TOOLS[lang]:
-        txt = PHOTO[lang] if x["icon"] == "camera" else DESC[lang]
-        body = _photo_body(txt) if x["icon"] == "camera" else _desc_body(txt)
+        txt = {"camera": PHOTO, "pen": DESC, "star": SCORE}[x["icon"]][lang]
+        body = {"camera": _photo_body, "pen": _desc_body, "star": _score_body}[x["icon"]](txt)
         name = f"{t['dir']}{x['slug']}.html"
         page(name, x["title"], x["desc"], f"""{head(t["one"], txt["h"], txt["lead"], (x["icon"], "star"))}
 {body}
@@ -208,3 +223,221 @@ def build_tools(page, head, cta, lang="en") -> list[tuple[str, str]]:
 """, t["guides"], lang=lang)
         out.append((x["key"], name))
     return out
+
+
+# ---- Uber Eats page score: 10 questions the owner answers about their own page. Nothing is read from Uber Eats and
+# nothing is sent: the score is added up in the browser (site.js). Points add up to 100. The weights are our own
+# judgement, said so on the page; the Uber facts link to Uber.
+def _q(key, max_, opts, fix, link):
+    return {"key": key, "max": max_, "opts": opts, "fix": fix, "link": link}
+
+
+SCORE = {
+    "en": {"h": "Free Uber Eats <span class='hl'>page score.</span>",
+           "lead": "Open your restaurant on Uber Eats as a customer would, answer 10 quick questions, and get your score and your 3 most important fixes at once.",
+           "go": "See my score", "missing": "Please answer every question to see your score.",
+           "out_of": "out of 100", "top3": "Your 3 most important fixes", "read": "How to fix it",
+           "bands": [(85, "Your page is in great shape. Small details are all that is left."),
+                     (65, "A good page with clear room to grow. The fixes below are where to start."),
+                     (40, "Customers are probably scrolling past dishes they would love. The fixes below matter most."),
+                     (0, "Your page is holding your food back. Start with the first fix below this week.")],
+           "none": "Nothing important to fix. Keep your photos and prices up to date.",
+           "next_h": "Want a real person to check your actual page?",
+           "next_p": "Send us your Uber Eats link and we email you a free page check with your real dish names, plus a free mockup of your new page. No login, no card.",
+           "next_btn": "Get my free page check", "next_href": "/check.html",
+           "q": [
+               _q("photos", 20, [("All or almost all", 20), ("About half", 10), ("Only a few or none", 0)],
+                  "Add photos to your dishes, starting with your 10 best sellers. Uber advises a photo for as many items as possible.",
+                  "/guides/how-to-add-photos-to-uber-eats-menu.html"),
+               _q("quality", 7, [("Yes", 7), ("Some of them", 3), ("No", 0)],
+                  "Retake or enhance your photos: daylight, one dish per photo, a clean background, no text.",
+                  "/guides/uber-eats-food-photos-phone.html"),
+               _q("desc", 15, [("Yes, almost all", 15), ("Some of them", 7), ("Few or none", 0)],
+                  "Give every dish a description of 140 to 260 characters that names the main ingredients, as Uber advises.",
+                  "/guides/write-uber-eats-menu-descriptions.html"),
+               _q("names", 10, [("Yes", 10), ("No", 0)],
+                  "Clean up your dish names: no typos, no ALL CAPS and no codes like A1 or #12.",
+                  "/guides/uber-eats-menu-description-examples.html"),
+               _q("best", 10, [("Yes", 10), ("No", 0), ("Not sure", 0)],
+                  "Put your best sellers in the first category customers see.",
+                  "/guides/best-sellers-uber-eats-menu-order.html"),
+               _q("cats", 8, [("Yes", 8), ("No", 0)],
+                  "Sort your menu into clear categories in the order people eat: starters, mains, sides, drinks, desserts.",
+                  "/guides/uber-eats-menu-categories.html"),
+               _q("banner", 8, [("Yes", 8), ("No", 0)],
+                  "Add a cover photo of your best dish. It is the first thing customers see.",
+                  "/guides/uber-eats-banner-photo.html"),
+               _q("logo", 4, [("Yes", 4), ("No", 0)],
+                  "Add your logo so customers recognise you in search results.",
+                  "/guides/new-on-uber-eats-checklist.html"),
+               _q("extras", 8, [("Yes", 8), ("No", 0)],
+                  "Add drinks, sides and extras. Uber suggests more drink options and add ons before checkout.",
+                  "/guides/get-more-orders-on-uber-eats.html"),
+               _q("rating", 10, [("4.5 or higher", 10), ("4.0 to 4.4", 5), ("Below 4.0", 0), ("New, no rating yet", 5)],
+                  "Work on your rating: reply to reviews and fix what customers mention most.",
+                  "/guides/improve-uber-eats-rating-restaurant.html"),
+           ],
+           "labels": {"photos": "How many of your dishes have a photo?",
+                      "quality": "Are your photos bright and sharp, with one dish per photo and no text?",
+                      "desc": "Do your dishes have a description that names the main ingredients?",
+                      "names": "Are your dish names clear, with no typos, no ALL CAPS and no codes like A1?",
+                      "best": "Are your best sellers in the first category customers see?",
+                      "cats": "Is your menu in clear categories, in the order people eat?",
+                      "banner": "Does your page have a cover photo of your food?",
+                      "logo": "Does your page show your logo?",
+                      "extras": "Can customers add drinks, sides or extras?",
+                      "rating": "What is your Uber Eats rating?"},
+           "prose": f"""<h2>How the score works</h2>
+    <p>Each answer gives points, 100 in all. Photos and descriptions count the most, because they are what customers look at
+      when they choose. The weights are our own judgement from checking Uber Eats pages, not an Uber formula. Uber's own advice
+      on photos, descriptions of 140 to 260 characters and drinks is on its <a href="{DESC_ADVICE}" rel="nofollow">menu tips page</a>.</p>
+    <p>Your answers stay in your browser: nothing is sent or saved. For a check of your real page by a person, use our
+      <a href="/check.html">free page check</a>.</p>"""},
+    "fr": {"h": "Score gratuit de votre <span class='hl'>page Uber Eats.</span>",
+           "lead": "Ouvrez votre restaurant sur Uber Eats comme un client, répondez à 10 questions rapides, et obtenez votre score et vos 3 corrections les plus importantes tout de suite.",
+           "go": "Voir mon score", "missing": "Répondez à toutes les questions pour voir votre score.",
+           "out_of": "sur 100", "top3": "Vos 3 corrections les plus importantes", "read": "Comment faire",
+           "bands": [(85, "Votre page est en très bonne forme. Il ne reste que des détails."),
+                     (65, "Une bonne page, avec une vraie marge de progrès. Commencez par les corrections ci dessous."),
+                     (40, "Les clients passent sans doute à côté de plats qu'ils adoreraient. Les corrections ci dessous comptent le plus."),
+                     (0, "Votre page dessert votre cuisine. Commencez cette semaine par la première correction ci dessous.")],
+           "none": "Rien d'important à corriger. Gardez vos photos et vos prix à jour.",
+           "next_h": "Envie qu'une vraie personne vérifie votre page ?",
+           "next_p": "Envoyez nous le lien de votre page Uber Eats : nous vous envoyons par email une analyse gratuite avec vos vrais plats, et une maquette gratuite de votre nouvelle page. Sans connexion, sans carte.",
+           "next_btn": "Recevoir mon analyse gratuite", "next_href": "/fr/check.html",
+           "q": [
+               _q("photos", 20, [("Tous ou presque", 20), ("Environ la moitié", 10), ("Peu ou aucun", 0)],
+                  "Ajoutez des photos à vos plats, en commençant par vos 10 meilleures ventes. Uber conseille une photo pour un maximum d'articles.",
+                  "/fr/guides/ajouter-photos-menu-uber-eats.html"),
+               _q("quality", 7, [("Oui", 7), ("Certaines", 3), ("Non", 0)],
+                  "Refaites ou améliorez vos photos : lumière du jour, un plat par photo, fond propre, aucun texte.",
+                  "/fr/guides/photos-plats-telephone.html"),
+               _q("desc", 15, [("Oui, presque tous", 15), ("Certains", 7), ("Peu ou aucun", 0)],
+                  "Donnez à chaque plat une description de 140 à 260 caractères qui cite les ingrédients principaux.",
+                  "/fr/guides/descriptions-menu-uber-eats.html"),
+               _q("names", 10, [("Oui", 10), ("Non", 0)],
+                  "Nettoyez les noms de vos plats : pas de fautes, pas de MAJUSCULES, pas de codes comme A1 ou n°12.",
+                  "/fr/guides/exemples-descriptions-menu-uber-eats.html"),
+               _q("best", 10, [("Oui", 10), ("Non", 0), ("Je ne sais pas", 0)],
+                  "Placez vos meilleures ventes dans la première catégorie que voient les clients.",
+                  "/fr/guides/meilleures-ventes-ordre-menu-uber-eats.html"),
+               _q("cats", 8, [("Oui", 8), ("Non", 0)],
+                  "Rangez votre menu en catégories claires, dans l'ordre du repas : entrées, plats, accompagnements, boissons, desserts.",
+                  "/fr/guides/categories-menu-uber-eats.html"),
+               _q("banner", 8, [("Oui", 8), ("Non", 0)],
+                  "Ajoutez une photo de bannière avec votre meilleur plat. C'est la première chose que voient les clients.",
+                  "/fr/guides/photo-banniere-uber-eats.html"),
+               _q("logo", 4, [("Oui", 4), ("Non", 0)],
+                  "Ajoutez votre logo pour que les clients vous reconnaissent dans les résultats.",
+                  "/fr/guides/debuter-sur-uber-eats.html"),
+               _q("extras", 8, [("Oui", 8), ("Non", 0)],
+                  "Ajoutez boissons, accompagnements et suppléments. Uber conseille de proposer plus de boissons et des ajouts avant de commander.",
+                  "/fr/guides/plus-de-commandes-uber-eats.html"),
+               _q("rating", 10, [("4,5 ou plus", 10), ("De 4,0 à 4,4", 5), ("Moins de 4,0", 0), ("Nouveau, pas encore de note", 5)],
+                  "Travaillez votre note : répondez aux avis et corrigez ce que les clients citent le plus.",
+                  "/fr/guides/ameliorer-note-uber-eats.html"),
+           ],
+           "labels": {"photos": "Combien de vos plats ont une photo ?",
+                      "quality": "Vos photos sont lumineuses et nettes, avec un plat par photo et sans texte ?",
+                      "desc": "Vos plats ont une description qui cite les ingrédients principaux ?",
+                      "names": "Les noms de vos plats sont clairs, sans fautes, sans MAJUSCULES et sans codes comme A1 ?",
+                      "best": "Vos meilleures ventes sont dans la première catégorie que voient les clients ?",
+                      "cats": "Votre menu est rangé en catégories claires, dans l'ordre du repas ?",
+                      "banner": "Votre page a une photo de bannière avec vos plats ?",
+                      "logo": "Votre page affiche votre logo ?",
+                      "extras": "Les clients peuvent ajouter boissons, accompagnements ou suppléments ?",
+                      "rating": "Quelle est votre note sur Uber Eats ?"},
+           "prose": f"""<h2>Comment le score est calculé</h2>
+    <p>Chaque réponse donne des points, 100 au total. Les photos et les descriptions comptent le plus, car c'est ce que regardent
+      les clients pour choisir. Les poids sont notre propre jugement, tiré de l'analyse de pages Uber Eats, pas une formule d'Uber.
+      Uber recommande d'ajouter une description à vos articles (<a href="{MENU_INFO_FR}" rel="nofollow">aide Uber</a>).</p>
+    <p>Vos réponses restent dans votre navigateur : rien n'est envoyé ni enregistré. Pour une vérification de votre vraie page par
+      une personne, utilisez notre <a href="/fr/check.html">analyse gratuite</a>.</p>"""},
+    "es": {"h": "Puntuación gratis de su <span class='hl'>página de Uber Eats.</span>",
+           "lead": "Abra su restaurante en Uber Eats como un cliente, responda 10 preguntas rápidas y obtenga su puntuación y sus 3 mejoras más importantes al momento.",
+           "go": "Ver mi puntuación", "missing": "Responda todas las preguntas para ver su puntuación.",
+           "out_of": "sobre 100", "top3": "Sus 3 mejoras más importantes", "read": "Cómo hacerlo",
+           "bands": [(85, "Su página está en muy buena forma. Solo quedan detalles."),
+                     (65, "Una buena página con margen claro para crecer. Empiece por las mejoras de abajo."),
+                     (40, "Es probable que los clientes pasen de largo platos que les encantarían. Las mejoras de abajo son las que más cuentan."),
+                     (0, "Su página está frenando su cocina. Empiece esta semana por la primera mejora de abajo.")],
+           "none": "Nada importante que mejorar. Mantenga sus fotos y precios al día.",
+           "next_h": "¿Quiere que una persona revise su página real?",
+           "next_p": "Envíenos el enlace de su página de Uber Eats y le mandamos por correo un análisis gratis con sus platos reales, y una maqueta gratis de su nueva página. Sin acceso a su cuenta, sin tarjeta.",
+           "next_btn": "Quiero mi análisis gratis", "next_href": "/es/check.html",
+           "q": [
+               _q("photos", 20, [("Todos o casi todos", 20), ("Más o menos la mitad", 10), ("Pocos o ninguno", 0)],
+                  "Añada fotos a sus platos, empezando por los 10 más vendidos. Uber aconseja una foto para el mayor número de productos posible.",
+                  "/es/guias/fotos-comida-movil.html"),
+               _q("quality", 7, [("Sí", 7), ("Algunas", 3), ("No", 0)],
+                  "Repita o mejore sus fotos: luz de día, un plato por foto, fondo limpio y sin texto.",
+                  "/es/guias/fotos-comida-movil.html"),
+               _q("desc", 15, [("Sí, casi todos", 15), ("Algunos", 7), ("Pocos o ninguno", 0)],
+                  "Dé a cada plato una descripción de 140 a 260 caracteres que nombre los ingredientes principales.",
+                  "/es/guias/descripciones-menu-uber-eats.html"),
+               _q("names", 10, [("Sí", 10), ("No", 0)],
+                  "Limpie los nombres de sus platos: sin faltas, sin MAYÚSCULAS y sin códigos como A1 o n.º 12.",
+                  "/es/guias/descripciones-menu-uber-eats.html"),
+               _q("best", 10, [("Sí", 10), ("No", 0), ("No lo sé", 0)],
+                  "Ponga sus platos más vendidos en la primera categoría que ven los clientes.",
+                  "/es/guias/mas-pedidos-uber-eats.html"),
+               _q("cats", 8, [("Sí", 8), ("No", 0)],
+                  "Ordene su carta en categorías claras, en el orden de la comida: entrantes, principales, acompañamientos, bebidas y postres.",
+                  "/es/guias/editar-menu-uber-eats-manager.html"),
+               _q("banner", 8, [("Sí", 8), ("No", 0)],
+                  "Añada una foto de portada con su mejor plato. Es lo primero que ven los clientes.",
+                  "/es/guias/empezar-en-uber-eats.html"),
+               _q("logo", 4, [("Sí", 4), ("No", 0)],
+                  "Añada su logotipo para que los clientes le reconozcan en los resultados.",
+                  "/es/guias/empezar-en-uber-eats.html"),
+               _q("extras", 8, [("Sí", 8), ("No", 0)],
+                  "Añada bebidas, acompañamientos y extras. Uber aconseja más opciones de bebida y extras antes de pagar.",
+                  "/es/guias/mas-pedidos-uber-eats.html"),
+               _q("rating", 10, [("4,5 o más", 10), ("De 4,0 a 4,4", 5), ("Menos de 4,0", 0), ("Nuevo, sin valoración aún", 5)],
+                  "Trabaje su valoración: responda a las reseñas y corrija lo que más mencionan los clientes.",
+                  "/es/guias/mas-pedidos-uber-eats.html"),
+           ],
+           "labels": {"photos": "¿Cuántos de sus platos tienen foto?",
+                      "quality": "¿Sus fotos son luminosas y nítidas, con un plato por foto y sin texto?",
+                      "desc": "¿Sus platos tienen una descripción que nombra los ingredientes principales?",
+                      "names": "¿Los nombres de sus platos son claros, sin faltas, sin MAYÚSCULAS y sin códigos como A1?",
+                      "best": "¿Sus platos más vendidos están en la primera categoría que ven los clientes?",
+                      "cats": "¿Su carta está en categorías claras, en el orden de la comida?",
+                      "banner": "¿Su página tiene una foto de portada con su comida?",
+                      "logo": "¿Su página muestra su logotipo?",
+                      "extras": "¿Los clientes pueden añadir bebidas, acompañamientos o extras?",
+                      "rating": "¿Cuál es su valoración en Uber Eats?"},
+           "prose": f"""<h2>Cómo se calcula la puntuación</h2>
+    <p>Cada respuesta suma puntos, 100 en total. Las fotos y las descripciones cuentan más, porque es lo que miran los clientes para
+      elegir. Los pesos son nuestro propio criterio tras revisar páginas de Uber Eats, no una fórmula de Uber. Uber recomienda añadir
+      una descripción a sus productos (<a href="{MENU_INFO_ES}" rel="nofollow">ayuda de Uber</a>).</p>
+    <p>Sus respuestas se quedan en su navegador: no se envía ni se guarda nada. Para una revisión de su página real hecha por una
+      persona, use nuestro <a href="/es/check.html">análisis gratis</a>.</p>"""},
+}
+
+
+def _score_body(t):
+    import json as _j
+    qs = "".join(
+        f'<fieldset class="sq"><legend>{i}. {t["labels"][q["key"]]}</legend><div class="sq-opts">' +
+        "".join(f'<label><input type="radio" name="{q["key"]}" value="{p}"><span>{lab}</span></label>' for lab, p in q["opts"]) +
+        "</div></fieldset>" for i, q in enumerate(t["q"], 1))
+    data = {"max": {q["key"]: q["max"] for q in t["q"]}, "fix": {q["key"]: [q["fix"], q["link"]] for q in t["q"]},
+            "bands": t["bands"], "out_of": t["out_of"], "top3": t["top3"], "read": t["read"], "none": t["none"],
+            "missing": t["missing"]}
+    blob = _j.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    assert sum(q["max"] for q in t["q"]) == 100 and all(max(p for _, p in q["opts"]) == q["max"] for q in t["q"])
+    return f"""
+<section style="padding-top:20px"><div class="narrow">
+  <form class="tool" id="scoreTool" novalidate>
+    {qs}
+    <button class="btn primary" type="submit" style="margin-top:8px">{t["go"]}</button>
+    <div id="scoreOut" class="tool-out" aria-live="polite"></div>
+    <div id="scoreNext" class="score-next hidden"><h3>{t["next_h"]}</h3><p>{t["next_p"]}</p>
+      <a class="btn primary" href="{t["next_href"]}">{t["next_btn"]}</a></div>
+  </form>
+  <script type="application/json" id="scoreData">{blob}</script>
+  <div class="prose" style="margin-top:40px">
+    {t["prose"]}
+  </div>
+</div></section>"""
