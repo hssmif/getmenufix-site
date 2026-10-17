@@ -65,7 +65,6 @@ def ld(name):
     import json
     org = {"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/",
            "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com",
-           "founder": {"@type": "Person", "name": "Abdel Iflillis"},
            "sameAs": [u for u in (INSTAGRAM, FACEBOOK) if u]}
     graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
                    "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]
@@ -590,7 +589,7 @@ f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div cl
 <section style="padding-top:40px"><div class="wrap split">
   <div class="reveal"><span class="eyebrow">Our story</span><h2>Small places, real food.</h2>
     <p class="lead" style="margin-top:20px">Some of the best food in any city comes from small, independent kitchens. On delivery apps, though, they often look worse than the big chains: no photos, menus typed in a hurry, best dishes hidden at the bottom.</p>
-    <p class="lead">MenuFix is a small independent service run by its founder, Abdel Iflillis. We do one thing, delivery app pages, so we know exactly what helps people choose you. No agency fees and no long contracts. You deal with us directly, by email.</p></div>
+    <p class="lead">MenuFix is a small independent service. We do one thing, delivery app pages, so we know exactly what helps people choose you. No agency fees and no long contracts. You deal with us directly, by email.</p></div>
   <div class="img reveal"><img src="img/kitchen.jpg" alt="" loading="lazy"></div>
 </div></section>
 <section class="bg-butter"><div class="wrap">
@@ -656,14 +655,12 @@ from _guides_fr import GUIDES_FR
 GT = {
     "en": {"dir": "guides/", "eyebrow": "Guides", "updated": "Updated 10 October 2026",
            "answer": "Quick answer", "toc": "In this guide", "faq": "Questions", "more": "More guides", "more_h": "Keep improving your page",
-           "author": 'is the founder of MenuFix, a small independent service that rewrites Uber Eats menus and enhances photos of real dishes for independent restaurants, cafés and bakeries. <a href="/about.html">About MenuFix</a>',
            "index_title": "Uber Eats Guides for Restaurants and Cafés | MenuFix",
            "index_desc": "Free practical guides for restaurant and café owners: getting more Uber Eats orders, pricing, menu descriptions, food photos on your phone and editing your menu.",
            "index_h": "Free guides to a better <span class='hl'>Uber Eats page.</span>",
            "index_lead": "Practical, honest advice for independent restaurants, cafés and bakeries. Use it yourself, or let us do it for you."},
     "fr": {"dir": "fr/guides/", "eyebrow": "Guides", "updated": "Mis à jour le 10 octobre 2026",
            "answer": "En bref", "toc": "Dans ce guide", "faq": "Questions fréquentes", "more": "Autres guides", "more_h": "Continuez à améliorer votre page",
-           "author": 'est le fondateur de MenuFix, un petit service indépendant qui réécrit les menus Uber Eats et améliore les photos de vrais plats pour les restaurants indépendants, cafés et boulangeries. <a href="/fr/about.html">À propos de MenuFix</a>',
            "index_title": "Guides Uber Eats pour restaurants et cafés | MenuFix",
            "index_desc": "Guides pratiques et gratuits pour restaurateurs : plus de commandes sur Uber Eats, prix, descriptions de plats, photos au téléphone et modification du menu.",
            "index_h": "Des guides gratuits pour une meilleure <span class='hl'>page Uber Eats.</span>",
@@ -671,7 +668,6 @@ GT = {
     "es": {"dir": "es/guias/", "eyebrow": "Guías", "updated": "Actualizado el 13 de octubre de 2026",
            "date": "2026-10-13",
            "answer": "Respuesta rápida", "toc": "En esta guía", "faq": "Preguntas frecuentes", "more": "Más guías", "more_h": "Siga mejorando su página",
-           "author": 'es el fundador de MenuFix, un pequeño servicio independiente que reescribe cartas de Uber Eats y mejora las fotos de platos reales para restaurantes independientes, cafeterías y panaderías. <a href="/es/about.html">Quiénes somos</a>',
            "index_title": "Guías de Uber Eats para restaurantes y cafeterías | MenuFix",
            "index_desc": "Guías prácticas y gratuitas para dueños de restaurantes en España: más pedidos en Uber Eats, comisiones, precios, descripciones de platos y fotos con el móvil.",
            "index_h": "Guías gratuitas para una mejor <span class='hl'>página de Uber Eats.</span>",
@@ -725,7 +721,7 @@ def build_guides(guides, lang, cta_html):
         url = f"https://getmenufix.com/{t['dir']}{g['slug']}.html"
         art = {"@context": "https://schema.org", "@type": "Article", "headline": g["title"], "description": g["desc"],
                "image": f"https://getmenufix.com/img/{g['img']}.jpg", "inLanguage": lang,
-               "author": {"@type": "Person", "name": "Abdel Iflillis"},
+               "author": {"@type": "Organization", "name": "MenuFix", "url": "https://getmenufix.com/"},
                "publisher": {"@type": "Organization", "name": "MenuFix", "logo": {"@type": "ImageObject",
                              "url": "https://getmenufix.com/img/logo-mark.png"}},
                "mainEntityOfPage": url, "datePublished": date, "dateModified": date}
@@ -757,7 +753,6 @@ def build_guides(guides, lang, cta_html):
   <img src="img/{g['img']}.jpg" alt="{g['short']}"></div></div></div>
 <article class="narrow prose" style="padding:40px 0 30px">{toc_html}{body}</article>
 {faq_block}
-<div class="narrow"><div class="author"><img src="img/logo-mark.png" alt=""><div><b>Abdel Iflillis</b> {t['author']}</div></div></div>
 <section class="tight bg-cream"><div class="wrap">
   <div class="head reveal" style="margin-bottom:30px"><div><span class="eyebrow">{t['more']}</span><h2>{t['more_h']}</h2></div></div>
   <div class="grid3">{others}</div>

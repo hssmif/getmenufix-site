@@ -1,4 +1,17 @@
 User-agent: *
 Disallow: /for/
 Allow: /
+
+# AI search and assistants are welcome (ChatGPT, Claude, Perplexity, Gemini)
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+User-agent: Bingbot
+Disallow: /for/
+Allow: /
+
 Sitemap: https://getmenufix.com/sitemap.xml
