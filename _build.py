@@ -141,6 +141,7 @@ def page(name, title, desc, body, active="", lang="en", ld_extra=""):
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="msvalidate.01" content="F0DCDD1209340D5FCE9148B6F4762CB7">
 <meta name="theme-color" content="#ffffff">
 <title>{title}</title>
 <meta name="description" content="{desc}">
