@@ -327,7 +327,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
          f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class="wrap split" style="align-items:start">
   <div><span class="eyebrow">Maqueta gratis</span><h1>Vea su página mejorada, <span class="hl">gratis.</span></h1>
     <p class="lead">Díganos dónde encontrarle en Uber Eats. Le enviaremos por correo una maqueta de cómo podría quedar su página y los cambios principales que haríamos. Sin pago y sin compromiso.</p>
-    <ul class="ticks"><li>Normalmente en uno o dos días laborables</li><li>No necesitamos datos de pago</li><li>Responda «no» cuando quiera y no le volveremos a escribir</li></ul>
+    <ul class="ticks"><li>Normalmente en uno o dos días laborables</li><li>No necesitamos datos de pago</li><li>Solo paga cuando esté contento</li></ul>
     <div class="img reveal" style="margin-top:40px"><img src="img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
     <form id="mockForm" data-lang="es" data-error="Lo sentimos, algo ha fallado. Inténtelo de nuevo en un minuto o escríbanos a hello@getmenufix.com." novalidate>
@@ -341,7 +341,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
       <label class="consent"><input id="mConsent" type="checkbox" required> <span>Envíenme mi maqueta gratis por correo</span></label>
       <p class="err" id="mErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Enviar mi solicitud <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">Usamos su correo solo para su maqueta y su solicitud. Responda STOP cuando quiera y no le volveremos a escribir. Consulte nuestra <a href='privacy.html'>política de privacidad</a>.</p>
+      <p class="note" style="margin:14px 0 0">Usamos su correo solo para su maqueta. Consulte nuestra <a href='privacy.html'>política de privacidad</a>.</p>
     </form>
     <div id="mockThanks" class="thanks" hidden><h3>Gracias, hemos recibido su solicitud.</h3><p>Le enviaremos su maqueta gratis por correo, normalmente en uno o dos días laborables. Si no la ve, mire en su carpeta de spam.</p></div>
   </div>
