@@ -1,6 +1,6 @@
 """The public referral program page in English, French and Spanish: referral.html, fr/parrainage.html,
 es/referidos.html. Built by _build.py. Honest terms only: the referrer gets 15% of what a restaurant actually paid.
-The sign up form opens the visitor's email app (site.js, #refForm), like the free mockup form."""
+The sign up form posts to MenuFix (site.js, #refForm, /api/public/form), like the free mockup form."""
 
 PAGES = {
     "en": {
@@ -31,10 +31,12 @@ PAGES = {
         "f_name": "Your name", "f_email": "Email", "f_biz": "Business (optional)", "f_how": "How will you share it?",
         "p_name": "First and last name", "p_email": "you@example.com", "p_biz": "For example your studio or company",
         "p_how": "For example: I photograph cafés and will tell my clients about it.",
-        "send": "Send", "send_note": "This opens your email app with everything filled in. Just press send.",
+        "send": "Send", "send_note": "We use your email only to send your link and your payments.",
+        "err": "Sorry, something went wrong. Please try again in a minute, or email us at hello@getmenufix.com.",
+        "th": "Thank you, we've got your request.", "tp": "We'll email you your personal link within one working day. If you don't see it, look in your spam folder.",
         "faq_h": "Questions",
         "faq": [("Does the restaurant pay more?", "No. It pays the same price as any other restaurant."),
-                ("How do you know a restaurant came through my link?", "Your link saves a code in the restaurant's browser for 60 days. When they pay on our website from that browser, the code comes with the payment. If they pay from another device, tell us and we'll look into it."),
+                ("How do you know a restaurant came through my link?", "Your link saves a code in the restaurant's browser for 60 days. When they ask for their free mockup from that browser, the code comes with their request and stays with them until they pay. If they write to us another way, tell us and we'll look into it."),
                 ("When do I get paid?", "Within 30 days after the restaurant's payment, by bank transfer or PayPal.")],
     },
     "fr": {
@@ -65,10 +67,12 @@ PAGES = {
         "f_name": "Votre nom", "f_email": "Email", "f_biz": "Entreprise (facultatif)", "f_how": "Comment allez vous le partager ?",
         "p_name": "Prénom et nom", "p_email": "vous@exemple.fr", "p_biz": "Par exemple votre studio ou votre société",
         "p_how": "Par exemple : je photographie des cafés et j'en parlerai à mes clients.",
-        "send": "Envoyer", "send_note": "Votre application email s'ouvre avec tout déjà rempli. Il ne reste qu'à envoyer.",
+        "send": "Envoyer", "send_note": "Nous utilisons votre email uniquement pour vous envoyer votre lien et vos paiements.",
+        "err": "Désolé, un problème est survenu. Réessayez dans une minute, ou écrivez nous à hello@getmenufix.com.",
+        "th": "Merci, nous avons bien reçu votre demande.", "tp": "Nous vous enverrons votre lien personnel par email sous un jour ouvré. Si vous ne le voyez pas, regardez dans vos spams.",
         "faq_h": "Questions fréquentes",
         "faq": [("Le restaurant paie il plus cher ?", "Non. Il paie le même prix que n'importe quel autre restaurant."),
-                ("Comment savez vous qu'un restaurant vient de mon lien ?", "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il paie sur notre site depuis ce navigateur, le code accompagne le paiement. S'il paie depuis un autre appareil, prévenez nous et nous vérifierons."),
+                ("Comment savez vous qu'un restaurant vient de mon lien ?", "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il demande sa maquette gratuite depuis ce navigateur, le code accompagne sa demande et reste lié à lui jusqu'au paiement. S'il nous contacte autrement, prévenez nous et nous vérifierons."),
                 ("Quand suis je payé ?", "Dans les 30 jours suivant le paiement du restaurant, par virement bancaire ou PayPal.")],
     },
     "es": {
@@ -99,10 +103,12 @@ PAGES = {
         "f_name": "Su nombre", "f_email": "Correo electrónico", "f_biz": "Negocio (opcional)", "f_how": "¿Cómo lo va a compartir?",
         "p_name": "Nombre y apellidos", "p_email": "usted@ejemplo.es", "p_biz": "Por ejemplo, su estudio o su empresa",
         "p_how": "Por ejemplo: fotografío cafeterías y se lo contaré a mis clientes.",
-        "send": "Enviar", "send_note": "Se abrirá su aplicación de correo con todo ya escrito. Solo tiene que pulsar enviar.",
+        "send": "Enviar", "send_note": "Usamos su correo solo para enviarle su enlace y sus pagos.",
+        "err": "Lo sentimos, algo ha fallado. Inténtelo de nuevo en un minuto o escríbanos a hello@getmenufix.com.",
+        "th": "Gracias, hemos recibido su solicitud.", "tp": "Le enviaremos su enlace personal por correo en un día laborable. Si no lo ve, mire en su carpeta de spam.",
         "faq_h": "Preguntas frecuentes",
         "faq": [("¿El restaurante paga más?", "No. Paga el mismo precio que cualquier otro restaurante."),
-                ("¿Cómo saben que un restaurante llegó por mi enlace?", "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando paga en nuestra web desde ese navegador, el código va con el pago. Si paga desde otro dispositivo, avísenos y lo revisaremos."),
+                ("¿Cómo saben que un restaurante llegó por mi enlace?", "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando pide su maqueta gratis desde ese navegador, el código va con su solicitud y queda unido a él hasta el pago. Si nos contacta de otra forma, avísenos y lo revisaremos."),
                 ("¿Cuándo cobro?", "En los 30 días siguientes al pago del restaurante, por transferencia bancaria o PayPal.")],
     },
 }
@@ -137,14 +143,17 @@ def build_referral(page, head, ic, faq_html, ctas) -> list[tuple[str, str]]:
     <ul class="ticks">{terms}</ul></div>
   <div class="card reveal" style="padding:40px">
     <h3 style="margin-bottom:6px">{t["form_h"]}</h3><p class="note" style="margin:0 0 20px">{t["form_lead"]}</p>
-    <form id="refForm">
-      <div class="f"><label for="rName">{t["f_name"]}</label><input id="rName" required placeholder="{t["p_name"]}"></div>
-      <div class="f"><label for="rEmail">{t["f_email"]}</label><input id="rEmail" type="email" required placeholder="{t["p_email"]}"></div>
-      <div class="f"><label for="rBiz">{t["f_biz"]}</label><input id="rBiz" placeholder="{t["p_biz"]}"></div>
-      <div class="f"><label for="rHow">{t["f_how"]}</label><textarea id="rHow" rows="3" required placeholder="{t["p_how"]}"></textarea></div>
+    <form id="refForm" data-lang="{lang}" data-error="{t["err"]}" novalidate>
+      <div class="f"><label for="rName">{t["f_name"]}</label><input id="rName" required maxlength="60" placeholder="{t["p_name"]}"></div>
+      <div class="f"><label for="rEmail">{t["f_email"]}</label><input id="rEmail" type="email" required maxlength="120" placeholder="{t["p_email"]}"></div>
+      <div class="f"><label for="rBiz">{t["f_biz"]}</label><input id="rBiz" maxlength="100" placeholder="{t["p_biz"]}"></div>
+      <div class="f"><label for="rHow">{t["f_how"]}</label><textarea id="rHow" rows="3" required maxlength="1000" placeholder="{t["p_how"]}"></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="rSite">Website</label><input id="rSite" tabindex="-1" autocomplete="off"></div>
+      <p class="err" id="rErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">{t["send"]} <span class="arr">→</span></button>
       <p class="note" style="margin:14px 0 0">{t["send_note"]}</p>
     </form>
+    <div id="refThanks" class="thanks" hidden><h3>{t["th"]}</h3><p>{t["tp"]}</p></div>
   </div>
 </div></section>
 

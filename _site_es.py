@@ -330,15 +330,20 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
     <ul class="ticks"><li>Normalmente en uno o dos días laborables</li><li>No necesitamos datos de pago</li><li>Responda «no» cuando quiera y no le volveremos a escribir</li></ul>
     <div class="img reveal" style="margin-top:40px"><img src="img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
-    <form id="mockForm">
-      <div class="f"><label for="biz">Nombre del restaurante o cafetería</label><input id="biz" required placeholder="Por ejemplo: Casa Lola"></div>
-      <div class="f"><label for="city">Ciudad</label><input id="city" required placeholder="Por ejemplo: Valencia"></div>
-      <div class="f"><label for="link">Enlace de su página de Uber Eats (opcional)</label><input id="link" placeholder="https://www.ubereats.com/..."></div>
-      <div class="f"><label for="name">Su nombre</label><input id="name" placeholder="Nombre"></div>
-      <div class="f"><label for="msg">¿Algo que debamos saber? (opcional)</label><textarea id="msg" rows="4" placeholder="Por ejemplo: acabamos de abrir, nuestro plato estrella es..."></textarea></div>
+    <form id="mockForm" data-lang="es" data-error="Lo sentimos, algo ha fallado. Inténtelo de nuevo en un minuto o escríbanos a hello@getmenufix.com." novalidate>
+      <div class="f"><label for="biz">Nombre del restaurante o cafetería</label><input id="biz" required maxlength="100" autocomplete="organization" placeholder="Por ejemplo: Casa Lola"></div>
+      <div class="f"><label for="city">Ciudad</label><input id="city" required maxlength="60" placeholder="Por ejemplo: Valencia"></div>
+      <div class="f"><label for="link">Enlace de su página de Uber Eats (opcional)</label><input id="link" inputmode="url" maxlength="300" autocomplete="off" placeholder="https://www.ubereats.com/..."></div>
+      <div class="f"><label for="email">Su correo</label><input id="email" type="email" required maxlength="120" placeholder="usted@surestaurante.es" autocomplete="email"></div>
+      <div class="f"><label for="name">Su nombre</label><input id="name" maxlength="60" autocomplete="given-name" placeholder="Nombre"></div>
+      <div class="f"><label for="msg">¿Algo que debamos saber? (opcional)</label><textarea id="msg" maxlength="1500" rows="4" placeholder="Por ejemplo: acabamos de abrir, nuestro plato estrella es..."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="mSite">Website</label><input id="mSite" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Envíenme mi maqueta gratis por correo</span></label>
+      <p class="err" id="mErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Enviar mi solicitud <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">Se abrirá su aplicación de correo con todo ya escrito. Solo tiene que pulsar enviar. También puede escribirnos directamente a <a class="mailto" href="#">hello@getmenufix.com</a>.</p>
+      <p class="note" style="margin:14px 0 0">Usamos su correo solo para su maqueta y su solicitud. Responda STOP cuando quiera y no le volveremos a escribir. Consulte nuestra <a href='privacy.html'>política de privacidad</a>.</p>
     </form>
+    <div id="mockThanks" class="thanks" hidden><h3>Gracias, hemos recibido su solicitud.</h3><p>Le enviaremos su maqueta gratis por correo, normalmente en uno o dos días laborables. Si no la ve, mire en su carpeta de spam.</p></div>
   </div>
 </div></header>
 """, "", lang="es")

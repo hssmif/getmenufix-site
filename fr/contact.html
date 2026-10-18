@@ -18,7 +18,7 @@
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=8ecef6be">
+<link rel="stylesheet" href="../style.css?v=b2bb0c81">
 </head>
 <body>
 <a class="promo" href="../fr/parrainage.html"><span>Vous connaissez des restaurateurs ? <b>Gagnez 15 %</b> pour chaque restaurant recommandé.</span> <u>En savoir plus →</u></a>
@@ -33,15 +33,20 @@
     <ul class="ticks"><li>Habituellement sous un ou deux jours ouvrés</li><li>Aucun renseignement de paiement requis</li><li>Répondez « non » à tout moment et nous ne vous recontacterons plus</li></ul>
     <div class="img reveal" style="margin-top:40px"><img src="../img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
-    <form id="mockForm">
-      <div class="f"><label for="biz">Nom du restaurant ou du café</label><input id="biz" required placeholder="ex. Sunny Thai Kitchen"></div>
-      <div class="f"><label for="city">Ville</label><input id="city" required placeholder="ex. Sydney"></div>
-      <div class="f"><label for="link">Lien de votre page Uber Eats (facultatif)</label><input id="link" placeholder="https://www.ubereats.com/..."></div>
-      <div class="f"><label for="name">Votre nom</label><input id="name" placeholder="Prénom"></div>
-      <div class="f"><label for="msg">Quelque chose que nous devrions savoir ? (facultatif)</label><textarea id="msg" rows="4" placeholder="ex. nous venons d'ouvrir, notre produit phare est..."></textarea></div>
+    <form id="mockForm" data-lang="fr" data-error="Désolé, un problème est survenu. Réessayez dans une minute, ou écrivez nous à hello@getmenufix.com." novalidate>
+      <div class="f"><label for="biz">Nom du restaurant ou du café</label><input id="biz" required maxlength="100" autocomplete="organization" placeholder="ex. Sunny Thai Kitchen"></div>
+      <div class="f"><label for="city">Ville</label><input id="city" required maxlength="60" placeholder="ex. Sydney"></div>
+      <div class="f"><label for="link">Lien de votre page Uber Eats (facultatif)</label><input id="link" inputmode="url" maxlength="300" autocomplete="off" placeholder="https://www.ubereats.com/..."></div>
+      <div class="f"><label for="email">Votre email</label><input id="email" type="email" required maxlength="120" placeholder="vous@votrerestaurant.fr" autocomplete="email"></div>
+      <div class="f"><label for="name">Votre nom</label><input id="name" maxlength="60" autocomplete="given-name" placeholder="Prénom"></div>
+      <div class="f"><label for="msg">Quelque chose que nous devrions savoir ? (facultatif)</label><textarea id="msg" maxlength="1500" rows="4" placeholder="ex. nous venons d'ouvrir, notre produit phare est..."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="mSite">Website</label><input id="mSite" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Envoyez moi ma maquette gratuite par email</span></label>
+      <p class="err" id="mErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Envoyer ma demande <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">Cela ouvre votre application de courriel avec tous les champs remplis. Il vous suffit d'appuyer sur Envoyer.</p>
+      <p class="note" style="margin:14px 0 0">Nous utilisons votre email uniquement pour votre maquette et votre demande. Répondez STOP à tout moment et nous ne vous écrirons plus. Voir notre <a href='privacy.html'>politique de confidentialité</a>.</p>
     </form>
+    <div id="mockThanks" class="thanks" hidden><h3>Merci, nous avons bien reçu votre demande.</h3><p>Nous vous enverrons votre maquette gratuite par email, en général sous un ou deux jours ouvrés. Si vous ne la voyez pas, regardez dans vos spams.</p></div>
   </div>
 </div></header>
 
@@ -58,6 +63,6 @@
   </div>
   <div class="bottom"><span>© 2026 MenuFix. Tous droits réservés.</span><span>MenuFix est indépendant et n'est pas affilié à Uber ou à Uber Eats.</span></div>
 </div></footer>
-<script src="../site.js?v=98dc6465"></script>
+<script src="../site.js?v=c16423ae"></script>
 </body>
 </html>

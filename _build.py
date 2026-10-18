@@ -624,15 +624,20 @@ f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class
     <ul class="ticks"><li>Usually within one or two working days</li><li>No payment details needed</li><li>Reply "no" any time and we won't email again</li></ul>
     <div class="img reveal" style="margin-top:40px"><img src="img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
-    <form id="mockForm">
-      <div class="f"><label for="biz">Restaurant or café name</label><input id="biz" required placeholder="e.g. Sunny Thai Kitchen"></div>
-      <div class="f"><label for="city">City</label><input id="city" required placeholder="e.g. Sydney"></div>
-      <div class="f"><label for="link">Your Uber Eats page link (optional)</label><input id="link" placeholder="https://www.ubereats.com/..."></div>
-      <div class="f"><label for="name">Your name</label><input id="name" placeholder="First name"></div>
-      <div class="f"><label for="msg">Anything we should know? (optional)</label><textarea id="msg" rows="4" placeholder="e.g. we just opened, our best seller is..."></textarea></div>
+    <form id="mockForm" data-lang="en" data-error="Sorry, something went wrong. Please try again in a minute, or email us at hello@getmenufix.com." novalidate>
+      <div class="f"><label for="biz">Restaurant or café name</label><input id="biz" required maxlength="100" autocomplete="organization" placeholder="e.g. Sunny Thai Kitchen"></div>
+      <div class="f"><label for="city">City</label><input id="city" required maxlength="60" placeholder="e.g. Sydney"></div>
+      <div class="f"><label for="link">Your Uber Eats page link (optional)</label><input id="link" inputmode="url" maxlength="300" autocomplete="off" placeholder="https://www.ubereats.com/..."></div>
+      <div class="f"><label for="email">Your email</label><input id="email" type="email" required maxlength="120" placeholder="you@yourrestaurant.com" autocomplete="email"></div>
+      <div class="f"><label for="name">Your name</label><input id="name" maxlength="60" autocomplete="given-name" placeholder="First name"></div>
+      <div class="f"><label for="msg">Anything we should know? (optional)</label><textarea id="msg" maxlength="1500" rows="4" placeholder="e.g. we just opened, our best seller is..."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="mSite">Website</label><input id="mSite" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Email me my free mockup</span></label>
+      <p class="err" id="mErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Send my request <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">This opens your email app with everything filled in. Just press send.</p>
+      <p class="note" style="margin:14px 0 0">We use your email only for your mockup and your request. Reply STOP any time and we won't write again. See our <a href='privacy.html'>privacy policy</a>.</p>
     </form>
+    <div id="mockThanks" class="thanks" hidden><h3>Thank you, we've got your request.</h3><p>We'll email you your free mockup, usually within one or two working days. If you don't see it, look in your spam folder.</p></div>
   </div>
 </div></header>
 """)

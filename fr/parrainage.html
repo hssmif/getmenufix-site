@@ -14,14 +14,14 @@
 <link rel="alternate" hreflang="es" href="https://getmenufix.com/es/referidos.html">
 <link rel="alternate" hreflang="x-default" href="https://getmenufix.com/referral.html">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Le restaurant paie il plus cher ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il paie le même prix que n'importe quel autre restaurant."}}, {"@type": "Question", "name": "Comment savez vous qu'un restaurant vient de mon lien ?", "acceptedAnswer": {"@type": "Answer", "text": "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il paie sur notre site depuis ce navigateur, le code accompagne le paiement. S'il paie depuis un autre appareil, prévenez nous et nous vérifierons."}}, {"@type": "Question", "name": "Quand suis je payé ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans les 30 jours suivant le paiement du restaurant, par virement bancaire ou PayPal."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Le restaurant paie il plus cher ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il paie le même prix que n'importe quel autre restaurant."}}, {"@type": "Question", "name": "Comment savez vous qu'un restaurant vient de mon lien ?", "acceptedAnswer": {"@type": "Answer", "text": "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il demande sa maquette gratuite depuis ce navigateur, le code accompagne sa demande et reste lié à lui jusqu'au paiement. S'il nous contacte autrement, prévenez nous et nous vérifierons."}}, {"@type": "Question", "name": "Quand suis je payé ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans les 30 jours suivant le paiement du restaurant, par virement bancaire ou PayPal."}}]}</script>
 <meta property="og:title" content="Parrainage MenuFix : gagnez 15 % pour chaque restaurant recommandé">
 <meta property="og:description" content="Vous connaissez des restaurateurs ? Partagez votre lien MenuFix personnel et recevez 15 % de ce que paie chaque restaurant venu par ce lien. Des conditions simples et claires.">
 <meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=8ecef6be">
+<link rel="stylesheet" href="../style.css?v=b2bb0c81">
 </head>
 <body>
 <a class="promo" href="../fr/parrainage.html"><span>Vous connaissez des restaurateurs ? <b>Gagnez 15 %</b> pour chaque restaurant recommandé.</span> <u>En savoir plus →</u></a>
@@ -50,20 +50,23 @@
     <ul class="ticks"><li>Vous recevez 15 % du montant réellement payé par le restaurant. Les paiements remboursés ne comptent pas.</li><li>Nous vous payons par virement bancaire ou PayPal dans les 30 jours suivant le paiement du restaurant.</li><li>Votre lien compte pendant 60 jours après le premier clic du restaurant.</li><li>Aucun paiement si vous vous recommandez vous même ou votre propre entreprise.</li><li>Pas de spam : n'envoyez pas de messages en masse non sollicités au nom de MenuFix.</li><li>MenuFix peut mettre fin au programme avec un préavis.</li></ul></div>
   <div class="card reveal" style="padding:40px">
     <h3 style="margin-bottom:6px">Recevez votre lien personnel</h3><p class="note" style="margin:0 0 20px">Nous vous répondons avec votre lien personnel sous un jour ouvré.</p>
-    <form id="refForm">
-      <div class="f"><label for="rName">Votre nom</label><input id="rName" required placeholder="Prénom et nom"></div>
-      <div class="f"><label for="rEmail">Email</label><input id="rEmail" type="email" required placeholder="vous@exemple.fr"></div>
-      <div class="f"><label for="rBiz">Entreprise (facultatif)</label><input id="rBiz" placeholder="Par exemple votre studio ou votre société"></div>
-      <div class="f"><label for="rHow">Comment allez vous le partager ?</label><textarea id="rHow" rows="3" required placeholder="Par exemple : je photographie des cafés et j'en parlerai à mes clients."></textarea></div>
+    <form id="refForm" data-lang="fr" data-error="Désolé, un problème est survenu. Réessayez dans une minute, ou écrivez nous à hello@getmenufix.com." novalidate>
+      <div class="f"><label for="rName">Votre nom</label><input id="rName" required maxlength="60" placeholder="Prénom et nom"></div>
+      <div class="f"><label for="rEmail">Email</label><input id="rEmail" type="email" required maxlength="120" placeholder="vous@exemple.fr"></div>
+      <div class="f"><label for="rBiz">Entreprise (facultatif)</label><input id="rBiz" maxlength="100" placeholder="Par exemple votre studio ou votre société"></div>
+      <div class="f"><label for="rHow">Comment allez vous le partager ?</label><textarea id="rHow" rows="3" required maxlength="1000" placeholder="Par exemple : je photographie des cafés et j'en parlerai à mes clients."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="rSite">Website</label><input id="rSite" tabindex="-1" autocomplete="off"></div>
+      <p class="err" id="rErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Envoyer <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">Votre application email s'ouvre avec tout déjà rempli. Il ne reste qu'à envoyer.</p>
+      <p class="note" style="margin:14px 0 0">Nous utilisons votre email uniquement pour vous envoyer votre lien et vos paiements.</p>
     </form>
+    <div id="refThanks" class="thanks" hidden><h3>Merci, nous avons bien reçu votre demande.</h3><p>Nous vous enverrons votre lien personnel par email sous un jour ouvré. Si vous ne le voyez pas, regardez dans vos spams.</p></div>
   </div>
 </div></section>
 
 <section class="bg-cream"><div class="narrow">
   <div class="head center reveal" style="margin-bottom:30px"><h2>Questions fréquentes</h2></div>
-  <div class="faq"><details><summary>Le restaurant paie il plus cher ?</summary><p>Non. Il paie le même prix que n'importe quel autre restaurant.</p></details><details><summary>Comment savez vous qu'un restaurant vient de mon lien ?</summary><p>Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il paie sur notre site depuis ce navigateur, le code accompagne le paiement. S'il paie depuis un autre appareil, prévenez nous et nous vérifierons.</p></details><details><summary>Quand suis je payé ?</summary><p>Dans les 30 jours suivant le paiement du restaurant, par virement bancaire ou PayPal.</p></details></div>
+  <div class="faq"><details><summary>Le restaurant paie il plus cher ?</summary><p>Non. Il paie le même prix que n'importe quel autre restaurant.</p></details><details><summary>Comment savez vous qu'un restaurant vient de mon lien ?</summary><p>Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il demande sa maquette gratuite depuis ce navigateur, le code accompagne sa demande et reste lié à lui jusqu'au paiement. S'il nous contacte autrement, prévenez nous et nous vérifierons.</p></details><details><summary>Quand suis je payé ?</summary><p>Dans les 30 jours suivant le paiement du restaurant, par virement bancaire ou PayPal.</p></details></div>
 </div></section>
 <section class="tight"><div class="wrap"><div class="cta reveal">
   <div class="txt"><span class="eyebrow">Maquette gratuite</span><h2>Voyez votre page améliorée, gratuitement.</h2><p class="lead">Envoyez le nom de votre restaurant, café ou boulangerie sur Uber Eats : vous recevez une maquette gratuite de votre future page. Sans paiement, sans engagement.</p>
@@ -82,6 +85,6 @@
   </div>
   <div class="bottom"><span>© 2026 MenuFix. Tous droits réservés.</span><span>MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats.</span></div>
 </div></footer>
-<script src="../site.js?v=98dc6465"></script>
+<script src="../site.js?v=c16423ae"></script>
 </body>
 </html>

@@ -14,14 +14,14 @@
 <link rel="alternate" hreflang="es" href="https://getmenufix.com/es/referidos.html">
 <link rel="alternate" hreflang="x-default" href="https://getmenufix.com/referral.html">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/"}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿El restaurante paga más?", "acceptedAnswer": {"@type": "Answer", "text": "No. Paga el mismo precio que cualquier otro restaurante."}}, {"@type": "Question", "name": "¿Cómo saben que un restaurante llegó por mi enlace?", "acceptedAnswer": {"@type": "Answer", "text": "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando paga en nuestra web desde ese navegador, el código va con el pago. Si paga desde otro dispositivo, avísenos y lo revisaremos."}}, {"@type": "Question", "name": "¿Cuándo cobro?", "acceptedAnswer": {"@type": "Answer", "text": "En los 30 días siguientes al pago del restaurante, por transferencia bancaria o PayPal."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿El restaurante paga más?", "acceptedAnswer": {"@type": "Answer", "text": "No. Paga el mismo precio que cualquier otro restaurante."}}, {"@type": "Question", "name": "¿Cómo saben que un restaurante llegó por mi enlace?", "acceptedAnswer": {"@type": "Answer", "text": "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando pide su maqueta gratis desde ese navegador, el código va con su solicitud y queda unido a él hasta el pago. Si nos contacta de otra forma, avísenos y lo revisaremos."}}, {"@type": "Question", "name": "¿Cuándo cobro?", "acceptedAnswer": {"@type": "Answer", "text": "En los 30 días siguientes al pago del restaurante, por transferencia bancaria o PayPal."}}]}</script>
 <meta property="og:title" content="Programa de referidos MenuFix: gane un 15 % por cada restaurante">
 <meta property="og:description" content="¿Conoce a dueños de restaurantes? Comparta su enlace personal de MenuFix y reciba un 15 % de lo que pague cada restaurante que llegue por él. Condiciones claras.">
 <meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../style.css?v=8ecef6be">
+<link rel="stylesheet" href="../style.css?v=b2bb0c81">
 </head>
 <body>
 <a class="promo" href="../es/referidos.html"><span>¿Conoce a dueños de restaurantes? <b>Gane un 15 %</b> por cada restaurante que nos recomiende.</span> <u>Ver cómo →</u></a>
@@ -50,20 +50,23 @@
     <ul class="ticks"><li>Recibe un 15 % del importe que el restaurante pagó realmente. Los pagos reembolsados no cuentan.</li><li>Le pagamos por transferencia bancaria o PayPal en los 30 días siguientes al pago del restaurante.</li><li>Su enlace cuenta durante 60 días desde el primer clic del restaurante.</li><li>No hay pago por recomendarse a usted mismo ni a su propio negocio.</li><li>Nada de spam: no envíe mensajes masivos no solicitados en nombre de MenuFix.</li><li>MenuFix puede terminar el programa con previo aviso.</li></ul></div>
   <div class="card reveal" style="padding:40px">
     <h3 style="margin-bottom:6px">Reciba su enlace personal</h3><p class="note" style="margin:0 0 20px">Le respondemos con su enlace personal en un día laborable.</p>
-    <form id="refForm">
-      <div class="f"><label for="rName">Su nombre</label><input id="rName" required placeholder="Nombre y apellidos"></div>
-      <div class="f"><label for="rEmail">Correo electrónico</label><input id="rEmail" type="email" required placeholder="usted@ejemplo.es"></div>
-      <div class="f"><label for="rBiz">Negocio (opcional)</label><input id="rBiz" placeholder="Por ejemplo, su estudio o su empresa"></div>
-      <div class="f"><label for="rHow">¿Cómo lo va a compartir?</label><textarea id="rHow" rows="3" required placeholder="Por ejemplo: fotografío cafeterías y se lo contaré a mis clientes."></textarea></div>
+    <form id="refForm" data-lang="es" data-error="Lo sentimos, algo ha fallado. Inténtelo de nuevo en un minuto o escríbanos a hello@getmenufix.com." novalidate>
+      <div class="f"><label for="rName">Su nombre</label><input id="rName" required maxlength="60" placeholder="Nombre y apellidos"></div>
+      <div class="f"><label for="rEmail">Correo electrónico</label><input id="rEmail" type="email" required maxlength="120" placeholder="usted@ejemplo.es"></div>
+      <div class="f"><label for="rBiz">Negocio (opcional)</label><input id="rBiz" maxlength="100" placeholder="Por ejemplo, su estudio o su empresa"></div>
+      <div class="f"><label for="rHow">¿Cómo lo va a compartir?</label><textarea id="rHow" rows="3" required maxlength="1000" placeholder="Por ejemplo: fotografío cafeterías y se lo contaré a mis clientes."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="rSite">Website</label><input id="rSite" tabindex="-1" autocomplete="off"></div>
+      <p class="err" id="rErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Enviar <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">Se abrirá su aplicación de correo con todo ya escrito. Solo tiene que pulsar enviar.</p>
+      <p class="note" style="margin:14px 0 0">Usamos su correo solo para enviarle su enlace y sus pagos.</p>
     </form>
+    <div id="refThanks" class="thanks" hidden><h3>Gracias, hemos recibido su solicitud.</h3><p>Le enviaremos su enlace personal por correo en un día laborable. Si no lo ve, mire en su carpeta de spam.</p></div>
   </div>
 </div></section>
 
 <section class="bg-cream"><div class="narrow">
   <div class="head center reveal" style="margin-bottom:30px"><h2>Preguntas frecuentes</h2></div>
-  <div class="faq"><details><summary>¿El restaurante paga más?</summary><p>No. Paga el mismo precio que cualquier otro restaurante.</p></details><details><summary>¿Cómo saben que un restaurante llegó por mi enlace?</summary><p>Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando paga en nuestra web desde ese navegador, el código va con el pago. Si paga desde otro dispositivo, avísenos y lo revisaremos.</p></details><details><summary>¿Cuándo cobro?</summary><p>En los 30 días siguientes al pago del restaurante, por transferencia bancaria o PayPal.</p></details></div>
+  <div class="faq"><details><summary>¿El restaurante paga más?</summary><p>No. Paga el mismo precio que cualquier otro restaurante.</p></details><details><summary>¿Cómo saben que un restaurante llegó por mi enlace?</summary><p>Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando pide su maqueta gratis desde ese navegador, el código va con su solicitud y queda unido a él hasta el pago. Si nos contacta de otra forma, avísenos y lo revisaremos.</p></details><details><summary>¿Cuándo cobro?</summary><p>En los 30 días siguientes al pago del restaurante, por transferencia bancaria o PayPal.</p></details></div>
 </div></section>
 <section class="tight"><div class="wrap"><div class="cta reveal">
   <div class="txt"><span class="eyebrow">Maqueta gratis</span><h2>Vea su página mejorada, gratis.</h2><p class="lead">Díganos el nombre de su restaurante, cafetería o panadería en Uber Eats y le enviaremos una maqueta gratuita de cómo podría quedar su página. Sin pago y sin compromiso.</p>
@@ -82,6 +85,6 @@
   </div>
   <div class="bottom"><span>© 2026 MenuFix. Todos los derechos reservados.</span><span>MenuFix es independiente y no está afiliado a Uber ni a Uber Eats.</span></div>
 </div></footer>
-<script src="../site.js?v=98dc6465"></script>
+<script src="../site.js?v=c16423ae"></script>
 </body>
 </html>

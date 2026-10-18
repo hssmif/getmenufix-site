@@ -81,7 +81,7 @@ if (VIA) document.querySelectorAll('a[href*="pricing.html"]').forEach((a) => {  
 
 document.querySelectorAll(".mailto").forEach((a) => (a.href = "mailto:" + CONTACT));
 
-// Free mockup form: opens the visitor's email app with everything filled in.
+// Free mockup form: a plan button or a link can fill in the restaurant and the plan.
 const form = document.getElementById("mockForm");
 if (form) { const q = new URLSearchParams(location.search).get("biz"); if (q) document.getElementById("biz").value = q; }
 // Arriving from a plan button: the message says which plan, and the guarantee (and a referral code, so it is counted).
@@ -98,32 +98,41 @@ if (form && PLAN && PLAN_NAMES[PLAN]) {
     : "I'd like " + PLAN_NAMES[PLAN] + ". I only pay once I've seen my finished page and I'm happy with it.";
   if (msg && !msg.value) msg.value = line + (VIA ? (FR ? "\nCode de parrainage : " : ES ? "\nCódigo de referido: " : "\nReferral code: ") + VIA : "");
 }
+// The free mockup and referral forms post straight to MenuFix (no email app needed), then say thank you.
+const FORM_URL = "https://admin.getmenufix.com/api/public/form";
+async function sendForm(f, errId, thanksId, data) {
+  const err = document.getElementById(errId);
+  const say = (msg) => { err.textContent = msg; err.hidden = !msg; };
+  if (!f.checkValidity()) { f.reportValidity(); return; }
+  say("");
+  const btn = f.querySelector("button"); btn.disabled = true;
+  try {  // text/plain keeps it a simple request; the server only answers our own website
+    const r = await fetch(FORM_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
+    const out = await r.json().catch(() => ({}));
+    if (!r.ok || !out.ok) throw new Error(out.error || r.status);
+    f.hidden = true;
+    const t = document.getElementById(thanksId); t.hidden = false;
+    t.scrollIntoView({ behavior: "smooth", block: "center" });
+    try { window.goatcounter && window.goatcounter.count({ path: data.form + "-sent", title: location.pathname, event: true }); } catch (x) {}
+  } catch (x) {
+    btn.disabled = false;
+    say(f.dataset.error);
+  }
+}
 if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   const v = (id) => document.getElementById(id).value.trim();
-  const M = {
-    en: ["Hi,\n\nI'd like a free mockup of my Uber Eats page.\n\nRestaurant or shop: ", "City: ", "Uber Eats link: ", "Thanks,", "Free mockup for "],
-    fr: ["Bonjour,\n\nJe souhaite une maquette gratuite de ma page Uber Eats.\n\nRestaurant ou commerce : ", "Ville : ", "Lien Uber Eats : ", "Merci,", "Maquette gratuite pour "],
-    es: ["Hola:\n\nMe gustaría recibir una maqueta gratis de mi página de Uber Eats.\n\nRestaurante o negocio: ", "Ciudad: ", "Enlace de Uber Eats: ", "Gracias,", "Maqueta gratis para "],
-  }[FR ? "fr" : ES ? "es" : "en"];
-  const body = M[0] + v("biz") + "\n" + M[1] + v("city") + "\n" + M[2] + v("link") + "\n\n" + v("msg") + "\n\n" + M[3] + "\n" + v("name");
-  location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(M[4] + v("biz")) +
-    "&body=" + encodeURIComponent(body);
+  sendForm(form, "mErr", "mockThanks", { form: "mockup", restaurant: v("biz"), city: v("city"), link: v("link"), email: v("email"),
+    name: v("name"), message: v("msg"), plan: PLAN || "", via: VIA || "", ref: RID, lang: form.dataset.lang || "en",
+    consent: document.getElementById("mConsent").checked, website: v("mSite") });
 });
 
-// Referral sign up form: opens the visitor's email app with everything filled in, like the mockup form.
 const refForm = document.getElementById("refForm");
 if (refForm) refForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const v = (id) => document.getElementById(id).value.trim();
-  const M = {
-    en: ["Hi,\n\nI'd like a referral link for MenuFix.\n\nName: ", "Email: ", "Business: ", "How I will share it: ", "Thanks,", "Referral program: "],
-    fr: ["Bonjour,\n\nJe souhaite un lien de parrainage MenuFix.\n\nNom : ", "Email : ", "Entreprise : ", "Comment je vais le partager : ", "Merci,", "Parrainage : "],
-    es: ["Hola:\n\nMe gustaría recibir un enlace de referidos de MenuFix.\n\nNombre: ", "Correo: ", "Negocio: ", "Cómo lo voy a compartir: ", "Gracias,", "Programa de referidos: "],
-  }[FR ? "fr" : ES ? "es" : "en"];
-  const body = M[0] + v("rName") + "\n" + M[1] + v("rEmail") + "\n" + M[2] + v("rBiz") + "\n" + M[3] + v("rHow") +
-    "\n\n" + M[4] + "\n" + v("rName");
-  location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent(M[5] + v("rName")) + "&body=" + encodeURIComponent(body);
+  sendForm(refForm, "rErr", "refThanks", { form: "referral", name: v("rName"), email: v("rEmail"), business: v("rBiz"),
+    how: v("rHow"), lang: refForm.dataset.lang || "en", website: v("rSite") });
 });
 
 // Free Uber Eats page check (check.html): one row in the sheet's "Page checks" tab, then a thank you.

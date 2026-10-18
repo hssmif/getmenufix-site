@@ -406,7 +406,7 @@ footer .top .social a:not(.logo):hover { color: #fff; background: var(--brand-da
 .consent { display: flex; gap: 10px; align-items: flex-start; font-weight: 700; font-size: 15px; margin: 4px 0 18px; cursor: pointer; }
 .consent input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--brand); flex: none; }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-#checkForm .err { background: #fdecea; color: #b42318; border-radius: 12px; padding: 10px 14px; font-weight: 700; font-size: 14.5px; margin: 0 0 14px; }
+form .err { background: #fdecea; color: #b42318; border-radius: 12px; padding: 10px 14px; font-weight: 700; font-size: 14.5px; margin: 0 0 14px; }
 .thanks h3 { margin-bottom: 8px; }
 @media (max-width: 640px) { .checkcta-in .btn { width: 100%; justify-content: center; } }
 

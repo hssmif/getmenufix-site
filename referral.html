@@ -14,14 +14,14 @@
 <link rel="alternate" hreflang="es" href="https://getmenufix.com/es/referidos.html">
 <link rel="alternate" hreflang="x-default" href="https://getmenufix.com/referral.html">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/", "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com", "sameAs": ["https://www.instagram.com/menufix.official/", "https://www.facebook.com/profile.php?id=61584153426184"]}, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/", "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the restaurant pay more?", "acceptedAnswer": {"@type": "Answer", "text": "No. It pays the same price as any other restaurant."}}, {"@type": "Question", "name": "How do you know a restaurant came through my link?", "acceptedAnswer": {"@type": "Answer", "text": "Your link saves a code in the restaurant's browser for 60 days. When they pay on our website from that browser, the code comes with the payment. If they pay from another device, tell us and we'll look into it."}}, {"@type": "Question", "name": "When do I get paid?", "acceptedAnswer": {"@type": "Answer", "text": "Within 30 days after the restaurant's payment, by bank transfer or PayPal."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Does the restaurant pay more?", "acceptedAnswer": {"@type": "Answer", "text": "No. It pays the same price as any other restaurant."}}, {"@type": "Question", "name": "How do you know a restaurant came through my link?", "acceptedAnswer": {"@type": "Answer", "text": "Your link saves a code in the restaurant's browser for 60 days. When they ask for their free mockup from that browser, the code comes with their request and stays with them until they pay. If they write to us another way, tell us and we'll look into it."}}, {"@type": "Question", "name": "When do I get paid?", "acceptedAnswer": {"@type": "Answer", "text": "Within 30 days after the restaurant's payment, by bank transfer or PayPal."}}]}</script>
 <meta property="og:title" content="Earn 15% for Every Restaurant You Send Us | MenuFix Referral Program">
 <meta property="og:description" content="Know restaurant or café owners? Share your personal MenuFix link and earn 15% of what each restaurant that comes through it pays. Simple, honest terms.">
 <meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8ecef6be">
+<link rel="stylesheet" href="style.css?v=b2bb0c81">
 </head>
 <body>
 <a class="promo" href="referral.html"><span>Know restaurant owners? <b>Earn 15%</b> for every restaurant you send us.</span> <u>See how →</u></a>
@@ -50,20 +50,23 @@
     <ul class="ticks"><li>You receive 15% of the amount the restaurant actually paid us. Refunded payments don't count.</li><li>We pay you by bank transfer or PayPal within 30 days after the restaurant's payment.</li><li>Your link counts for 60 days after a restaurant first clicks it.</li><li>No payment for referring yourself or your own business.</li><li>No spam: don't send unsolicited bulk messages using the MenuFix name.</li><li>MenuFix may end the program with notice.</li></ul></div>
   <div class="card reveal" style="padding:40px">
     <h3 style="margin-bottom:6px">Get your personal link</h3><p class="note" style="margin:0 0 20px">We reply with your personal link within one working day.</p>
-    <form id="refForm">
-      <div class="f"><label for="rName">Your name</label><input id="rName" required placeholder="First and last name"></div>
-      <div class="f"><label for="rEmail">Email</label><input id="rEmail" type="email" required placeholder="you@example.com"></div>
-      <div class="f"><label for="rBiz">Business (optional)</label><input id="rBiz" placeholder="For example your studio or company"></div>
-      <div class="f"><label for="rHow">How will you share it?</label><textarea id="rHow" rows="3" required placeholder="For example: I photograph cafés and will tell my clients about it."></textarea></div>
+    <form id="refForm" data-lang="en" data-error="Sorry, something went wrong. Please try again in a minute, or email us at hello@getmenufix.com." novalidate>
+      <div class="f"><label for="rName">Your name</label><input id="rName" required maxlength="60" placeholder="First and last name"></div>
+      <div class="f"><label for="rEmail">Email</label><input id="rEmail" type="email" required maxlength="120" placeholder="you@example.com"></div>
+      <div class="f"><label for="rBiz">Business (optional)</label><input id="rBiz" maxlength="100" placeholder="For example your studio or company"></div>
+      <div class="f"><label for="rHow">How will you share it?</label><textarea id="rHow" rows="3" required maxlength="1000" placeholder="For example: I photograph cafés and will tell my clients about it."></textarea></div>
+      <div class="hp" aria-hidden="true"><label for="rSite">Website</label><input id="rSite" tabindex="-1" autocomplete="off"></div>
+      <p class="err" id="rErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Send <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">This opens your email app with everything filled in. Just press send.</p>
+      <p class="note" style="margin:14px 0 0">We use your email only to send your link and your payments.</p>
     </form>
+    <div id="refThanks" class="thanks" hidden><h3>Thank you, we've got your request.</h3><p>We'll email you your personal link within one working day. If you don't see it, look in your spam folder.</p></div>
   </div>
 </div></section>
 
 <section class="bg-cream"><div class="narrow">
   <div class="head center reveal" style="margin-bottom:30px"><h2>Questions</h2></div>
-  <div class="faq"><details><summary>Does the restaurant pay more?</summary><p>No. It pays the same price as any other restaurant.</p></details><details><summary>How do you know a restaurant came through my link?</summary><p>Your link saves a code in the restaurant's browser for 60 days. When they pay on our website from that browser, the code comes with the payment. If they pay from another device, tell us and we'll look into it.</p></details><details><summary>When do I get paid?</summary><p>Within 30 days after the restaurant's payment, by bank transfer or PayPal.</p></details></div>
+  <div class="faq"><details><summary>Does the restaurant pay more?</summary><p>No. It pays the same price as any other restaurant.</p></details><details><summary>How do you know a restaurant came through my link?</summary><p>Your link saves a code in the restaurant's browser for 60 days. When they ask for their free mockup from that browser, the code comes with their request and stays with them until they pay. If they write to us another way, tell us and we'll look into it.</p></details><details><summary>When do I get paid?</summary><p>Within 30 days after the restaurant's payment, by bank transfer or PayPal.</p></details></div>
 </div></section>
 <section class="tight"><div class="wrap"><div class="cta reveal">
   <div class="txt"><span class="eyebrow">Free mockup</span><h2>See your page improved, free.</h2><p class="lead">Tell us your restaurant, café or bakery on Uber Eats. We'll send you a free mockup of how your page could look. No payment, no obligation.</p>
@@ -82,6 +85,6 @@
   </div>
   <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
 </div></footer>
-<script src="site.js?v=98dc6465"></script>
+<script src="site.js?v=c16423ae"></script>
 </body>
 </html>
