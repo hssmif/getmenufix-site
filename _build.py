@@ -845,3 +845,22 @@ URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAG
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-13</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")
+
+
+# ------------------------------------------------------------------------------------------------ clean addresses
+def clean_index_links():
+    """Links and addresses never end in index.html (getmenufix.com/, getmenufix.com/guides/): GitHub Pages serves
+    the folder's index.html by itself. Run last, over every page any step above wrote (and the sitemap)."""
+    def fix(s):
+        s = re.sub(r'((?:href|content)=")index\.html(?=["#?])', r'\1./', s)   # the page next to it: "./"
+        return re.sub(r'(?<=/)index\.html(?=["#?<])', "", s)                  # "guides/index.html" -> "guides/"
+    for f in list(ROOT.rglob("*.html")) + [ROOT / "sitemap.xml"]:
+        if any(part.startswith((".", "_")) for part in f.relative_to(ROOT).parts) or not f.is_file():
+            continue
+        s = f.read_text()
+        n = fix(s)
+        if n != s:
+            f.write_text(n)
+
+
+clean_index_links()
