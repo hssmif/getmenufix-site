@@ -22,7 +22,7 @@ PAGES = {
         "gets": "The restaurant starts with a free concept of its own Uber Eats page and only pays if it wants our help. It pays the same price as everyone else.",
         "terms": "The terms", "terms_h": "Simple and honest.",
         "terms_list": ["You receive 15% of the amount the restaurant actually paid us. Refunded payments don't count.",
-                       "We pay you by bank transfer or PayPal within 30 days after the restaurant's payment.",
+                       "We pay you by bank transfer or PayPal within 7 days after the restaurant's payment.",
                        "Your link counts for 60 days after a restaurant first clicks it.",
                        "No payment for referring yourself or your own business.",
                        "No spam: don't send unsolicited bulk messages using the MenuFix name.",
@@ -37,7 +37,7 @@ PAGES = {
         "faq_h": "Questions",
         "faq": [("Does the restaurant pay more?", "No. It pays the same price as any other restaurant."),
                 ("How do you know a restaurant came through my link?", "Your link saves a code in the restaurant's browser for 60 days. When they ask for their free mockup from that browser, the code comes with their request and stays with them until they pay. If they write to us another way, tell us and we'll look into it."),
-                ("When do I get paid?", "Within 30 days after the restaurant's payment, by bank transfer or PayPal.")],
+                ("When do I get paid?", "Within 7 days after the restaurant's payment, by bank transfer or PayPal.")],
     },
     "fr": {
         "name": "fr/parrainage.html", "active": "",
@@ -58,7 +58,7 @@ PAGES = {
         "gets": "Le restaurant commence par une maquette gratuite de sa propre page Uber Eats et ne paie que s'il veut notre aide. Il paie le même prix que tout le monde.",
         "terms": "Les conditions", "terms_h": "Simples et honnêtes.",
         "terms_list": ["Vous recevez 15 % du montant réellement payé par le restaurant. Les paiements remboursés ne comptent pas.",
-                       "Nous vous payons par virement bancaire ou PayPal dans les 30 jours suivant le paiement du restaurant.",
+                       "Nous vous payons par virement bancaire ou PayPal dans les 7 jours suivant le paiement du restaurant.",
                        "Votre lien compte pendant 60 jours après le premier clic du restaurant.",
                        "Aucun paiement si vous vous recommandez vous même ou votre propre entreprise.",
                        "Pas de spam : n'envoyez pas de messages en masse non sollicités au nom de MenuFix.",
@@ -73,7 +73,7 @@ PAGES = {
         "faq_h": "Questions fréquentes",
         "faq": [("Le restaurant paie il plus cher ?", "Non. Il paie le même prix que n'importe quel autre restaurant."),
                 ("Comment savez vous qu'un restaurant vient de mon lien ?", "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il demande sa maquette gratuite depuis ce navigateur, le code accompagne sa demande et reste lié à lui jusqu'au paiement. S'il nous contacte autrement, prévenez nous et nous vérifierons."),
-                ("Quand suis je payé ?", "Dans les 30 jours suivant le paiement du restaurant, par virement bancaire ou PayPal.")],
+                ("Quand suis je payé ?", "Dans les 7 jours suivant le paiement du restaurant, par virement bancaire ou PayPal.")],
     },
     "es": {
         "name": "es/referidos.html", "active": "",
@@ -94,7 +94,7 @@ PAGES = {
         "gets": "El restaurante empieza con una maqueta gratis de su propia página de Uber Eats y solo paga si quiere nuestra ayuda. Paga el mismo precio que cualquier otro.",
         "terms": "Las condiciones", "terms_h": "Sencillas y honestas.",
         "terms_list": ["Recibe un 15 % del importe que el restaurante pagó realmente. Los pagos reembolsados no cuentan.",
-                       "Le pagamos por transferencia bancaria o PayPal en los 30 días siguientes al pago del restaurante.",
+                       "Le pagamos por transferencia bancaria o PayPal en los 7 días siguientes al pago del restaurante.",
                        "Su enlace cuenta durante 60 días desde el primer clic del restaurante.",
                        "No hay pago por recomendarse a usted mismo ni a su propio negocio.",
                        "Nada de spam: no envíe mensajes masivos no solicitados en nombre de MenuFix.",
@@ -109,7 +109,7 @@ PAGES = {
         "faq_h": "Preguntas frecuentes",
         "faq": [("¿El restaurante paga más?", "No. Paga el mismo precio que cualquier otro restaurante."),
                 ("¿Cómo saben que un restaurante llegó por mi enlace?", "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando pide su maqueta gratis desde ese navegador, el código va con su solicitud y queda unido a él hasta el pago. Si nos contacta de otra forma, avísenos y lo revisaremos."),
-                ("¿Cuándo cobro?", "En los 30 días siguientes al pago del restaurante, por transferencia bancaria o PayPal.")],
+                ("¿Cuándo cobro?", "En los 7 días siguientes al pago del restaurante, por transferencia bancaria o PayPal.")],
     },
 }
 
