@@ -8,7 +8,11 @@ const LINKS = {
   menu_photos: "https://buy.stripe.com/5kQaEYf6c5Yk6jCeTU1sQ05",
   full_makeover: "https://buy.stripe.com/3cIdRa5vC1I4dM4dPQ1sQ06",
   done_for_you: "https://buy.stripe.com/cNi28s4ry5Yk8rK6no1sQ07",
-  care_plan: "https://buy.stripe.com/eVq5kEe282M8cI0aDE1sQ08",
+  care_plan: "https://buy.stripe.com/8x23cwgag86s7nGcLM1sQ0g",
+  website: "https://buy.stripe.com/bJecN61fm0E0azScLM1sQ0c",
+  bundle: "https://buy.stripe.com/7sY9AU9LS0E00ZifXY1sQ0d",
+  website_makeover: "https://buy.stripe.com/8x214o4ryaeA0Zi9zA1sQ0e",
+  website_care: "https://buy.stripe.com/00w00k2jq2M8cI09zA1sQ0h",
 };
 // What Stripe charges in each currency (other countries see the closest one at checkout).
 const PRICES = {
