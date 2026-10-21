@@ -56,12 +56,14 @@ const PAY_INFO = {
 const MONTHLY = ["care_plan", "website_care"];
 window.addEventListener("load", async () => {
   const q = new URLSearchParams(location.search), key = q.get("p") || "", ref = q.get("ref") || "";
-  const info = PAY_INFO[key], box = document.getElementById("checkout");
+  const founding = key.endsWith("_founding"), base = key.replace(/_founding$/, "");
+  const info = PAY_INFO[base] && (founding ? [PAY_INFO[base][0] + ", founding price", "30% off as one of our founding restaurants.", PAY_INFO[base][2]] : PAY_INFO[base]);
+  const box = document.getElementById("checkout");
   if (!info) { box.innerHTML = '<p class="muted">This payment link is not valid. Please reply to our email and we will send you a new one.</p>'; return; }
   document.getElementById("payName").textContent = info[0];
   document.getElementById("payLine").textContent = info[1];
   document.getElementById("payList").innerHTML = info[2].map((x) => "<li>" + x + "</li>").join("");
-  const n = PRICES[key][CUR];
+  const n = (PRICES[key] || PRICES[base])[CUR];
   document.getElementById("payPrice").textContent = SYM[CUR] + n;
   document.getElementById("payOnce").textContent = MONTHLY.includes(key) ? " a month, cancel any time" : " one time, no subscription";
   try {
@@ -88,6 +90,6 @@ window.addEventListener("load", async () => {
   </div>
   <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
 </div></footer>
-<script src="site.js?v=c824d666"></script>
+<script src="site.js?v=bcb262b8"></script>
 </body>
 </html>

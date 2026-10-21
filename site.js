@@ -25,6 +25,10 @@ const PRICES = {
   website_makeover: { aud: 1090, gbp: 549, eur: 629, usd: 699 },
   bundle: { aud: 1690, gbp: 869, eur: 979, usd: 1099 },
   website_care: { aud: 29, gbp: 15, eur: 17, usd: 19 },
+  // founding restaurants: 30% off, paid after they've seen their finished page
+  menu_fix_founding: { aud: 202, gbp: 104, eur: 118, usd: 132 },
+  menu_photos_founding: { aud: 405, gbp: 209, eur: 237, usd: 265 },
+  full_makeover_founding: { aud: 678, gbp: 349, eur: 398, usd: 440 },
 };
 const SYM = { aud: "A$", gbp: "£", eur: "€", usd: "US$" };
 const NAME = { aud: "Australian dollars", gbp: "British pounds", eur: "euros", usd: "US dollars" };
