@@ -65,7 +65,12 @@ def ld(name):
     import json
     org = {"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/",
            "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com",
-           "sameAs": [u for u in (INSTAGRAM, FACEBOOK) if u]}
+           "alternateName": ["MenuFix (getmenufix.com)", "getmenufix"],
+           "description": "MenuFix is an independent done for you Uber Eats menu optimisation service: menu rewrite, photo enhancement of real dishes and Uber Eats page set up, with a free mockup first.",
+           "disambiguatingDescription": "MenuFix at getmenufix.com, an Uber Eats page makeover service. Not menufix.com and not affiliated with Uber.",
+           "knowsAbout": ["Uber Eats menu optimisation", "Uber Eats menu descriptions", "Uber Eats food photos", "Delivery app menus"],
+           "sameAs": [u for u in (INSTAGRAM, FACEBOOK, "https://www.crunchbase.com/organization/menufix",
+                                  "https://www.trustpilot.com/review/getmenufix.com") if u]}
     graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
                    "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]
     if name in ("index.html", "services.html", "pricing.html"):
@@ -74,7 +79,8 @@ def ld(name):
                       "areaServed": ["AU", "NZ", "GB", "IE"],
                       "offers": [{"@type": "Offer", "name": n, "price": str(pr), "priceCurrency": "AUD",
                                   "url": "https://getmenufix.com/pricing.html"}
-                                 for n, pr in (("Menu Fix", 289), ("Menu and Photos", 579), ("Full Makeover", 969))]})
+                                 for n, pr in (("Menu Fix", 289), ("Menu and Photos", 579), ("Full Makeover", 969),
+                                               ("Website", 890), ("Website and Makeover bundle", 1690))]})
     if name in ("faq.html", "index.html"):
         items = FAQ if name == "faq.html" else FAQ[:4]
         graph.append({"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q,
@@ -89,7 +95,7 @@ NAV_ES = [("es/services.html", "Servicios"), ("es/examples.html", "Ejemplos"), (
 CHROME = {
     "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
            "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
-           "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("services.html#done", "Done for you"), ("examples.html", "Examples")]),
+           "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("uber-eats-menu-makeover-service.html", "Done for you"), ("examples.html", "Examples")]),
                     ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 15%")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
                     ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker"), ("tools/uber-eats-page-score.html", "Page score")]),
@@ -492,7 +498,7 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
   <div class="reveal">{ic("chef")}<span class="eyebrow" style="display:block">Done for you</span><h2>You cook. We update your page.</h2>
     <p class="lead" style="margin-top:20px">Included in the Full Makeover. Add us as a user on your Uber Eats Manager and we make every change ourselves.</p>
     <ul class="ticks"><li>No passwords shared: you add us as a user</li><li>Names, descriptions, categories and photos updated</li><li>You can remove our access any time</li><li>Prefer to do it yourself? Menu Fix and Menu and Photos come ready to copy, with a guide</li></ul>
-    <div class="row" style="margin-top:30px"><a class="btn primary" href="pricing.html">See pricing <span class="arr">→</span></a></div></div>
+    <div class="row" style="margin-top:30px"><a class="btn primary" href="pricing.html">See pricing <span class="arr">→</span></a><a class="btn ghost" href="uber-eats-menu-makeover-service.html">The done for you service</a></div></div>
   <div class="img reveal"><img src="img/kitchen.jpg" alt="" loading="lazy"></div>
 </div></section>
 
@@ -507,6 +513,75 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
 </div></section>
 {cta()}
 """, "services.html")
+
+# ------------------------------------------------------------------------------------------------ the service page
+# 22 Oct 2026: one page that answers exactly "a done for you Uber Eats menu makeover service", for search engines and
+# AI assistants (ChatGPT, Perplexity) that look for a company doing the whole job, not tips.
+SERVICE_FAQ = [
+    ("Is there a service that optimises my Uber Eats menu for me?",
+     "Yes. MenuFix (getmenufix.com) rewrites your Uber Eats menu, enhances photos of your real dishes and, with the Full Makeover, makes every change on your Uber Eats page for you. You see a free mockup first."),
+    ("How is MenuFix different from doing it myself in Uber Eats Manager?",
+     "Uber Eats Manager lets you edit your page, but you still have to write every description, fix every photo and choose the order. MenuFix does that work for you and hands it back ready, or updates the page itself."),
+    ("Do you need my Uber Eats password?",
+     "No. You add us as a user in Uber Eats Manager and you can remove us any time."),
+    ("Is MenuFix part of Uber Eats?",
+     "No. MenuFix is an independent service at getmenufix.com. It is not affiliated with Uber or Uber Eats, and it is not the same company as menufix.com."),
+    ("How long does it take?",
+     "Usually two to three working days after we have your photos and, for the Full Makeover, access to your Uber Eats Manager."),
+]
+page("uber-eats-menu-makeover-service.html", "Done for You Uber Eats Menu Makeover Service | MenuFix",
+     "MenuFix is a done for you Uber Eats menu optimisation service: we rewrite your menu, enhance photos of your real dishes and update your Uber Eats page for you. Free mockup first.",
+f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span class='hl'>for you.</span>",
+        "MenuFix is a done for you service for restaurants, cafés and bakeries on Uber Eats. We rewrite the menu, enhance photos of your real dishes and make the changes on your page ourselves. You see a free mockup before you pay anything.", ("burger", "sushi"))}
+
+<section class="tight"><div class="wrap">{mockpair("mock2")}</div></section>
+
+<section class="tight bg-cream"><div class="wrap">
+  <div class="head center reveal"><span class="eyebrow">What you get</span><h2>The whole job, not a list of tips.</h2></div>
+  <div class="grid4">
+    <div class="card reveal">{ic("pen")}<h3>Menu rewrite</h3><p>Clear dish names and a short description that sells for every item. Your real dishes and prices only.</p></div>
+    <div class="card reveal">{ic("camera")}<h3>Photo enhancement</h3><p>Photos of your real food made bright and sharp, sized to Uber Eats rules (5:4, at least 550 × 440 pixels).</p></div>
+    <div class="card reveal">{ic("chef")}<h3>Page set up</h3><p>Best sellers first, categories in a clear order, and the changes made on your Uber Eats page for you.</p></div>
+    <div class="card reveal">{ic("coffee")}<h3>Free mockup first</h3><p>See your page improved before you decide. No payment, no obligation.</p></div>
+  </div>
+</div></section>
+
+<section class="tight"><div class="wrap">
+  <div class="head center reveal"><span class="eyebrow">Your options</span><h2>Ways to improve an Uber Eats page.</h2></div>
+  <div class="table-scroll reveal"><table class="compare">
+    <tr><th></th><th>Do it yourself</th><th>Food photographer</th><th>MenuFix</th></tr>
+    <tr><td>Menu descriptions written</td><td>You write them</td><td>No</td><td>Yes, every dish</td></tr>
+    <tr><td>Photos of your dishes</td><td>Your phone photos</td><td>New shoot at your venue</td><td>Your photos, enhanced</td></tr>
+    <tr><td>Menu order and categories</td><td>You decide</td><td>No</td><td>Yes</td></tr>
+    <tr><td>Changes made on Uber Eats</td><td>You make them</td><td>No</td><td>Yes, with the Full Makeover</td></tr>
+    <tr><td>Preview before paying</td><td>No</td><td>No</td><td>Free mockup</td></tr>
+    <tr><td>Price</td><td>Your time</td><td>Often several hundred a shoot</td><td>From <span data-p="menu_fix"></span>, one time</td></tr>
+  </table></div>
+  <p class="note" style="text-align:center;margin-top:14px">Compare all our prices on the <a href="pricing.html">pricing page</a>. Full Makeover <span data-p="full_makeover"></span>, one time, no subscription.</p>
+</div></section>
+
+<section class="tight bg-butter"><div class="wrap">
+  <div class="head center reveal"><span class="eyebrow">How it works</span><h2>Three steps.</h2></div>
+  <div class="grid3">
+    <div class="card reveal"><h3>1. Send your Uber Eats page</h3><p>Your store link or name is enough. We send a free mockup, usually within one or two working days.</p></div>
+    <div class="card reveal"><h3>2. Say yes and choose a plan</h3><p>Menu Fix, Menu and Photos, or the Full Makeover where we do everything.</p></div>
+    <div class="card reveal"><h3>3. Your page goes live</h3><p>You check everything first. Nothing changes on your page until you say ok.</p></div>
+  </div>
+</div></section>
+
+<section style="padding-top:30px"><div class="narrow">
+  <div class="head center reveal"><span class="eyebrow">Questions</span><h2>About the service.</h2></div>
+  {faq_html(SERVICE_FAQ)}
+  <p class="note" style="margin-top:20px">MenuFix works with restaurants in Australia, the United Kingdom, Ireland, the United States and France. Read more in our guides, for example <a href="guides/optimize-uber-eats-page-options.html">5 ways to optimise an Uber Eats page</a>.</p>
+</div></section>
+{cta()}
+""", "services.html", ld_extra='\n<script type="application/ld+json">' + __import__("json").dumps({"@context": "https://schema.org", "@graph": [
+    {"@type": "Service", "name": "Done for you Uber Eats menu makeover", "serviceType": "Uber Eats menu optimisation",
+     "provider": {"@id": "https://getmenufix.com/#org"}, "areaServed": ["AU", "GB", "IE", "US", "FR", "NZ"],
+     "url": "https://getmenufix.com/uber-eats-menu-makeover-service.html",
+     "description": "Menu rewrite, photo enhancement of real dishes and Uber Eats page set up, done for the restaurant. Free mockup first."},
+    {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in SERVICE_FAQ]}]},
+    ensure_ascii=False) + "</script>")
 
 # ------------------------------------------------------------------------------------------------ examples
 grid = "".join(f"<div>{ba(*e)}</div>" for e in EX)
@@ -952,7 +1027,7 @@ window.addEventListener("load", async () => {
 
 
 # ------------------------------------------------------------------------------------------------ sitemap
-URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + CHECK_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
+URLS = (TOP + ["uber-eats-menu-makeover-service.html"] + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + CHECK_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-13</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")
