@@ -17,6 +17,10 @@ const PRICES = {
   full_makeover: { aud: 969, gbp: 499, eur: 569, usd: 629 },
   done_for_you: { aud: 89, gbp: 45, eur: 50, usd: 59 },
   care_plan: { aud: 49, gbp: 25, eur: 29, usd: 35 },
+  website: { aud: 890, gbp: 449, eur: 499, usd: 579 },
+  website_makeover: { aud: 1090, gbp: 549, eur: 629, usd: 699 },
+  bundle: { aud: 1690, gbp: 869, eur: 979, usd: 1099 },
+  website_care: { aud: 29, gbp: 15, eur: 17, usd: 19 },
 };
 const SYM = { aud: "A$", gbp: "£", eur: "€", usd: "US$" };
 const NAME = { aud: "Australian dollars", gbp: "British pounds", eur: "euros", usd: "US dollars" };

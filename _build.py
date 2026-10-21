@@ -568,6 +568,28 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
       and prices whenever you change them, enhance up to 5 new dish photos a month and refresh your menu each season.
       Cancel any time. Offered to MenuFix clients once their new page is live.</p></div>
     <div style="text-align:right"><div class="price" data-p="care_plan" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
+  <div class="head reveal" id="websites" style="margin-top:90px"><h2 style="font-size:36px">Websites for restaurants</h2>
+    <p class="muted" style="margin-top:8px;max-width:640px">Your own website, in your own style: your logo, colours and photos, your menu with prices, opening hours, map,
+      reviews and a big order button. Built to feel as easy as ordering in the app. We make a free preview first, so you see it before you decide.</p></div>
+  <div class="plans">
+  <div class="plan reveal"><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/phone.png" alt="" loading="lazy"><h3>Website</h3><p class="muted" style="margin:6px 0 0">For restaurants with no website yet.</p>
+    <div class="price" data-p="website"></div><small class="once">One time price, first year of hosting included</small>
+    <ul><li>A one page website designed in your style</li><li>Your menu with photos and prices</li><li>Order button to your Uber Eats page</li><li>Hours, map, reviews and your Instagram</li><li>Your own web address connected</li><li>Looks great on phones</li></ul>
+    <a class="btn dark" href="contact.html?topic=website">Get my free preview</a></div>
+  <div class="plan feat reveal"><span class="ribbon">Best value</span><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/rocket.png" alt="" loading="lazy"><h3>Makeover and Website</h3><p class="muted" style="margin:6px 0 0">Your Uber Eats page and your website, together.</p>
+    <div class="price" data-p="bundle"></div><small class="once">One time price, save almost 10%</small>
+    <ul><li>Everything in the Full Makeover</li><li>Everything in Website</li><li>The same photos and words on both</li><li>One month of updates on both</li></ul>
+    <a class="btn primary" href="contact.html?topic=bundle">Get my free preview</a></div>
+  <div class="plan reveal"><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/star.png" alt="" loading="lazy"><h3>Website Makeover</h3><p class="muted" style="margin:6px 0 0">Your website is old or hard to use.</p>
+    <div class="price" data-p="website_makeover"></div><small class="once">One time price, first year of hosting included</small>
+    <ul><li>Your current website redesigned in your style</li><li>Menu, photos and prices brought up to date</li><li>Fast and easy on phones</li><li>Order button to your Uber Eats page</li><li>We move your web address for you</li></ul>
+    <a class="btn dark" href="contact.html?topic=website_makeover">Get my free preview</a></div>
+</div>
+  <div class="addon reveal" style="margin-top:40px">
+    <img src="img/icons/check.png" alt="">
+    <div><h3>Website Care, from the second year</h3><p class="muted" style="margin:6px 0 0">Hosting, your web address and security kept running,
+      plus your menu, prices and hours updated whenever they change. Cancel any time.</p></div>
+    <div style="text-align:right"><div class="price" data-p="website_care" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
   <div class="table-scroll reveal"><table class="compare">
     <tr><th></th><th>Menu Fix</th><th>Menu and Photos</th><th>Full Makeover</th></tr>
