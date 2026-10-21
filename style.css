@@ -415,3 +415,20 @@ form .err { background: #fdecea; color: #b42318; border-radius: 12px; padding: 1
 .thanks h3 { margin-bottom: 8px; }
 @media (max-width: 640px) { .checkcta-in .btn { width: 100%; justify-content: center; } }
 
+
+/* our payment page: the order on the left, Stripe's card form on the right */
+.pay { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: start; padding-bottom: 80px; }
+.pay-sum { background: var(--cream, #fff8f0); border-radius: 28px; padding: 36px; position: sticky; top: 100px; }
+.pay-price { font-size: 46px; font-weight: 800; letter-spacing: -.03em; margin: 22px 0 6px; }
+.pay-price small { font-size: 15px; font-weight: 600; letter-spacing: 0; margin-left: 6px; }
+.pay-sum ul { list-style: none; margin: 16px 0 0; padding: 0; }
+.pay-sum li { padding: 8px 0 8px 28px; position: relative; font-weight: 600; }
+.pay-sum li::before { content: "✓"; position: absolute; left: 0; color: var(--green, #17a34a); font-weight: 800; }
+.pay-trust { margin-top: 26px; border-top: 1px solid rgba(0,0,0,.08); padding-top: 18px; display: grid; gap: 12px; font-size: 14px; color: #555; }
+.pay-trust div { display: flex; gap: 12px; align-items: center; }
+.pay-trust img { width: 30px; height: 30px; }
+.pay-box { background: #fff; border-radius: 28px; padding: 26px; box-shadow: 0 20px 60px rgba(40,20,0,.08); border: 1px solid rgba(0,0,0,.06); min-height: 420px; }
+.pay-wait { display: flex; gap: 10px; align-items: center; justify-content: center; min-height: 360px; color: #777; font-weight: 600; }
+.pay-wait .spin { width: 18px; height: 18px; border-radius: 50%; border: 3px solid #eee; border-top-color: var(--orange, #ff5a1f); animation: payspin .8s linear infinite; }
+@keyframes payspin { to { transform: rotate(360deg); } }
+@media (max-width: 860px) { .pay { grid-template-columns: 1fr; } .pay-sum { position: static; padding: 26px; } .pay-box { padding: 14px; } }

@@ -871,6 +871,84 @@ from _guarantee import add_guarantee
 add_guarantee(ROOT, _lang_of)
 add_chrome_extras()
 add_languages()
+# ------------------------------------------------------------------------------------------------ payment pages
+# Our own payment page: the order summary, and Stripe's card form inside our page (Checkout embedded). The server
+# (admin.getmenufix.com/api/public/pay) makes the Checkout Session; without the publishable key it sends to Stripe.
+NOINDEX = '\n<meta name="robots" content="noindex">'
+page("pay.html", "Secure payment | MenuFix", "Pay for your MenuFix order securely.",
+"""<section style="padding-top:50px"><div class="wrap pay">
+  <div class="pay-sum reveal in">
+    <span class="eyebrow">Your order</span>
+    <h1 id="payName" style="font-size:40px;margin-top:10px">MenuFix</h1>
+    <p class="muted" id="payLine" style="margin-top:8px"></p>
+    <div class="pay-price"><span id="payPrice"></span><small id="payOnce" class="muted"></small></div>
+    <ul id="payList"></ul>
+    <div class="pay-trust"><div><img src="img/icons/check.png" alt=""><span>Secure card payment by Stripe. We never see your card.</span></div>
+      <div><img src="img/icons/star.png" alt=""><span>An invoice by email for your accounts.</span></div>
+      <div><img src="img/icons/phone.png" alt=""><span>Questions? Reply to our email or write to <a class="mailto" href="#">hello@getmenufix.com</a>.</span></div></div>
+  </div>
+  <div class="pay-box"><div id="checkout"><div class="pay-wait"><span class="spin"></span> Loading the secure payment form…</div></div></div>
+</div></section>
+<script src="https://js.stripe.com/endive/stripe.js"></script>
+<script>
+const PAY_API = "https://admin.getmenufix.com/api/public/pay";
+const PAY_INFO = {
+  menu_fix: ["Menu Fix", "Your Uber Eats menu cleaned up and rewritten to sell.", ["Typos and wording fixed", "Every dish rewritten to sell", "Best sellers moved to the top", "Ready to copy, with a simple guide"]],
+  menu_photos: ["Menu and Photos", "Everything in Menu Fix, plus your photos.", ["Everything in Menu Fix", "Your real photos of up to 15 dishes enhanced", "Sized for Uber Eats"]],
+  full_makeover: ["Full Makeover", "We do it all for you on your Uber Eats page.", ["We make every change for you", "Photos for up to 50 dishes", "New menu layout", "One month of updates"]],
+  done_for_you: ["Done for you", "We make the changes on your Uber Eats page for you.", ["Every change made for you", "You add us as a user, no password"]],
+  care_plan: ["Care Plan", "Your Uber Eats page kept fresh, every month.", ["Dishes and prices updated when they change", "Up to 5 new dish photos a month", "Seasonal menu refresh", "Cancel any time"]],
+  website: ["Restaurant Website", "Your own website, in your style.", ["Designed in your style", "Menu with photos and prices", "Order button to your Uber Eats page", "Hours, map, reviews and Instagram", "Your web address connected", "First year of hosting included"]],
+  bundle: ["Makeover and Website", "Your Uber Eats page and your website, together.", ["Everything in the Full Makeover", "Everything in the Restaurant Website", "The same photos and words on both", "One month of updates on both"]],
+  website_makeover: ["Website Makeover", "Your website redesigned in your style.", ["Redesigned in your style", "Menu, photos and prices up to date", "Fast on phones", "We move your web address", "First year of hosting included"]],
+  website_care: ["Website Care", "Your website kept online and up to date.", ["Hosting, web address and security", "Menu, prices and hours updated", "Cancel any time"]],
+};
+const MONTHLY = ["care_plan", "website_care"];
+window.addEventListener("load", async () => {
+  const q = new URLSearchParams(location.search), key = q.get("p") || "", ref = q.get("ref") || "";
+  const info = PAY_INFO[key], box = document.getElementById("checkout");
+  if (!info) { box.innerHTML = '<p class="muted">This payment link is not valid. Please reply to our email and we will send you a new one.</p>'; return; }
+  document.getElementById("payName").textContent = info[0];
+  document.getElementById("payLine").textContent = info[1];
+  document.getElementById("payList").innerHTML = info[2].map((x) => "<li>" + x + "</li>").join("");
+  const n = PRICES[key][CUR];
+  document.getElementById("payPrice").textContent = SYM[CUR] + n;
+  document.getElementById("payOnce").textContent = MONTHLY.includes(key) ? " a month, cancel any time" : " one time, no subscription";
+  try {
+    const r = await fetch(PAY_API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ p: key, ref }) });
+    const d = await r.json();
+    if (d.url) { box.innerHTML = '<a class="btn primary" style="width:100%" href="' + d.url + '">Pay securely with Stripe <span class="arr">→</span></a>'; return; }
+    if (!d.clientSecret) throw new Error(d.error || "no session");
+    const stripe = Stripe(d.publishableKey);
+    box.innerHTML = "";
+    const checkout = await stripe.createEmbeddedCheckoutPage({ fetchClientSecret: async () => d.clientSecret });
+    checkout.mount("#checkout");
+  } catch (e) {
+    box.innerHTML = '<p class="muted">The payment form could not load. Please refresh the page, or reply to our email and we will help.</p>';
+  }
+});
+</script>""", ld_extra=NOINDEX)
+page("paid.html", "Thank you | MenuFix", "Your payment is confirmed.",
+"""<section style="padding-top:70px"><div class="narrow" style="text-align:center">
+  <img src="img/icons/check.png" alt="" style="width:110px;margin:0 auto">
+  <h1 id="paidTitle" style="margin-top:18px">Thank you</h1>
+  <p class="lead" id="paidText" style="margin:14px auto 0">Checking your payment…</p>
+  <p class="muted" style="margin-top:22px">Your invoice is on its way by email. Questions? Write to <a class="mailto" href="#">hello@getmenufix.com</a>.</p>
+</div></section>
+<script>
+window.addEventListener("load", async () => {
+  const s = new URLSearchParams(location.search).get("s") || "";
+  const t = document.getElementById("paidText");
+  try {
+    const r = await fetch("https://admin.getmenufix.com/api/public/paid", { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ s }) });
+    const d = await r.json();
+    if (d.status === "complete") t.textContent = "Your payment for " + (d.package || "your order") + " is confirmed. Sam will email you within one working day to get started.";
+    else { t.textContent = "Your payment was not finished. You can try again."; history.length > 1 && setTimeout(() => history.back(), 2500); }
+  } catch (e) { t.textContent = "Thank you. Sam will email you within one working day to get started."; }
+});
+</script>""", ld_extra=NOINDEX)
+
+
 # ------------------------------------------------------------------------------------------------ sitemap
 URLS = (TOP + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + CHECK_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

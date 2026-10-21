@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="msvalidate.01" content="F0DCDD1209340D5FCE9148B6F4762CB7">
+<meta name="theme-color" content="#ffffff">
+<title>Secure payment | MenuFix</title>
+<meta name="description" content="Pay for your MenuFix order securely.">
+<link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><script>window.goatcounter={filter:function(){if(navigator.webdriver)return "automation";try{if(localStorage.getItem("skipgc")==="t")return "skip";}catch(e){}if("visibilityState" in document&&document.visibilityState==="prerender")return "prerender";return false;}};</script><script data-goatcounter="https://menufix.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="canonical" href="https://getmenufix.com/pay.html">
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/", "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com", "sameAs": ["https://www.instagram.com/menufix.official/", "https://www.facebook.com/profile.php?id=61584153426184"]}, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/", "name": "MenuFix", "publisher": {"@id": "https://getmenufix.com/#org"}, "inLanguage": "en"}]}</script>
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Secure payment | MenuFix">
+<meta property="og:description" content="Pay for your MenuFix order securely.">
+<meta property="og:image" content="https://getmenufix.com/img/spread.jpg">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="promo" href="referral.html"><span>Know restaurant owners? <b>Earn 15%</b> for every restaurant you send us.</span> <u>See how →</u></a>
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="./"><img width="256" height="256" decoding="async" src="img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>
+  <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav .links').classList.toggle('open')">☰</button>
+  <div class="links"><a href="services.html">Services</a><a href="examples.html">Examples</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="guides/">Guides</a><a href="about.html">About</a><a href="faq.html">FAQ</a><a class="btn primary small" href="contact.html">Free mockup</a></div>
+</div></nav>
+<section style="padding-top:50px"><div class="wrap pay">
+  <div class="pay-sum reveal in">
+    <span class="eyebrow">Your order</span>
+    <h1 id="payName" style="font-size:40px;margin-top:10px">MenuFix</h1>
+    <p class="muted" id="payLine" style="margin-top:8px"></p>
+    <div class="pay-price"><span id="payPrice"></span><small id="payOnce" class="muted"></small></div>
+    <ul id="payList"></ul>
+    <div class="pay-trust"><div><img width="160" height="160" decoding="async" src="img/icons/check.png" alt=""><span>Secure card payment by Stripe. We never see your card.</span></div>
+      <div><img width="160" height="160" decoding="async" src="img/icons/star.png" alt=""><span>An invoice by email for your accounts.</span></div>
+      <div><img width="160" height="160" decoding="async" src="img/icons/phone.png" alt=""><span>Questions? Reply to our email or write to <a class="mailto" href="#">hello@getmenufix.com</a>.</span></div></div>
+  </div>
+  <div class="pay-box"><div id="checkout"><div class="pay-wait"><span class="spin"></span> Loading the secure payment form…</div></div></div>
+</div></section>
+<script src="https://js.stripe.com/endive/stripe.js"></script>
+<script>
+const PAY_API = "https://admin.getmenufix.com/api/public/pay";
+const PAY_INFO = {
+  menu_fix: ["Menu Fix", "Your Uber Eats menu cleaned up and rewritten to sell.", ["Typos and wording fixed", "Every dish rewritten to sell", "Best sellers moved to the top", "Ready to copy, with a simple guide"]],
+  menu_photos: ["Menu and Photos", "Everything in Menu Fix, plus your photos.", ["Everything in Menu Fix", "Your real photos of up to 15 dishes enhanced", "Sized for Uber Eats"]],
+  full_makeover: ["Full Makeover", "We do it all for you on your Uber Eats page.", ["We make every change for you", "Photos for up to 50 dishes", "New menu layout", "One month of updates"]],
+  done_for_you: ["Done for you", "We make the changes on your Uber Eats page for you.", ["Every change made for you", "You add us as a user, no password"]],
+  care_plan: ["Care Plan", "Your Uber Eats page kept fresh, every month.", ["Dishes and prices updated when they change", "Up to 5 new dish photos a month", "Seasonal menu refresh", "Cancel any time"]],
+  website: ["Restaurant Website", "Your own website, in your style.", ["Designed in your style", "Menu with photos and prices", "Order button to your Uber Eats page", "Hours, map, reviews and Instagram", "Your web address connected", "First year of hosting included"]],
+  bundle: ["Makeover and Website", "Your Uber Eats page and your website, together.", ["Everything in the Full Makeover", "Everything in the Restaurant Website", "The same photos and words on both", "One month of updates on both"]],
+  website_makeover: ["Website Makeover", "Your website redesigned in your style.", ["Redesigned in your style", "Menu, photos and prices up to date", "Fast on phones", "We move your web address", "First year of hosting included"]],
+  website_care: ["Website Care", "Your website kept online and up to date.", ["Hosting, web address and security", "Menu, prices and hours updated", "Cancel any time"]],
+};
+const MONTHLY = ["care_plan", "website_care"];
+window.addEventListener("load", async () => {
+  const q = new URLSearchParams(location.search), key = q.get("p") || "", ref = q.get("ref") || "";
+  const info = PAY_INFO[key], box = document.getElementById("checkout");
+  if (!info) { box.innerHTML = '<p class="muted">This payment link is not valid. Please reply to our email and we will send you a new one.</p>'; return; }
+  document.getElementById("payName").textContent = info[0];
+  document.getElementById("payLine").textContent = info[1];
+  document.getElementById("payList").innerHTML = info[2].map((x) => "<li>" + x + "</li>").join("");
+  const n = PRICES[key][CUR];
+  document.getElementById("payPrice").textContent = SYM[CUR] + n;
+  document.getElementById("payOnce").textContent = MONTHLY.includes(key) ? " a month, cancel any time" : " one time, no subscription";
+  try {
+    const r = await fetch(PAY_API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ p: key, ref }) });
+    const d = await r.json();
+    if (d.url) { box.innerHTML = '<a class="btn primary" style="width:100%" href="' + d.url + '">Pay securely with Stripe <span class="arr">→</span></a>'; return; }
+    if (!d.clientSecret) throw new Error(d.error || "no session");
+    const stripe = Stripe(d.publishableKey);
+    box.innerHTML = "";
+    const checkout = await stripe.createEmbeddedCheckoutPage({ fetchClientSecret: async () => d.clientSecret });
+    checkout.mount("#checkout");
+  } catch (e) {
+    box.innerHTML = '<p class="muted">The payment form could not load. Please refresh the page, or reply to our email and we will help.</p>';
+  }
+});
+</script>
+<footer><div class="wrap">
+  <div class="top">
+    <div><a class="logo" href="./"><img width="256" height="256" decoding="async" src="img/logo-mark.png" alt=""><b>menu<span>fix</span></b></a>
+      <p class="muted" style="max-width:340px">Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.</p>
+      <div class="icons"><img width="160" height="160" decoding="async" src="img/icons/pizza.png" alt=""><img width="160" height="160" decoding="async" src="img/icons/burger.png" alt=""><img width="160" height="160" decoding="async" src="img/icons/sushi.png" alt=""><img width="160" height="160" decoding="async" src="img/icons/coffee.png" alt=""><img width="160" height="160" decoding="async" src="img/icons/taco.png" alt=""><img width="160" height="160" decoding="async" src="img/icons/cake.png" alt=""></div>
+      <h4 class="follow">Follow us</h4><div class="social"><a class="ig" href="https://www.instagram.com/menufix.official/" rel="me noopener" target="_blank" aria-label="Instagram @menufix.official" title="Instagram @menufix.official"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor"/></svg></a><a class="fb" href="https://www.facebook.com/profile.php?id=61584153426184" rel="me noopener" target="_blank" aria-label="Facebook MenuFix" title="Facebook MenuFix"><svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.6-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.9v3h2.6V21h3z"/></svg></a></div></div>
+    <div><h4>Services</h4><a href="services.html">Menu rewrite</a><a href="services.html#photos">Photo enhancement</a><a href="services.html#done">Done for you</a><a href="examples.html">Examples</a></div><div><h4>Company</h4><a href="about.html">About</a><a href="guides/">Guides</a><a href="how-it-works.html">How it works</a><a href="pricing.html">Pricing</a><a href="faq.html">FAQ</a><a href="referral.html">Earn 15%</a></div><div><h4>Who we help</h4><a href="uber-eats/cafes.html">Cafés</a><a href="uber-eats/pizza.html">Pizza shops</a><a href="uber-eats/asian-restaurants.html">Asian restaurants</a><a href="uber-eats/takeaways.html">Takeaways</a><a href="uber-eats/">Cities we work with</a></div><div><h4>Free tools</h4><a href="tools/uber-eats-photo-checker.html">Photo checker</a><a href="tools/menu-description-checker.html">Description checker</a><a href="tools/uber-eats-page-score.html">Page score</a></div><div><h4>Get started</h4><a href="contact.html">Free mockup</a><a class="mailto" href="#">hello@getmenufix.com</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+  </div>
+  <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
+</div></footer>
+<script src="site.js?v=a27c3e10"></script>
+</body>
+</html>
