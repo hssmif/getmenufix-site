@@ -110,6 +110,33 @@ CTA = {
 }
 
 
+# The instant check (22 Oct 2026): screenshots in, the score and the biggest problems out in about a minute
+# (admin.getmenufix.com/api/public/instant_check, studio/instant_check.py), and the PDF report by email.
+INSTANT = """<section class="tight" id="instant"><div class="wrap split" style="align-items:start">
+  <div class="reveal"><span class="eyebrow">New · in about a minute</span><h2>Get your score now</h2>
+    <p class="lead" style="margin-top:14px">Send us 2 to 5 screenshots of your Uber Eats page and see your score and what to fix first, right here.
+    The full report comes by email.</p>
+    <ol class="ticks"><li>Open your restaurant in the Uber Eats app, as a customer would</li>
+      <li>Take a screenshot at the top, then scroll and take 1 to 4 more down your menu</li>
+      <li>Add them here, with your name and email</li></ol></div>
+  <div class="card reveal" style="padding:36px">
+    <form id="instantForm" novalidate>
+      <div class="f"><label for="iShots">Your screenshots (2 to 5)</label><input id="iShots" type="file" accept="image/*" multiple required></div>
+      <div class="f"><label for="iName">Restaurant name</label><input id="iName" required maxlength="100" autocomplete="organization"></div>
+      <div class="f"><label for="iEmail">Your email</label><input id="iEmail" type="email" required maxlength="120" autocomplete="email"></div>
+      <div class="f"><label for="iFirst">Your first name (optional)</label><input id="iFirst" maxlength="40" autocomplete="given-name"></div>
+      <div class="hp" aria-hidden="true"><label for="iSite">Website</label><input id="iSite" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input id="iConsent" type="checkbox" required> <span>Email me my page check and the free mockup offer</span></label>
+      <p class="err" id="iErr" role="alert" hidden></p>
+      <button class="btn primary" type="submit" style="width:100%">Check my page now <span class="arr">→</span></button>
+      <p class="note" style="margin:14px 0 0">Your screenshots are only used for your report. No login, no card.</p>
+    </form>
+    <div id="instantWait" class="thanks" hidden><h3>Reading your page…</h3><p>About 30 seconds. Don't close this page.</p></div>
+    <div id="instantResult" hidden></div>
+  </div>
+</div></section>"""
+
+
 def build_check(page, head, ic, faq_html, ctas) -> list[tuple[str, str]]:
     """Write the three pages. Returns (lang, path) pairs."""
     import html as h
@@ -129,6 +156,7 @@ def build_check(page, head, ic, faq_html, ctas) -> list[tuple[str, str]]:
   <div class="grid3">{cards}</div>
 </div></section>
 
+{INSTANT if lang == "en" else ""}
 <section class="bg-butter" id="check"><div class="wrap split" style="align-items:start">
   <div class="reveal"><span class="eyebrow">{t["link"]}</span><h2>{t["link_h"]}</h2>
     <ol class="ticks">{steps}</ol></div>

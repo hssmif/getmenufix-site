@@ -464,3 +464,50 @@ if ("IntersectionObserver" in window) {
     });
   }
 })();
+
+
+// Instant page check (check.html#instant): screenshots, made smaller here, then the score and the problems at once.
+const instantForm = document.getElementById("instantForm");
+if (instantForm) instantForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const err = document.getElementById("iErr"), say = (t) => { err.textContent = t; err.hidden = !t; };
+  say("");
+  const files = Array.from(document.getElementById("iShots").files || []).slice(0, 5);
+  if (!files.length) return say("Please add at least one screenshot of your Uber Eats page.");
+  if (!instantForm.checkValidity()) { instantForm.reportValidity(); return; }
+  const small = (f) => new Promise((ok, bad) => {
+    const img = new Image(), url = URL.createObjectURL(f);
+    img.onload = () => { const k = Math.min(1, 1400 / img.width), c = document.createElement("canvas");
+      c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height); URL.revokeObjectURL(url); ok(c.toDataURL("image/jpeg", 0.82)); };
+    img.onerror = () => bad(new Error("not a picture")); img.src = url; });
+  instantForm.hidden = true;
+  document.getElementById("instantWait").hidden = false;
+  try {
+    const images = await Promise.all(files.map(small));
+    const v = (id) => (document.getElementById(id).value || "").trim();
+    const r = await fetch("https://admin.getmenufix.com/api/public/instant_check", { method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ images, restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
+                             consent: document.getElementById("iConsent").checked }) });
+    const d = await r.json();
+    if (!r.ok) throw new Error(d.error || "Something went wrong, please try again.");
+    const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const col = d.score >= 75 ? "#16a35a" : d.score >= 50 ? "#e8a100" : "#d93025";
+    const probs = (d.problems || []).map((p, i) => `<li style="margin:10px 0"><b>${i + 1}. ${esc(p.title)}</b><br><span class="note">${esc(p.why)}</span>` +
+      (p.examples && p.examples.length ? `<br><span style="color:#c2410c;font-size:14px">On your page: ${p.examples.map(esc).join(", ")}</span>` : "") + "</li>").join("");
+    const box = document.getElementById("instantResult");
+    box.innerHTML = `<div style="display:flex;gap:18px;align-items:center"><div style="width:96px;height:96px;border-radius:50%;border:10px solid ${col};display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;color:${col};flex:none">${d.score}</div>` +
+      `<div><h3 style="margin:0">Your score: ${d.score} out of 100</h3><p class="note" style="margin:6px 0 0">${d.stats.photos} of ${d.stats.total} dishes have a photo, ${d.stats.descs} have a description.</p></div></div>` +
+      `<h3 style="margin:22px 0 4px">What to fix first</h3><ol style="list-style:none;padding:0;margin:0">${probs || "<li>Your page looks strong.</li>"}</ol>` +
+      `<p style="margin:18px 0 0">Your full report is on its way to your email.</p>` +
+      `<a class="btn primary" href="contact.html" style="width:100%;margin-top:16px">Get my free mockup <span class="arr">→</span></a>`;
+    document.getElementById("instantWait").hidden = true;
+    box.hidden = false;
+    try { window.goatcounter && window.goatcounter.count({ path: "instant-check", title: location.pathname, event: true }); } catch (x) {}
+  } catch (x) {
+    document.getElementById("instantWait").hidden = true;
+    instantForm.hidden = false;
+    say(x.message || "Something went wrong, please try again.");
+  }
+});

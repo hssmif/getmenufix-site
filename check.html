@@ -40,6 +40,30 @@
   <div class="grid3"><div class="card reveal"><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/star.png" alt="" loading="lazy"><h3>A score out of 100</h3><p>Worked out only from what we can see on your page: photos, descriptions, categories, dish names and the cover photo. Every part of the score is shown.</p></div><div class="card reveal"><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/pen.png" alt="" loading="lazy"><h3>The 3 fixes that matter most</h3><p>With the names of your own dishes, so you know exactly where to start. You can make the changes yourself.</p></div><div class="card reveal"><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/phone.png" alt="" loading="lazy"><h3>By email within 24 hours</h3><p>No login, no card and nothing to install. When we have one ready, a Concept mockup of how your page could look comes with it.</p></div></div>
 </div></section>
 
+<section class="tight" id="instant"><div class="wrap split" style="align-items:start">
+  <div class="reveal"><span class="eyebrow">New · in about a minute</span><h2>Get your score now</h2>
+    <p class="lead" style="margin-top:14px">Send us 2 to 5 screenshots of your Uber Eats page and see your score and what to fix first, right here.
+    The full report comes by email.</p>
+    <ol class="ticks"><li>Open your restaurant in the Uber Eats app, as a customer would</li>
+      <li>Take a screenshot at the top, then scroll and take 1 to 4 more down your menu</li>
+      <li>Add them here, with your name and email</li></ol></div>
+  <div class="card reveal" style="padding:36px">
+    <form id="instantForm" novalidate>
+      <div class="f"><label for="iShots">Your screenshots (2 to 5)</label><input id="iShots" type="file" accept="image/*" multiple required></div>
+      <div class="f"><label for="iName">Restaurant name</label><input id="iName" required maxlength="100" autocomplete="organization"></div>
+      <div class="f"><label for="iEmail">Your email</label><input id="iEmail" type="email" required maxlength="120" autocomplete="email"></div>
+      <div class="f"><label for="iFirst">Your first name (optional)</label><input id="iFirst" maxlength="40" autocomplete="given-name"></div>
+      <div class="hp" aria-hidden="true"><label for="iSite">Website</label><input id="iSite" tabindex="-1" autocomplete="off"></div>
+      <label class="consent"><input id="iConsent" type="checkbox" required> <span>Email me my page check and the free mockup offer</span></label>
+      <p class="err" id="iErr" role="alert" hidden></p>
+      <button class="btn primary" type="submit" style="width:100%">Check my page now <span class="arr">→</span></button>
+      <p class="note" style="margin:14px 0 0">Your screenshots are only used for your report. No login, no card.</p>
+    </form>
+<!--guarantee--><div class="guarantee reveal"><img src="img/icons/check.png" alt=""><div><b>No risk for you</b><p>You only pay once you've seen your finished page and you're happy with it. Not happy? Tell us what to change, or simply say no and you owe nothing. We never promise more orders: we make your page clearer, and you decide.</p></div></div><!--/guarantee-->
+    <div id="instantWait" class="thanks" hidden><h3>Reading your page…</h3><p>About 30 seconds. Don't close this page.</p></div>
+    <div id="instantResult" hidden></div>
+  </div>
+</div></section>
 <section class="bg-butter" id="check"><div class="wrap split" style="align-items:start">
   <div class="reveal"><span class="eyebrow">Where to find your store link</span><h2>Copy your store link first.</h2>
     <ol class="ticks"><li>Open your restaurant in the Uber Eats app or on ubereats.com, as a customer would.</li><li>In the app, tap Share and then Copy link. On a computer, copy the address at the top of the browser.</li><li>Paste it in the form. It looks like ubereats.com, then store, then your restaurant's name.</li></ol></div>
@@ -56,7 +80,6 @@
       <button class="btn primary" type="submit" style="width:100%">Send me my free check <span class="arr">→</span></button>
       <p class="note" style="margin:14px 0 0">We use your email only for your page check. See our <a href='privacy.html'>privacy policy</a>.</p>
     </form>
-<!--guarantee--><div class="guarantee reveal"><img src="img/icons/check.png" alt=""><div><b>No risk for you</b><p>You only pay once you've seen your finished page and you're happy with it. Not happy? Tell us what to change, or simply say no and you owe nothing. We never promise more orders: we make your page clearer, and you decide.</p></div></div><!--/guarantee-->
     <div id="checkThanks" class="thanks" hidden><h3>Thank you, it's on its way.</h3><p>You'll get your page check by email within 24 hours. If you don't see it, look in your spam folder.</p></div>
   </div>
 </div></section>
@@ -82,6 +105,6 @@
   </div>
   <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
 </div></footer>
-<script src="site.js?v=bcb262b8"></script>
+<script src="site.js?v=c9b4143b"></script>
 </body>
 </html>
