@@ -96,7 +96,7 @@ CHROME = {
     "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
            "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
            "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("uber-eats-menu-makeover-service.html", "Done for you"), ("examples.html", "Examples")]),
-                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 15%")]),
+                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 15%"), ("rider.html", "Delivery riders: earn 20%")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
                     ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker"), ("tools/uber-eats-page-score.html", "Page score")]),
                     ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
@@ -909,6 +909,9 @@ REFERRAL_PAGES = []
 for _lang, _name in build_referral(page, head, ic, faq_html, {"en": cta(), "fr": CTA_FR, "es": CTA_ES}):
     same_page("referral", _lang, _name)
     REFERRAL_PAGES.append(_name)
+# ------------------------------------------------------------------------------------------------ rider partners
+from _rider import build_rider
+RIDER_PAGES = build_rider(page, head, ic, faq_html, cta())
 # ------------------------------------------------------------------------------------------------ free page check
 from _check import CTA as CHECK_CTA, build_check, cta_strip
 CHECK_PAGES = []
@@ -1027,7 +1030,7 @@ window.addEventListener("load", async () => {
 
 
 # ------------------------------------------------------------------------------------------------ sitemap
-URLS = (TOP + ["uber-eats-menu-makeover-service.html"] + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + CHECK_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
+URLS = (TOP + ["uber-eats-menu-makeover-service.html"] + RIDER_PAGES + ["fr/" + p for p in TOP] + ["es/" + p for p in TOP] + REFERRAL_PAGES + CHECK_PAGES + GUIDE_PAGES + TOOL_PAGES + LANDING)
 (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     "".join(f"  <url><loc>{_url(u)}</loc><lastmod>2026-10-13</lastmod></url>\n" for u in URLS) + "</urlset>\n")
 print("built pages")

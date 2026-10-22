@@ -139,6 +139,26 @@ if (form) form.addEventListener("submit", (e) => {
     consent: document.getElementById("mConsent").checked, website: v("mSite") });
 });
 
+const riderForm = document.getElementById("riderForm");
+if (riderForm) riderForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const err = document.getElementById("rdErr"), say = (t) => { err.textContent = t; err.hidden = !t; };
+  if (!riderForm.checkValidity()) { riderForm.reportValidity(); return; }
+  const v = (id) => document.getElementById(id).value.trim();
+  say("");
+  const btn = riderForm.querySelector("button"); btn.disabled = true;
+  try {
+    const r = await fetch(FORM_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({
+      form: "rider", name: v("rdName"), email: v("rdEmail"), city: v("rdCity"), country: v("rdCountry"), phone: v("rdPhone"),
+      rules: document.getElementById("rdRules").checked, website: v("rdSite"), lang: "en" }) });
+    const out = await r.json().catch(() => ({}));
+    if (!r.ok || !out.ok) throw new Error(out.error || r.status);
+    riderForm.hidden = true;
+    if (out.card) document.getElementById("riderCard").href = out.card;
+    document.getElementById("riderThanks").hidden = false;
+  } catch (x) { btn.disabled = false; say(riderForm.dataset.error); }
+});
+
 const refForm = document.getElementById("refForm");
 if (refForm) refForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -489,7 +509,7 @@ if (instantForm) instantForm.addEventListener("submit", async (e) => {
     const ctl = new AbortController(), stop = setTimeout(() => ctl.abort(), 90000);  // never wait for ever
     const r = await fetch("https://admin.getmenufix.com/api/public/instant_check", { method: "POST", signal: ctl.signal,
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ images, restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
+      body: JSON.stringify({ images, via: VIA || "", restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
                              consent: document.getElementById("iConsent").checked }) });
     clearTimeout(stop);
     const d = await r.json().catch(() => ({ error: "" }));
