@@ -486,12 +486,14 @@ if (instantForm) instantForm.addEventListener("submit", async (e) => {
   try {
     const images = await Promise.all(files.map(small));
     const v = (id) => (document.getElementById(id).value || "").trim();
-    const r = await fetch("https://admin.getmenufix.com/api/public/instant_check", { method: "POST",
+    const ctl = new AbortController(), stop = setTimeout(() => ctl.abort(), 90000);  // never wait for ever
+    const r = await fetch("https://admin.getmenufix.com/api/public/instant_check", { method: "POST", signal: ctl.signal,
       headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({ images, restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
                              consent: document.getElementById("iConsent").checked }) });
-    const d = await r.json();
-    if (!r.ok) throw new Error(d.error || "Something went wrong, please try again.");
+    clearTimeout(stop);
+    const d = await r.json().catch(() => ({ error: "" }));
+    if (!r.ok) throw new Error(d.error || "We couldn't read your page right now. Please try again in a few minutes.");
     const esc = (t) => String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     const col = d.score >= 75 ? "#16a35a" : d.score >= 50 ? "#e8a100" : "#d93025";
     const probs = (d.problems || []).map((p, i) => `<li style="margin:10px 0"><b>${i + 1}. ${esc(p.title)}</b><br><span class="note">${esc(p.why)}</span>` +
@@ -508,6 +510,7 @@ if (instantForm) instantForm.addEventListener("submit", async (e) => {
   } catch (x) {
     document.getElementById("instantWait").hidden = true;
     instantForm.hidden = false;
-    say(x.message || "Something went wrong, please try again.");
+    say(x && x.name === "AbortError" ? "This is taking too long. Please try again in a few minutes, or email your screenshots to hello@getmenufix.com."
+        : (x.message && x.message !== "Failed to fetch" ? x.message : "We couldn't reach our server. Please try again in a few minutes."));
   }
 });

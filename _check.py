@@ -10,18 +10,18 @@ PAGES = {
     "en": {
         "name": "check.html",
         "title": "Free Uber Eats Page Check: Your Score and 3 Fixes | MenuFix",
-        "desc": "Send us your Uber Eats store link and get a free page check by email within 24 hours: a score for your page and the 3 fixes that matter most. No login, no card.",
+        "desc": "Send screenshots of your Uber Eats page and get your score and the biggest fixes in about a minute, plus the report by email. Free, no login, no card.",
         "eyebrow": "Free Uber Eats page check", "h1": "How good is your Uber Eats page? <span class='hl'>Free check.</span>",
-        "lead": "Send us your store link. Within 24 hours you get an email with a score for your page and the 3 fixes that matter most. Free, no login, no card.",
+        "lead": "Send us screenshots of your Uber Eats page and see your score and what to fix first in about a minute. Free, no login, no card.",
         "get": "What you get", "get_h": "Plain answers about your own page.",
         "cards": [("star", "A score out of 100", "Worked out only from what we can see on your page: photos, descriptions, categories, dish names and the cover photo. Every part of the score is shown."),
                   ("pen", "The 3 fixes that matter most", "With the names of your own dishes, so you know exactly where to start. You can make the changes yourself."),
-                  ("phone", "By email within 24 hours", "No login, no card and nothing to install. When we have one ready, a Concept mockup of how your page could look comes with it.")],
-        "link": "Where to find your store link", "link_h": "Copy your store link first.", "link_steps": [
+                  ("phone", "In about a minute", "Your score shows on this page, and the full report comes by email. No login, no card and nothing to install.")],
+        "link": "No screenshots?", "link_h": "Send your store link instead.", "link_steps": [
             "Open your restaurant in the Uber Eats app or on ubereats.com, as a customer would.",
             "In the app, tap Share and then Copy link. On a computer, copy the address at the top of the browser.",
             "Paste it in the form. It looks like ubereats.com, then store, then your restaurant's name."],
-        "form_h": "Get my free page check", "form_lead": "Free, no login, no card. By email within 24 hours.",
+        "form_h": "Check by link", "form_lead": "A program can't open Uber Eats links, so we check it by hand and email your score within 24 hours.",
         "f_url": "Your Uber Eats store link", "p_url": "https://www.ubereats.com/au/store/your-restaurant/...",
         "f_name": "Restaurant name", "p_name": "For example Little Saigon Kitchen",
         "f_email": "Email", "p_email": "you@yourrestaurant.com", "f_first": "Your first name (optional)", "p_first": "",
@@ -149,7 +149,7 @@ def build_check(page, head, ic, faq_html, ctas) -> list[tuple[str, str]]:
         ld = '\n<script type="application/ld+json">' + json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
             {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in t["faq"]]}, ensure_ascii=False) + "</script>"
         page(t["name"], t["title"], t["desc"], f"""{head(t["eyebrow"], t["h1"], t["lead"], ("star", "menu"),
-            f'<div class="row" style="margin-top:26px"><a class="btn primary" href="#check">{t["form_h"]} <span class="arr">→</span></a></div>')}
+            f'<div class="row" style="margin-top:26px"><a class="btn primary" href="{"#instant" if lang == "en" else "#check"}">{"Check my page now" if lang == "en" else t["form_h"]} <span class="arr">→</span></a></div>')}
 
 <section class="tight"><div class="wrap">
   <div class="head center reveal"><span class="eyebrow">{t["get"]}</span><h2>{t["get_h"]}</h2></div>

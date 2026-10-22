@@ -59,7 +59,7 @@ def add_guarantee(root, lang_of):
         if path in PLANS_ON:
             html = html.replace('<div class="plans">', block(lang, icon).lstrip("\n") + '\n  <div class="plans">', 1)
         else:
-            html = html.replace("</form>", "</form>" + block(lang, icon), 1)
+            html = re.sub(r'(<form id="checkForm".*?</form>)', lambda m: m.group(1) + block(lang, icon), html, count=1, flags=re.S)
         f.write_text(html)
     f = root / "fr/faq.html"  # English and Spanish have it in their FAQ lists (and their FAQ structured data)
     if f.is_file():
