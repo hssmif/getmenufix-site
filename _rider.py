@@ -35,7 +35,7 @@ def build_rider(page, head, ic, faq_html, cta) -> list[str]:
     page("rider.html", "Side Hustle for Delivery Drivers: Earn 20% Commission | MenuFix",
          "Extra income for Uber Eats, DoorDash, Deliveroo and Menulog drivers. Refer restaurants you know and earn 20% "
          "commission, about 190 dollars each. No selling, your own time, paid in 7 days.",
-         f"""{head("Side hustle for delivery drivers", "Extra income for delivery riders. <span class='hl'>Earn 20% commission.</span>",
+         f"""{head("Side hustle for delivery drivers", "Extra income for delivery riders. <span class='hl'>Earn 20%</span> commission.",
              "You walk into restaurants every day. Show them your personal MenuFix card on your own time. When one of them "
              "buys a makeover of its Uber Eats page, you get 20% of what it pays: about 190 dollars per restaurant.", ("bag", "star"),
              '<div class="row" style="margin-top:26px"><a class="btn primary" href="#join">Get my card <span class="arr">→</span></a></div>')}

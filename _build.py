@@ -232,7 +232,8 @@ def add_chrome_extras():
         html = re.sub(r'\n      <h4 class="follow">.*?</div>(</div>)', r"\1", html, flags=re.S)
         c, up = CHROME[_lang_of(path)], "../" * path.count("/")
         bar = f'<a class="promo" href="{up}{c["promo"][0]}"><span>{c["promo"][1]}</span> <u>{c["promo"][2]} →</u></a>\n'
-        html = html.replace('<nav class="nav">', bar + '<nav class="nav">', 1)
+        if path != "rider.html":  # riders from our ads: no "earn 15%" bar above their 20% offer
+            html = html.replace('<nav class="nav">', bar + '<nav class="nav">', 1)
         html = re.sub(r'(<div class="icons">.*?</div>)</div>', lambda m: m.group(1) + f'\n      <h4 class="follow">{c["follow"]}</h4>{social()}</div>', html, count=1, flags=re.S)
         f.write_text(html)
 
