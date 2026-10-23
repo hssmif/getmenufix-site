@@ -73,6 +73,23 @@ try {
   else if (VIA_NEW) localStorage.setItem("via", JSON.stringify({ code: VIA_NEW, at: Date.now() }));
   else if (saved) localStorage.removeItem("via");
 } catch (e) {}
+// Paid ads: ?utm_source=facebook&utm_campaign=riders becomes the key "facebook-riders", kept 30 days so a sign up
+// later still counts for the ad (MenuFix, Referrals, Ads). The latest ad wins.
+const AD_DAYS = 30;
+const AD_NEW = (() => {
+  const q = new URLSearchParams(location.search), clean = (v) => (v || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+  const src = clean(q.get("utm_source")).slice(0, 20), camp = clean(q.get("utm_campaign")).slice(0, 30);
+  return src.length >= 2 && camp.length >= 2 ? src + "-" + camp : "";
+})();
+let AD = AD_NEW;
+try {
+  if (AD_NEW) localStorage.setItem("ad", JSON.stringify({ key: AD_NEW, at: Date.now() }));
+  else {
+    const saved = JSON.parse(localStorage.getItem("ad") || "null");
+    if (saved && /^[a-z0-9]{2,20}-[a-z0-9]{2,30}$/.test(saved.key || "") && Date.now() - saved.at < AD_DAYS * 864e5) AD = saved.key;
+    else if (saved) localStorage.removeItem("ad");
+  }
+} catch (e) {}
 const RID = REF && /^\d+$/.test(REF) ? REF : "";
 // Our guarantee: nobody pays on this website. A plan button starts the work (the contact form, with the plan chosen):
 // we make the finished page first, and the payment link comes with it, once they've seen it and are happy.
@@ -150,7 +167,7 @@ if (riderForm) riderForm.addEventListener("submit", async (e) => {
   try {
     const r = await fetch(FORM_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({
       form: "rider", name: v("rdName"), email: v("rdEmail"), city: v("rdCity"), country: v("rdCountry"), phone: v("rdPhone"),
-      rules: document.getElementById("rdRules").checked, website: v("rdSite"), lang: "en" }) });
+      rules: document.getElementById("rdRules").checked, website: v("rdSite"), ad: AD, lang: "en" }) });
     const out = await r.json().catch(() => ({}));
     if (!r.ok || !out.ok) throw new Error(out.error || r.status);
     riderForm.hidden = true;
@@ -259,6 +276,8 @@ if ("IntersectionObserver" in window) {
 
   // A visit through a referral link (?via=<code>), not counted again while they move between our own pages.
   if (VIA_NEW && !(document.referrer || "").startsWith(location.origin)) track("via-" + VIA_NEW);
+  // A visit from a paid ad (utm tags), counted once per arrival.
+  if (AD_NEW && !(document.referrer || "").startsWith(location.origin)) track("ad-" + AD_NEW);
 
   // Clicks on pricing links, pay buttons and email links.
   document.addEventListener("click", (e) => {
