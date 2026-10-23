@@ -106,7 +106,7 @@ CHROME = {
     "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
            "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
            "cols": [("Services", [("fr/services.html", "Réécriture du menu"), ("fr/services.html#photos", "Amélioration des photos"), ("fr/services.html#done", "Clé en main"), ("fr/examples.html", "Exemples")]),
-                    ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 15 %")]),
+                    ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 20 %")]),
                     ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description"), ("fr/outils/score-page-uber-eats.html", "Score de page")]),
                     ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
            "promo": ("fr/parrainage.html", "Vous connaissez des restaurateurs ? <b>Gagnez 20 %</b> pour chaque restaurant recommandé.", "En savoir plus"),
@@ -115,7 +115,7 @@ CHROME = {
     "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/contact.html", "cta": "Maqueta gratis",
            "blurb": "Mejoramos páginas de Uber Eats para restaurantes independientes, cafeterías y panaderías. Cartas claras, mejores fotos de sus platos reales y todo hecho por nosotros.",
            "cols": [("Servicios", [("es/services.html", "Reescritura de la carta"), ("es/services.html#photos", "Mejora de fotos"), ("es/services.html#done", "Hecho por nosotros"), ("es/examples.html", "Ejemplos")]),
-                    ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 15 %")]),
+                    ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 20 %")]),
                     ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones"), ("es/herramientas/puntuacion-pagina-uber-eats.html", "Puntuación de página")]),
                     ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
            "promo": ("es/referidos.html", "¿Conoce a dueños de restaurantes? <b>Gane un 20 %</b> por cada restaurante que nos recomiende.", "Ver cómo"),
@@ -276,7 +276,7 @@ def _fr_static(html):
     """Keep the hand translated French pages in step with the built ones: free tools in the footer, current site.js."""
     html = html.replace("<h4>Company</h4>", "<h4>Entreprise</h4>").replace("<h4>Société</h4>", "<h4>Entreprise</h4>").replace("<h4>Get started</h4>", "<h4>Commencer</h4>")
     if "parrainage.html" not in html:  # the referral program, in the Entreprise column
-        html = re.sub(r'(<div><h4>Entreprise</h4>.*?)</div>', lambda m: m.group(1) + '<a href="parrainage.html">Gagnez 15 %</a></div>', html, count=1, flags=re.S)
+        html = re.sub(r'(<div><h4>Entreprise</h4>.*?)</div>', lambda m: m.group(1) + '<a href="parrainage.html">Gagnez 20 %</a></div>', html, count=1, flags=re.S)
     if "outils/" not in html:
         html = html.replace('<div><h4>Commencer</h4>', '<div><h4>Outils gratuits</h4><a href="outils/verificateur-photo-uber-eats.html">Vérificateur de photo</a>'
                             '<a href="outils/verificateur-description-menu.html">Vérificateur de description</a></div>\n    <div><h4>Commencer</h4>', 1)
