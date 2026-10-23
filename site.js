@@ -528,7 +528,7 @@ if (instantForm) instantForm.addEventListener("submit", async (e) => {
     const ctl = new AbortController(), stop = setTimeout(() => ctl.abort(), 90000);  // never wait for ever
     const r = await fetch("https://admin.getmenufix.com/api/public/instant_check", { method: "POST", signal: ctl.signal,
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ images, via: VIA || "", restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
+      body: JSON.stringify({ images, via: VIA || "", ad: AD || "", restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
                              consent: document.getElementById("iConsent").checked }) });
     clearTimeout(stop);
     const d = await r.json().catch(() => ({ error: "" }));
