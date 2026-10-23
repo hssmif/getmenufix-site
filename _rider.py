@@ -10,25 +10,34 @@ RULES = ["On your own time only: never during a delivery, never with the deliver
          "Never use anything from the delivery app, and never contact customers.",
          "No promises of orders or prices: just show your card. Our website does the rest.",
          "No spam: talk to people, don't send bulk messages with the MenuFix name."]
-FAQ = [("Do I need to sell anything?", "No. You show your card to restaurants you know, at a quiet moment. The owner scans it "
+FAQ = [("How can delivery drivers make extra money?", "Introduce restaurants you already know to MenuFix. Show them your "
+        "free QR card on your own time; the owner checks their Uber Eats page for free. If they buy a makeover, you earn a "
+        "20% commission. It is a side hustle that fits around your delivery shifts."),
+       ("Do I need to sell anything?", "No. You show your card to restaurants you know, at a quiet moment. The owner scans it "
         "and checks their own Uber Eats page with us for free. If they buy a makeover later, you earn."),
-       ("How much can I earn?", "20% of what the restaurant pays us. A Full Makeover is around 970 Australian dollars, so "
-        "about 190 dollars for you from one restaurant. Refunded payments don't count."),
+       ("How much can I earn per referral?", "20% of what the restaurant pays us. A Full Makeover is around 970 Australian "
+        "dollars, so about 190 dollars for you from one restaurant. Refunded payments don't count."),
        ("When do I get paid?", "Within 7 days after the restaurant's payment, by bank transfer or PayPal."),
+       ("Can Uber Eats, DoorDash, Deliveroo and Menulog riders join?", "Yes. Any delivery rider or driver can join: Uber Eats, "
+        "DoorDash, Deliveroo, Menulog, Just Eat or a cycling courier. MenuFix is independent and not linked to any delivery app."),
        ("Can this cause problems with my rider account?", "Follow the rules on this page: never during a delivery, never in "
         "delivery gear, never say you are from Uber, never use the app or contact customers. You talk to restaurants on "
         "your own time, as yourself."),
-       ("Which cities?", "Anywhere restaurants sell on Uber Eats: Australia, the UK, Ireland, the USA and more.")]
+       ("Which cities?", "Anywhere restaurants sell on Uber Eats: Sydney, Melbourne, Brisbane, London, Manchester, Dublin, "
+        "New York and more, in Australia, the UK, Ireland, the USA and New Zealand.")]
 
 
 def build_rider(page, head, ic, faq_html, cta) -> list[str]:
+    import json
     rules = "".join(f"<li>{r}</li>" for r in RULES)
-    page("rider.html", "Delivery Riders: Earn 20% per Restaurant You Introduce | MenuFix",
-         "You see restaurants every day. Show them your MenuFix card, and earn 20% of what each restaurant pays for its "
-         "Uber Eats page makeover. On your own time, no selling.",
-         f"""{head("For delivery riders", "You know the restaurants. <span class='hl'>Earn 20%.</span>",
+    faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}, ensure_ascii=False)
+    page("rider.html", "Side Hustle for Delivery Drivers: Earn 20% Commission | MenuFix",
+         "Extra income for Uber Eats, DoorDash, Deliveroo and Menulog drivers. Refer restaurants you know and earn 20% "
+         "commission, about 190 dollars each. No selling, your own time, paid in 7 days.",
+         f"""{head("Side hustle for delivery drivers", "Extra income for delivery riders. <span class='hl'>Earn 20% commission.</span>",
              "You walk into restaurants every day. Show them your personal MenuFix card on your own time. When one of them "
-             "buys a makeover of its Uber Eats page, you get 20% of what it pays.", ("bag", "star"),
+             "buys a makeover of its Uber Eats page, you get 20% of what it pays: about 190 dollars per restaurant.", ("bag", "star"),
              '<div class="row" style="margin-top:26px"><a class="btn primary" href="#join">Get my card <span class="arr">→</span></a></div>')}
 
 <section class="tight"><div class="wrap">
@@ -38,6 +47,14 @@ def build_rider(page, head, ic, faq_html, cta) -> list[str]:
     <div class="card reveal">{ic("chef")}<h3>2. Show it</h3><p>At a quiet moment, on your own time, show it to restaurants you know. They scan it and check their page for free.</p></div>
     <div class="card reveal">{ic("star")}<h3>3. Earn 20%</h3><p>When a restaurant that scanned your card pays us, you get 20% of what it paid, within 7 days.</p></div>
   </div>
+</div></section>
+
+<section class="bg-cream"><div class="narrow reveal">
+  <h2>A side hustle that fits around your delivery shifts</h2>
+  <p class="lead" style="margin-top:14px">Uber Eats, DoorDash, Deliveroo and Menulog drivers already know which restaurants
+  struggle online: bad photos, no descriptions, few orders. MenuFix fixes their Uber Eats page. Our restaurant referral program
+  pays you a 20% commission for every restaurant you introduce, so the restaurants you visit every day become extra income
+  for you. No selling, no fees, no targets.</p>
 </div></section>
 
 <section class="bg-butter"><div class="wrap split" style="align-items:start">
@@ -69,10 +86,10 @@ def build_rider(page, head, ic, faq_html, cta) -> list[str]:
 </div></section>
 
 <section class="bg-cream"><div class="narrow">
-  <div class="head center reveal" style="margin-bottom:30px"><h2>Questions</h2></div>
+  <div class="head center reveal" style="margin-bottom:30px"><h2>Delivery driver side hustle: questions</h2></div>
   {faq_html(FAQ)}
 </div></section>
-""", "")
+""", "", ld_extra=f'\n<script type="application/ld+json">{faq_ld}</script>')
     card_page()
     return ["rider.html"]
 
