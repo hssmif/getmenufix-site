@@ -308,7 +308,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
     <div class="card reveal">{ic("check")}<h3>Honestidad</h3><p>Precios claros, sin costes ocultos y sin promesas que no podemos cumplir. Primero una maqueta gratis, para que sepa lo que recibe.</p></div>
     <div class="card reveal">{ic("rocket")}<h3>Sencillez</h3><p>Todo por correo electrónico, en pocos días. O la Renovación Completa, para que usted no tenga que tocar nada.</p></div>
   </div>
-  <p class="lead reveal" style="text-align:center;margin:40px auto 0">¿Conoce a dueños de restaurantes? <a href="es/referidos.html">Gane un 15 % por cada restaurante que nos recomiende</a>.</p>
+  <p class="lead reveal" style="text-align:center;margin:40px auto 0">¿Conoce a dueños de restaurantes? <a href="es/referidos.html">Gane un 20 % por cada restaurante que nos recomiende</a>.</p>
 </div></section>
 {cta()}
 """, "es/about.html", lang="es")

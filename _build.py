@@ -96,11 +96,11 @@ CHROME = {
     "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
            "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
            "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("uber-eats-menu-makeover-service.html", "Done for you"), ("examples.html", "Examples")]),
-                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 15%"), ("rider.html", "Delivery riders: earn 20%")]),
+                    ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 20%"), ("rider.html", "Delivery riders: earn 20%")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
                     ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker"), ("tools/uber-eats-page-score.html", "Page score")]),
                     ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
-           "promo": ("referral.html", "Know restaurant owners? <b>Earn 15%</b> for every restaurant you send us.", "See how"),
+           "promo": ("referral.html", "Know restaurant owners? <b>Earn 20%</b> for every restaurant you send us.", "See how"),
            "follow": "Follow us",
            "rights": "© 2026 MenuFix. All rights reserved.", "indep": "MenuFix is independent and not affiliated with Uber or Uber Eats."},
     "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
@@ -109,7 +109,7 @@ CHROME = {
                     ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 15 %")]),
                     ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description"), ("fr/outils/score-page-uber-eats.html", "Score de page")]),
                     ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
-           "promo": ("fr/parrainage.html", "Vous connaissez des restaurateurs ? <b>Gagnez 15 %</b> pour chaque restaurant recommandé.", "En savoir plus"),
+           "promo": ("fr/parrainage.html", "Vous connaissez des restaurateurs ? <b>Gagnez 20 %</b> pour chaque restaurant recommandé.", "En savoir plus"),
            "follow": "Suivez nous",
            "rights": "© 2026 MenuFix. Tous droits réservés.", "indep": "MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats."},
     "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/contact.html", "cta": "Maqueta gratis",
@@ -118,7 +118,7 @@ CHROME = {
                     ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 15 %")]),
                     ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones"), ("es/herramientas/puntuacion-pagina-uber-eats.html", "Puntuación de página")]),
                     ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
-           "promo": ("es/referidos.html", "¿Conoce a dueños de restaurantes? <b>Gane un 15 %</b> por cada restaurante que nos recomiende.", "Ver cómo"),
+           "promo": ("es/referidos.html", "¿Conoce a dueños de restaurantes? <b>Gane un 20 %</b> por cada restaurante que nos recomiende.", "Ver cómo"),
            "follow": "Síganos",
            "rights": "© 2026 MenuFix. Todos los derechos reservados.", "indep": "MenuFix es independiente y no está afiliado a Uber ni a Uber Eats."},
 }
@@ -232,7 +232,7 @@ def add_chrome_extras():
         html = re.sub(r'\n      <h4 class="follow">.*?</div>(</div>)', r"\1", html, flags=re.S)
         c, up = CHROME[_lang_of(path)], "../" * path.count("/")
         bar = f'<a class="promo" href="{up}{c["promo"][0]}"><span>{c["promo"][1]}</span> <u>{c["promo"][2]} →</u></a>\n'
-        if path != "rider.html":  # riders from our ads: no "earn 15%" bar above their 20% offer
+        if path != "rider.html":  # riders from our ads: no referral bar above their own offer
             html = html.replace('<nav class="nav">', bar + '<nav class="nav">', 1)
         html = re.sub(r'(<div class="icons">.*?</div>)</div>', lambda m: m.group(1) + f'\n      <h4 class="follow">{c["follow"]}</h4>{social()}</div>', html, count=1, flags=re.S)
         f.write_text(html)
@@ -706,7 +706,7 @@ f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div cl
     <div class="card reveal">{ic("check")}<h3>Honest</h3><p>Clear prices, no hidden fees, and no promises we can't keep. A free mockup first, so you know what you're getting.</p></div>
     <div class="card reveal">{ic("rocket")}<h3>Simple</h3><p>Everything by email, in a few days. Or the Full Makeover, so you don't have to touch anything.</p></div>
   </div>
-  <p class="lead reveal" style="text-align:center;margin:40px auto 0">Know restaurant owners? <a href="referral.html">Earn 15% for every restaurant you send us</a>.</p>
+  <p class="lead reveal" style="text-align:center;margin:40px auto 0">Know restaurant owners? <a href="referral.html">Earn 20% for every restaurant you send us</a>.</p>
 </div></section>
 {cta()}
 """, "about.html")
