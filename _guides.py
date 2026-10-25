@@ -1030,7 +1030,7 @@ GUIDES = [
         "related": ["get-more-orders-on-uber-eats", "reply-to-uber-eats-reviews", "uber-eats-account-management"],
         "title": "Google Business Profile for Restaurants: Setup Guide (2026)",
         "short": "Google Business Profile for restaurants",
-        "desc": "How restaurants and cafés set up their Google Business Profile to bring customers: categories, hours, menu, real food photos, the order button and review auto replies.",
+        "desc": "How restaurants and cafés set up their Google Business Profile to bring customers: categories, hours, menu, real food photos, the order button and replies to reviews.",
         "img": "maps",
         "lead": "When someone searches for food near them, your Google Business Profile is often the first thing they see, before your website or your Uber Eats page. A complete profile turns that search into an order.",
         "answer": "Claim your restaurant on <b>Google Business Profile</b>, then fill in everything: the right <b>main category</b> (for example Thai restaurant, not just Restaurant), exact <b>opening hours</b>, your <b>menu</b>, at least ten <b>real photos</b> of your food and place, a short <b>description</b> of what you serve, and an <b>order link</b> to your website or your Uber Eats page. Reply to every review.",
@@ -1040,7 +1040,6 @@ GUIDES = [
             ("Can I add an Uber Eats link to my Google profile?", "Yes. In the profile you can add a link for orders. Point it to your own website if you take orders there, or to your Uber Eats page."),
             ("How many photos should a restaurant have on Google?", "Start with at least ten real photos: your best dishes, the inside, the outside and your team at work. Add new ones every month, and never use stock or AI food pictures."),
             ("Should I reply to Google reviews?", "Yes. Thank people for good reviews and answer complaints calmly and briefly. Replies show new customers that you care."),
-            ("Can someone reply to my Google reviews automatically?", "Yes. With review auto replies, every new review gets a short reply in your voice. Good reviews are answered straight away; for a bad review you see the reply first and approve or change it."),
         ],
         "body": """
 <h2>1. Claim and verify your profile</h2>
@@ -1064,11 +1063,8 @@ GUIDES = [
 <h2>7. Reviews and replies</h2>
 <p>Ask happy customers for a review, and reply to every review: a thank you for good ones, a calm and short answer to complaints. Our guide on <a href="/guides/reply-to-uber-eats-reviews.html">replying to reviews</a> works for Google too. Never offer anything in exchange for a review.</p>
 
-<h2>8. Google review auto replies</h2>
-<p>Answering every review takes time you don't have. With review auto replies, each new Google review gets a short, warm reply in your voice, with the customer's name and the dish they mention. Good reviews are answered straight away. For a 1 to 3 star review you get the reply by email first, and nothing is posted until you approve or change it. A review that mentions illness, allergies or anything legal never gets an automatic reply: we tell you at once.</p>
-
 <h2>Let us do it for you</h2>
-<p>Our <a href="/pricing.html#google-profile">Google Profile Fix</a> sets all of this up for you at a one time price: categories, hours, menu, your best real photos, the description, the order button, and the first month of review auto replies. Our <a href="/pricing.html#growth">Growth Plan</a> then replies to your Google and Uber Eats reviews every month.</p>
+<p>Our <a href="/pricing.html">Google Profile Fix</a> sets all of this up for you at a one time price: categories, hours, menu, your best real photos, the description and the order button. Our <a href="/pricing.html#growth">Growth Plan</a> then keeps your pages up to date every month.</p>
 """,
     },
 ]

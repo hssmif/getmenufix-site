@@ -69,7 +69,7 @@ def ld(name):
            "description": "MenuFix is an independent done for you Uber Eats menu optimisation service: menu rewrite, photo enhancement of real dishes and Uber Eats page set up, with a free mockup first.",
            "disambiguatingDescription": "MenuFix at getmenufix.com, an Uber Eats page makeover service. Not menufix.com and not affiliated with Uber.",
            "knowsAbout": ["Uber Eats menu optimisation", "Uber Eats menu descriptions", "Uber Eats food photos", "Delivery app menus",
-                          "Uber Eats account management", "Uber Eats error charge disputes", "Uber Eats review replies"],
+                          "Uber Eats account management", "Uber Eats error charge disputes"],
            "sameAs": [u for u in (INSTAGRAM, FACEBOOK, "https://www.crunchbase.com/organization/menufix",
                                   "https://www.trustpilot.com/review/getmenufix.com") if u]}
     graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
@@ -334,7 +334,7 @@ PLANS = f"""<div class="plans">
     <a class="btn dark" data-buy="full_makeover" href="#">Get the Makeover</a></div>
   <div class="plan feat reveal"><span class="ribbon">Most popular</span>{ic("star")}<h3>Makeover and Google</h3><p class="muted" style="margin:6px 0 0">Found on Uber Eats and on Google.</p>
     <div class="price" data-p="makeover_google"></div><small class="once">One time price, no subscription</small>
-    <ul><li>Everything in the Uber Eats Makeover</li><li>Your Google Business Profile set up: categories, hours and menu</li><li>Your best real photos on Google</li><li>An order button on Google</li><li>Google review auto replies, first month included</li></ul>
+    <ul><li>Everything in the Uber Eats Makeover</li><li>Your Google Business Profile set up: categories, hours and menu</li><li>Your best real photos on Google</li><li>An order button on Google</li><li>A description with the words people search</li></ul>
     <a class="btn primary" data-buy="makeover_google" href="#">Get Makeover and Google</a></div>
   <div class="plan reveal"><span class="ribbon green">Best value</span>{ic("gift")}<h3>Complete</h3><p class="muted" style="margin:6px 0 0">Uber Eats, Google and your own website.</p>
     <div class="price" data-p="complete"></div><small class="once">One time price, first year of hosting included</small>
@@ -649,7 +649,7 @@ f"""{head("Pricing", "Three packages, all <span class='hl'>done for you.</span>"
   <div class="plans" style="grid-template-columns:minmax(300px,460px);justify-content:center">
   <div class="plan feat reveal"><span class="ribbon">Growth Plan</span><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/rocket.png" alt="" loading="lazy"><h3>Growth Plan</h3><p class="muted" style="margin:6px 0 0">Everything kept fresh and working, every month.</p>
     <div class="price" data-p="growth_plan"></div><small class="once">A month, cancel any time</small>
-    <ul><li>Menu, prices and photos kept up to date</li><li>Replies to your Uber Eats and Google reviews</li><li>Wrong refunds and error charges disputed for you</li><li>Your offers and ads checked</li><li>Your website kept online and up to date</li><li>A monthly report with your page score</li></ul>
+    <ul><li>Menu, prices and photos kept up to date</li><li>Automatic replies to your Uber Eats reviews set up</li><li>Wrong refunds and error charges disputed for you</li><li>Your offers and ads checked</li><li>Your website kept online and up to date</li><li>A monthly report with your page score</li></ul>
     <a class="btn primary" href="contact.html?topic=growth_plan">Ask about the Growth Plan</a></div>
   </div>
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
@@ -662,7 +662,6 @@ f"""{head("Pricing", "Three packages, all <span class='hl'>done for you.</span>"
     <tr><td>Done for you: we make every change</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>One month of updates</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Google Business Profile set up</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Google review auto replies, first month</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Your own website, first year of hosting</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
   </table></div>
 </div></section>
@@ -956,9 +955,9 @@ page("pay.html", "Secure payment | MenuFix", "Pay for your MenuFix order securel
 const PAY_API = "https://admin.getmenufix.com/api/public/pay";
 const PAY_INFO = {
   full_makeover: ["Uber Eats Makeover", "Your whole Uber Eats page, done for you.", ["Every dish rewritten to sell", "Your real photos enhanced, whole menu", "Best sellers first and a clear menu order", "A prices and combos check", "We make every change for you", "One month of updates"]],
-  makeover_google: ["Makeover and Google", "Found on Uber Eats and on Google.", ["Everything in the Uber Eats Makeover", "Your Google Business Profile set up", "Your best real photos on Google", "An order button on Google", "Google review auto replies, first month"]],
+  makeover_google: ["Makeover and Google", "Found on Uber Eats and on Google.", ["Everything in the Uber Eats Makeover", "Your Google Business Profile set up", "Your best real photos on Google", "An order button on Google", "A description with the words people search"]],
   complete: ["Complete", "Uber Eats, Google and your own website.", ["Everything in Makeover and Google", "Your own website in your style", "Menu with photos and an order button", "Your web address connected", "First year of hosting included"]],
-  growth_plan: ["Growth Plan", "Everything kept fresh and working, every month.", ["Menu, prices and photos kept up to date", "Replies to your Uber Eats and Google reviews", "Wrong refunds disputed for you", "Offers and ads checked", "Your website kept up to date", "A monthly report"]],
+  growth_plan: ["Growth Plan", "Everything kept fresh and working, every month.", ["Menu, prices and photos kept up to date", "Automatic replies to your Uber Eats reviews set up", "Wrong refunds disputed for you", "Offers and ads checked", "Your website kept up to date", "A monthly report"]],
 };
 const MONTHLY = ["growth_plan"];
 window.addEventListener("load", async () => {
