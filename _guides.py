@@ -209,7 +209,7 @@ GUIDES = [
         "title": "Uber Eats Manager: How to Edit Your Menu, Photos and Categories",
         "short": "Editing your menu in Uber Eats Manager",
         "desc": "A step by step guide for restaurant owners on updating item names, descriptions, photos and categories in Uber Eats Manager, plus how to add someone to help.",
-        "img": "kitchen",
+        "img": "tablet",
         "lead": "How to update my menu on Uber Eats is one of the most common questions from restaurant owners. It's all done in Uber Eats Manager. Here's where to find each setting, step by step. Screens change from time to time, but the main steps stay the same.",
         "body": """
 <h2>How to update my menu on Uber Eats: the short version</h2>
@@ -248,7 +248,7 @@ GUIDES = [
         "title": "New on Uber Eats? A Checklist for Your First Weeks",
         "short": "New on Uber Eats: first weeks checklist",
         "desc": "Just launched on Uber Eats? A practical checklist for new restaurants and cafés to make a strong first impression: menu, photos, banner, hours and more.",
-        "img": "delivery",
+        "img": "opening",
         "lead": "The first weeks on Uber Eats are when many people try you for the first time. This checklist helps your page make a strong first impression.",
         "body": """
 <h2>Before your first order</h2>
@@ -275,7 +275,7 @@ GUIDES = [
         "title": "How to Price Your Menu on Uber Eats",
         "short": "How to price your menu on Uber Eats",
         "desc": "A practical, honest guide for restaurants and cafés on setting Uber Eats prices: costs, commission, packaging, combos, sizes and promotions.",
-        "img": "desk",
+        "img": "pricing",
         "lead": "Pricing on Uber Eats is not the same as pricing at your counter. Commission and packaging come out of every order, so a price that works in store can lose money on delivery. Here is a simple way to get it right.",
         "body": """
 <h2>1. Know your real cost per dish</h2>
@@ -314,7 +314,7 @@ GUIDES = [
         "title": "Uber Eats vs DoorDash vs Menulog: Menu Tips for Restaurants",
         "short": "Uber Eats vs DoorDash vs Menulog: menu tips",
         "desc": "On more than one delivery app? Practical menu tips for Uber Eats, DoorDash and Menulog: what's the same, what differs, and how to keep every menu up to date.",
-        "img": "phone",
+        "img": "tablets",
         "lead": "If you're on Uber Eats, DoorDash and Menulog, you're really running three menus. The good news is that what makes a menu work is the same on all of them. Here is how to keep them consistent without doubling your workload.",
         "body": """
 <h2>What's the same on every app</h2>
@@ -352,7 +352,7 @@ GUIDES = [
         "title": "Your Uber Eats Banner Photo: How to Choose One That Sells",
         "short": "Choosing your Uber Eats banner photo",
         "desc": "How restaurants and cafés can choose and take a banner photo for their Uber Eats page: which dish to show, how to shoot it, cropping and common mistakes.",
-        "img": "spread",
+        "img": "banner",
         "related": ["uber-eats-food-photos-phone", "uber-eats-photo-requirements", "get-more-orders-on-uber-eats"],
         "lead": "The big photo at the top of your Uber Eats page is the first thing customers see. It sets the mood for everything else, so it's worth getting right.",
         "body": """
@@ -388,7 +388,7 @@ GUIDES = [
         "title": "How to Organise Your Uber Eats Menu Categories",
         "short": "Organising your Uber Eats categories",
         "desc": "A practical guide to Uber Eats menu categories for restaurants and cafés: how many to have, what to call them, what order to put them in, and what to remove.",
-        "img": "kitchen",
+        "img": "menuboard",
         "related": ["edit-menu-uber-eats-manager", "get-more-orders-on-uber-eats", "write-uber-eats-menu-descriptions"],
         "lead": "A clear menu structure helps hungry people find what they want quickly. Here is how to set up your categories so your page is easy to scan on a phone.",
         "body": """
@@ -468,7 +468,7 @@ GUIDES = [
         "title": "Uber Eats Fees for Restaurants in Australia (2026): What You Really Pay",
         "short": "Uber Eats fees in Australia",
         "desc": "Uber Eats fees for restaurants in Australia in 2026, and how much Uber Eats charges restaurants: 30% delivery, 16% self delivery, 8% pickup, the A$700 activation fee, Webshop rates and how to work out what you keep.",
-        "img": "counter",
+        "img": "fees",
         "lead": "Before you set prices or run a promotion, you need to know what Uber Eats takes from each order. Here are Uber's published Australian rates, taken from Uber's own pricing page, and a simple way to work out what you keep.",
         "body": """
 <h2>How much does Uber Eats charge restaurants?</h2>
@@ -508,7 +508,7 @@ GUIDES = [
         "title": "Uber Eats Food Photography Cost: Photographer, Uber's Photoshoot or Your Phone",
         "short": "Uber Eats food photography cost",
         "desc": "What Uber Eats food photography costs for restaurants: hiring a photographer, Uber's own photography session for restaurants, or enhancing photos from your phone.",
-        "img": "phone",
+        "img": "photoshoot",
         "related": ["uber-eats-food-photos-phone", "uber-eats-photo-requirements", "uber-eats-photo-upload-not-working"],
         "lead": "Good photos are one of the easiest ways to make your Uber Eats page more appetising. There are three ways to get them, and they cost very different amounts. Here's what each involves, with no made up prices.",
         "body": """
@@ -543,7 +543,7 @@ GUIDES = [
         "title": "Uber Eats Photo Upload Not Working? Common Problems and Fixes for Restaurants",
         "short": "Uber Eats photo upload not working",
         "desc": "Restaurant owners: why your Uber Eats photo won't upload or gets rejected, and how to fix each problem: file size, format, photo size, shape, text and logos.",
-        "img": "burger-after",
+        "img": "laptop",
         "related": ["uber-eats-photo-requirements", "uber-eats-food-photos-phone", "edit-menu-uber-eats-manager"],
         "lead": "You've taken a good photo, but Uber Eats Manager won't take it, or it never appears on your page. This guide is for restaurant owners and goes through the usual causes one by one, based on Uber's own photo rules.",
         "body": """
@@ -589,7 +589,7 @@ GUIDES = [
         "title": "Moving from Menulog to Uber Eats: Set Up Your Page Right",
         "short": "Moving from Menulog to Uber Eats",
         "desc": "Moving your restaurant from Menulog to Uber Eats? What Uber asks for when you sign up, its photo and cover image rules, and how to set up a new Uber Eats page that people choose.",
-        "img": "phone",
+        "img": "packing",
         "lead": "A new Uber Eats page starts from zero: no ratings, no regulars on the app yet. The first weeks decide who tries you, so it pays to set the page up properly instead of copying your old menu across as it is. Every requirement below comes from Uber's own merchant pages.",
         "answer": "Sign up on Uber's merchant site with an up to date menu (prices and descriptions), your opening hours and your business or food licence. Uber adds your location once it approves what you sent. Then set up the page properly: best sellers first, clear names, a short description for every dish, and photos that meet Uber's rules: <b>5:4 landscape</b>, ideally <b>2880 × 2304 pixels</b>, <b>JPG up to 10 MB</b>, one dish, no text or logos.",
         "faq": [
@@ -644,7 +644,7 @@ GUIDES = [
         "title": "How to Get Your Restaurant on Uber Eats in Australia",
         "short": "Getting your restaurant on Uber Eats",
         "desc": "How Australian restaurants and cafés join Uber Eats: the sign up steps, what you need, the A$700 activation fee, and a checklist for your first week.",
-        "img": "counter",
+        "img": "shopfront",
         "related": ["new-on-uber-eats-checklist", "uber-eats-fees-australia", "how-to-add-photos-to-uber-eats-menu"],
         "lead": "Joining Uber Eats is mostly paperwork and setting up your menu. Here are the steps for an Australian restaurant or café, what to have ready, what it costs, and what to do in your first week.",
         "body": """
@@ -683,7 +683,7 @@ GUIDES = [
         "title": "How to Add Photos to Your Uber Eats Menu (Step by Step)",
         "short": "How to add photos to your Uber Eats menu",
         "desc": "Step by step for restaurant owners: how to add or replace menu photos in Uber Eats Manager, Uber's photo rules, and what to do if a photo won't upload.",
-        "img": "phone",
+        "img": "flatlay",
         "related": ["uber-eats-photo-requirements", "uber-eats-photo-upload-not-working", "uber-eats-food-photos-phone"],
         "lead": "Photos are added one menu item at a time in Uber Eats Manager. Here are the steps from Uber's own help pages, the rules your photo has to meet, and how to check it before you upload.",
         "body": """
@@ -715,7 +715,7 @@ GUIDES = [
         "title": "How to Improve Your Uber Eats Rating (for Restaurants)",
         "short": "Improve your Uber Eats rating",
         "desc": "For restaurant owners: practical ways to improve your Uber Eats rating. Accurate photos and descriptions, packaging, sold out items and reading your feedback. No promises, just the parts you control.",
-        "img": "delivery",
+        "img": "handover",
         "related": ["reply-to-uber-eats-reviews", "get-more-orders-on-uber-eats", "write-uber-eats-menu-descriptions"],
         "lead": "Your rating comes from what happens after someone orders. You can't control the traffic or the courier, but a lot of it is in your hands. Here's what restaurants can do, without promises.",
         "body": """
@@ -753,7 +753,7 @@ GUIDES = [
         "title": "30 Uber Eats Menu Description Examples (Before and After)",
         "short": "30 menu description examples",
         "desc": "30 before and after Uber Eats menu description examples by cuisine: burgers, pizza, Indian, Thai, Chinese, kebab, café, bakery, dessert and healthy bowls. Each one 140 to 260 characters.",
-        "img": "desk",
+        "img": "notebook",
         "related": ["write-uber-eats-menu-descriptions", "best-sellers-uber-eats-menu-order", "improve-uber-eats-rating-restaurant"],
         "lead": "The quickest way to write good descriptions is to start from good examples. Here are 30, grouped by cuisine. Swap in your own ingredients, sizes and sides so every word is true for your dish.",
         "body": """
@@ -835,7 +835,7 @@ GUIDES = [
         "title": "How to Order Your Uber Eats Menu So Best Sellers Come First",
         "short": "Best sellers first: ordering your menu",
         "desc": "How restaurants and cafés should order Uber Eats categories and items so best sellers come first: a Most Popular category, the right category order, and the best item at the top of each.",
-        "img": "spread",
+        "img": "bestsellers",
         "related": ["uber-eats-menu-categories", "get-more-orders-on-uber-eats", "uber-eats-menu-description-examples"],
         "lead": "Many customers never scroll far. The order of your menu decides which dishes they see first. Here's how to set it up so your best food is right at the top.",
         "body": """
@@ -873,7 +873,7 @@ GUIDES = [
         "title": "How to Optimise Your Uber Eats Page: 5 Options Compared, From Free Tools to Done for You",
         "short": "Ways to optimise your Uber Eats page compared",
         "desc": "The five ways to optimise a restaurant's Uber Eats page compared: Uber Eats Manager, free checkers, restaurant software, food photographers and makeover services. Costs, who does the work and what each one fixes.",
-        "img": "desk",
+        "img": "kitchen",
         "related": ["get-more-orders-on-uber-eats", "uber-eats-food-photography-cost", "write-uber-eats-menu-descriptions"],
         "lead": "If you search for help with your Uber Eats page, you find tools, apps, photographers and agencies that all promise more orders. They do very different jobs. Here is what each kind of help really fixes, what it costs you and who it suits, so you can pick the right one.",
         "body": """
@@ -963,7 +963,7 @@ GUIDES = [
         "title": "Uber Eats AI Food Photos: What Restaurants Should Know (2026)",
         "short": "Uber Eats AI food photos",
         "desc": "Uber Eats now improves food photos with AI and can show customer photos on dishes that have none. What that means for your restaurant, and why photos of your real food still win.",
-        "img": "phone",
+        "img": "realfood",
         "lead": "Uber Eats can now change how your dishes look: AI can improve a weak photo, and customers' photos can appear on items with no picture. Here's what that means, and how to keep control of your own page.",
         "answer": "Since July 2025 Uber Eats can use <b>AI to improve low quality food photos</b>, for example better light or a dish moved onto a plate, and it can show <b>photos taken by customers</b> on items that have no photo. Uber's own guidance says a photo should stay a <b>true representation of the dish</b>. The safest choice is clear photos of your <b>real food</b> on every popular item, so customers get what they saw.",
         "faq": [
@@ -996,7 +996,7 @@ GUIDES = [
         "title": "Uber Eats Account Management for Restaurants: Monthly Checklist",
         "short": "Uber Eats account management checklist",
         "desc": "A simple monthly checklist to manage your restaurant's Uber Eats account: reviews, refunds and error charges, offers and ads, menu and photos. Do it yourself, or let MenuFix do it for you.",
-        "img": "desk",
+        "img": "manager",
         "lead": "Your Uber Eats page is not set and forget. One hour a month on these five things keeps money from leaking and keeps your page easy to choose.",
         "answer": "Once a month, in Uber Eats Manager: <b>reply to new reviews</b>, <b>dispute wrong refunds</b> under Orders within 30 days, <b>check your offers and ads</b> and stop what loses money, <b>update dishes and prices</b>, and keep <b>at least 70% of dishes with a photo and a description</b>, Uber's own goal. Give anyone who helps you their own manager login, never your password.",
         "faq": [

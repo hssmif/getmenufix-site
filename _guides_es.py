@@ -211,7 +211,7 @@ GUIDES_ES_1 = [
         "title": "Uber Eats Manager: cómo editar su carta, sus fotos y sus platos",
         "short": "Editar la carta en Uber Eats Manager",
         "desc": "Paso a paso para restaurantes: cambiar nombres, descripciones y fotos de su carta en Uber Eats Manager, subir la portada y pedir ayuda sin dar su contraseña.",
-        "img": "kitchen",
+        "img": "tablet",
         "related": ["categorias-menu-uber-eats", "requisitos-fotos-uber-eats", "descripciones-menu-uber-eats"],
         "lead": "Su página de Uber Eats se cambia desde Uber Eats Manager. Aquí tiene dónde está cada cosa, paso a paso. Las pantallas cambian de vez en cuando y los nombres pueden salirle en español o en inglés, pero los pasos principales se mantienen.",
         "body": """
@@ -252,7 +252,7 @@ GUIDES_ES_1 = [
         "title": "¿Nuevo en Uber Eats? Lista para sus primeras semanas",
         "short": "Nuevo en Uber Eats: la lista",
         "desc": "¿Acaba de darse de alta en Uber Eats? Una lista práctica para restaurantes y cafeterías nuevos: carta, fotos, portada y horario, para causar buena impresión.",
-        "img": "delivery",
+        "img": "opening",
         "related": ["mas-pedidos-uber-eats", "precios-menu-uber-eats", "fotos-comida-movil"],
         "lead": "Las primeras semanas en Uber Eats son cuando mucha gente le prueba por primera vez. Esta lista ayuda a que su página cause buena impresión.",
         "body": """
@@ -303,7 +303,7 @@ GUIDES_ES_2 = [
         "title": "Cómo fijar los precios de su carta en Uber Eats (España)",
         "short": "Fijar los precios en Uber Eats",
         "desc": "Guía práctica y honesta para restaurantes en España: cómo fijar precios en Uber Eats según costes, tarifas de su contrato, envases, menús y promociones.",
-        "img": "desk",
+        "img": "pricing",
         "related": ["comision-uber-eats-restaurantes-espana", "uber-eats-glovo-just-eat-consejos-menu", "mas-pedidos-uber-eats"],
         "lead": "Poner precios en Uber Eats no es lo mismo que en la barra. Las tarifas de Uber y los envases salen de cada pedido, así que un precio que funciona en sala puede dejarle sin margen a domicilio. Este es un método sencillo.",
         "body": f"""
@@ -347,7 +347,7 @@ GUIDES_ES_2 = [
         "title": "Uber Eats, Glovo y Just Eat: consejos de carta para restaurantes",
         "short": "Uber Eats, Glovo y Just Eat: su carta",
         "desc": "¿Vende en varias apps de reparto en España? Consejos para su carta en Uber Eats, Glovo y Just Eat: qué es igual, qué cambia y cómo tenerlo todo al día.",
-        "img": "phone",
+        "img": "tablets",
         "related": ["precios-menu-uber-eats", "editar-menu-uber-eats-manager", "requisitos-fotos-uber-eats"],
         "lead": "Si está en Uber Eats, Glovo y Just Eat, en realidad lleva tres cartas. La buena noticia: lo que hace que una carta funcione es lo mismo en todas. Así puede mantenerlas coherentes sin duplicar el trabajo.",
         "body": f"""
@@ -387,7 +387,7 @@ GUIDES_ES_2 = [
         "title": "La foto de portada de Uber Eats: cómo elegir la mejor para su local",
         "short": "Elegir su foto de portada en Uber Eats",
         "desc": "Cómo elegir la foto de portada de su página de Uber Eats: qué plato mostrar, el tamaño que pide Uber (2880 × 2304, 5:4), el encuadre y los errores habituales.",
-        "img": "spread",
+        "img": "banner",
         "related": ["fotos-comida-movil", "requisitos-fotos-uber-eats", "foto-uber-eats-no-se-sube"],
         "lead": "La foto grande de la parte superior de su página de Uber Eats es lo primero que ven los clientes. Marca el tono de todo lo demás, así que merece unos minutos de atención.",
         "body": f"""
@@ -437,7 +437,7 @@ GUIDES_ES_2 = [
         "title": "Cómo organizar las categorías de su carta en Uber Eats",
         "short": "Organizar las categorías en Uber Eats",
         "desc": "Guía práctica sobre las categorías de su carta en Uber Eats para restaurantes y cafeterías: cuántas tener, cómo llamarlas, en qué orden ponerlas y qué eliminar.",
-        "img": "kitchen",
+        "img": "menuboard",
         "related": ["platos-mas-vendidos-orden-menu-uber-eats", "editar-menu-uber-eats-manager", "descripciones-menu-uber-eats"],
         "lead": "Una carta bien ordenada ayuda a quien tiene hambre a encontrar rápido lo que busca. Así puede organizar sus categorías para que su página se recorra con facilidad en el móvil.",
         "body": """
@@ -523,7 +523,7 @@ GUIDES_ES_2 = [
         "title": "Cuánto cuestan las fotos de comida para Uber Eats: tres opciones",
         "short": "Coste de las fotos para Uber Eats",
         "desc": "Cuánto cuestan las fotos de comida para Uber Eats en España: la sesión de fotos de Uber, un fotógrafo o mejorar las fotos de su móvil. Sin precios inventados.",
-        "img": "phone",
+        "img": "photoshoot",
         "related": ["fotos-comida-movil", "requisitos-fotos-uber-eats", "foto-uber-eats-no-se-sube"],
         "lead": "Unas buenas fotos son de las formas más sencillas de hacer más apetecible su página de Uber Eats. Hay tres caminos para conseguirlas, con costes muy distintos. Esto es lo que implica cada uno, sin precios inventados.",
         "body": f"""
@@ -561,7 +561,7 @@ GUIDES_ES_2 = [
         "title": "¿Su foto no se sube a Uber Eats? Causas habituales y soluciones",
         "short": "La foto no se sube a Uber Eats",
         "desc": "Por qué su foto no se sube a Uber Eats o la rechazan y cómo solucionarlo: peso, formato, tamaño, proporción, texto y logos. Con un comprobador gratuito.",
-        "img": "burger-after",
+        "img": "laptop",
         "related": ["requisitos-fotos-uber-eats", "anadir-fotos-menu-uber-eats", "fotos-comida-movil"],
         "lead": "Ha hecho una buena foto, pero Uber Eats Manager no la acepta o nunca aparece en su página. Repasamos las causas habituales una a una, según las normas de fotos de la propia Uber.",
         "body": f"""
@@ -689,7 +689,7 @@ GUIDES_ES_3 = [
         "title": "Registrar su restaurante en Uber Eats en España: pasos y tarifas",
         "short": "Registrar su restaurante en Uber Eats",
         "desc": "Cómo dar de alta su restaurante en Uber Eats en España: la solicitud, qué tener preparado, las tarifas de su Modelo de Pedido y qué hacer las primeras semanas.",
-        "img": "kitchen",
+        "img": "shopfront",
         "related": ["empezar-en-uber-eats", "comision-uber-eats-restaurantes-espana", "anadir-fotos-menu-uber-eats"],
         "lead": "Entrar en Uber Eats es sobre todo papeleo y una carta bien preparada. Estos son los pasos para un restaurante o una cafetería en España, qué conviene tener a mano y dónde ver lo que va a pagar.",
         "body": f"""
@@ -731,7 +731,7 @@ GUIDES_ES_3 = [
         "title": "Comisión de Uber Eats para restaurantes en España: tarifas y alta",
         "short": "Comisión de Uber Eats en España",
         "desc": "Qué tarifas cobra Uber Eats a los restaurantes en España: activación, servicio y tarifa administrativa. Dónde ver sus cifras y qué preguntar antes de firmar.",
-        "img": "counter",
+        "img": "fees",
         "related": ["precios-menu-uber-eats", "registrar-restaurante-uber-eats-espana", "uber-eats-glovo-just-eat-consejos-menu"],
         "lead": "Antes de fijar precios o firmar, conviene saber qué se queda Uber Eats de cada pedido. Aquí tiene las tarifas que recogen los documentos oficiales de Uber para España, lo que no publican y cómo calcular lo que le queda a usted.",
         "body": f"""
@@ -776,7 +776,7 @@ GUIDES_ES_3 = [
         "title": "Cómo añadir fotos a su menú de Uber Eats, paso a paso",
         "short": "Añadir fotos a su menú de Uber Eats",
         "desc": "Paso a paso para restaurantes: cómo añadir o cambiar las fotos de sus platos en Uber Eats Manager, las normas de Uber y qué hacer si una foto no se sube.",
-        "img": "phone",
+        "img": "flatlay",
         "related": ["requisitos-fotos-uber-eats", "foto-uber-eats-no-se-sube", "fotos-comida-movil"],
         "lead": "Las fotos se añaden plato a plato en Uber Eats Manager. Estos son los pasos que indica la ayuda de Uber, las normas que debe cumplir cada foto y cómo comprobarla antes de subirla.",
         "body": f"""
@@ -817,7 +817,7 @@ GUIDES_ES_3 = [
         "title": "Cómo mejorar la valoración de su restaurante en Uber Eats",
         "short": "Mejorar su valoración en Uber Eats",
         "desc": "Para dueños de restaurantes: formas prácticas de mejorar su valoración en Uber Eats. Fotos fieles, buenos envases, platos agotados y comentarios. Sin promesas.",
-        "img": "delivery",
+        "img": "handover",
         "related": ["responder-resenas-uber-eats", "mas-pedidos-uber-eats", "descripciones-menu-uber-eats"],
         "lead": "Su valoración depende de lo que pasa después del pedido. El tráfico o el repartidor no dependen de usted, pero mucho de lo demás sí. Esto es lo que puede hacer un restaurante, sin promesas.",
         "body": f"""
@@ -857,7 +857,7 @@ GUIDES_ES_3 = [
         "title": "30 ejemplos de descripciones de platos para Uber Eats",
         "short": "30 ejemplos de descripciones",
         "desc": "30 ejemplos de descripciones de platos para Uber Eats, antes y después: tapas, bocadillos, paella, hamburguesas, pizza, poke, kebab, tacos y churros.",
-        "img": "desk",
+        "img": "notebook",
         "related": ["descripciones-menu-uber-eats", "platos-mas-vendidos-orden-menu-uber-eats", "mejorar-valoracion-uber-eats"],
         "lead": "La forma más rápida de escribir buenas descripciones es partir de buenos ejemplos. Aquí tiene 30, agrupados por tipo de cocina. Cambie ingredientes, tamaños y acompañamientos para que cada palabra sea cierta en su plato.",
         "body": f"""
@@ -908,7 +908,7 @@ GUIDES_ES_3 = [
         "title": "Cómo ordenar su menú de Uber Eats con los más vendidos primero",
         "short": "Los más vendidos, primero",
         "desc": "Cómo ordenar las categorías y los platos de su menú de Uber Eats para que los más vendidos salgan primero: categoría destacada, orden lógico y buenas fotos.",
-        "img": "spread",
+        "img": "bestsellers",
         "related": ["categorias-menu-uber-eats", "mas-pedidos-uber-eats", "ejemplos-descripciones-menu-uber-eats"],
         "lead": "Muchos clientes no bajan mucho por la página. El orden de su menú decide qué platos ven primero. Así puede organizarlo para que lo mejor de su cocina quede arriba del todo.",
         "body": """
