@@ -1,3 +1,5 @@
+// Where this visit came from (Google, Instagram, an email...), kept for the visit so the payment page can say it.
+try { const r = document.referrer; if (r && !r.includes(location.host) && !sessionStorage.getItem("mf_from")) sessionStorage.setItem("mf_from", r); } catch (e) {}
 // Edit these if anything changes.
 const CONTACT = "hello@getmenufix.com";
 // The free page check form posts here: the Google Apps Script web app MenuFix already uses (MUSE_SHEET_URL in
