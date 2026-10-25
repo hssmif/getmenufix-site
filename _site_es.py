@@ -24,12 +24,12 @@ CATS = [("pizza", "Pizza"), ("burger", "Hamburguesas"), ("sushi", "Sushi"), ("no
         ("icecream", "Postres")]
 
 FAQ = [
-    ("¿Tengo que darles mi contraseña?", "No. Para la Renovación Completa, usted nos añade como usuario en su Uber Eats Manager y puede quitarnos el acceso cuando quiera. Nunca le pediremos su contraseña."),
+    ("¿Tengo que darles mi contraseña?", "No. Usted nos añade como usuario en su Uber Eats Manager y puede quitarnos el acceso cuando quiera. Nunca le pediremos su contraseña."),
     ("¿Usan fotos falsas de comida?", "Nunca. Solo mejoramos fotos de sus platos reales: mejor luz, un fondo limpio y el tamaño correcto. El cliente debe recibir exactamente lo que ve. La maqueta gratis es solo una vista previa del concepto."),
-    ("¿Cuánto tarda?", "Normalmente dos o tres días laborables desde que tenemos sus fotos y, para la Renovación Completa, el acceso a su Uber Eats Manager."),
+    ("¿Cuánto tarda?", "Normalmente dos o tres días laborables desde que tenemos sus fotos y el acceso a su Uber Eats Manager."),
     ("¿Me garantizan más pedidos?", "Nadie puede prometerlo con honestidad. Lo que hacemos es que su página sea más clara y más apetecible, que es lo que ayuda a que la gente le elija."),
     ("¿Y si no me gusta?", "No paga. Primero preparamos su página terminada y se la enviamos, antes y después, con cada cambio indicado. Si le gusta, paga. Si no, díganos qué cambiar, o simplemente diga que no y no nos debe nada."),
-    ("¿Qué tengo que enviarles?", "Para Menu Fix, nada: trabajamos a partir de su página actual. Para los paquetes con fotos, fotos de sus platos hechas con el móvil y con buena luz. Junto a una ventana es perfecto."),
+    ("¿Qué tengo que enviarles?", "Fotos de sus platos hechas con el móvil y con buena luz (junto a una ventana es perfecto) y acceso como usuario a su Uber Eats Manager. Nosotros hacemos el resto."),
     ("¿Trabajan también con cafeterías y panaderías?", "Sí. Restaurantes, comida para llevar, cafeterías, panaderías y heladerías o pastelerías que venden en Uber Eats. No trabajamos con grandes cadenas ni con tiendas de productos envasados."),
     ("¿MenuFix forma parte de Uber?", "No. MenuFix es un servicio independiente y no está afiliado a Uber ni a Uber Eats."),
     ("¿Trabajan con restaurantes en España?", "Sí. Todo se hace por correo electrónico, así que podemos trabajar con restaurantes de cualquier ciudad de España. En estas páginas los precios aparecen en euros."),
@@ -64,19 +64,20 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 </div></div></section>"""
 
     plans = f"""<div class="plans">
-  <div class="plan reveal">{ic("pen")}<h3>Menu Fix</h3><p class="muted" style="margin:6px 0 0">Su carta clara, ordenada y lista para vender.</p>
-    <div class="price" data-p="menu_fix">169&nbsp;€</div><small class="once">Precio único, sin suscripción</small>
-    <ul><li>Faltas y redacción corregidas</li><li>Cada plato de su carta reescrito para vender</li><li>Los platos más vendidos, arriba</li><li>Categorías en el orden correcto</li><li>Listo para copiar, con una guía sencilla</li></ul>
-    <a class="btn dark" data-buy="menu_fix" href="#">Quiero Menu Fix</a></div>
-  <div class="plan feat reveal"><span class="ribbon">El más elegido</span>{ic("camera")}<h3>Menu y Fotos</h3><p class="muted" style="margin:6px 0 0">Todo lo de Menu Fix, más sus fotos.</p>
-    <div class="price" data-p="menu_photos">339&nbsp;€</div><small class="once">Precio único, sin suscripción</small>
-    <ul><li>Todo lo de Menu Fix</li><li>Sus fotos reales de hasta 15 platos, mejoradas</li><li>Mejor luz y un fondo limpio</li><li>Con el tamaño adecuado para Uber Eats</li><li>Listo para copiar, con una guía sencilla</li></ul>
-    <a class="btn primary" data-buy="menu_photos" href="#">Quiero Menu y Fotos</a></div>
-  <div class="plan reveal"><span class="ribbon green">Hecho por nosotros</span>{ic("chef")}<h3>Renovación Completa</h3><p class="muted" style="margin:6px 0 0">Nosotros lo hacemos todo.</p>
+  <div class="plan reveal">{ic("chef")}<h3>Renovación Uber Eats</h3><p class="muted" style="margin:6px 0 0">Toda su página de Uber Eats, hecha por nosotros.</p>
     <div class="price" data-p="full_makeover">569&nbsp;€</div><small class="once">Precio único, sin suscripción</small>
-    <ul><li class="dfy">Hacemos todos los cambios en su página de Uber Eats. Usted no toca nada</li><li>Fotos de toda su carta, hasta 50 platos</li><li>Nueva estructura y orden de la carta</li><li>Un mes de actualizaciones cuando cambie platos o precios</li></ul>
-    <a class="btn dark" data-buy="full_makeover" href="#">Quiero la Renovación Completa</a></div>
-</div>"""
+    <ul><li>Cada plato reescrito para vender</li><li>Sus fotos reales mejoradas, toda la carta</li><li>Lo más vendido arriba y una carta clara</li><li>Revisión de precios y menús combinados</li><li class="dfy">Hacemos todos los cambios en su página. Usted no toca nada</li><li>Un mes de actualizaciones</li></ul>
+    <a class="btn dark" data-buy="full_makeover" href="#">Quiero la Renovación</a></div>
+  <div class="plan feat reveal"><span class="ribbon">El más elegido</span>{ic("star")}<h3>Renovación y Google</h3><p class="muted" style="margin:6px 0 0">En Uber Eats y en Google.</p>
+    <div class="price" data-p="makeover_google">739&nbsp;€</div><small class="once">Precio único, sin suscripción</small>
+    <ul><li>Todo lo de la Renovación Uber Eats</li><li>Su ficha de Google preparada: categorías, horario y carta</li><li>Sus mejores fotos reales en Google</li><li>Un botón para pedir en Google</li><li>Respuestas automáticas a las reseñas de Google, el primer mes</li></ul>
+    <a class="btn primary" data-buy="makeover_google" href="#">Quiero Renovación y Google</a></div>
+  <div class="plan reveal"><span class="ribbon green">El mejor precio</span>{ic("gift")}<h3>Completa</h3><p class="muted" style="margin:6px 0 0">Uber Eats, Google y su propia web.</p>
+    <div class="price" data-p="complete">1359&nbsp;€</div><small class="once">Precio único, primer año de alojamiento incluido</small>
+    <ul><li>Todo lo de Renovación y Google</li><li>Su propia web, con su estilo</li><li>Carta con fotos y precios, y un botón para pedir</li><li>Horario, mapa, reseñas y su Instagram</li><li>Su dominio conectado</li></ul>
+    <a class="btn dark" data-buy="complete" href="#">Quiero la Completa</a></div>
+</div>
+<p class="note reveal" style="text-align:center;margin-top:18px">Los tres están hechos por nosotros, y solo paga cuando haya visto su página terminada y esté contento.</p>"""
     cur = '<p class="curnote">Precios en <b data-curname>euros</b>. Se paga con tarjeta a través de Stripe.</p>'
     cats = '<div class="cats">' + "".join(f'<div class="cat"><div class="ic"><img src="img/icons/{k}.png" alt="" loading="lazy"></div>{t}</div>' for k, t in CATS) + "</div>"
     feat = "".join(f"""<a class="fcard reveal" href="es/examples.html"><div class="ph"><img src="img/{k}-after.jpg" alt="" loading="lazy"><span class="badge">Antes y después</span></div>
@@ -145,7 +146,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
   <div class="grid3">
     <a class="photo-card reveal" href="es/services.html"><div class="ph"><img class="bg" src="img/desk.jpg" alt="" loading="lazy">{ic("pen")}</div><div class="body"><h3>Reescritura de la carta</h3><p>Nombres claros, descripciones que venden, sin faltas y con las categorías en el orden correcto.</p></div></a>
     <a class="photo-card reveal" href="es/services.html#photos"><div class="ph"><img class="bg" src="img/phone.jpg" alt="" loading="lazy">{ic("camera")}</div><div class="body"><h3>Mejora de fotos</h3><p>Sus platos reales con mejor luz, un fondo limpio y el tamaño adecuado para Uber Eats.</p></div></a>
-    <a class="photo-card reveal" href="es/services.html#done"><div class="ph"><img class="bg" src="img/kitchen.jpg" alt="" loading="lazy">{ic("chef")}</div><div class="body"><h3>Hecho por nosotros</h3><p>Con la Renovación Completa hacemos nosotros todos los cambios en su página de Uber Eats. Usted sigue cocinando.</p></div></a>
+    <a class="photo-card reveal" href="es/services.html#done"><div class="ph"><img class="bg" src="img/kitchen.jpg" alt="" loading="lazy">{ic("chef")}</div><div class="body"><h3>Hecho por nosotros</h3><p>Con todos nuestros paquetes hacemos nosotros todos los cambios en su página de Uber Eats. Usted sigue cocinando.</p></div></a>
   </div>
 </div></section>
 
@@ -161,7 +162,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 
 <section><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Precios</span><h2>Precios claros. Sin sorpresas.</h2></div>
-    <div><p class="lead">Hágalo usted con Menu Fix o Menu y Fotos. O elija la Renovación Completa y lo hacemos todo por usted.</p>{cur}</div></div>
+    <div><p class="lead">Tres paquetes, todo hecho por nosotros: la Renovación Uber Eats, Renovación y Google, o la Completa con su propia web.</p>{cur}</div></div>
   {plans}
 </div></section>
 
@@ -194,8 +195,8 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 
 <section class="tight" id="done"><div class="wrap split">
   <div class="reveal">{ic("chef")}<span class="eyebrow" style="display:block">Hecho por nosotros</span><h2>Usted cocina. Nosotros actualizamos su página.</h2>
-    <p class="lead" style="margin-top:20px">Incluido en la Renovación Completa. Añádanos como usuario en su Uber Eats Manager y hacemos nosotros todos los cambios.</p>
-    <ul class="ticks"><li>Sin compartir contraseñas: usted nos añade como usuario</li><li>Nombres, descripciones, categorías y fotos actualizados</li><li>Puede quitarnos el acceso cuando quiera</li><li>¿Prefiere hacerlo usted? Menu Fix y Menu y Fotos llegan listos para copiar, con una guía</li></ul>
+    <p class="lead" style="margin-top:20px">Incluido en todos los paquetes. Añádanos como usuario en su Uber Eats Manager y hacemos nosotros todos los cambios.</p>
+    <ul class="ticks"><li>Sin compartir contraseñas: usted nos añade como usuario</li><li>Nombres, descripciones, categorías y fotos actualizados</li><li>Puede quitarnos el acceso cuando quiera</li><li>Primero ve su página terminada, y solo paga si le gusta</li></ul>
     <div class="row" style="margin-top:30px"><a class="btn primary" href="es/pricing.html">Ver precios <span class="arr">→</span></a></div></div>
   <div class="img reveal"><img src="img/kitchen.jpg" alt="" loading="lazy"></div>
 </div></section>
@@ -247,7 +248,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
   <div class="reveal">{ic("menu")}<span class="eyebrow" style="display:block">Paso 2</span><h2>Elija su paquete</h2>
-    <p class="lead" style="margin-top:18px">Elija Menu Fix o Menu y Fotos para hacerlo usted, o la Renovación Completa y hacemos nosotros todos los cambios. Pago seguro con tarjeta a través de Stripe. Precio único, sin suscripción.</p>
+    <p class="lead" style="margin-top:18px">Elija la Renovación Uber Eats, Renovación y Google, o la Completa con su propia web. Hacemos nosotros todos los cambios. Pago seguro con tarjeta a través de Stripe, cuando haya visto su página terminada. Precio único, sin suscripción.</p>
     <a class="btn primary" href="es/pricing.html" style="margin-top:10px">Ver precios <span class="arr">→</span></a></div>
   <div class="img reveal"><img src="img/counter.jpg" alt="" loading="lazy"></div>
 </div></section>
@@ -258,7 +259,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
   <div class="reveal">{ic("rocket")}<span class="eyebrow" style="display:block">Paso 4</span><h2>Su nueva página</h2>
-    <p class="lead" style="margin-top:18px">Renovación Completa: añádanos como usuario en Uber Eats Manager y lo actualizamos todo. Menu Fix y Menu y Fotos: le enviamos por correo cada nombre, descripción y foto nuevos, listos para copiar, con una guía sencilla paso a paso. Normalmente en dos o tres días laborables.</p></div>
+    <p class="lead" style="margin-top:18px">Añádanos como usuario en Uber Eats Manager y lo actualizamos todo: cada nombre, descripción y foto. Normalmente en dos o tres días laborables.</p></div>
   <div class="img reveal"><img src="img/delivery.jpg" alt="" loading="lazy"></div>
 </div></section>
 {cta()}
@@ -267,20 +268,21 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
     # ------------------------------------------------------------------------------------------------ pricing
     pricing_faq = [FAQ[2], FAQ[5], FAQ[4], ("¿Cómo se paga?", "Con tarjeta a través de Stripe, un proveedor de pagos seguro, cuando haya visto su página terminada y esté contento con ella. Los precios de esta página están en euros."), FAQ[0]]
     page("es/pricing.html", "Precios para renovar su carta de Uber Eats | MenuFix",
-         "Precios únicos y sencillos, en euros, para renovar su página de Uber Eats: Menu Fix, Menu y Fotos y la Renovación Completa, en la que lo hacemos todo por usted.",
-         f"""{head("Precios", "Precios sencillos, <span class='hl'>pago único.</span>", "Sin suscripción ni permanencia. Empiece con una maqueta gratis si quiere ver la idea antes.", ("star", "bag"), cur)}
+         "Tres paquetes hechos por nosotros, en euros, para su página de Uber Eats: la Renovación Uber Eats, Renovación y Google, y la Completa con su propia web.",
+         f"""{head("Precios", "Tres paquetes, todo <span class='hl'>hecho por nosotros.</span>", "Sin permanencia. Primero preparamos su página terminada, y solo paga cuando la haya visto y esté contento.", ("star", "bag"), cur)}
 <section style="padding-top:40px"><div class="wrap">{plans}
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare los paquetes</h2>
   <div class="table-scroll reveal"><table class="compare">
-    <tr><th></th><th>Menu Fix</th><th>Menu y Fotos</th><th>Renovación Completa</th></tr>
-    <tr><td>Faltas y nombres corregidos</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><th></th><th>Renovación Uber Eats</th><th>Renovación y Google</th><th>Completa</th></tr>
     <tr><td>Cada plato reescrito para vender</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Lo más vendido y orden de categorías</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Fotos de sus platos reales mejoradas</td><td class="n">×</td><td>Hasta 15 platos</td><td>Toda la carta, hasta 50</td></tr>
-    <tr><td>Nueva estructura de la carta</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
-    <tr><td>Un mes de actualizaciones</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
-    <tr><td>Paquete listo para copiar con guía</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Hecho por nosotros: todos los cambios en su página</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
+    <tr><td>Sus fotos reales mejoradas, toda la carta</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Lo más vendido arriba y orden de la carta</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Revisión de precios y menús combinados</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Hecho por nosotros: todos los cambios</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Un mes de actualizaciones</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Ficha de Google preparada</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Respuestas a reseñas de Google, primer mes</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Su propia web, primer año de alojamiento</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
   </table></div>
   <p class="note reveal" style="margin-top:24px">El pago lo gestiona Stripe. Si paga con una tarjeta de fuera de la zona euro, Stripe puede mostrarle el importe en otra moneda al pagar.</p>
 </div></section>
@@ -306,7 +308,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
   <div class="grid3">
     <div class="card reveal">{ic("salad")}<h3>Solo comida real</h3><p>Mejoramos fotos de sus platos reales. Nunca usamos comida falsa ni añadimos ingredientes que no están.</p></div>
     <div class="card reveal">{ic("check")}<h3>Honestidad</h3><p>Precios claros, sin costes ocultos y sin promesas que no podemos cumplir. Primero una maqueta gratis, para que sepa lo que recibe.</p></div>
-    <div class="card reveal">{ic("rocket")}<h3>Sencillez</h3><p>Todo por correo electrónico, en pocos días. O la Renovación Completa, para que usted no tenga que tocar nada.</p></div>
+    <div class="card reveal">{ic("rocket")}<h3>Sencillez</h3><p>Todo por correo electrónico, en pocos días. Todo hecho por nosotros, para que usted no tenga que tocar nada.</p></div>
   </div>
   <p class="lead reveal" style="text-align:center;margin:40px auto 0">¿Conoce a dueños de restaurantes? <a href="es/referidos.html">Gane un 20 % por cada restaurante que nos recomiende</a>.</p>
 </div></section>
@@ -393,7 +395,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
   <h2>Qué necesitamos de usted</h2>
   <ul>
     <li>Para los paquetes con fotos: fotos de sus platos reales, enviadas por correo.</li>
-    <li>Para la Renovación Completa, hecha por nosotros: acceso como usuario a su Uber Eats Manager. Puede quitarnos el acceso cuando quiera.</li>
+    <li>Para que lo hagamos todo por usted: acceso como usuario a su Uber Eats Manager. Puede quitarnos el acceso cuando quiera.</li>
   </ul>
 
   <h2>Entrega</h2>

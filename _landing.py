@@ -19,7 +19,7 @@ CUISINES = [
                  "List milk alternatives and extra shots as paid options.",
                  "Pause cakes and pastries as soon as they sell out."],
         "faq": [("Do you work with small cafés?", "Yes. Most of the businesses we help are independent cafés, restaurants and bakeries, not chains."),
-                ("Can you help with coffee options on Uber Eats?", "Yes. We set out sizes, milks and extras as clear options in the menu we send you, or set them up for you with the Full Makeover.")],
+                ("Can you help with coffee options on Uber Eats?", "Yes. We set out sizes, milks and extras as clear options in the menu we send you, and we set them up for you.")],
         "guides": ["uber-eats-menu-categories", "write-uber-eats-menu-descriptions", "uber-eats-food-photos-phone"],
     },
     {
@@ -55,7 +55,7 @@ CUISINES = [
                  "Group noodles, rice dishes, soups and sides so they're easy to scan.",
                  "Photograph soups and noodle bowls from above to show what's inside."],
         "faq": [("Will you change the names of my dishes?", "Only to make them clearer. We keep the names your regulars know and add a short explanation for new customers."),
-                ("Can you handle a long menu?", "Yes. The Full Makeover covers photos for up to 50 dishes and a new structure for the whole menu.")],
+                ("Can you handle a long menu?", "Yes. Every package covers photos for your whole menu and a new structure for it.")],
         "guides": ["uber-eats-menu-categories", "write-uber-eats-menu-descriptions", "get-more-orders-on-uber-eats"],
     },
     {
@@ -135,8 +135,8 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
 
     city_faq = lambda n: [  # noqa: E731
         (f"Do you meet restaurants in person in {n}?", "No. We work entirely by email, which keeps our prices simple. You send your Uber Eats link and photos, we send back your new menu and photos, or make the changes for you."),
-        ("Do I need to give you my Uber Eats password?", "No. For the Full Makeover you add us as a user with menu access in Uber Eats Manager, and you can remove us any time."),
-        ("How long does it take?", "Usually two to three working days after we have your photos and, for the Full Makeover, access to your Uber Eats Manager."),
+        ("Do I need to give you my Uber Eats password?", "No. You add us as a user with menu access in Uber Eats Manager, and you can remove us any time."),
+        ("How long does it take?", "Usually two to three working days after we have your photos and access to your Uber Eats Manager."),
     ]
     cards = "".join(f'<div class="card reveal">{ic(c["icons"][0])}<h3><a href="uber-eats/{c["slug"]}.html" style="color:inherit">{c["eyebrow"].replace("For ", "").capitalize()}</a></h3><p>{c["lead"]}</p></div>' for c in CUISINES)
     for c in CITIES:
@@ -147,7 +147,7 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
      '<div class="row" style="margin-top:28px"><a class="btn primary" href="contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn ghost" href="how-it-works.html">How it works</a></div>')}
 <section class="tight"><div class="narrow prose">
   <h2 style="margin-top:0">What we do for {n} businesses</h2>
-  <ul class="ticks"><li>Rewrite every dish name and description so it's clear and appetising.</li><li>Put your best sellers first and tidy your categories.</li><li>Enhance photos of your real dishes: better light, a clean background, sized for Uber Eats.</li><li>With the Full Makeover, make every change on your Uber Eats page for you.</li></ul>
+  <ul class="ticks"><li>Rewrite every dish name and description so it's clear and appetising.</li><li>Put your best sellers first and tidy your categories.</li><li>Enhance photos of your real dishes: better light, a clean background, sized for Uber Eats.</li><li>Make every change on your Uber Eats page for you.</li></ul>
   <h2>How it works from {n}</h2>
   <p>Everything happens by email, so it works the same wherever you are. You send us your restaurant's name or Uber Eats link, and we send a free mockup of how your page could look. If you like it, you choose a package, send photos of your dishes taken on your phone, and we do the rest.</p>
   <p>Prices are shown in Australian dollars for visitors in Australia. See <a href="/pricing.html">pricing</a>.</p>

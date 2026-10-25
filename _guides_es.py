@@ -96,7 +96,7 @@ GUIDES_ES_1 = [
 <h2>Sea honesto</h2>
 <p>Describa el plato tal como llega. Si la foto o el texto prometen más de lo que hay en el envase, el cliente lo nota, y se ve en las reseñas.</p>
 
-<p>¿Prefiere que le reescribamos toda la carta? Con nuestro paquete <a href="/es/pricing.html">Menu Fix</a> le enviamos primero una maqueta gratuita para que vea la diferencia antes de decidir.</p>
+<p>¿Prefiere que le reescribamos toda la carta? Con nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> le enviamos primero una maqueta gratuita para que vea la diferencia antes de decidir.</p>
 """,
     },
     {
@@ -152,7 +152,7 @@ GUIDES_ES_1 = [
 <h2>Uber puede cambiar estas normas</h2>
 <p>Estos requisitos vienen de las páginas de ayuda de Uber enlazadas arriba. Si le rechazan una foto, vuelva a consultarlas por si han cambiado.</p>
 
-<p>¿Prefiere no complicarse? Con nuestro paquete <a href="/es/pricing.html">Menu y Fotos</a> mejoramos las fotos de sus platos reales y se las entregamos en formato 5:4, a 2880 × 2304 píxeles, sin cambiar la comida.</p>
+<p>¿Prefiere no complicarse? Con nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> mejoramos las fotos de sus platos reales y se las entregamos en formato 5:4, a 2880 × 2304 píxeles, sin cambiar la comida.</p>
 """,
     },
     {
@@ -198,7 +198,7 @@ GUIDES_ES_1 = [
 <h2>Empiece por sus diez platos más vendidos</h2>
 <p>No hace falta fotografiarlo todo el mismo día. Sus diez platos más vendidos son los que más se ven, así que empiece por ellos. Si duda entre el móvil y un fotógrafo, vea <a href="/es/guias/coste-fotos-comida-uber-eats.html">cuánto cuesta fotografiar sus platos</a>.</p>
 
-<p>¿Ya tiene fotos oscuras o poco cuidadas? Con nuestro paquete <a href="/es/pricing.html">Menu y Fotos</a> mejoramos las fotos de sus platos reales: mejor luz, fondo limpio y formato 5:4, sin cambiar la comida.</p>
+<p>¿Ya tiene fotos oscuras o poco cuidadas? Con nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> mejoramos las fotos de sus platos reales: mejor luz, fondo limpio y formato 5:4, sin cambiar la comida.</p>
 """,
     },
     {
@@ -239,7 +239,7 @@ GUIDES_ES_1 = [
 <p>Si alguien le ayuda con su página, no le dé su contraseña. Pregunte en Uber Eats Manager o al soporte de Uber Eats cómo dar a esa persona su propio acceso, y retíreselo cuando termine.</p>
 
 <h2>¿Prefiere no hacerlo usted?</h2>
-<p>Con nuestra <a href="/es/pricing.html">Renovación Completa</a> hacemos los cambios en su página de Uber Eats por usted. En los demás paquetes le enviamos todo listo para copiar, con una guía sencilla como esta.</p>
+<p>Con cualquiera de <a href="/es/pricing.html">nuestros paquetes</a> hacemos los cambios en su página de Uber Eats por usted. En los demás paquetes le enviamos todo listo para copiar, con una guía sencilla como esta.</p>
 """,
     },
     {
@@ -277,7 +277,7 @@ GUIDES_ES_1 = [
 
 <p>¿Todavía no está en Uber Eats? Vea <a href="/es/guias/registrar-restaurante-uber-eats-espana.html">cómo registrar su restaurante en Uber Eats en España</a>.</p>
 
-<p>¿Acaba de empezar? Con nuestro paquete <a href="/es/pricing.html">Menu Fix</a> le enviamos primero una maqueta gratuita de cómo podría quedar su página, para que vea qué cambiaríamos antes de decidir nada.</p>
+<p>¿Acaba de empezar? Con nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> le enviamos primero una maqueta gratuita de cómo podría quedar su página, para que vea qué cambiaríamos antes de decidir nada.</p>
 """,
     },
 ]
@@ -465,7 +465,7 @@ GUIDES_ES_2 = [
 <p>Si sirve desayunos y también cenas, revise en Uber Eats Manager los horarios de su menú. El cliente solo debería ver lo que usted puede preparar a esa hora.</p>
 
 <h2>¿Necesita ayuda?</h2>
-<p>Nuestra guía para <a href="/es/guias/editar-menu-uber-eats-manager.html">editar su carta en Uber Eats Manager</a> muestra dónde se cambian las categorías. Si lo prefiere, también podemos reorganizar toda la carta por usted con nuestro paquete <a href="/es/pricing.html">Menu Fix</a>.</p>
+<p>Nuestra guía para <a href="/es/guias/editar-menu-uber-eats-manager.html">editar su carta en Uber Eats Manager</a> muestra dónde se cambian las categorías. Si lo prefiere, también podemos reorganizar toda la carta por usted con nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a>.</p>
 """,
     },
     {
@@ -539,7 +539,7 @@ GUIDES_ES_2 = [
 
 <h2>Opción 3: fotos con el móvil, mejoradas después</h2>
 <p>Un móvil reciente, la luz de una ventana y un fondo limpio le llevan muy lejos. Nuestra guía para <a href="/es/guias/fotos-comida-movil.html">hacer fotos de comida con el móvil</a> le explica cómo. Después puede mejorar la luz, el color y el fondo usted mismo, o encargarlo, siempre que la foto siga mostrando su plato real.</p>
-<p>Si prefiere no editarlas usted, nuestro paquete <a href="/es/pricing.html">Menu y Fotos</a> mejora las fotos reales de sus platos y se las entrega con el tamaño adecuado para Uber Eats. Antes de subirlas, puede revisarlas con el <a href="/es/herramientas/comprobador-fotos-uber-eats.html">Comprobador de fotos para Uber Eats</a> gratuito.</p>
+<p>Si prefiere no editarlas usted, nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> mejora las fotos reales de sus platos y se las entrega con el tamaño adecuado para Uber Eats. Antes de subirlas, puede revisarlas con el <a href="/es/herramientas/comprobador-fotos-uber-eats.html">Comprobador de fotos para Uber Eats</a> gratuito.</p>
 
 <h2>¿Y si un plato no tiene foto?</h2>
 <p>Los clientes también pueden enviar fotos de los platos, y Uber tiene unas <a href="{P8}" rel="nofollow">directrices sobre las fotos que envían los usuarios</a>. Si pone su propia foto en sus platos más vendidos, el cliente ve el plato tal como usted lo sirve.</p>
@@ -804,7 +804,7 @@ GUIDES_ES_3 = [
 
 <h2>Qué fotos añadir primero</h2>
 <p>Empiece por sus diez platos más vendidos y siga con el resto. Hágalas con luz de día y con el mismo fondo y ángulo para todos los platos. Nuestra guía de <a href="/es/guias/fotos-comida-movil.html">fotos de comida con el móvil</a> explica cómo.</p>
-<p>Si prefiere no retocarlas usted, nuestro paquete <a href="/es/pricing.html">Menu y Fotos</a> mejora las fotos reales de sus platos y se las entrega con el tamaño que pide Uber Eats.</p>
+<p>Si prefiere no retocarlas usted, nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> mejora las fotos reales de sus platos y se las entrega con el tamaño que pide Uber Eats.</p>
 """,
     },
     {
@@ -895,7 +895,7 @@ GUIDES_ES_3 = [
 
 <h2>Hágalos suyos</h2>
 <ul class="ticks"><li>Use el nombre que sus clientes conocen y luego explíquelo.</li><li>Ponga solo ingredientes que el plato lleva de verdad.</li><li>Indique tamaños, gramos y número de piezas exactos.</li><li>Marque vegetariano, vegano o sin gluten solo cuando sea cierto.</li><li>Evite palabras vacías como «delicioso» o «el mejor»: los ingredientes lo dicen mejor.</li></ul>
-<p>Para el método que hay detrás, vea <a href="/es/guias/descripciones-menu-uber-eats.html">cómo escribir descripciones de platos para Uber Eats</a>. Si prefiere no escribirlas usted, nuestro paquete <a href="/es/pricing.html">Menu Fix</a> reescribe todos los platos de su carta.</p>
+<p>Para el método que hay detrás, vea <a href="/es/guias/descripciones-menu-uber-eats.html">cómo escribir descripciones de platos para Uber Eats</a>. Si prefiere no escribirlas usted, nuestro paquete <a href="/es/pricing.html">Renovación Uber Eats</a> reescribe todos los platos de su carta.</p>
 """,
     },
     {

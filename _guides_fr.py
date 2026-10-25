@@ -214,7 +214,7 @@ GUIDES_FR = [
 <p>Vous pouvez retirer cet accès à tout moment. C'est exactement ainsi que fonctionne notre service Clé en main.</p>
 
 <h2>Vous préférez ne pas le faire vous même ?</h2>
-<p>Avec notre <a href="/fr/pricing.html">Refonte Complète</a>, nous faisons chaque changement sur votre page Uber Eats à votre place. Avec Menu Fix et Menu et Photos, nous envoyons tout prêt à copier, avec un guide simple comme celui ci.</p>
+<p>Avec toutes <a href="/fr/pricing.html">nos offres</a>, nous faisons chaque changement sur votre page Uber Eats à votre place. Avec toutes nos offres, nous faisons nous mêmes chaque changement, vous n'avez rien à suivre.</p>
 """,
     },
     {
@@ -408,7 +408,7 @@ GUIDES_FR = [
 <p>Si vous servez le petit déjeuner et le dîner, Uber Eats permet de définir des menus selon le moment de la journée. Les clients ne voient ainsi que ce que vous pouvez préparer à cette heure là.</p>
 
 <h2>Besoin d'aide ?</h2>
-<p>Notre guide pour <a href="/fr/guides/modifier-menu-uber-eats-manager.html">modifier votre menu dans Uber Eats Manager</a> montre où changer les catégories. Nous pouvons aussi restructurer tout le menu pour vous avec notre offre <a href="/fr/pricing.html">Menu Fix</a>.</p>
+<p>Notre guide pour <a href="/fr/guides/modifier-menu-uber-eats-manager.html">modifier votre menu dans Uber Eats Manager</a> montre où changer les catégories. Nous pouvons aussi restructurer tout le menu pour vous avec notre <a href="/fr/pricing.html">Refonte Uber Eats</a>.</p>
 """,
     },
     {
@@ -588,7 +588,7 @@ GUIDES_FR_A = [
 <h2>Par quels plats commencer</h2>
 <p>Commencez par vos dix meilleures ventes, puis le reste du menu. Uber recommande d'ajouter une description détaillée et une photo à chaque nouvel article (<a href="https://help.uber.com/fr-FR/merchants-and-restaurants/article/modifier-votre-menu-uber-eats?nodeId=49fa4c19-7c4f-408f-97a3-42dbdc56ffbe" rel="nofollow">modifier votre menu</a>). En France, sa <a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a> comprend d'ailleurs une mesure du menu : la part des articles qui ont une photo et une description.</p>
 <p>Prenez vos photos à la lumière du jour, avec le même fond et le même angle pour chaque plat. Notre guide pour <a href="/fr/guides/photos-plats-telephone.html">photographier vos plats au téléphone</a> montre comment.</p>
-<p>Vous préférez déléguer ? Notre offre <a href="/fr/pricing.html">Menu et Photos</a> améliore les photos de vos vrais plats et vous les livre au bon format.</p>
+<p>Vous préférez déléguer ? Notre offre <a href="/fr/pricing.html">Refonte Uber Eats</a> améliore les photos de vos vrais plats et vous les livre au bon format.</p>
 """,
     },
     {
@@ -711,7 +711,7 @@ GUIDES_FR_B = [
 <h2>Adaptez ces exemples à votre carte</h2>
 <ul class="ticks"><li>Gardez le nom que vos clients connaissent, puis expliquez le plat.</li><li>Ne citez que les ingrédients vraiment présents.</li><li>Indiquez tailles, poids et nombre de pièces exacts.</li><li>N'écrivez végétarien, vegan ou sans gluten que si c'est vrai.</li><li>Évitez les mots vagues comme délicieux ou incroyable : les ingrédients en disent plus.</li></ul>
 <p>Les photos et descriptions comptent aussi pour Uber : sa politique Merchant Success Score inclut une mesure du menu, le pourcentage d'articles qui ont une photo et une description (<a href="https://www.uber.com/fr/fr/legal/merchant-success-score-policy/" rel="nofollow">politique Merchant Success Score</a>).</p>
-<p>Pour la méthode derrière ces exemples, voir notre guide pour <a href="/fr/guides/descriptions-menu-uber-eats.html">écrire des descriptions de plats qui donnent envie</a>. Si vous préférez déléguer l'écriture, notre offre <a href="/fr/pricing.html">Menu Fix</a> réécrit chaque plat de votre menu.</p>
+<p>Pour la méthode derrière ces exemples, voir notre guide pour <a href="/fr/guides/descriptions-menu-uber-eats.html">écrire des descriptions de plats qui donnent envie</a>. Si vous préférez déléguer l'écriture, notre <a href="/fr/pricing.html">Refonte Uber Eats</a> réécrit chaque plat de votre menu pour vous.</p>
 """,
     },
     {
@@ -829,7 +829,7 @@ GUIDES_FR_B = [
 
 <h2>Option 3 : photos au téléphone, puis amélioration</h2>
 <p>Un téléphone récent, la lumière d'une fenêtre et un fond propre font déjà l'essentiel. Notre guide pour <a href="/fr/guides/photos-plats-telephone.html">prendre de belles photos de plats au téléphone</a> explique chaque étape. Vous pouvez ensuite améliorer la lumière, les couleurs et le fond, ou le confier à quelqu'un, tant que la photo montre toujours votre vrai plat.</p>
-<p>Si vous préférez ne pas les retoucher, notre offre <a href="/fr/pricing.html">Menu et Photos</a> améliore les vraies photos de 15 plats au maximum et les livre au format Uber Eats.</p>
+<p>Si vous préférez ne pas les retoucher, notre offre <a href="/fr/pricing.html">Refonte Uber Eats</a> améliore les vraies photos de 15 plats au maximum et les livre au format Uber Eats.</p>
 
 <h2>Quelle que soit l'option, les règles d'Uber s'appliquent</h2>
 <p>D'après les <a href="https://help.uber.com/fr-FR/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">règles photo d'Uber</a>, chaque photo d'article montre un seul article, centré, sans personne (les mains sont acceptées), sans logo, filigrane ni texte, nette et sans ombres dures. Le fichier est en JPG ou PNG, de 10 Mo au maximum et d'au moins 550 × 440 pixels. Montrez ces règles à votre photographe avant la séance.</p>

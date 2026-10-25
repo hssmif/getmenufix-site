@@ -238,7 +238,7 @@ GUIDES = [
 <p>You can remove their access any time. This is exactly how our Done for you service works.</p>
 
 <h2>Prefer not to do it yourself?</h2>
-<p>With our <a href="/pricing.html">Full Makeover</a>, we make every change on your Uber Eats page for you. With Menu Fix and Menu and Photos, we send everything ready to copy with a simple guide like this one.</p>
+<p>With every <a href="/pricing.html">MenuFix package</a>, we make every change on your Uber Eats page for you, so you don't have to follow a guide like this one.</p>
 """,
     },
     {
@@ -416,7 +416,7 @@ GUIDES = [
 <p>If you serve breakfast and dinner, Uber Eats lets you set menus for different times of day. That way customers only see what you can actually make at that hour.</p>
 
 <h2>Need a hand?</h2>
-<p>For a step by step on getting best sellers to the top, see <a href="/guides/best-sellers-uber-eats-menu-order.html">best sellers first</a>. Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where to change categories. Or we can restructure the whole menu for you as part of our <a href="/pricing.html">Menu Fix</a>.</p>
+<p>For a step by step on getting best sellers to the top, see <a href="/guides/best-sellers-uber-eats-menu-order.html">best sellers first</a>. Our guide to <a href="/guides/edit-menu-uber-eats-manager.html">editing your menu in Uber Eats Manager</a> shows where to change categories. Or we can restructure the whole menu for you as part of our <a href="/pricing.html">Uber Eats Makeover</a>.</p>
 """,
     },
     {
@@ -523,7 +523,7 @@ GUIDES = [
 
 <h2>Option 3: Take photos on your phone, then enhance them</h2>
 <p>A recent phone, daylight from a window and a clean background get you most of the way. Our guide to <a href="/guides/uber-eats-food-photos-phone.html">taking food photos on your phone</a> walks you through it. You can then improve the light, colour and background yourself, or have it done, as long as the photo still shows your real dish.</p>
-<p>If you'd rather not edit them yourself, our <a href="/pricing.html">Menu and Photos</a> package enhances your real photos of up to 15 dishes and delivers them sized for Uber Eats.</p>
+<p>If you'd rather not edit them yourself, our <a href="/pricing.html">Uber Eats Makeover</a> enhances your real photos for your whole menu and puts them on your page for you.</p>
 
 <h2>What if a dish has no photo at all?</h2>
 <p>Uber Eats can show photos taken by customers on items that have no photo from the restaurant (<a href="https://www.uber.com/au/en/blog/customer-photos/" rel="nofollow">Uber</a>). Adding your own photos to your best sellers means customers see the dish the way you serve it.</p>
@@ -822,7 +822,7 @@ GUIDES = [
 
 <h2>Make them yours</h2>
 <ul class="ticks"><li>Use the dish names your customers know, then explain them.</li><li>Only list ingredients that are really in the dish.</li><li>Say sizes and piece counts exactly.</li><li>Mark vegetarian, vegan or gluten free only when it's true.</li></ul>
-<p>For the method behind these, see <a href="/guides/write-uber-eats-menu-descriptions.html">how to write Uber Eats menu descriptions that sell</a>. If you'd rather not write them yourself, our Menu Fix package rewrites every dish on your menu.</p>
+<p>For the method behind these, see <a href="/guides/write-uber-eats-menu-descriptions.html">how to write Uber Eats menu descriptions that sell</a>. If you'd rather not write them yourself, our Uber Eats Makeover rewrites every dish on your menu for you.</p>
 """,
     },
     {

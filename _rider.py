@@ -15,8 +15,8 @@ FAQ = [("How can delivery drivers make extra money?", "Introduce restaurants you
         "20% commission. It is a side hustle that fits around your delivery shifts."),
        ("Do I need to sell anything?", "No. You show your card to restaurants you know, at a quiet moment. The owner scans it "
         "and checks their own Uber Eats page with us for free. If they buy a makeover later, you earn."),
-       ("How much can I earn per referral?", "20% of what the restaurant pays us. A Full Makeover is around 970 Australian "
-        "dollars, so about 190 dollars for you from one restaurant. Refunded payments don't count."),
+       ("How much can I earn per referral?", "20% of what the restaurant pays us. The Uber Eats Makeover is around 970 Australian "
+        "dollars, so about 190 dollars for you from one restaurant, and more for the bigger packages. Refunded payments don't count."),
        ("When do I get paid?", "Within 7 days after the restaurant's payment, by bank transfer or PayPal."),
        ("Can Uber Eats, DoorDash, Deliveroo and Menulog riders join?", "Yes. Any delivery rider or driver can join: Uber Eats, "
         "DoorDash, Deliveroo, Menulog, Just Eat or a cycling courier. MenuFix is independent and not linked to any delivery app."),

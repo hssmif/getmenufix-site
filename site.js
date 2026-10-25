@@ -4,37 +4,21 @@ const CONTACT = "hello@getmenufix.com";
 // MenuFix Settings). Only its public "check" action works without the secret. Empty: the form opens the email app.
 const CHECK_URL = "https://script.google.com/macros/s/AKfycbwFvkB2O8HXfjVmtQOFHOlxQskpVEtGRdotAtznV8kDvG4ZrUkL-4jrSCFkt5pEHmz90w/exec";
 const LINKS = {
-  menu_fix: "https://buy.stripe.com/6oU6oI0bi1I4bDWfXY1sQ04",
-  menu_photos: "https://buy.stripe.com/5kQaEYf6c5Yk6jCeTU1sQ05",
-  full_makeover: "https://buy.stripe.com/3cIdRa5vC1I4dM4dPQ1sQ06",
-  done_for_you: "https://buy.stripe.com/cNi28s4ry5Yk8rK6no1sQ07",
-  care_plan: "https://buy.stripe.com/8x23cwgag86s7nGcLM1sQ0g",
-  growth_plan: "https://buy.stripe.com/28EeVe3nu2M8azSdPQ1sQ0l",
-  google_profile: "https://buy.stripe.com/4gMdRacY4gCYgYg2781sQ0m",
-  price_check: "https://buy.stripe.com/eVq3cw3nu5YkeQ87rs1sQ0n",
-  website: "https://buy.stripe.com/bJecN61fm0E0azScLM1sQ0c",
-  bundle: "https://buy.stripe.com/7sY9AU9LS0E00ZifXY1sQ0d",
-  website_makeover: "https://buy.stripe.com/8x214o4ryaeA0Zi9zA1sQ0e",
-  website_care: "https://buy.stripe.com/00w00k2jq2M8cI09zA1sQ0h",
+  full_makeover: "https://buy.stripe.com/7sY3cw9LS4Ug7nGaDE1sQ0o",
+  makeover_google: "https://buy.stripe.com/aFafZi4rybiEfUc8vw1sQ0p",
+  complete: "https://buy.stripe.com/28EeVe8HO9aweQ8aDE1sQ0q",
+  growth_plan: "https://buy.stripe.com/cNi9AUaPW9awazSdPQ1sQ0r",
 };
 // What Stripe charges in each currency (other countries see the closest one at checkout).
 const PRICES = {
-  menu_fix: { aud: 289, gbp: 149, eur: 169, usd: 189 },
-  menu_photos: { aud: 579, gbp: 299, eur: 339, usd: 379 },
   full_makeover: { aud: 969, gbp: 499, eur: 569, usd: 629 },
-  done_for_you: { aud: 89, gbp: 45, eur: 50, usd: 59 },
-  care_plan: { aud: 49, gbp: 25, eur: 29, usd: 35 },
-  growth_plan: { aud: 149, gbp: 79, eur: 89, usd: 99 },
-  google_profile: { aud: 189, gbp: 99, eur: 109, usd: 129 },
-  price_check: { aud: 189, gbp: 99, eur: 109, usd: 129 },
-  website: { aud: 890, gbp: 449, eur: 499, usd: 579 },
-  website_makeover: { aud: 1090, gbp: 549, eur: 629, usd: 699 },
-  bundle: { aud: 1690, gbp: 869, eur: 979, usd: 1099 },
-  website_care: { aud: 29, gbp: 15, eur: 17, usd: 19 },
+  makeover_google: { aud: 1259, gbp: 649, eur: 739, usd: 819 },
+  complete: { aud: 2290, gbp: 1190, eur: 1359, usd: 1499 },
+  growth_plan: { aud: 195, gbp: 99, eur: 115, usd: 129 },
   // founding restaurants: 30% off, paid after they've seen their finished page
-  menu_fix_founding: { aud: 202, gbp: 104, eur: 118, usd: 132 },
-  menu_photos_founding: { aud: 405, gbp: 209, eur: 237, usd: 265 },
   full_makeover_founding: { aud: 678, gbp: 349, eur: 398, usd: 440 },
+  makeover_google_founding: { aud: 881, gbp: 454, eur: 517, usd: 573 },
+  complete_founding: { aud: 1603, gbp: 833, eur: 951, usd: 1049 },
 };
 const SYM = { aud: "A$", gbp: "£", eur: "€", usd: "US$" };
 const NAME = { aud: "Australian dollars", gbp: "British pounds", eur: "euros", usd: "US dollars" };
@@ -122,9 +106,9 @@ if (form) { const q = new URLSearchParams(location.search).get("biz"); if (q) do
 // Arriving from a plan button: the message says which plan, and the guarantee (and a referral code, so it is counted).
 const PLAN = new URLSearchParams(location.search).get("plan");
 const PLAN_NAMES = {
-  en: { menu_fix: "Menu Fix", menu_photos: "Menu and Photos", full_makeover: "Full Makeover" },
-  fr: { menu_fix: "Menu Fix", menu_photos: "Menu et Photos", full_makeover: "Refonte Complète" },
-  es: { menu_fix: "Menu Fix", menu_photos: "Menu y Fotos", full_makeover: "Renovación Completa" },
+  en: { full_makeover: "Uber Eats Makeover", makeover_google: "Makeover and Google", complete: "Complete", growth_plan: "Growth Plan" },
+  fr: { full_makeover: "Refonte Uber Eats", makeover_google: "Refonte et Google", complete: "Complète", growth_plan: "Plan Croissance" },
+  es: { full_makeover: "Renovación Uber Eats", makeover_google: "Renovación y Google", complete: "Completa", growth_plan: "Plan Crecimiento" },
 }[FR ? "fr" : ES ? "es" : "en"];
 if (form && PLAN && PLAN_NAMES[PLAN]) {
   const msg = document.getElementById("msg");
