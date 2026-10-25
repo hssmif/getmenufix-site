@@ -114,6 +114,7 @@ GUIDES = [
             ("Why was my Uber Eats photo rejected?", "The usual reasons are: more than one item in the photo, text or logos on the image, a face in the photo, a blurry or dark photo, or a stock photo instead of your real dish."),
             ("Can I use stock photos on Uber Eats?", "No. Photos must show your own dish exactly as customers receive it."),
             ("Can I edit or enhance my Uber Eats photos?", "Yes, as long as the photo still shows your real dish accurately. Improving light, colour and the background is fine; changing the food is not."),
+            ("How many photos do I need on Uber Eats?", "Uber says customers are more likely to order when at least 70% of the items on a menu have a photo and a description. Start with your best sellers, then work through the rest of the menu."),
         ],
         "body": """
 <h2>Uber Eats photo requirements at a glance</h2>
@@ -124,6 +125,9 @@ GUIDES = [
 <tr><td>File type</td><td>JPG (PNG and GIF also accepted for menu items)</td></tr>
 <tr><td>Maximum file size</td><td>10 MB</td></tr>
 <tr><td>Cover image</td><td>5:4, 2880 × 2304 pixels, JPG</td></tr></table>
+
+<h2>How many dishes need a photo?</h2>
+<p>In April 2026 Uber Eats said customers are more likely to order when at least <b>70% of the items</b> on a menu have a photo and a description (<a href="https://merchants.ubereats.com/us/en/resources/articles/product-highlights/get-discovered/" rel="nofollow noopener" target="_blank">Uber Eats, Get discovered</a>). Count your own menu: if fewer than 7 in 10 dishes have both, start with your best sellers. Use photos of your real food: Uber can also show <a href="/guides/uber-eats-ai-food-photos.html">AI enhanced or customer photos</a> on items that have none.</p>
 
 <h2>Uber Eats menu photo size</h2>
 <p>For each dish, Uber's <a href="https://help.uber.com/en/merchants-and-restaurants/article/merchant-submitted-menu-catalog-photo-guidelines?nodeId=6985355b-0426-4523-94f2-89bb9b0566e9" rel="nofollow">menu photo guidelines</a> ask for:</p>
@@ -909,6 +913,116 @@ GUIDES = [
 
 <h2>Where to start</h2>
 <p>Whatever you choose, start with your ten best sellers: a bright photo, a clear name and a description that names the main ingredients. Our guide on <a href="/guides/get-more-orders-on-uber-eats.html">getting more orders on Uber Eats</a> explains why those dishes matter most.</p>
+""",
+    },
+    {
+        "slug": "dispute-uber-eats-error-charges",
+        "related": ["reply-to-uber-eats-reviews", "uber-eats-account-management", "improve-uber-eats-rating-restaurant"],
+        "title": "How to Dispute Uber Eats Error Charges and Refunds (2026)",
+        "short": "Dispute Uber Eats refunds and error charges",
+        "desc": "How restaurants dispute Uber Eats error charges and refunds in Uber Eats Manager: where to find them, the 30 day limit, what proof to add, and how to stop them happening.",
+        "img": "delivery",
+        "lead": "When a customer says an item was missing or wrong, the refund can come out of your payout. Many of those charges can be disputed, but only if you find them in time and have proof.",
+        "answer": "In Uber Eats Manager, open <b>Orders</b> and filter by <b>Shop refunded</b> or <b>Potential deduction</b>. Choose the order, select <b>Dispute</b>, give the reason and add a <b>photo or video</b> as proof. Uber's UK help says disputes must be filed <b>within 30 days</b> of the order, and only <b>admins and manager level users</b> can submit them.",
+        "faq": [
+            ("What is an Uber Eats error charge?", "When a customer reports a missing item, a wrong item, a wrong order or a food quality problem and gets a refund, Uber can take that refund from your payout. This is often called an error charge or an order error adjustment."),
+            ("How long do I have to dispute an Uber Eats refund?", "Uber's UK merchant help says 30 days from the order. Check the help page for your country, and dispute as soon as you see the charge."),
+            ("Who can dispute an order error on Uber Eats?", "Only users with admin or manager access in Uber Eats Manager. If someone helps you with your account, add them as a user with their own login. Never share your password."),
+            ("What proof helps an Uber Eats dispute?", "A photo or short video of the order packed and sealed before pickup, with the receipt visible. Uber says it now also looks at delivery photos, timing and courier reports when it decides."),
+            ("Am I charged for every refund on Uber Eats?", "No. Uber's UK help says restaurants are not charged for fraud, for Uber's own goodwill credits, or for delivery and bag fees. Check the help page for your country."),
+        ],
+        "body": """
+<h2>What an error charge is</h2>
+<p>If a customer reports a missing item, a wrong item, a wrong order or a problem with the food, Uber may refund them and take that cost from your payout. Uber calls these <b>order error adjustments</b>. One or two a week can quietly add up to a lot of money over a year.</p>
+
+<h2>Where to find them in Uber Eats Manager</h2>
+<ul class="ticks"><li>Open <b>Orders</b> in Uber Eats Manager.</li><li>Filter by <b>Shop refunded</b> or <b>Potential deduction</b>.</li><li>Open each order to see what the customer reported, and any photo or comment they added.</li></ul>
+<p>Make it a habit: look once a week, so nothing gets older than the time limit.</p>
+
+<h2>How to dispute, step by step</h2>
+<ol><li>Choose the order and select <b>Dispute</b>.</li><li>Pick the reason that fits, in plain words: for example, the drink was in the bag and the bag was sealed.</li><li>Add your proof: a photo or short video of the packed order.</li><li>Send it, then follow it under <b>Refund disputed</b>.</li></ol>
+<p>Uber decides case by case. If a dispute is refused and you still think it is wrong, contact support from Uber Eats Manager.</p>
+
+<h2>The 30 day limit, and who can dispute</h2>
+<p>Uber's <a href="https://merchants.ubereats.com/gb/en/resources/learning-center/order-errors" rel="nofollow noopener" target="_blank">UK help page on order errors</a> says disputes must be filed within 30 days of the order, and only admins and manager level users can submit them. Rules can differ by country, so check the help page for yours.</p>
+
+<h2>Proof that helps</h2>
+<ul class="ticks"><li><b>A photo of every bag before pickup</b>, sealed, with the receipt showing. It takes five seconds.</li><li><b>Sealed bags</b> with a sticker, so nobody can say something fell out.</li><li><b>Drinks and sides checked</b> against the ticket, because they are the items most often reported missing.</li></ul>
+<p>Uber says it now also looks at delivery photos, timing and courier reports when it decides an order error, and customers can add photos to their claim. Your own photo is often what makes the difference.</p>
+
+<h2>How to stop them happening</h2>
+<ul class="ticks"><li>Read every ticket twice at packing, especially options and extras.</li><li>Pause items the moment they sell out, so nobody orders what you can't send.</li><li>Use photos of your real food. When the dish that arrives looks like the photo, fewer customers complain that it was "not as pictured".</li><li>Write clear options: size, number of pieces, what comes in a combo.</li></ul>
+
+<h2>Let us do it every month</h2>
+<p>With our <a href="/pricing.html#growth">Growth Plan</a> we check your refunds every month inside Uber Eats Manager, dispute the wrong ones with your proof, reply to your reviews and send you a report. You add us as a manager user, so you never share your password.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-ai-food-photos",
+        "related": ["uber-eats-photo-requirements", "uber-eats-food-photos-phone", "how-to-add-photos-to-uber-eats-menu"],
+        "title": "Uber Eats AI Food Photos: What Restaurants Should Know (2026)",
+        "short": "Uber Eats AI food photos",
+        "desc": "Uber Eats now improves food photos with AI and can show customer photos on dishes that have none. What that means for your restaurant, and why photos of your real food still win.",
+        "img": "phone",
+        "lead": "Uber Eats can now change how your dishes look: AI can improve a weak photo, and customers' photos can appear on items with no picture. Here's what that means, and how to keep control of your own page.",
+        "answer": "Since July 2025 Uber Eats can use <b>AI to improve low quality food photos</b>, for example better light or a dish moved onto a plate, and it can show <b>photos taken by customers</b> on items that have no photo. Uber's own guidance says a photo should stay a <b>true representation of the dish</b>. The safest choice is clear photos of your <b>real food</b> on every popular item, so customers get what they saw.",
+        "faq": [
+            ("Does Uber Eats use AI on food photos?", "Yes. In July 2025 Uber announced it would use AI to improve low quality food images, for example their light, framing or plating. A dish shown in a takeaway box can become a picture of the same dish on a plate."),
+            ("Why are there customer photos on my Uber Eats menu?", "When an item has no photo from the restaurant, Uber can use a photo from a verified recent customer after checking it. Upload your own photo of the dish in Menu Maker to replace it."),
+            ("Can I use AI generated food photos on Uber Eats?", "Uber's photo guidance asks for a true representation of the dish, and DoorDash's rules for virtual brands ban images that are evidently made by AI. If the food that arrives doesn't match the picture, customers complain. Use photos of your real dishes."),
+            ("How many dishes need a photo on Uber Eats?", "Uber says customers are more likely to order when at least 70% of the items on a menu have a photo and a description. Start with your best sellers."),
+        ],
+        "body": """
+<h2>What Uber Eats does with AI</h2>
+<p>In July 2025 Uber announced new AI tools for restaurants, <a href="https://techcrunch.com/2025/07/31/uber-eats-now-lets-merchants-message-customers-about-their-orders/" rel="nofollow noopener" target="_blank">reported by TechCrunch</a>: AI that improves low quality food photos, AI menu descriptions you can approve, and AI summaries of reviews. Uber also pays customers in some countries a small credit when their photo of a dish is chosen and published.</p>
+
+<h2>Customer photos on dishes without a picture</h2>
+<p>If an item has no photo from you, Uber can show a photo from a verified recent customer, after checking it against its guidelines. That photo may be taken in poor light or show the dish after the trip. To control what people see, upload your own photo of every popular dish in Menu Maker.</p>
+
+<h2>Why photos of your real food still win</h2>
+<ul class="ticks"><li><b>Customers get what they saw.</b> When the dish that arrives matches the photo, there are fewer "not as pictured" complaints, refunds and low ratings.</li><li><b>The rules point the same way.</b> Uber's photo guidance asks for a true representation of the dish, and DoorDash's rules for virtual brands ban images that are evidently made by AI.</li><li><b>People notice.</b> In 2026 several restaurants faced public anger online for AI food pictures. Real photos build trust.</li></ul>
+
+<h2>Uber's own goal: 70% of your dishes</h2>
+<p>In April 2026 Uber Eats said customers are more likely to order when at least 70% of a menu's items have a photo and a description, and that stores which reached it in their first week sold more on average (<a href="https://merchants.ubereats.com/us/en/resources/articles/product-highlights/get-discovered/" rel="nofollow noopener" target="_blank">Uber Eats, Get discovered</a>; Uber notes results may vary). Count your own menu: how many dishes have both?</p>
+
+<h2>How to get there with your own photos</h2>
+<ul class="ticks"><li>Shoot your ten best sellers first, in daylight, on a plain plate. Our guide to <a href="/guides/uber-eats-food-photos-phone.html">food photos on your phone</a> shows how.</li><li>Check Uber's sizes in our <a href="/guides/uber-eats-photo-requirements.html">photo requirements guide</a>.</li><li>Add a one line description to every dish with a photo.</li></ul>
+<p>Prefer us to do it? MenuFix enhances <b>your own photos</b> of your real dishes, never AI made food, and writes the descriptions with you. <a href="/check.html">Get a free check of your page</a> first.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-account-management",
+        "related": ["dispute-uber-eats-error-charges", "reply-to-uber-eats-reviews", "get-more-orders-on-uber-eats"],
+        "title": "Uber Eats Account Management for Restaurants: Monthly Checklist",
+        "short": "Uber Eats account management checklist",
+        "desc": "A simple monthly checklist to manage your restaurant's Uber Eats account: reviews, refunds and error charges, offers and ads, menu and photos. Do it yourself, or let MenuFix do it for you.",
+        "img": "desk",
+        "lead": "Your Uber Eats page is not set and forget. One hour a month on these five things keeps money from leaking and keeps your page easy to choose.",
+        "answer": "Once a month, in Uber Eats Manager: <b>reply to new reviews</b>, <b>dispute wrong refunds</b> under Orders within 30 days, <b>check your offers and ads</b> and stop what loses money, <b>update dishes and prices</b>, and keep <b>at least 70% of dishes with a photo and a description</b>, Uber's own goal. Give anyone who helps you their own manager login, never your password.",
+        "faq": [
+            ("What does Uber Eats account management include?", "Replying to reviews, disputing wrong refunds and error charges, checking offers and ads, keeping the menu, prices and photos up to date, and watching your ratings and sales each month."),
+            ("Can someone manage my Uber Eats account for me?", "Yes. In Uber Eats Manager you can add a user with manager access, so they can work on your page with their own login. Never share your own password."),
+            ("How often should I check my Uber Eats account?", "Look at refunds once a week, because disputes have a time limit, and do the full checklist once a month."),
+            ("How much does Uber Eats account management cost?", "MenuFix's Growth Plan is a fixed monthly price shown on our pricing page, and you can cancel any time."),
+        ],
+        "body": """
+<h2>1. Reply to every new review</h2>
+<p>Short, kind and personal: thank the customer, name the dish, and own any problem without arguing. Our guide on <a href="/guides/reply-to-uber-eats-reviews.html">replying to Uber Eats reviews</a> has examples. Then fix the cause, so the same complaint doesn't come back.</p>
+
+<h2>2. Dispute wrong refunds and error charges</h2>
+<p>Open <b>Orders</b>, filter by <b>Shop refunded</b> or <b>Potential deduction</b>, and dispute the wrong ones with a photo of the packed order. Uber's UK help gives you 30 days. See <a href="/guides/dispute-uber-eats-error-charges.html">how to dispute Uber Eats error charges</a>.</p>
+
+<h2>3. Check your offers and ads</h2>
+<p>Look at what each offer and ad cost and what it brought. Keep what brings new customers at a price you can afford, and stop what only gives discounts to people who would have ordered anyway.</p>
+
+<h2>4. Keep the menu, prices and photos up to date</h2>
+<ul class="ticks"><li>New dishes added, old ones removed, prices checked.</li><li>Best sellers at the top. See <a href="/guides/best-sellers-uber-eats-menu-order.html">best sellers first</a>.</li><li>At least 70% of dishes with a photo and a description, Uber's own goal. Use photos of your real food.</li></ul>
+
+<h2>5. Look at your numbers</h2>
+<p>Compare this month with last month: orders, average order, rating, and the dishes people order most. One number moving the wrong way is the thing to fix next month.</p>
+
+<h2>Let MenuFix do it every month</h2>
+<p>Our <a href="/pricing.html#growth">Growth Plan</a> does this checklist for you each month: we reply to your reviews, dispute wrong refunds with your proof, check your offers and ads, keep your menu up to date and send you a report with your page score. You add us as a manager user in Uber Eats Manager, and you can cancel any time.</p>
 """,
     },
 ]

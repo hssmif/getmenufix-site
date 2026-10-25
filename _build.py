@@ -68,7 +68,8 @@ def ld(name):
            "alternateName": ["MenuFix (getmenufix.com)", "getmenufix"],
            "description": "MenuFix is an independent done for you Uber Eats menu optimisation service: menu rewrite, photo enhancement of real dishes and Uber Eats page set up, with a free mockup first.",
            "disambiguatingDescription": "MenuFix at getmenufix.com, an Uber Eats page makeover service. Not menufix.com and not affiliated with Uber.",
-           "knowsAbout": ["Uber Eats menu optimisation", "Uber Eats menu descriptions", "Uber Eats food photos", "Delivery app menus"],
+           "knowsAbout": ["Uber Eats menu optimisation", "Uber Eats menu descriptions", "Uber Eats food photos", "Delivery app menus",
+                          "Uber Eats account management", "Uber Eats error charge disputes", "Uber Eats review replies"],
            "sameAs": [u for u in (INSTAGRAM, FACEBOOK, "https://www.crunchbase.com/organization/menufix",
                                   "https://www.trustpilot.com/review/getmenufix.com") if u]}
     graph = [org, {"@type": "WebSite", "@id": "https://getmenufix.com/#site", "url": "https://getmenufix.com/",
@@ -80,7 +81,11 @@ def ld(name):
                       "offers": [{"@type": "Offer", "name": n, "price": str(pr), "priceCurrency": "AUD",
                                   "url": "https://getmenufix.com/pricing.html"}
                                  for n, pr in (("Menu Fix", 289), ("Menu and Photos", 579), ("Full Makeover", 969),
-                                               ("Website", 890), ("Website and Makeover bundle", 1690))]})
+                                               ("Website", 890), ("Website and Makeover bundle", 1690))]
+                      + [{"@type": "Offer", "name": "Growth Plan (monthly Uber Eats account management)", "price": "149",
+                          "priceCurrency": "AUD", "url": "https://getmenufix.com/pricing.html#growth",
+                          "priceSpecification": {"@type": "UnitPriceSpecification", "price": "149", "priceCurrency": "AUD",
+                                                 "unitCode": "MON"}}]})
     if name in ("faq.html", "index.html"):
         items = FAQ if name == "faq.html" else FAQ[:4]
         graph.append({"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q,
