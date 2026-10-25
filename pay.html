@@ -48,12 +48,13 @@ const PAY_INFO = {
   full_makeover: ["Full Makeover", "We do it all for you on your Uber Eats page.", ["We make every change for you", "Photos for up to 50 dishes", "New menu layout", "One month of updates"]],
   done_for_you: ["Done for you", "We make the changes on your Uber Eats page for you.", ["Every change made for you", "You add us as a user, no password"]],
   care_plan: ["Care Plan", "Your Uber Eats page kept fresh, every month.", ["Dishes and prices updated when they change", "Up to 5 new dish photos a month", "Seasonal menu refresh", "Cancel any time"]],
+  growth_plan: ["Growth Plan", "Your Uber Eats page kept fresh and working, every month.", ["Everything in the Care Plan", "Replies to your customer reviews", "Wrong refunds disputed for you", "Offers and ads checked", "A monthly report with your score", "Cancel any time"]],
   website: ["Restaurant Website", "Your own website, in your style.", ["Designed in your style", "Menu with photos and prices", "Order button to your Uber Eats page", "Hours, map, reviews and Instagram", "Your web address connected", "First year of hosting included"]],
   bundle: ["Makeover and Website", "Your Uber Eats page and your website, together.", ["Everything in the Full Makeover", "Everything in the Restaurant Website", "The same photos and words on both", "One month of updates on both"]],
   website_makeover: ["Website Makeover", "Your website redesigned in your style.", ["Redesigned in your style", "Menu, photos and prices up to date", "Fast on phones", "We move your web address", "First year of hosting included"]],
   website_care: ["Website Care", "Your website kept online and up to date.", ["Hosting, web address and security", "Menu, prices and hours updated", "Cancel any time"]],
 };
-const MONTHLY = ["care_plan", "website_care"];
+const MONTHLY = ["care_plan", "growth_plan", "website_care"];
 window.addEventListener("load", async () => {
   const q = new URLSearchParams(location.search), key = q.get("p") || "", ref = q.get("ref") || "";
   const founding = key.endsWith("_founding"), base = key.replace(/_founding$/, "");
@@ -90,6 +91,6 @@ window.addEventListener("load", async () => {
   </div>
   <div class="bottom"><span>© 2026 MenuFix. All rights reserved.</span><span>MenuFix is independent and not affiliated with Uber or Uber Eats.</span></div>
 </div></footer>
-<script src="site.js?v=b61e697b"></script>
+<script src="site.js?v=66b1cff8"></script>
 </body>
 </html>

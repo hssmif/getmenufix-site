@@ -194,7 +194,7 @@ ul.ticks li::before { content: "✓"; position: absolute; left: 0; top: 8px; wid
 form + .guarantee { margin: 26px 0 0; }
 .addon { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center; margin-top: 28px; background: var(--mint); border-radius: 28px; padding: 26px 32px; border: 2px solid #c9ecd7; }
 .addon img { width: 70px; height: 70px; }
-.care-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.care-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
 .care-row .addon { grid-template-columns: auto 1fr; align-items: start; }
 .care-row .addon > div:last-child { grid-column: 2; text-align: left !important; }
 .addon .price { font-size: 38px; font-weight: 800; color: var(--green); letter-spacing: -.03em; }

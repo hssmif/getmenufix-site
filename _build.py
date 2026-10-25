@@ -664,6 +664,13 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
       and prices whenever you change them, enhance up to 5 new dish photos a month and refresh your menu each season.
       Cancel any time. Offered to MenuFix clients once their new page is live.</p></div>
     <div style="text-align:right"><div class="price" data-p="care_plan" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
+  <div class="addon reveal" id="growth" style="margin-top:0;background:var(--mint, #e8f7ee);border-color:#bfe8cf">
+    <img src="img/icons/star.png" alt="">
+    <div><h3>Growth Plan, after your makeover</h3><p class="muted" style="margin:6px 0 0">Everything in the Care Plan, plus every
+      month: we reply to your customer reviews, dispute wrong refunds and error charges for you inside Uber Eats Manager,
+      check your offers and ads, and send you a report with your page score. Your real food only, never AI photos.
+      Cancel any time.</p></div>
+    <div style="text-align:right"><div class="price" data-p="growth_plan" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
   <div class="addon reveal" style="margin-top:0">
     <img src="img/icons/check.png" alt="">
     <div><h3>Website Care, from the second year</h3><p class="muted" style="margin:6px 0 0">Hosting, your web address and security kept running,
@@ -977,12 +984,13 @@ const PAY_INFO = {
   full_makeover: ["Full Makeover", "We do it all for you on your Uber Eats page.", ["We make every change for you", "Photos for up to 50 dishes", "New menu layout", "One month of updates"]],
   done_for_you: ["Done for you", "We make the changes on your Uber Eats page for you.", ["Every change made for you", "You add us as a user, no password"]],
   care_plan: ["Care Plan", "Your Uber Eats page kept fresh, every month.", ["Dishes and prices updated when they change", "Up to 5 new dish photos a month", "Seasonal menu refresh", "Cancel any time"]],
+  growth_plan: ["Growth Plan", "Your Uber Eats page kept fresh and working, every month.", ["Everything in the Care Plan", "Replies to your customer reviews", "Wrong refunds disputed for you", "Offers and ads checked", "A monthly report with your score", "Cancel any time"]],
   website: ["Restaurant Website", "Your own website, in your style.", ["Designed in your style", "Menu with photos and prices", "Order button to your Uber Eats page", "Hours, map, reviews and Instagram", "Your web address connected", "First year of hosting included"]],
   bundle: ["Makeover and Website", "Your Uber Eats page and your website, together.", ["Everything in the Full Makeover", "Everything in the Restaurant Website", "The same photos and words on both", "One month of updates on both"]],
   website_makeover: ["Website Makeover", "Your website redesigned in your style.", ["Redesigned in your style", "Menu, photos and prices up to date", "Fast on phones", "We move your web address", "First year of hosting included"]],
   website_care: ["Website Care", "Your website kept online and up to date.", ["Hosting, web address and security", "Menu, prices and hours updated", "Cancel any time"]],
 };
-const MONTHLY = ["care_plan", "website_care"];
+const MONTHLY = ["care_plan", "growth_plan", "website_care"];
 window.addEventListener("load", async () => {
   const q = new URLSearchParams(location.search), key = q.get("p") || "", ref = q.get("ref") || "";
   const founding = key.endsWith("_founding"), base = key.replace(/_founding$/, "");
