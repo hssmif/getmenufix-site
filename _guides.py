@@ -1025,4 +1025,46 @@ GUIDES = [
 <p>Our <a href="/pricing.html#growth">Growth Plan</a> does this checklist for you each month: we reply to your reviews, dispute wrong refunds with your proof, check your offers and ads, keep your menu up to date and send you a report with your page score. You add us as a manager user in Uber Eats Manager, and you can cancel any time.</p>
 """,
     },
+    {
+        "slug": "google-business-profile-for-restaurants",
+        "related": ["get-more-orders-on-uber-eats", "reply-to-uber-eats-reviews", "uber-eats-account-management"],
+        "title": "Google Business Profile for Restaurants: Setup Guide (2026)",
+        "short": "Google Business Profile for restaurants",
+        "desc": "How restaurants and cafés set up their Google Business Profile to bring customers: categories, hours, menu, real food photos, the order button and replies to reviews.",
+        "img": "maps",
+        "lead": "When someone searches for food near them, your Google Business Profile is often the first thing they see, before your website or your Uber Eats page. A complete profile turns that search into an order.",
+        "answer": "Claim your restaurant on <b>Google Business Profile</b>, then fill in everything: the right <b>main category</b> (for example Thai restaurant, not just Restaurant), exact <b>opening hours</b>, your <b>menu</b>, at least ten <b>real photos</b> of your food and place, a short <b>description</b> of what you serve, and an <b>order link</b> to your website or your Uber Eats page. Reply to every review.",
+        "faq": [
+            ("How do I set up Google Business Profile for my restaurant?", "Search for your restaurant on Google, choose Own this business, and verify it. Then add your category, hours, menu, photos, description and order link in the profile editor."),
+            ("What category should a restaurant choose on Google?", "The most specific one that describes your food, for example Pizza restaurant, Thai restaurant or Café. You can add a few more categories, but the main one matters most."),
+            ("Can I add an Uber Eats link to my Google profile?", "Yes. In the profile you can add a link for orders. Point it to your own website if you take orders there, or to your Uber Eats page."),
+            ("How many photos should a restaurant have on Google?", "Start with at least ten real photos: your best dishes, the inside, the outside and your team at work. Add new ones every month, and never use stock or AI food pictures."),
+            ("Should I reply to Google reviews?", "Yes. Thank people for good reviews and answer complaints calmly and briefly. Replies show new customers that you care."),
+        ],
+        "body": """
+<h2>1. Claim and verify your profile</h2>
+<p>Search for your restaurant on Google. If a profile already exists, choose <b>Own this business</b>; if not, add it. Google will ask you to verify that you own it, usually by phone, email or a short video. Until it is verified, you can't control what it shows.</p>
+
+<h2>2. Choose the right main category</h2>
+<p>Google uses your main category to decide which searches you appear in. "Restaurant" is too general: choose the most specific one, like <b>Turkish restaurant</b>, <b>Pizza takeaway</b> or <b>Café</b>. Add two or three more categories only if they are true.</p>
+
+<h2>3. Hours, holiday hours and services</h2>
+<p>Wrong hours lose customers and bring bad reviews. Add your normal hours, special hours for holidays, and say whether you offer dine in, takeaway and delivery.</p>
+
+<h2>4. Your menu and your best real photos</h2>
+<ul class="ticks"><li>Add your menu with prices, or a link to it.</li><li>Upload at least ten <b>real photos</b>: your best sellers, the inside and the outside. Customers trust photos that match what they get. See <a href="/guides/uber-eats-food-photos-phone.html">food photos on your phone</a>.</li><li>Add new photos every month. A profile that changes looks alive.</li></ul>
+
+<h2>5. A description with the words people search</h2>
+<p>Write two or three sentences about what you serve and where: "Family run Lebanese takeaway in Rochdale: chicken shawarma, falafel wraps and mezze, made fresh every day." Use the words a hungry customer would type.</p>
+
+<h2>6. The order button</h2>
+<p>Add an order link so people can order straight from Google. Point it to your own website if you take orders there, or to your Uber Eats page.</p>
+
+<h2>7. Reviews and replies</h2>
+<p>Ask happy customers for a review, and reply to every review: a thank you for good ones, a calm and short answer to complaints. Our guide on <a href="/guides/reply-to-uber-eats-reviews.html">replying to reviews</a> works for Google too. Never offer anything in exchange for a review.</p>
+
+<h2>Let us do it for you</h2>
+<p>Our <a href="/pricing.html#google-profile">Google Profile Fix</a> sets all of this up for you at a one time price: categories, hours, menu, your best real photos, the description and the order button. Our <a href="/pricing.html#growth">Growth Plan</a> then replies to your Google and Uber Eats reviews every month.</p>
+""",
+    },
 ]

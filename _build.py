@@ -682,6 +682,24 @@ f"""{head("Pricing", "Simple, one time <span class='hl'>prices.</span>", "No sub
       plus your menu, prices and hours updated whenever they change. Cancel any time.</p></div>
     <div style="text-align:right"><div class="price" data-p="website_care" style="color:var(--ink)"></div><small class="muted">a month</small></div></div>
   </div>
+  <div class="head center reveal" id="extras" style="margin:80px 0 30px"><h2 style="font-size:36px">Extras, one time price</h2>
+    <p class="muted" style="margin:12px auto 0;max-width:640px">Add them to your makeover or website, or order them on their own.</p></div>
+  <div class="care-row" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+  <div class="addon reveal" id="google-profile" style="margin-top:0">
+    <img src="img/icons/phone.png" alt="">
+    <div><h3>Google Profile Fix</h3><p class="muted" style="margin:6px 0 0">Your Google Business Profile set up to bring customers:
+      the right categories, hours and menu, your best real photos, a description with the words people search, and an
+      order button to your Uber Eats page or website. See <a href="guides/google-business-profile-for-restaurants.html">our guide</a>.</p>
+      <a class="btn" style="margin-top:12px" href="pay.html?p=google_profile">Order the Google Profile Fix</a></div>
+    <div style="text-align:right"><div class="price" data-p="google_profile" style="color:var(--ink)"></div><small class="muted">one time</small></div></div>
+  <div class="addon reveal" id="price-check" style="margin-top:0">
+    <img src="img/icons/menu.png" alt="">
+    <div><h3>Prices and Combos Check</h3><p class="muted" style="margin:6px 0 0">Which dishes lose money after the Uber Eats fees,
+      where to raise prices, combos and add ons that lift the average order, and which Uber Eats plan suits you. A clear
+      report with every change. See <a href="guides/price-menu-uber-eats.html">how to price your menu</a>.</p>
+      <a class="btn" style="margin-top:12px" href="pay.html?p=price_check">Order the Prices and Combos Check</a></div>
+    <div style="text-align:right"><div class="price" data-p="price_check" style="color:var(--ink)"></div><small class="muted">one time</small></div></div>
+  </div>
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
   <div class="table-scroll reveal"><table class="compare">
     <tr><th></th><th>Menu Fix</th><th>Menu and Photos</th><th>Full Makeover</th></tr>
@@ -989,6 +1007,8 @@ const PAY_INFO = {
   full_makeover: ["Full Makeover", "We do it all for you on your Uber Eats page.", ["We make every change for you", "Photos for up to 50 dishes", "New menu layout", "One month of updates"]],
   done_for_you: ["Done for you", "We make the changes on your Uber Eats page for you.", ["Every change made for you", "You add us as a user, no password"]],
   care_plan: ["Care Plan", "Your Uber Eats page kept fresh, every month.", ["Dishes and prices updated when they change", "Up to 5 new dish photos a month", "Seasonal menu refresh", "Cancel any time"]],
+  google_profile: ["Google Profile Fix", "Your Google Business Profile set up to bring customers.", ["Right categories, hours and menu", "Your best real photos", "A description with the words people search", "Order button to Uber Eats or your website", "One time price"]],
+  price_check: ["Prices and Combos Check", "Your Uber Eats prices checked after the fees.", ["Dishes that lose money", "Where to raise prices", "Combos and add ons", "Which Uber Eats plan suits you", "A clear report, one time price"]],
   growth_plan: ["Growth Plan", "Your Uber Eats page kept fresh and working, every month.", ["Everything in the Care Plan", "Replies to your customer reviews", "Wrong refunds disputed for you", "Offers and ads checked", "A monthly report with your score", "Cancel any time"]],
   website: ["Restaurant Website", "Your own website, in your style.", ["Designed in your style", "Menu with photos and prices", "Order button to your Uber Eats page", "Hours, map, reviews and Instagram", "Your web address connected", "First year of hosting included"]],
   bundle: ["Makeover and Website", "Your Uber Eats page and your website, together.", ["Everything in the Full Makeover", "Everything in the Restaurant Website", "The same photos and words on both", "One month of updates on both"]],
