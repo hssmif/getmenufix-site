@@ -1,4 +1,4 @@
-"""Rider partners (22 Oct 2026): delivery riders who see restaurants every day introduce them to MenuFix and earn 20%
+"""Rider partners (22 Oct 2026): delivery riders who see restaurants every day introduce them to MenuFix and earn 30%
 of what a restaurant pays. rider.html (sign up, the rules) and rider-card.html (their personal QR card, made in the
 browser from ?c=<code>&n=<first name>, to show on the phone or print). Built by _build.py. English for now.
 
@@ -12,11 +12,11 @@ RULES = ["On your own time only: never during a delivery, never with the deliver
          "No spam: talk to people, don't send bulk messages with the MenuFix name."]
 FAQ = [("How can delivery drivers make extra money?", "Introduce restaurants you already know to MenuFix. Show them your "
         "free QR card on your own time; the owner checks their Uber Eats page for free. If they buy a makeover, you earn a "
-        "20% commission. It is a side hustle that fits around your delivery shifts."),
+        "30% commission. It is a side hustle that fits around your delivery shifts."),
        ("Do I need to sell anything?", "No. You show your card to restaurants you know, at a quiet moment. The owner scans it "
         "and checks their own Uber Eats page with us for free. If they buy a makeover later, you earn."),
-       ("How much can I earn per referral?", "20% of what the restaurant pays us. The Uber Eats Makeover is around 970 Australian "
-        "dollars, so about 190 dollars for you from one restaurant, and more for the bigger packages. Refunded payments don't count."),
+       ("How much can I earn per referral?", "30% of what the restaurant pays us. The Uber Eats Makeover is around 970 Australian "
+        "dollars, so about 290 dollars for you from one restaurant, and more for the bigger packages. Refunded payments don't count."),
        ("When do I get paid?", "Within 7 days after the restaurant's payment, by bank transfer or PayPal."),
        ("Can Uber Eats, DoorDash, Deliveroo and Menulog riders join?", "Yes. Any delivery rider or driver can join: Uber Eats, "
         "DoorDash, Deliveroo, Menulog, Just Eat or a cycling courier. MenuFix is independent and not linked to any delivery app."),
@@ -32,12 +32,12 @@ def build_rider(page, head, ic, faq_html, cta) -> list[str]:
     rules = "".join(f"<li>{r}</li>" for r in RULES)
     faq_ld = json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}, ensure_ascii=False)
-    page("rider.html", "Side Hustle for Delivery Drivers: Earn 20% Commission | MenuFix",
-         "Extra income for Uber Eats, DoorDash, Deliveroo and Menulog drivers. Refer restaurants you know and earn 20% "
-         "commission, about 190 dollars each. No selling, your own time, paid in 7 days.",
-         f"""{head("Side hustle for delivery drivers", "Extra income for delivery riders. <span class='hl'>Earn 20%</span> commission.",
+    page("rider.html", "Side Hustle for Delivery Drivers: Earn 30% Commission | MenuFix",
+         "Extra income for Uber Eats, DoorDash, Deliveroo and Menulog drivers. Refer restaurants you know and earn 30% "
+         "commission, about 290 dollars each. No selling, your own time, paid in 7 days.",
+         f"""{head("Side hustle for delivery drivers", "Extra income for delivery riders. <span class='hl'>Earn 30%</span> commission.",
              "You walk into restaurants every day. Show them your personal MenuFix card on your own time. When one of them "
-             "buys a makeover of its Uber Eats page, you get 20% of what it pays: about 190 dollars per restaurant.", ("bag", "star"),
+             "buys a makeover of its Uber Eats page, you get 30% of what it pays: about 290 dollars per restaurant.", ("bag", "star"),
              '<div class="row" style="margin-top:26px"><a class="btn primary" href="#join">Get my card <span class="arr">→</span></a></div>')}
 
 <section class="tight"><div class="wrap">
@@ -45,7 +45,7 @@ def build_rider(page, head, ic, faq_html, cta) -> list[str]:
   <div class="grid3">
     <div class="card reveal">{ic("phone")}<h3>1. Get your card</h3><p>Sign up below. Your personal QR card comes by email in a minute: on your phone, or printed.</p></div>
     <div class="card reveal">{ic("chef")}<h3>2. Show it</h3><p>At a quiet moment, on your own time, show it to restaurants you know. They scan it and check their page for free.</p></div>
-    <div class="card reveal">{ic("star")}<h3>3. Earn 20%</h3><p>When a restaurant that scanned your card pays us, you get 20% of what it paid, within 7 days.</p></div>
+    <div class="card reveal">{ic("star")}<h3>3. Earn 30%</h3><p>When a restaurant that scanned your card pays us, you get 30% of what it paid, within 7 days.</p></div>
   </div>
 </div></section>
 
@@ -53,7 +53,7 @@ def build_rider(page, head, ic, faq_html, cta) -> list[str]:
   <h2>A side hustle that fits around your delivery shifts</h2>
   <p class="lead" style="margin-top:14px">Uber Eats, DoorDash, Deliveroo and Menulog drivers already know which restaurants
   struggle online: bad photos, no descriptions, few orders. MenuFix fixes their Uber Eats page. Our restaurant referral program
-  pays you a 20% commission for every restaurant you introduce, so the restaurants you visit every day become extra income
+  pays you a 30% commission for every restaurant you introduce, so the restaurants you visit every day become extra income
   for you. No selling, no fees, no targets.</p>
 </div></section>
 
