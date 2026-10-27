@@ -13,37 +13,38 @@ const LINKS = {
 };
 // What Stripe charges in each currency (other countries see the closest one at checkout).
 const PRICES = {
-  full_makeover: { aud: 969, gbp: 499, eur: 569, usd: 629 },
-  makeover_google: { aud: 1259, gbp: 649, eur: 739, usd: 819 },
-  complete: { aud: 2290, gbp: 1190, eur: 1359, usd: 1499 },
-  growth_plan: { aud: 195, gbp: 99, eur: 115, usd: 129 },
+  full_makeover: { aud: 969, nzd: 1069, gbp: 499, eur: 569, usd: 629 },
+  makeover_google: { aud: 1259, nzd: 1389, gbp: 649, eur: 739, usd: 819 },
+  complete: { aud: 2290, nzd: 2490, gbp: 1190, eur: 1359, usd: 1499 },
+  growth_plan: { aud: 195, nzd: 215, gbp: 99, eur: 115, usd: 129 },
   // founding restaurants: 30% off, paid after they've seen their finished page
-  full_makeover_founding: { aud: 678, gbp: 349, eur: 398, usd: 440 },
-  makeover_google_founding: { aud: 881, gbp: 454, eur: 517, usd: 573 },
-  complete_founding: { aud: 1603, gbp: 833, eur: 951, usd: 1049 },
+  full_makeover_founding: { aud: 678, nzd: 748, gbp: 349, eur: 398, usd: 440 },
+  makeover_google_founding: { aud: 881, nzd: 972, gbp: 454, eur: 517, usd: 573 },
+  complete_founding: { aud: 1603, nzd: 1743, gbp: 833, eur: 951, usd: 1049 },
 };
-const SYM = { aud: "A$", gbp: "£", eur: "€", usd: "US$" };
-const NAME = { aud: "Australian dollars", gbp: "British pounds", eur: "euros", usd: "US dollars" };
+const SYM = { aud: "A$", nzd: "NZ$", gbp: "£", eur: "€", usd: "US$" };
+const NAME = { aud: "Australian dollars", nzd: "New Zealand dollars", gbp: "British pounds", eur: "euros", usd: "US dollars" };
 
 // Show the currency Stripe will charge this visitor. Stripe picks it from the visitor's country:
-// Australia AUD, euro countries EUR, United States USD, everyone else the base currency GBP.
+// Australia AUD, New Zealand NZD, euro countries EUR, United States USD, everyone else the base currency GBP.
 const EURO_TZ = /^(Europe\/(Dublin|Paris|Berlin|Madrid|Rome|Amsterdam|Brussels|Vienna|Lisbon|Helsinki|Athens|Riga|Tallinn|Vilnius|Bratislava|Ljubljana|Luxembourg|Malta|Monaco|Zagreb|Nicosia|Andorra|San_Marino|Vatican|Busingen)|Atlantic\/(Madeira|Canary|Azores)|Asia\/(Nicosia|Famagusta))$/;
 const US_TZ = /^(America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Juneau|Sitka|Yakutat|Nome|Metlakatla|Adak|Boise|Detroit|Menominee|Indiana\/.+|Kentucky\/.+|North_Dakota\/.+)|Pacific\/Honolulu|US\/.+)$/;
 const EURO_CC = /^(IE|FR|DE|ES|IT|NL|BE|AT|PT|FI|GR|LV|EE|LT|SK|SI|LU|MT|CY|HR|MC|AD|SM|VA)$/;
 function detectCur() {
   let tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
   if (/^Australia\//.test(tz)) return "aud";
+  if (/^(Pacific\/(Auckland|Chatham)|NZ|NZ-CHAT)$/.test(tz)) return "nzd";
   if (EURO_TZ.test(tz)) return "eur";
   if (US_TZ.test(tz)) return "usd";
   if (tz) return "gbp";
   const cc = ((navigator.language || "").split("-")[1] || "").toUpperCase();
-  return cc === "AU" ? "aud" : cc === "US" ? "usd" : EURO_CC.test(cc) ? "eur" : "gbp";
+  return cc === "AU" ? "aud" : cc === "NZ" ? "nzd" : cc === "US" ? "usd" : EURO_CC.test(cc) ? "eur" : "gbp";
 }
 const LANG = document.documentElement.lang;
 const FR = LANG === "fr", ES = LANG === "es";
 // The Spanish pages are for Spain and always show euros.
 const CUR = ES ? "eur" : detectCur();
-const NAME_FR = { aud: "dollars australiens", gbp: "livres sterling", eur: "euros", usd: "dollars américains" };
+const NAME_FR = { aud: "dollars australiens", nzd: "dollars néo-zélandais", gbp: "livres sterling", eur: "euros", usd: "dollars américains" };
 document.querySelectorAll("[data-p]").forEach((el) => {
   const n = PRICES[el.dataset.p][CUR], plus = el.dataset.p === "done_for_you" ? "+" : "";
   el.textContent = FR || ES ? plus + n + "\u00a0" + (CUR === "eur" ? "€" : SYM[CUR]) : plus + SYM[CUR] + n;
