@@ -171,7 +171,7 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
     city_links = "".join(f'<a href="uber-eats/{c["slug"]}.html">{c["name"]}</a>' for c in CITIES)
     page("uber-eats/index.html", "Who We Help: Restaurants, Cafés and Takeaways on Uber Eats | MenuFix",
          "MenuFix helps independent cafés, pizza shops, Asian restaurants and takeaways across Australia and beyond make their Uber Eats page clearer and more appetising.",
-         f"""{head("Who we help", "Independent restaurants, cafés and <span class='hl'>takeaways.</span>", "We work by email with independent businesses across Australia, New Zealand, the UK and Ireland. Pick your type of business or your city.", ("chef", "bag"))}
+         f"""{head("Who we help", "Independent restaurants, cafés and <span class='hl'>takeaways.</span>", "We make Uber Eats pages clearer and more appetising for independent restaurants, cafés and takeaways in Australia, New Zealand, the UK and Ireland. Pick your type of business or your city.", ("chef", "bag"))}
 <section class="tight" style="padding-top:30px"><div class="wrap">
   <div class="grid4">{cards}</div>
   <h2 style="margin-top:70px;font-size:30px" class="reveal">Cities in Australia</h2>
