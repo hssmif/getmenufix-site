@@ -220,8 +220,27 @@ h1 span{color:var(--brand)}
 <script>
 const q = new URLSearchParams(location.search);
 const p = (q.get("p") || "").toLowerCase().replace(/[^a-z0-9]/g, "").slice(0, 30);
-const AMT = { aud: "about A$290", nzd: "about NZ$320", gbp: "about £150" };
-document.getElementById("amt").textContent = AMT[(q.get("cur") || "aud").toLowerCase()] || AMT.aud;
+const AMT = { aud: "about A$290", nzd: "about NZ$320", gbp: "about £150", usd: "about US$190", eur: "about €170" };
+const FR = (q.get("lang") || "") === "fr";
+document.getElementById("amt").textContent = FR ? "environ 170 €" : AMT[(q.get("cur") || "aud").toLowerCase()] || AMT.aud;
+if (FR) {  // 30 Oct 2026: rider companies in France, Belgium and Luxembourg
+  document.documentElement.lang = "fr";
+  const T = { tag: "Pour les livreurs", h1a: "Vous connaissez un restaurant ?<br>Gagnez ", h1b: "<br>quand il nous rejoint.",
+    lead: "Vous voyez des restaurants tous les jours. Présentez ceux que vous connaissez à MenuFix, sur votre temps libre, et touchez 30% de ce qu'ils nous paient.",
+    s: [["Recevez votre carte gratuite", "Inscription en une minute. Votre carte QR personnelle arrive par email."],
+        ["Montrez la au restaurateur", "À un moment calme, jamais pendant une livraison. Il reçoit une analyse gratuite de sa page Uber Eats."],
+        ["Touchez 30%", "S'il achète une refonte, vous touchez 30% de ce qu'il paie, sous 7 jours."]],
+    cta: "Scannez pour recevoir votre carte", ctap: "Rien à vendre, rien à acheter. Aucune application à installer.",
+    rules: "Sur votre temps libre uniquement, jamais pendant une livraison ni en tenue de livreur. Ne dites jamais que vous venez d'Uber ou d'Uber Eats : MenuFix est indépendant. N'utilisez jamais l'application de livraison et ne contactez jamais les clients. Montant donné en exemple : notre formule principale, les paiements remboursés ne comptent pas.",
+    print: "Imprimer ou enregistrer en PDF" };
+  document.querySelector(".tag").textContent = T.tag;
+  const amt = document.getElementById("amt").outerHTML;
+  document.querySelector("h1").innerHTML = T.h1a + amt + T.h1b;
+  document.querySelector(".lead").textContent = T.lead;
+  document.querySelectorAll(".step").forEach((el, i) => { el.querySelector("b").textContent = T.s[i][0]; el.querySelector("p").textContent = T.s[i][1]; });
+  document.querySelector(".cta b").textContent = T.cta; document.querySelector(".cta p").textContent = T.ctap;
+  document.querySelector(".rules").textContent = T.rules; document.querySelector(".bar button").textContent = T.print;
+}
 const link = "https://getmenufix.com/rider.html" + (p ? "?utm_source=partner&utm_campaign=" + p : "");
 new QRCode(document.getElementById("qr"), { text: link, width: 190, height: 190, correctLevel: QRCode.CorrectLevel.M });
 </script>
