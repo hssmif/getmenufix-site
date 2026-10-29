@@ -12,6 +12,7 @@ const LINKS = {
   makeover_google: "https://buy.stripe.com/aFafZi4rybiEfUc8vw1sQ0p",
   complete: "https://buy.stripe.com/28EeVe8HO9aweQ8aDE1sQ0q",
   growth_plan: "https://buy.stripe.com/cNi9AUaPW9awazSdPQ1sQ0r",
+  five_dishes: "https://buy.stripe.com/5kQ6oIe2886sdM4dPQ1sQ0v",
 };
 // What Stripe charges in each currency (other countries see the closest one at checkout).
 const PRICES = {
@@ -19,6 +20,7 @@ const PRICES = {
   makeover_google: { aud: 1259, nzd: 1389, gbp: 649, eur: 739, usd: 819 },
   complete: { aud: 2290, nzd: 2490, gbp: 1190, eur: 1359, usd: 1499 },
   growth_plan: { aud: 195, nzd: 215, gbp: 99, eur: 115, usd: 129 },
+  five_dishes: { aud: 99, nzd: 99, gbp: 49, eur: 55, usd: 65 },
   // founding restaurants: 30% off, paid after they've seen their finished page
   full_makeover_founding: { aud: 678, nzd: 748, gbp: 349, eur: 398, usd: 440 },
   makeover_google_founding: { aud: 881, nzd: 972, gbp: 454, eur: 517, usd: 573 },
@@ -111,9 +113,9 @@ if (form) { const q = new URLSearchParams(location.search).get("biz"); if (q) do
 // Arriving from a plan button: the message says which plan, and the guarantee (and a referral code, so it is counted).
 const PLAN = new URLSearchParams(location.search).get("plan");
 const PLAN_NAMES = {
-  en: { full_makeover: "Uber Eats Makeover", makeover_google: "Makeover and Google", complete: "Complete", growth_plan: "Growth Plan" },
-  fr: { full_makeover: "Refonte Uber Eats", makeover_google: "Refonte et Google", complete: "Complète", growth_plan: "Plan Croissance" },
-  es: { full_makeover: "Renovación Uber Eats", makeover_google: "Renovación y Google", complete: "Completa", growth_plan: "Plan Crecimiento" },
+  en: { full_makeover: "Uber Eats Makeover", makeover_google: "Makeover and Google", complete: "Complete", growth_plan: "Growth Plan", five_dishes: "5 Dishes Done" },
+  fr: { full_makeover: "Refonte Uber Eats", makeover_google: "Refonte et Google", complete: "Complète", growth_plan: "Plan Croissance", five_dishes: "5 plats faits pour vous" },
+  es: { full_makeover: "Renovación Uber Eats", makeover_google: "Renovación y Google", complete: "Completa", growth_plan: "Plan Crecimiento", five_dishes: "5 platos hechos" },
 }[FR ? "fr" : ES ? "es" : "en"];
 if (form && PLAN && PLAN_NAMES[PLAN]) {
   const msg = document.getElementById("msg");

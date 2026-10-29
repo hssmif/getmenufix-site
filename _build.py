@@ -643,7 +643,15 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 # ------------------------------------------------------------------------------------------------ pricing
 page("pricing.html", "Uber Eats Makeover Prices: 3 Done for You Packages | MenuFix", "Three done for you packages for your Uber Eats page: the Uber Eats Makeover, Makeover and Google, and Complete with your own website. Plus the monthly Growth Plan.",
 f"""{head("Pricing", "Three packages, all <span class='hl'>done for you.</span>", "No contract. We make your finished page first, and you only pay once you've seen it and you're happy.", ("star", "bag"), CUR)}
-<section style="padding-top:40px"><div class="wrap"><div class="head center reveal" style="margin:0 0 40px"><h2 style="font-size:40px">Uber Eats makeover packages</h2></div>{PLANS}
+<section style="padding-top:40px"><div class="wrap"><div class="head center reveal" style="margin:0 0 40px"><h2 style="font-size:40px">Start small: your 5 best dishes</h2>
+    <p class="muted" style="margin:12px auto 0;max-width:640px">Not ready for the whole page? Start with the 5 dishes that matter most, and see the difference first.</p></div>
+  <div class="plans" style="grid-template-columns:minmax(300px,460px);justify-content:center">
+  <div class="plan feat reveal"><span class="ribbon green">First step</span>{ic("chef")}<h3>5 Dishes Done</h3><p class="muted" style="margin:6px 0 0">Your 5 most important Uber Eats dishes, done for you.</p>
+    <div class="price" data-p="five_dishes"></div><small class="once">One time price, no subscription</small>
+    <ul><li>Names and descriptions rewritten to sell</li><li>Your own photos made professional</li><li class="dfy">We make the changes on your Uber Eats page. You don't touch anything</li></ul>
+    <a class="btn primary" data-buy="five_dishes" href="#">Start with 5 dishes</a></div>
+  </div>
+  <div class="head center reveal" style="margin:100px 0 40px"><h2 style="font-size:40px">Uber Eats makeover packages</h2></div>{PLANS}
   <div class="head center reveal" id="growth" style="margin:100px 0 40px"><h2 style="font-size:40px">Monthly plan, after your project</h2>
     <p class="muted" style="margin:12px auto 0;max-width:640px">Optional. We look after your Uber Eats page, your Google profile and your website every month. Cancel any time.</p></div>
   <div class="plans" style="grid-template-columns:minmax(300px,460px);justify-content:center">
@@ -964,6 +972,7 @@ const PAY_INFO = {
   full_makeover: ["Uber Eats Makeover", "Your whole Uber Eats page, done for you.", ["Every dish rewritten to sell", "Your real photos enhanced, whole menu", "Best sellers first and a clear menu order", "A prices and combos check", "We make every change for you", "One month of updates"]],
   makeover_google: ["Makeover and Google", "Found on Uber Eats and on Google.", ["Everything in the Uber Eats Makeover", "Your Google Business Profile set up", "Your best real photos on Google", "An order button on Google", "A description with the words people search"]],
   complete: ["Complete", "Uber Eats, Google and your own website.", ["Everything in Makeover and Google", "Your own website in your style", "Menu with photos and an order button", "Your web address connected", "First year of hosting included"]],
+  five_dishes: ["5 Dishes Done", "Your 5 most important dishes, done for you.", ["Names and descriptions rewritten to sell", "Your own photos made professional", "We make the changes on your Uber Eats page"]],
   growth_plan: ["Growth Plan", "Everything kept fresh and working, every month.", ["Menu, prices and photos kept up to date", "Automatic replies to your Uber Eats reviews set up", "Wrong refunds disputed for you", "Offers and ads checked", "Your website kept up to date", "A monthly report"]],
 };
 const MONTHLY = ["growth_plan"];
