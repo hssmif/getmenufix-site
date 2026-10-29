@@ -183,7 +183,7 @@ def poster_page() -> None:
 .bar button{border:0;border-radius:12px;padding:12px 18px;font:700 15px 'Plus Jakarta Sans',sans-serif;cursor:pointer;background:var(--brand);color:#fff}
 .page{width:210mm;max-width:100%;min-height:297mm;margin:0 auto 24px;background:var(--cream);padding:16mm 15mm;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.12)}
 .logo{font-weight:800;font-size:28px}.logo b{color:var(--brand)}
-.tag{display:inline-block;margin-top:10mm;background:var(--brand);color:#fff;font-weight:800;font-size:15px;padding:6px 14px;border-radius:99px;letter-spacing:.3px}
+.tag{display:inline-block;align-self:flex-start;margin-top:10mm;background:var(--brand);color:#fff;font-weight:800;font-size:15px;padding:6px 14px;border-radius:99px;letter-spacing:.3px}
 h1{font-size:54px;line-height:1.02;margin:5mm 0 0;letter-spacing:-1.5px}
 h1 span{color:var(--brand)}
 .lead{font-size:20px;line-height:1.4;color:#444;margin:6mm 0 0;max-width:150mm}
