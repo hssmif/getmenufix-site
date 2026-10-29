@@ -1,5 +1,7 @@
 // Where this visit came from (Google, Instagram, an email...), kept for the visit so the payment page can say it.
 try { const r = document.referrer; if (r && !r.includes(location.host) && !sessionStorage.getItem("mf_from")) sessionStorage.setItem("mf_from", r); } catch (e) {}
+// Where this visitor came from (the first other website, kept for this visit): sent with our forms for the Activity page.
+const FROM = (() => { try { return (sessionStorage.getItem("mf_from") || "").slice(0, 300); } catch (e) { return ""; } })();
 // Edit these if anything changes.
 const CONTACT = "hello@getmenufix.com";
 // The free page check form posts here: the Google Apps Script web app MenuFix already uses (MUSE_SHEET_URL in
@@ -145,7 +147,7 @@ if (form) form.addEventListener("submit", (e) => {
   e.preventDefault();
   const v = (id) => document.getElementById(id).value.trim();
   sendForm(form, "mErr", "mockThanks", { form: "mockup", restaurant: v("biz"), city: v("city"), link: v("link"), email: v("email"),
-    name: v("name"), message: v("msg"), plan: PLAN || "", via: VIA || "", ref: RID, lang: form.dataset.lang || "en",
+    name: v("name"), message: v("msg"), plan: PLAN || "", via: VIA || "", ref: RID, lang: form.dataset.lang || "en", from: FROM, ad: AD || "",
     consent: document.getElementById("mConsent").checked, website: v("mSite") });
 });
 
@@ -521,7 +523,7 @@ if (instantForm) instantForm.addEventListener("submit", async (e) => {
     const ctl = new AbortController(), stop = setTimeout(() => ctl.abort(), 90000);  // never wait for ever
     const r = await fetch("https://admin.getmenufix.com/api/public/instant_check", { method: "POST", signal: ctl.signal,
       headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ images, via: VIA || "", ad: AD || "", restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
+      body: JSON.stringify({ images, via: VIA || "", ad: AD || "", from: FROM, restaurant: v("iName"), email: v("iEmail"), first_name: v("iFirst"), website: v("iSite"),
                              consent: document.getElementById("iConsent").checked }) });
     clearTimeout(stop);
     const d = await r.json().catch(() => ({ error: "" }));
