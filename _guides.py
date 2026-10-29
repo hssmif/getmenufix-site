@@ -1067,4 +1067,112 @@ GUIDES = [
 <p>Our <a href="/pricing.html">Google Profile Fix</a> sets all of this up for you at a one time price: categories, hours, menu, your best real photos, the description and the order button. Our <a href="/pricing.html#growth">Growth Plan</a> then keeps your pages up to date every month.</p>
 """,
     },
+    {
+        "slug": "uber-eats-offers-promotions-restaurants",
+        "related": ["get-more-orders-on-uber-eats", "price-menu-uber-eats", "uber-eats-fees-australia"],
+        "title": "Uber Eats Offers and Promotions for Restaurants: Are They Worth It?",
+        "short": "Uber Eats offers and promotions",
+        "desc": "How Uber Eats offers work for restaurants (percentage off, buy one get one, free item, spend and save), what they really cost you, and how to choose one that brings new customers without losing money.",
+        "img": "pricing",
+        "lead": "Offers can put your restaurant in front of new people on Uber Eats, but you pay for the discount. Here is how to choose one that brings customers back, not just bargain hunters.",
+        "answer": "Uber Eats offers are discounts you fund from your own sales, set up in <b>Uber Eats Manager</b> under Marketing. They can help a new or quiet restaurant get seen, but only run one when you know your <b>margin</b> on the dish, choose an offer on a dish people come back for, set an <b>end date</b>, and check the results before you run it again.",
+        "faq": [
+            ("Who pays for Uber Eats offers?", "In most cases the restaurant pays for the discount it chooses, and the service fee is usually worked out on the order. Check the exact terms in Uber Eats Manager before you start an offer."),
+            ("What is the best Uber Eats offer for a restaurant?", "The one that fits your numbers. A free item or a buy one get one on a dish with a good margin is often easier to afford than a big percentage off the whole menu. Try one offer at a time so you can see what worked."),
+            ("Do Uber Eats promotions bring repeat customers?", "They can, if the food and the page are good enough for people to come back without the discount. Fix your photos, names and descriptions first, then run the offer."),
+            ("How do I set up an offer on Uber Eats?", "Open Uber Eats Manager, go to Marketing, choose the type of offer, the dishes, the budget and the dates, then confirm. You can pause or end it there too."),
+            ("Should I run offers all the time?", "Usually not. Customers learn to wait for the discount. Short offers with a clear end date, followed by a check of your results, are safer."),
+        ],
+        "body": """
+<h2>The main types of offer</h2>
+<ul class="ticks"><li><b>Percentage off:</b> a discount on selected dishes or the whole order.</li><li><b>Buy one get one:</b> a second item free on chosen dishes.</li><li><b>Free item:</b> a free side, drink or dessert with an order over a set amount.</li><li><b>Spend and save:</b> money off when the order reaches a set total.</li></ul>
+<p>The names and options change from time to time, so always read the current terms in <b>Uber Eats Manager</b>.</p>
+
+<h2>Work out what an offer really costs you</h2>
+<p>Before you start, take one dish and write down three numbers: the price on Uber Eats, what it costs you to make, and the fee you pay on each order. Then take off the discount. If there is little or nothing left, the offer only works if those customers come back and order again at full price. Our guide on <a href="/guides/price-menu-uber-eats.html">pricing your menu on Uber Eats</a> shows how to work out these numbers.</p>
+
+<h2>Choose the dish carefully</h2>
+<p>Put the offer on a dish that shows what you do best and that people tend to order again. A cheap side or a drink as a free item often costs you less than money off a main, and it still feels generous.</p>
+
+<h2>Fix your page before you pay for traffic</h2>
+<p>An offer brings people to your page. If they land on dishes with no photos, unclear names and no descriptions, many will still leave. Do the free fixes first: see <a href="/guides/get-more-orders-on-uber-eats.html">how to get more orders on Uber Eats</a>.</p>
+
+<h2>Set an end date and check the results</h2>
+<ul class="ticks"><li>Run one offer at a time, for a set number of days.</li><li>Write down your orders and new customers before, during and after.</li><li>Keep the offer only if new customers came back without it.</li></ul>
+
+<h2>Want a second opinion?</h2>
+<p>Our free <a href="/check.html">Uber Eats page check</a> looks at your page before you spend on offers, and our <a href="/pricing.html#growth">Growth Plan</a> checks your offers every month for you.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-restaurant-offline-paused",
+        "related": ["get-more-orders-on-uber-eats", "uber-eats-account-management", "edit-menu-uber-eats-manager"],
+        "title": "Why Is My Restaurant Offline or Paused on Uber Eats? How to Fix It",
+        "short": "Restaurant offline or paused on Uber Eats",
+        "desc": "Your restaurant shows as closed, offline or paused on Uber Eats? Check these causes in order: store hours, the paused button, the tablet, menu hours, missed orders and account problems.",
+        "img": "tablet",
+        "lead": "Every minute your store shows as closed is a minute customers order somewhere else. Most causes take a few minutes to find. Check them in this order.",
+        "answer": "If your restaurant shows as <b>offline, closed or paused</b> on Uber Eats, check in this order: your <b>store hours</b> and holiday hours, whether someone <b>paused the store</b>, that the <b>tablet or app is on and signed in</b>, your <b>menu hours</b>, and whether many <b>missed orders</b> paused it automatically. If none of these explain it, contact support in Uber Eats Manager.",
+        "faq": [
+            ("Why does my restaurant say closed on Uber Eats?", "Usually the store hours, holiday hours or menu hours do not match the time now, or the store was paused. Check them in Uber Eats Manager."),
+            ("Why did Uber Eats pause my store?", "A store can be paused when someone presses pause on the tablet, or when several orders are not accepted in time. Check your tablet and your recent orders, then unpause."),
+            ("How do I unpause my store on Uber Eats?", "On the Uber Eats Orders tablet or app, or in Uber Eats Manager, find the store status and set it back to open. Make sure the tablet stays on and signed in."),
+            ("Why does my store go offline by itself?", "Often the tablet lost Wi Fi, went to sleep, or signed out. Keep it charging, on a stable connection, and with the Orders app open."),
+        ],
+        "body": """
+<h2>1. Store hours and holiday hours</h2>
+<p>Open Uber Eats Manager and check your normal hours and any special or holiday hours. An old holiday entry can keep a store closed long after the holiday ended.</p>
+
+<h2>2. Was the store paused?</h2>
+<p>Anyone in the kitchen can pause the store when it gets busy, and it is easy to forget to switch it back. Check the store status on the tablet and in Uber Eats Manager.</p>
+
+<h2>3. The tablet or Orders app</h2>
+<ul class="ticks"><li>Keep it on the charger and stop it from going to sleep.</li><li>Check it is connected to Wi Fi or mobile data.</li><li>Make sure it is signed in to the right store.</li><li>Turn the sound up so nobody misses an order.</li></ul>
+
+<h2>4. Menu hours</h2>
+<p>Each menu has its own hours. If your breakfast menu ends at 11:00 and your lunch menu starts at 12:00, you look closed in between. Check that your menus cover all your opening hours. See <a href="/guides/edit-menu-uber-eats-manager.html">how to edit your menu in Uber Eats Manager</a>.</p>
+
+<h2>5. Missed orders</h2>
+<p>When several orders are not accepted in time, the store can be paused to protect customers. Find out why orders were missed (sound off, tablet asleep, busy kitchen) and fix that first, or it will happen again.</p>
+
+<h2>6. Still offline?</h2>
+<p>Account, bank or document problems can also stop a store. Contact support through Uber Eats Manager: they can see things you can't.</p>
+
+<h2>Once you are back online</h2>
+<p>Make the most of every visit: our <a href="/guides/get-more-orders-on-uber-eats.html">nine fixes to get more orders</a> are free, and our <a href="/check.html">free page check</a> tells you which ones matter most for your page.</p>
+""",
+    },
+    {
+        "slug": "uber-eats-ads-for-restaurants",
+        "related": ["uber-eats-offers-promotions-restaurants", "get-more-orders-on-uber-eats", "uber-eats-fees-australia"],
+        "title": "Uber Eats Ads for Restaurants: How Sponsored Listings Work",
+        "short": "Uber Eats ads for restaurants",
+        "desc": "How Uber Eats ads (sponsored listings) work for restaurants: where they show, how you pay, how to set a budget, and what to fix on your page before you spend money on ads.",
+        "img": "phone",
+        "lead": "Uber Eats ads put your restaurant higher in the app. They can work, but an ad only brings people to your page: your page still has to make them order.",
+        "answer": "<b>Uber Eats ads</b> (sponsored listings) show your restaurant in a higher spot in search and the home feed, and you pay from a <b>budget you set</b> in Uber Eats Manager under Marketing. Before you run ads, make sure your page converts: real <b>photos</b>, clear <b>names</b>, short <b>descriptions</b> and your <b>best sellers first</b>. Start small, set an end date and compare your orders before and after.",
+        "faq": [
+            ("Are Uber Eats ads worth it for a small restaurant?", "They can be when your page is already strong and you know your margins. If your page has few photos or unclear names, fix that first: an ad brings visitors, not orders."),
+            ("How do I pay for Uber Eats ads?", "You choose a budget in Uber Eats Manager, and the cost is taken from your Uber Eats payouts. Check the current terms in Uber Eats Manager before you start."),
+            ("What is the difference between Uber Eats ads and offers?", "Ads make your restaurant easier to see. Offers give the customer a discount. You can run either one, or both, but test one at a time so you know what worked."),
+            ("How long should I run Uber Eats ads?", "Start with a short test, for example one or two weeks with a small budget, and compare your orders and new customers before and after."),
+        ],
+        "body": """
+<h2>Where ads show</h2>
+<p>Sponsored restaurants appear in a higher spot when people search or scroll the app, marked as sponsored. You choose your budget and dates in <b>Uber Eats Manager</b>, under Marketing.</p>
+
+<h2>Fix your page first</h2>
+<p>An ad pays to bring people to your page. If they see dishes with no photos, unclear names and no descriptions, they leave, and you paid for the visit. Do these first:</p>
+<ul class="ticks"><li>Real photos on your best sellers: <a href="/guides/how-to-add-photos-to-uber-eats-menu.html">how to add photos</a>.</li><li>Names people understand and a one line description: <a href="/guides/write-uber-eats-menu-descriptions.html">menu descriptions</a>.</li><li>Best sellers at the top: <a href="/guides/best-sellers-uber-eats-menu-order.html">menu order</a>.</li><li>A strong banner photo: <a href="/guides/uber-eats-banner-photo.html">banner photo guide</a>.</li></ul>
+
+<h2>Start small and measure</h2>
+<ul class="ticks"><li>Pick a small daily budget you are happy to lose while you test.</li><li>Run it for a set number of days.</li><li>Write down orders and new customers before and during the ad.</li><li>Keep it only if the extra orders are worth more than the cost.</li></ul>
+
+<h2>Ads or offers?</h2>
+<p>Ads make you easier to find. Offers make you cheaper to try. If people find you but don't order, fix your page or try an offer. If they don't find you at all, an ad may help. See <a href="/guides/uber-eats-offers-promotions-restaurants.html">Uber Eats offers and promotions</a>.</p>
+
+<h2>Not sure where to start?</h2>
+<p>Our free <a href="/check.html">Uber Eats page check</a> scores your page out of 100 and tells you the 3 things to fix first, before you spend on ads.</p>
+""",
+    },
 ]

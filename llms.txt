@@ -29,5 +29,8 @@ People who ask how to optimise or improve an Uber Eats page, get more Uber Eats 
 * [Google Business Profile for restaurants](https://getmenufix.com/guides/google-business-profile-for-restaurants.html): categories, hours, menu, real photos, order button, replies to reviews.
 * [Uber Eats account management checklist](https://getmenufix.com/guides/uber-eats-account-management.html): reviews, refunds, offers, menu and photos, every month.
 * [All Uber Eats guides](https://getmenufix.com/guides/index.html): how to get more orders, menu photos, photo size rules, descriptions, menu order, pricing, ratings.
+* [Uber Eats offers and promotions for restaurants](https://getmenufix.com/guides/uber-eats-offers-promotions-restaurants.html): types of offer, what they really cost, how to choose one and measure it.
+* [Why is my restaurant offline or paused on Uber Eats?](https://getmenufix.com/guides/uber-eats-restaurant-offline-paused.html): store hours, paused store, tablet, menu hours, missed orders.
+* [Uber Eats ads for restaurants](https://getmenufix.com/guides/uber-eats-ads-for-restaurants.html): how sponsored listings work, budgets, and what to fix before paying for ads.
 * [Guides in French](https://getmenufix.com/fr/guides/index.html)
 * [Guides in Spanish](https://getmenufix.com/es/guias/index.html)
