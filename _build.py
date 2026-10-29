@@ -733,8 +733,15 @@ for name, title in (("privacy.html", "Privacy"), ("terms.html", "Terms")):
     page(name, f"{title} | MenuFix", f"MenuFix {title.lower()}.",
          f'<header class="page-head"><div class="narrow"><span class="eyebrow">Legal</span><h1>{title}</h1></div></header>\n'
          f'<main class="narrow legal" style="padding-bottom:100px">\n{inner}\n</main>')
+# 29 Oct 2026: getmenufix.com/<restaurant-name> is a restaurant's own page (the link in our texts after Ava's call). It
+# isn't a file here: this page asks the MenuFix server for that name and shows its page, the address stays the same.
+SHOW = """<script>(function(){var p=location.pathname.replace(/^\\/+|\\/+$/g,"").toLowerCase();
+if(!/^[a-z0-9]+(-[a-z0-9]+)*(\\/website)?$/.test(p))return;var d=document.documentElement;d.style.visibility="hidden";
+fetch("https://admin.getmenufix.com/n/"+p).then(function(r){if(!r.ok)throw 0;return r.text()})
+.then(function(h){document.open();document.write(h);document.close();d.style.visibility=""})
+.catch(function(){d.style.visibility=""})})();</script>"""
 page("404.html", "Page not found | MenuFix", "This page does not exist.",
-     f"""<header class="page-head" style="text-align:center;padding:140px 0">{floaty("icecream", "left:12%;top:30%")}{floaty("pizza", "right:12%;top:40%", 3)}<div class="narrow">
+     SHOW + f"""<header class="page-head" style="text-align:center;padding:140px 0">{floaty("icecream", "left:12%;top:30%")}{floaty("pizza", "right:12%;top:40%", 3)}<div class="narrow">
   <span class="eyebrow">404</span><h1>This page isn't on the menu.</h1>
   <p class="lead" style="margin-left:auto;margin-right:auto">The page you're looking for doesn't exist or has moved.</p>
   <div class="row" style="justify-content:center;margin-top:30px"><a class="btn primary" href="index.html">Back to home</a></div>
