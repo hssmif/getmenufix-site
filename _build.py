@@ -642,7 +642,7 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 
 # ------------------------------------------------------------------------------------------------ pricing
 page("pricing.html", "Uber Eats Makeover Prices: 3 Done for You Packages | MenuFix", "Three done for you packages for your Uber Eats page: the Uber Eats Makeover, Makeover and Google, and Complete with your own website. Plus the monthly Growth Plan.",
-f"""{head("Pricing", "Three packages, all <span class='hl'>done for you.</span>", "No contract. We make your finished page first, and you only pay once you've seen it and you're happy.", ("star", "bag"), CUR)}
+f"""{head("Pricing", "Start small, or get it all <span class='hl'>done for you.</span>", "No contract. We make your finished page first, and you only pay once you've seen it and you're happy.", ("star", "bag"), CUR)}
 <section style="padding-top:40px"><div class="wrap"><div class="head center reveal" style="margin:0 0 40px"><h2 style="font-size:40px">Start small: your 5 best dishes</h2>
     <p class="muted" style="margin:12px auto 0;max-width:640px">Not ready for the whole page? Start with the 5 dishes that matter most, and see the difference first.</p></div>
   <div class="plans" style="grid-template-columns:minmax(300px,460px);justify-content:center">
