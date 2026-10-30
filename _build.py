@@ -80,8 +80,8 @@ def ld(name):
                       "areaServed": ["AU", "NZ", "GB", "IE"],
                       "offers": [{"@type": "Offer", "name": n, "price": str(pr), "priceCurrency": "AUD",
                                   "url": "https://getmenufix.com/pricing.html"}
-                                 for n, pr in (("Uber Eats Makeover", 969), ("Makeover and Google", 1259),
-                                               ("Complete: Makeover, Google and Website", 2290))]
+                                 for n, pr in (("Uber Eats Makeover", 969), ("Makeover Plus", 1259),
+                                               ("Makeover and Website", 2290))]
                       + [{"@type": "Offer", "name": "Growth Plan (monthly Uber Eats account management)", "price": "195",
                           "priceCurrency": "AUD", "url": "https://getmenufix.com/pricing.html#growth",
                           "priceSpecification": {"@type": "UnitPriceSpecification", "price": "195", "priceCurrency": "AUD",
@@ -332,14 +332,14 @@ PLANS = f"""<div class="plans">
     <div class="price" data-p="full_makeover"></div><small class="once">One time price, no subscription</small>
     <ul><li>Every dish name and description rewritten to sell</li><li>Your real photos enhanced, for your whole menu</li><li>Best sellers first and a clear menu order</li><li>A prices and combos check after the fees</li><li class="dfy">We make every change on your page. You don't touch anything</li><li>One month of updates</li></ul>
     <a class="btn dark" data-buy="full_makeover" href="#">Get the Makeover</a></div>
-  <div class="plan feat reveal"><span class="ribbon">Most popular</span>{ic("star")}<h3>Makeover and Google</h3><p class="muted" style="margin:6px 0 0">Found on Uber Eats and on Google.</p>
+  <div class="plan feat reveal"><span class="ribbon">Most popular</span>{ic("star")}<h3>Makeover Plus</h3><p class="muted" style="margin:6px 0 0">Your page, plus the extras that bring orders.</p>
     <div class="price" data-p="makeover_google"></div><small class="once">One time price, no subscription</small>
-    <ul><li>Everything in the Uber Eats Makeover</li><li>Your Google Business Profile set up: categories, hours and menu</li><li>Your best real photos on Google</li><li>An order button on Google</li><li>A description with the words people search</li></ul>
-    <a class="btn primary" data-buy="makeover_google" href="#">Get Makeover and Google</a></div>
-  <div class="plan reveal"><span class="ribbon green">Best value</span>{ic("gift")}<h3>Complete</h3><p class="muted" style="margin:6px 0 0">Uber Eats, Google and your own website.</p>
+    <ul><li>Everything in the Uber Eats Makeover</li><li>A cover banner made from your own photos</li><li>Combos and bundles built for you</li><li>An Uber Eats offer set up</li><li>Automatic replies to your reviews set up</li><li>A second page check after 30 days</li></ul>
+    <a class="btn primary" data-buy="makeover_google" href="#">Get Makeover Plus</a></div>
+  <div class="plan reveal"><span class="ribbon green">Best value</span>{ic("gift")}<h3>Makeover and Website</h3><p class="muted" style="margin:6px 0 0">Your Uber Eats page and your own website.</p>
     <div class="price" data-p="complete"></div><small class="once">One time price, first year of hosting included</small>
-    <ul><li>Everything in Makeover and Google</li><li>Your own website, designed in your style</li><li>Menu with photos and prices, and a big order button</li><li>Hours, map, reviews and your Instagram</li><li>Your own web address connected</li><li>The same photos and words everywhere</li></ul>
-    <a class="btn dark" data-buy="complete" href="#">Get Complete</a></div>
+    <ul><li>Everything in Makeover Plus</li><li>A new website built for you, or your old one rebuilt</li><li>Menu with photos and prices, and a big order button</li><li>Hours, map, reviews and your Instagram</li><li>Your own web address connected</li><li>The same photos and words everywhere</li></ul>
+    <a class="btn dark" data-buy="complete" href="#">Get Makeover and Website</a></div>
 </div>
 <p class="note reveal" style="text-align:center;margin-top:18px">All three are done for you, and you only pay once you've seen your finished page and you're happy with it.</p>"""
 
@@ -462,7 +462,7 @@ f"""<header class="hero">
 
 <section><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Pricing</span><h2>Clear prices. No surprises.</h2></div>
-    <div><p class="lead">Three packages, all done for you: the Uber Eats Makeover, Makeover and Google, or Complete with your own website.</p>{CUR}</div></div>
+    <div><p class="lead">Three packages, all done for you: the Uber Eats Makeover, Makeover Plus, or Makeover and Website.</p>{CUR}</div></div>
   {PLANS}
 </div></section>
 
@@ -571,7 +571,7 @@ f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span c
   <div class="head center reveal"><span class="eyebrow">How it works</span><h2>Three steps.</h2></div>
   <div class="grid3">
     <div class="card reveal"><h3>1. Send your Uber Eats page</h3><p>Your store link or name is enough. We send a free mockup, usually within one or two working days.</p></div>
-    <div class="card reveal"><h3>2. Say yes and choose a plan</h3><p>The Uber Eats Makeover, Makeover and Google, or Complete with your own website. All done for you.</p></div>
+    <div class="card reveal"><h3>2. Say yes and choose a plan</h3><p>The Uber Eats Makeover, Makeover Plus, or Makeover and Website. All done for you.</p></div>
     <div class="card reveal"><h3>3. Your page goes live</h3><p>You check everything first. Nothing changes on your page until you say ok.</p></div>
   </div>
 </div></section>
@@ -623,7 +623,7 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
   <div class="reveal">{ic("menu")}<span class="eyebrow" style="display:block">Step 2</span><h2>Choose your package</h2>
-    <p class="lead" style="margin-top:18px">Pick the Uber Eats Makeover, Makeover and Google, or Complete with your own website. We make every change for you. Pay securely by card through Stripe, once you've seen your finished page. One time price, no subscription.</p>
+    <p class="lead" style="margin-top:18px">Pick the Uber Eats Makeover, Makeover Plus, or Makeover and Website. We make every change for you. Pay securely by card through Stripe, once you've seen your finished page. One time price, no subscription.</p>
     <a class="btn primary" href="pricing.html" style="margin-top:10px">See pricing <span class="arr">→</span></a></div>
   <div class="img reveal"><img src="img/counter.jpg" alt="" loading="lazy"></div>
 </div></section>
@@ -641,7 +641,7 @@ f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everyth
 """, "how-it-works.html")
 
 # ------------------------------------------------------------------------------------------------ pricing
-page("pricing.html", "Uber Eats Makeover Prices: 3 Done for You Packages | MenuFix", "Three done for you packages for your Uber Eats page: the Uber Eats Makeover, Makeover and Google, and Complete with your own website. Plus the monthly Growth Plan.",
+page("pricing.html", "Uber Eats Makeover Prices: 3 Done for You Packages | MenuFix", "Three done for you packages for your Uber Eats page: the Uber Eats Makeover, Makeover Plus, and Makeover and Website (a new website or your old one rebuilt). Plus the monthly Growth Plan.",
 f"""{head("Pricing", "Start small, or get it all <span class='hl'>done for you.</span>", "No contract. We make your finished page first, and you only pay once you've seen it and you're happy.", ("star", "bag"), CUR)}
 <section style="padding-top:40px"><div class="wrap"><div class="head center reveal" style="margin:0 0 40px"><h2 style="font-size:40px">Start small: your 5 best dishes</h2>
     <p class="muted" style="margin:12px auto 0;max-width:640px">Not ready for the whole page? Start with the 5 dishes that matter most, and see the difference first.</p></div>
@@ -653,7 +653,7 @@ f"""{head("Pricing", "Start small, or get it all <span class='hl'>done for you.<
   </div>
   <div class="head center reveal" style="margin:100px 0 40px"><h2 style="font-size:40px">Uber Eats makeover packages</h2></div>{PLANS}
   <div class="head center reveal" id="growth" style="margin:100px 0 40px"><h2 style="font-size:40px">Monthly plan, after your project</h2>
-    <p class="muted" style="margin:12px auto 0;max-width:640px">Optional. We look after your Uber Eats page, your Google profile and your website every month. Cancel any time.</p></div>
+    <p class="muted" style="margin:12px auto 0;max-width:640px">Optional. We look after your Uber Eats page and your website every month. Cancel any time.</p></div>
   <div class="plans" style="grid-template-columns:minmax(300px,460px);justify-content:center">
   <div class="plan feat reveal"><span class="ribbon">Growth Plan</span><img width="160" height="160" decoding="async" class="icon3d" src="img/icons/rocket.png" alt="" loading="lazy"><h3>Growth Plan</h3><p class="muted" style="margin:6px 0 0">Everything kept fresh and working, every month.</p>
     <div class="price" data-p="growth_plan"></div><small class="once">A month, cancel any time</small>
@@ -662,15 +662,17 @@ f"""{head("Pricing", "Start small, or get it all <span class='hl'>done for you.<
   </div>
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare packages</h2>
   <div class="table-scroll reveal"><table class="compare">
-    <tr><th></th><th>Uber Eats Makeover</th><th>Makeover and Google</th><th>Complete</th></tr>
+    <tr><th></th><th>Uber Eats Makeover</th><th>Makeover Plus</th><th>Makeover and Website</th></tr>
     <tr><td>Every dish rewritten to sell</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Your real photos enhanced, whole menu</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Best sellers first and menu order</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Prices and combos check</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Done for you: we make every change</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>One month of updates</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Google Business Profile set up</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Your own website, first year of hosting</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
+    <tr><td>Cover banner from your own photos</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Combos, bundles and an Uber Eats offer set up</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Review replies set up and a check after 30 days</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Your own website, new or rebuilt, first year of hosting</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
   </table></div>
 </div></section>
 <section class="bg-cream"><div class="narrow"><div class="head center reveal" style="margin-bottom:30px"><h2>Pricing questions</h2></div>
@@ -970,8 +972,8 @@ page("pay.html", "Secure payment | MenuFix", "Pay for your MenuFix order securel
 const PAY_API = "https://admin.getmenufix.com/api/public/pay";
 const PAY_INFO = {
   full_makeover: ["Uber Eats Makeover", "Your whole Uber Eats page, done for you.", ["Every dish rewritten to sell", "Your real photos enhanced, whole menu", "Best sellers first and a clear menu order", "A prices and combos check", "We make every change for you", "One month of updates"]],
-  makeover_google: ["Makeover and Google", "Found on Uber Eats and on Google.", ["Everything in the Uber Eats Makeover", "Your Google Business Profile set up", "Your best real photos on Google", "An order button on Google", "A description with the words people search"]],
-  complete: ["Complete", "Uber Eats, Google and your own website.", ["Everything in Makeover and Google", "Your own website in your style", "Menu with photos and an order button", "Your web address connected", "First year of hosting included"]],
+  makeover_google: ["Makeover Plus", "Your page, plus the extras that bring orders.", ["Everything in the Uber Eats Makeover", "A cover banner from your own photos", "Combos and bundles built for you", "An Uber Eats offer set up", "Automatic replies to your reviews set up", "A second page check after 30 days"]],
+  complete: ["Makeover and Website", "Your Uber Eats page and your own website.", ["Everything in Makeover Plus", "A new website built for you, or your old one rebuilt", "Menu with photos and an order button", "Your web address connected", "First year of hosting included"]],
   five_dishes: ["5 Dishes Done", "Your 5 most important dishes, done for you.", ["Names and descriptions rewritten to sell", "Your own photos made professional", "We make the changes on your Uber Eats page"]],
   growth_plan: ["Growth Plan", "Everything kept fresh and working, every month.", ["Menu, prices and photos kept up to date", "Automatic replies to your Uber Eats reviews set up", "Wrong refunds disputed for you", "Offers and ads checked", "Your website kept up to date", "A monthly report"]],
 };

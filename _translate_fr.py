@@ -19,8 +19,8 @@ natural, warm, professional French for French restaurant owners (use « vous »)
 Return the COMPLETE HTML document, identical to the input except for the visible text and these attributes: alt,
 title, placeholder, aria-label, content of <meta name="description"> and og:title/og:description. Never change tags,
 classes, ids, href, src, data-* attributes, scripts, styles or numbers. Set <html lang="fr">.
-Fixed names: "Uber Eats Makeover" = "Refonte Uber Eats"; "Makeover and Google" = "Refonte et Google"; "Complete" (the
-package) = "Complète"; "Growth Plan" = "Plan Croissance"; "Google Business Profile" = "fiche d'établissement Google";
+Fixed names: "Uber Eats Makeover" = "Refonte Uber Eats"; "Makeover Plus" = "Refonte Plus"; "Makeover and Website"
+= "Refonte et Site web"; "Growth Plan" = "Plan Croissance"; "Google Business Profile" = "fiche d'établissement Google";
 "Done for you" = "Clé en main"; "free mockup" = "maquette gratuite"; "Uber Eats Manager" stays. Keep "MenuFix",
 "Uber Eats", "Stripe" and dish names as they are. "one time price, no subscription" = "prix unique, sans abonnement".
 Translate EVERY piece of visible English text: badges ("Before and after" = "Avant et après"), card titles and

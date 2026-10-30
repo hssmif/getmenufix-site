@@ -68,14 +68,14 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
     <div class="price" data-p="full_makeover">569&nbsp;€</div><small class="once">Precio único, sin suscripción</small>
     <ul><li>Cada plato reescrito para vender</li><li>Sus fotos reales mejoradas, toda la carta</li><li>Lo más vendido arriba y una carta clara</li><li>Revisión de precios y menús combinados</li><li class="dfy">Hacemos todos los cambios en su página. Usted no toca nada</li><li>Un mes de actualizaciones</li></ul>
     <a class="btn dark" data-buy="full_makeover" href="#">Quiero la Renovación</a></div>
-  <div class="plan feat reveal"><span class="ribbon">El más elegido</span>{ic("star")}<h3>Renovación y Google</h3><p class="muted" style="margin:6px 0 0">En Uber Eats y en Google.</p>
+  <div class="plan feat reveal"><span class="ribbon">El más elegido</span>{ic("star")}<h3>Renovación Plus</h3><p class="muted" style="margin:6px 0 0">Su página, más los extras que traen pedidos.</p>
     <div class="price" data-p="makeover_google">739&nbsp;€</div><small class="once">Precio único, sin suscripción</small>
-    <ul><li>Todo lo de la Renovación Uber Eats</li><li>Su ficha de Google preparada: categorías, horario y carta</li><li>Sus mejores fotos reales en Google</li><li>Un botón para pedir en Google</li><li>Una descripción con las palabras que la gente busca</li></ul>
-    <a class="btn primary" data-buy="makeover_google" href="#">Quiero Renovación y Google</a></div>
-  <div class="plan reveal"><span class="ribbon green">El mejor precio</span>{ic("gift")}<h3>Completa</h3><p class="muted" style="margin:6px 0 0">Uber Eats, Google y su propia web.</p>
+    <ul><li>Todo lo de la Renovación Uber Eats</li><li>Un banner de portada hecho con sus propias fotos</li><li>Combos y menús creados para usted</li><li>Una oferta de Uber Eats preparada</li><li>Respuestas automáticas a sus reseñas preparadas</li><li>Una segunda revisión de su página a los 30 días</li></ul>
+    <a class="btn primary" data-buy="makeover_google" href="#">Quiero Renovación Plus</a></div>
+  <div class="plan reveal"><span class="ribbon green">El mejor precio</span>{ic("gift")}<h3>Renovación y Web</h3><p class="muted" style="margin:6px 0 0">Su página de Uber Eats y su propia web.</p>
     <div class="price" data-p="complete">1359&nbsp;€</div><small class="once">Precio único, primer año de alojamiento incluido</small>
-    <ul><li>Todo lo de Renovación y Google</li><li>Su propia web, con su estilo</li><li>Carta con fotos y precios, y un botón para pedir</li><li>Horario, mapa, reseñas y su Instagram</li><li>Su dominio conectado</li></ul>
-    <a class="btn dark" data-buy="complete" href="#">Quiero la Completa</a></div>
+    <ul><li>Todo lo de Renovación Plus</li><li>Una web nueva hecha para usted, o su web antigua renovada</li><li>Carta con fotos y precios, y un botón para pedir</li><li>Horario, mapa, reseñas y su Instagram</li><li>Su dominio conectado</li></ul>
+    <a class="btn dark" data-buy="complete" href="#">Quiero Renovación y Web</a></div>
 </div>
 <p class="note reveal" style="text-align:center;margin-top:18px">Los tres están hechos por nosotros, y solo paga cuando haya visto su página terminada y esté contento.</p>"""
     cur = '<p class="curnote">Precios en <b data-curname>euros</b>. Se paga con tarjeta a través de Stripe.</p>'
@@ -162,7 +162,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 
 <section><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Precios</span><h2>Precios claros. Sin sorpresas.</h2></div>
-    <div><p class="lead">Tres paquetes, todo hecho por nosotros: la Renovación Uber Eats, Renovación y Google, o la Completa con su propia web.</p>{cur}</div></div>
+    <div><p class="lead">Tres paquetes, todo hecho por nosotros: la Renovación Uber Eats, Renovación Plus, o Renovación y Web.</p>{cur}</div></div>
   {plans}
 </div></section>
 
@@ -248,7 +248,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
   <div class="reveal">{ic("menu")}<span class="eyebrow" style="display:block">Paso 2</span><h2>Elija su paquete</h2>
-    <p class="lead" style="margin-top:18px">Elija la Renovación Uber Eats, Renovación y Google, o la Completa con su propia web. Hacemos nosotros todos los cambios. Pago seguro con tarjeta a través de Stripe, cuando haya visto su página terminada. Precio único, sin suscripción.</p>
+    <p class="lead" style="margin-top:18px">Elija la Renovación Uber Eats, Renovación Plus, o Renovación y Web. Hacemos nosotros todos los cambios. Pago seguro con tarjeta a través de Stripe, cuando haya visto su página terminada. Precio único, sin suscripción.</p>
     <a class="btn primary" href="es/pricing.html" style="margin-top:10px">Ver precios <span class="arr">→</span></a></div>
   <div class="img reveal"><img src="img/counter.jpg" alt="" loading="lazy"></div>
 </div></section>
@@ -268,20 +268,22 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
     # ------------------------------------------------------------------------------------------------ pricing
     pricing_faq = [FAQ[2], FAQ[5], FAQ[4], ("¿Cómo se paga?", "Con tarjeta a través de Stripe, un proveedor de pagos seguro, cuando haya visto su página terminada y esté contento con ella. Los precios de esta página están en euros."), FAQ[0]]
     page("es/pricing.html", "Precios para renovar su carta de Uber Eats | MenuFix",
-         "Tres paquetes hechos por nosotros, en euros, para su página de Uber Eats: la Renovación Uber Eats, Renovación y Google, y la Completa con su propia web.",
+         "Tres paquetes hechos por nosotros, en euros, para su página de Uber Eats: la Renovación Uber Eats, Renovación Plus, y Renovación y Web (una web nueva o su web antigua renovada).",
          f"""{head("Precios", "Tres paquetes, todo <span class='hl'>hecho por nosotros.</span>", "Sin permanencia. Primero preparamos su página terminada, y solo paga cuando la haya visto y esté contento.", ("star", "bag"), cur)}
 <section style="padding-top:40px"><div class="wrap">{plans}
   <h2 style="margin-top:90px;font-size:36px" class="reveal">Compare los paquetes</h2>
   <div class="table-scroll reveal"><table class="compare">
-    <tr><th></th><th>Renovación Uber Eats</th><th>Renovación y Google</th><th>Completa</th></tr>
+    <tr><th></th><th>Renovación Uber Eats</th><th>Renovación Plus</th><th>Renovación y Web</th></tr>
     <tr><td>Cada plato reescrito para vender</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Sus fotos reales mejoradas, toda la carta</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Lo más vendido arriba y orden de la carta</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Revisión de precios y menús combinados</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Hecho por nosotros: todos los cambios</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
     <tr><td>Un mes de actualizaciones</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Ficha de Google preparada</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
-    <tr><td>Su propia web, primer año de alojamiento</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
+    <tr><td>Banner de portada con sus propias fotos</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Combos, menús y una oferta de Uber Eats preparados</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Respuestas a reseñas y revisión a los 30 días</td><td class="n">×</td><td class="y">✓</td><td class="y">✓</td></tr>
+    <tr><td>Su propia web, nueva o renovada, primer año de alojamiento</td><td class="n">×</td><td class="n">×</td><td class="y">✓</td></tr>
   </table></div>
   <p class="note reveal" style="margin-top:24px">El pago lo gestiona Stripe. Si paga con una tarjeta de fuera de la zona euro, Stripe puede mostrarle el importe en otra moneda al pagar.</p>
 </div></section>
