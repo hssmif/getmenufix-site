@@ -1064,7 +1064,7 @@ GUIDES = [
 <p>Ask happy customers for a review, and reply to every review: a thank you for good ones, a calm and short answer to complaints. Our guide on <a href="/guides/reply-to-uber-eats-reviews.html">replying to reviews</a> works for Google too. Never offer anything in exchange for a review.</p>
 
 <h2>Let us do it for you</h2>
-<p>Our <a href="/pricing.html">Google Profile Fix</a> sets all of this up for you at a one time price: categories, hours, menu, your best real photos, the description and the order button. Our <a href="/pricing.html#growth">Growth Plan</a> then keeps your pages up to date every month.</p>
+<p>You can do all of this yourself in about an hour. Our focus is your <a href="/pricing.html">Uber Eats page</a>: photos, names, descriptions and prices that turn visits into orders.</p>
 """,
     },
     {
