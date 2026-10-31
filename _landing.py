@@ -7,7 +7,7 @@ CUISINES = [
     {
         "slug": "cafes", "icons": ("coffee", "croissant"), "ex": ["breakfast", "cake"],
         "title": "Uber Eats Menu Makeover for Cafés | MenuFix",
-        "desc": "We rewrite café menus on Uber Eats and enhance photos of your real breakfasts, lunches, coffee and cakes. A free mockup first, one time prices.",
+        "desc": "We rewrite café menus on Uber Eats and enhance photos of your real breakfasts, lunches, coffee and cakes. A free page check first, one time prices.",
         "eyebrow": "For cafés", "h1": "Make your café easy to choose on <span class='hl'>Uber Eats.</span>",
         "lead": "Great coffee and a beautiful brunch don't always come across on a delivery app. We make your café's page as inviting as your counter.",
         "problems": [("Breakfast and lunch mixed together", "One long list makes people scroll past your best dishes. We group the menu by time of day and put favourites first."),
@@ -25,7 +25,7 @@ CUISINES = [
     {
         "slug": "pizza", "icons": ("pizza", "chef"), "ex": ["pizza"],
         "title": "Uber Eats Menu Makeover for Pizza Shops | MenuFix",
-        "desc": "Clear pizza names, descriptions that sell and better photos of your real pizzas on Uber Eats. For independent pizzerias. Free mockup first.",
+        "desc": "Clear pizza names, descriptions that sell and better photos of your real pizzas on Uber Eats. For independent pizzerias. Free page check first.",
         "eyebrow": "For pizza shops", "h1": "Pizzas that look as good on the app as they <span class='hl'>taste.</span>",
         "lead": "When every pizza page looks the same, clear names, real toppings and bright photos help yours stand out.",
         "problems": [("Numbered pizzas", "\"Pizza 7\" means nothing to a new customer. We give every pizza a name and list its toppings."),
@@ -43,7 +43,7 @@ CUISINES = [
     {
         "slug": "asian-restaurants", "icons": ("noodles", "dumpling"), "ex": ["laksa", "dumplings", "poke"],
         "title": "Uber Eats Menu Makeover for Asian Restaurants | MenuFix",
-        "desc": "Clear dish names, helpful descriptions and better photos for Asian restaurants on Uber Eats: noodles, dumplings, curries, sushi and more. Free mockup first.",
+        "desc": "Clear dish names, helpful descriptions and better photos for Asian restaurants on Uber Eats: noodles, dumplings, curries, sushi and more. Free page check first.",
         "eyebrow": "For Asian restaurants", "h1": "Help new customers find their new <span class='hl'>favourite dish.</span>",
         "lead": "Long menus with dish names some customers don't know can be hard to order from. We keep your dishes authentic and make them easy to choose.",
         "problems": [("Long menus with numbers", "We organise big menus into clear categories and put your best sellers first, so people don't give up scrolling."),
@@ -61,7 +61,7 @@ CUISINES = [
     {
         "slug": "takeaways", "icons": ("kebab", "burger"), "ex": ["burger", "shawarma", "tacos"],
         "title": "Uber Eats Menu Makeover for Takeaways | MenuFix",
-        "desc": "Better Uber Eats pages for takeaways: burgers, kebabs, fried chicken, tacos and late night food. Clear combos, descriptions and real photos. Free mockup first.",
+        "desc": "Better Uber Eats pages for takeaways: burgers, kebabs, fried chicken, tacos and late night food. Clear combos, descriptions and real photos. Free page check first.",
         "eyebrow": "For takeaways", "h1": "Late night favourites, made easy to <span class='hl'>order.</span>",
         "lead": "Takeaway customers decide fast. Clear combos, simple names and bright photos of your real food help them choose you.",
         "problems": [("Combos that don't say what's in them", "\"Meal deal 2\" becomes \"Cheeseburger, chips and a can of drink\", so there are no surprises."),
@@ -107,7 +107,7 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
         examples = "".join(ba(*exd[k]) for k in c["ex"])
         tips = "".join(f"<li>{t}</li>" for t in c["tips"])
         page(f"uber-eats/{c['slug']}.html", c["title"], c["desc"], f"""{head(c['eyebrow'], c['h1'], c['lead'], c['icons'],
-     '<div class="row" style="margin-top:28px"><a class="btn primary" href="contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn ghost" href="pricing.html">See pricing</a></div>')}
+     '<div class="row" style="margin-top:28px"><a class="btn primary" href="check.html">Get my free page check <span class="arr">→</span></a><a class="btn ghost" href="pricing.html">See pricing</a></div>')}
 <section class="tight"><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">What we fix</span><h2>Common problems, sorted.</h2></div></div>
   <div class="grid3">{problems}</div>
@@ -142,14 +142,14 @@ def build_landing(page, head, cta, faq_html, guide_card, guides, ba, exd, ic):
     for c in CITIES:
         n = c["name"]
         page(f"uber-eats/{c['slug']}.html", f"Uber Eats Menu Makeover in {n} | MenuFix",
-             f"Uber Eats menu rewrites and photo enhancement for independent restaurants, cafés and takeaways in {n}. Done by email, free mockup first, one time prices.",
+             f"Uber Eats menu rewrites and photo enhancement for independent restaurants, cafés and takeaways in {n}. Done by email, free page check first, one time prices.",
              f"""{head(n, f"Better Uber Eats pages for {n} <span class='hl'>restaurants.</span>", c["intro"], c["icons"],
-     '<div class="row" style="margin-top:28px"><a class="btn primary" href="contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn ghost" href="how-it-works.html">How it works</a></div>')}
+     '<div class="row" style="margin-top:28px"><a class="btn primary" href="check.html">Get my free page check <span class="arr">→</span></a><a class="btn ghost" href="how-it-works.html">How it works</a></div>')}
 <section class="tight"><div class="narrow prose">
   <h2 style="margin-top:0">What we do for {n} businesses</h2>
   <ul class="ticks"><li>Rewrite every dish name and description so it's clear and appetising.</li><li>Put your best sellers first and tidy your categories.</li><li>Enhance photos of your real dishes: better light, a clean background, sized for Uber Eats.</li><li>Make every change on your Uber Eats page for you.</li></ul>
   <h2>How it works from {n}</h2>
-  <p>Everything happens by email, so it works the same wherever you are. You send us your restaurant's name or Uber Eats link, and we send a free mockup of how your page could look. If you like it, you choose a package, send photos of your dishes taken on your phone, and we do the rest.</p>
+  <p>Everything happens by email, so it works the same wherever you are. You paste your Uber Eats link on our website, see your page score in 30 seconds, and we email you your page today next to how it will look after we fix it. If you like it, you choose a package, send photos of your dishes taken on your phone, and we do the rest.</p>
   <p>Prices are shown in Australian dollars for visitors in Australia. See <a href="/pricing.html">pricing</a>.</p>
   <h2>Moving from Menulog?</h2>
   <p>If you're moving your restaurant from Menulog to Uber Eats, our guide <a href="/guides/moving-from-menulog-to-uber-eats.html">Moving from Menulog to Uber Eats: set up your page right</a> goes through what Uber asks for and how to set up your new page, from Uber's own merchant pages.</p>

@@ -95,7 +95,7 @@ GUIDES = [
 <h2>Keep it honest</h2>
 <p>Describe the dish exactly as it arrives. If the photo or the words promise more than the plate delivers, customers notice, and that shows up in reviews.</p>
 
-<p>Want us to rewrite your whole menu? We send a free mockup first so you can see the difference before you decide.</p>
+<p>Want us to rewrite your whole menu? Start with a free page check: your score in 30 seconds, and your page fixed by email, before you decide.</p>
 """,
     },
     {
@@ -265,7 +265,7 @@ GUIDES = [
 
 <p>Not on Uber Eats yet? See <a href="/guides/how-to-get-your-restaurant-on-uber-eats-australia.html">how to get your restaurant on Uber Eats</a>.</p>
 
-<p>Just launched? We'll send you a free mockup of how your page could look, so you can see what we'd change before deciding anything.</p>
+<p>Just launched? Get a free page check: your score in 30 seconds, and how your page will look after we fix it, before deciding anything.</p>
 """,
     },
     {
@@ -495,7 +495,7 @@ GUIDES = [
 <h2>Make each order count</h2>
 <p>Because the fee is a percentage, every order costs you the same share. What you can change is how many people choose you and how much they add to their cart. Clear photos, names people understand and best sellers first help with both. See our <a href="/guides/get-more-orders-on-uber-eats.html">guide to getting more orders</a>.</p>
 
-<p>Want to see how your page could look? We send a free mockup first, so you can decide with no cost.</p>
+<p>Want to see how your page could look? Get a free page check first, so you can decide with no cost.</p>
 """,
     },
     {
@@ -670,7 +670,7 @@ GUIDES = [
 <ul class="ticks"><li>Best sellers first, each with a clear photo of your real food.</li><li>A short description for every dish. Check yours with our free <a href="/tools/menu-description-checker.html">menu description checker</a>.</li><li>Hours that match when you can really cook and pack orders.</li><li>Order once from yourself, to see your page and packaging the way customers do.</li></ul>
 <p>The full list is in our <a href="/guides/new-on-uber-eats-checklist.html">first weeks checklist</a>.</p>
 
-<p>If you'd like help with the menu and photos, we start with a free mockup of how your page could look, so you can decide with no cost.</p>
+<p>If you'd like help with the menu and photos, we start with a free page check of your page, so you can decide with no cost.</p>
 """,
     },
     {
@@ -905,7 +905,7 @@ GUIDES = [
 <ul class="ticks"><li><b>Good:</b> real, professional photos of your dishes.</li><li><b>Keep in mind:</b> photos only. Names, descriptions and menu order stay as they are.</li></ul>
 
 <h2>5. A done for you makeover service</h2>
-<p>A makeover service fixes the whole page: dish names, descriptions, menu order, photos and the changes on Uber Eats itself. That is what we do at <a href="/services.html">MenuFix</a>: we rewrite your menu, enhance photos of your real dishes (never fake food) and can make every change on your page for you. Our <a href="/pricing.html">prices</a> are one time, with no subscription, and you see a free mockup of your new page before you pay anything.</p>
+<p>A makeover service fixes the whole page: dish names, descriptions, menu order, photos and the changes on Uber Eats itself. That is what we do at <a href="/services.html">MenuFix</a>: we rewrite your menu, enhance photos of your real dishes (never fake food) and can make every change on your page for you. Our <a href="/pricing.html">prices</a> are one time, with no subscription, and you see a free page check with your new page before you pay anything.</p>
 <ul class="ticks"><li><b>Good:</b> the least work for you, and everything changes together.</li><li><b>Keep in mind:</b> it costs more than doing it yourself, so compare what is included.</li></ul>
 
 <h2>Questions to ask before you pay anyone</h2>

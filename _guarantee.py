@@ -59,11 +59,13 @@ def add_guarantee(root, lang_of):
         if path in PLANS_ON:
             html = html.replace('<div class="plans">', block(lang, icon).lstrip("\n") + '\n  <div class="plans">', 1)
         else:
-            html = re.sub(r'(<form id="checkForm".*?</form>)', lambda m: m.group(1) + block(lang, icon), html, count=1, flags=re.S)
+            html = re.sub(r'(<form id="liveForm".*?</form>)', lambda m: m.group(1) + block(lang, icon), html, count=1, flags=re.S)
         f.write_text(html)
     f = root / "fr/faq.html"  # English and Spanish have it in their FAQ lists (and their FAQ structured data)
     if f.is_file():
         html = _OLD_FAQ.sub("", f.read_text())
-        html = re.sub(r"(<summary>Est ce que cela garantira davantage de commandes \?</summary><p>.*?</p></details>)",
+        # the translation words its own copy of "What if I don't like it?" (31 Oct 2026): ours replaces it
+        html = re.sub(r"<details><summary>[^<]*pla[iî]t pas[^<]*</summary><p>.*?</p></details>", "", html, flags=re.S)
+        html = re.sub(r"(<details><summary>[^<]*garanti[^<]*commandes[^<]*</summary><p>.*?</p></details>)",
                       lambda m: m.group(1) + faq_item("fr"), html, count=1, flags=re.S)
         f.write_text(html)

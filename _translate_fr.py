@@ -1,5 +1,6 @@
 """Builds the French website (website/fr/) from the English pages. Run after _build.py, from menufix/:
-.venv/bin/python website/_translate_fr.py [page.html ...]"""
+.venv/bin/python website/_translate_fr.py [page.html ...]
+31 Oct 2026 (Abdel): written by Claude (the Anthropic credit), no longer OpenAI."""
 import re
 import sys
 from concurrent.futures import ThreadPoolExecutor
@@ -7,10 +8,11 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import config  # noqa: F401  (loads .env)
-from openai import OpenAI
+import anthropic
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "fr"
+MODEL = "claude-sonnet-5-5"  # a whole page in and out: Sonnet is plenty for a translation, at half the cost of Opus
 PAGES = ["index.html", "services.html", "examples.html", "how-it-works.html", "pricing.html", "about.html", "faq.html",
          "contact.html", "privacy.html", "terms.html", "404.html"]
 
@@ -21,7 +23,7 @@ title, placeholder, aria-label, content of <meta name="description"> and og:titl
 classes, ids, href, src, data-* attributes, scripts, styles or numbers. Set <html lang="fr">.
 Fixed names: "Uber Eats Makeover" = "Refonte Uber Eats"; "Makeover Plus" = "Refonte Plus"; "Makeover and Website"
 = "Refonte et Site web"; "Growth Plan" = "Plan Croissance"; "Google Business Profile" = "fiche d'établissement Google";
-"Done for you" = "Clé en main"; "free mockup" = "maquette gratuite"; "Uber Eats Manager" stays. Keep "MenuFix",
+"Done for you" = "Clé en main"; "free page check" = "analyse gratuite"; "Example" stays "Example"; "Uber Eats Manager" stays. Keep "MenuFix",
 "Uber Eats", "Stripe" and dish names as they are. "one time price, no subscription" = "prix unique, sans abonnement".
 Translate EVERY piece of visible English text: badges ("Before and after" = "Avant et après"), card titles and
 descriptions, dish names and descriptions in the example cards (e.g. "Smash Burger and Fries" = "Smash Burger et
@@ -46,9 +48,12 @@ def fix_paths(html: str) -> str:
 
 def translate(name: str) -> str:
     src = (ROOT / name).read_text()
-    r = OpenAI(timeout=600).chat.completions.create(
-        model="gpt-5-mini", messages=[{"role": "system", "content": SYSTEM}, {"role": "user", "content": src}])
-    html = r.choices[0].message.content.strip()
+    with anthropic.Anthropic(timeout=900).messages.stream(
+            model=MODEL, max_tokens=64000, system=SYSTEM, messages=[{"role": "user", "content": src}]) as st:
+        r = st.get_final_message()
+    if r.stop_reason != "end_turn":
+        raise RuntimeError(f"{name}: the translation stopped early ({r.stop_reason})")
+    html = "".join(b.text for b in r.content if b.type == "text").strip()
     html = re.sub(r"^```(?:html)?\s*|\s*```$", "", html)
     if not html.lower().startswith("<!doctype") or src.count("<section") != html.count("<section"):
         raise RuntimeError(f"{name}: translation changed the page structure")

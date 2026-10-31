@@ -25,7 +25,7 @@ h1{font-size:24px;line-height:1.2;margin:14px 0 6px}.sub{color:#555;margin:0 0 1
   <div class="logo">menu<b>fix</b></div>
   <div class="card">
     <h1>Free check of your<br>Uber Eats page</h1>
-    <p class="sub">Scan to see your score and what to fix, then get a free mockup of your page.</p>
+    <p class="sub">Scan to see your score and what to fix, then your page today and after the fix by email.</p>
     <div id="qr"></div>
     <div class="url" id="url"></div>
     <div class="by" id="by"></div>
@@ -50,7 +50,7 @@ setTimeout(() => {
   const src = img && (img.tagName === "CANVAS" ? img.toDataURL() : img.src);
   for (let i = 0; i < 8; i++) sheet.insertAdjacentHTML("beforeend",
     `<div class="mini"><img src="${src}" style="width:36mm;height:36mm"><div class="t"><div class="l">menu<i>fix</i></div>
-     <b>Free check of your Uber Eats page</b><span>Scan: your score and a free mockup.${name ? " Introduced by " + name : ""}</span></div></div>`);
+     <b>Free check of your Uber Eats page</b><span>Scan: your score in 30 seconds.${name ? " Introduced by " + name : ""}</span></div></div>`);
 }, 300);
 document.getElementById("save").onclick = () => {
   const qr = document.querySelector("#qr canvas"); if (!qr) return;
@@ -59,7 +59,7 @@ document.getElementById("save").onclick = () => {
   x.fillStyle = "#1b1b1f"; x.font = "800 40px sans-serif"; x.textAlign = "center"; x.fillText("menufix", 360, 120);
   x.font = "800 38px sans-serif"; x.fillText("Free check of your", 360, 210); x.fillText("Uber Eats page", 360, 258);
   x.drawImage(qr, 160, 310, 400, 400); x.fillStyle = "#555"; x.font = "500 26px sans-serif";
-  x.fillText("Scan: your score and a free mockup", 360, 780); if (name) x.fillText("Introduced by " + name, 360, 830);
+  x.fillText("Scan: your score in 30 seconds", 360, 780); if (name) x.fillText("Introduced by " + name, 360, 830);
   const a = document.createElement("a"); a.download = "menufix-card.png"; a.href = c.toDataURL("image/png"); a.click();
 };
 </script></body></html>

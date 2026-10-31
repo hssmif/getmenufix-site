@@ -181,36 +181,131 @@ if (refForm) refForm.addEventListener("submit", (e) => {
     how: v("rHow"), lang: refForm.dataset.lang || "en", website: v("rSite") });
 });
 
-// Free Uber Eats page check (check.html): one row in the sheet's "Page checks" tab, then a thank you.
-const checkForm = document.getElementById("checkForm");
-if (checkForm) checkForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const v = (id) => document.getElementById(id).value.trim();
-  const err = document.getElementById("cErr");
-  const say = (msg) => { err.textContent = msg; err.hidden = !msg; };
-  const url = v("cUrl"), lang = checkForm.dataset.lang || "en";
-  if (!/^https:\/\/(www\.)?ubereats\.com\/([a-z]{2}(-[a-z]{2})?\/)?store\/[^\/?#\s]+\/[A-Za-z0-9_-]+/.test(url)) return say(checkForm.dataset.bad_url);
-  if (!checkForm.checkValidity()) { checkForm.reportValidity(); return; }
-  say("");
-  const data = { action: "check", store_url: url, restaurant: v("cName"), email: v("cEmail"), first_name: v("cFirst"),
-                 lang, consent: document.getElementById("cConsent").checked, website: v("cSite") };
-  const btn = checkForm.querySelector("button"); btn.disabled = true;
-  try {
-    if (CHECK_URL) {  // no-cors: the answer can't be read, the sheet script checks everything again
-      await fetch(CHECK_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) });
-    } else {
-      const lines = ["Free Uber Eats page check", "Store link: " + url, "Restaurant: " + data.restaurant, "Email: " + data.email,
-                     "First name: " + data.first_name, "Language: " + lang, "Consent: " + document.querySelector(".consent span").textContent];
-      location.href = "mailto:" + CONTACT + "?subject=" + encodeURIComponent("Free page check: " + data.restaurant) + "&body=" + encodeURIComponent(lines.join("\n"));
+// Free Uber Eats page check, live (check.html, 31 Oct 2026): their store link in, a progress screen while the server
+// reads their page (about 30 seconds), then their result here: the score counting up, today against after the fix,
+// their dishes with no photo, the score's parts and the 3 fixes. The report with the before and after follows by email.
+const liveForm = document.getElementById("liveForm");
+if (liveForm) {
+  const T = JSON.parse(document.getElementById("liveText").textContent);
+  const API = "https://admin.getmenufix.com/api/public/live_check";
+  const $ = (id) => document.getElementById(id);
+  const esc = (x) => String(x == null ? "" : x).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const color = (n) => (n >= 75 ? "#16a35a" : n >= 50 ? "#e8a100" : "#d93025");
+  const post = async (body) => {
+    const r = await fetch(API, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(body) });
+    const d = await r.json().catch(() => ({}));
+    if (!r.ok) throw new Error(d.error || T.error);
+    return d;
+  };
+  const given = new URLSearchParams(location.search).get("url");  // the link pasted on the home page
+  if (given) $("lUrl").value = given.trim().slice(0, 300);
+  const show = (id) => ["lcStart", "lcWait", "lcResult", "lcGet"].forEach((x) => ($(x).hidden = x !== id && !(id === "lcStart" && x === "lcGet")));
+
+  // the progress screen: one step every few seconds, the bar slowing near the end until the answer comes
+  let timer = null;
+  const progress = () => {
+    $("lcWaitH").textContent = T.wait_h; $("lcWaitP").textContent = T.wait_p; $("lcWaitErr").hidden = true;
+    $("lcSteps").innerHTML = T.steps.map((s) => `<li><span class="lc-tick"></span>${esc(s)}</li>`).join("");
+    const items = [...$("lcSteps").children], t0 = Date.now();
+    items[0].className = "on";
+    timer = setInterval(() => {
+      const s = (Date.now() - t0) / 1000, at = Math.min(items.length - 1, Math.floor(s / 5.5));
+      items.forEach((li, i) => (li.className = i < at ? "done" : i === at ? "on" : ""));
+      $("lcBar").style.width = Math.min(94, 100 * (1 - Math.exp(-s / 13))) + "%";
+    }, 200);
+  };
+  const finish = async () => {
+    clearInterval(timer);
+    const items = [...$("lcSteps").children];
+    for (const li of items) { if (li.className !== "done") { li.className = "done"; await sleep(220); } }
+    $("lcBar").style.width = "100%";
+    await sleep(450);
+  };
+
+  const card = (d) => `<div class="lc-dish"><div><b>${esc(d.name)}</b><span>${esc(d.price)}</span>${d.description ? `<p>${esc(d.description)}</p>` : ""}</div>
+    <div class="lc-miss"><em>${esc(T.nophoto)}</em></div></div>`;
+  const render = (r, email) => {
+    const lvl = r.score >= 75 ? "good" : r.score >= 50 ? "mid" : "low", col = color(r.score);
+    const hook = r.potential && r.potential > r.score, goal = r.goal || {};
+    const lang = (liveForm.dataset.lang || "en"), day = new Date().toLocaleDateString(lang === "en" ? "en-GB" : lang, { day: "numeric", month: "long", year: "numeric" });
+    const yes = `mailto:hello@getmenufix.com?subject=${encodeURIComponent(T.yes_subject + ": " + (r.name || ""))}`;
+    const big = hook ? T.could.replace("{p}", `<span class="hl">${r.potential}</span>`) : esc(T.strong_h);
+    const mark = (n, label, cls, c) => `<span class="${cls || ""}" style="left:${n}%;color:${c}"><small>${esc(label)}</small>${n}</span>`;
+    $("lcResult").innerHTML = `<div class="lc-wrap"><article class="lc-rep">
+      <header class="lc-head"><div class="lc-cover"${r.hero ? ` style="background-image:url('${esc(r.hero)}')"` : ""}></div>
+        <div><span class="eyebrow">${esc(T.eyebrow)}</span><h1>${esc(r.name)}</h1>
+        <p>${r.rating ? `★ ${esc(r.rating)}${r.reviews ? ` (${esc(r.reviews)})` : ""} · ` : ""}${esc(day)}</p></div></header>
+      <div class="lc-sum">
+        <div class="lc-gauge"><svg viewBox="0 0 120 120" class="lc-ring"><circle cx="60" cy="60" r="52" class="bg"/>
+          <circle cx="60" cy="60" r="52" class="fg" style="stroke:${col}" pathLength="100" stroke-dasharray="0 100" id="lcArc"/></svg>
+          <div class="lc-num"><b id="lcNum" style="color:${col}">0</b><span>${esc(T.of)}</span></div></div>
+        <div class="lc-verdict"><span class="lc-lvl" style="color:${col};background:${col}14">${esc(T.levels[lvl])}</span>
+          <h2>${big}</h2><p>${esc(hook ? T.hook.replace("{p}", r.potential) : T.strong)}</p></div></div>
+      ${hook ? `<div class="lc-meter"><div class="lc-track2"><i class="gain" data-w="${r.potential}"></i><i class="now" style="background:${col}" data-w="${r.score}"></i></div>
+        <div class="lc-marks">${mark(r.score, T.now, "", col)}${mark(r.potential, T.then, r.potential > 88 ? "end" : "", "#16a35a")}</div></div>` : ""}
+      <div class="lc-stats">
+        <div><b>${r.no_photo_count}</b><small>${esc(T.of_n.replace("{n}", r.dishes))}</small><p>${esc(T.t_photo)}</p></div>
+        <div><b>${r.no_desc_count}</b><small>${esc(T.of_n.replace("{n}", r.dishes))}</small><p>${esc(T.t_desc)}</p></div>
+        ${goal.goal ? `<div><b>${goal.pct}%</b><p>${esc(T.t_goal.replace("{goal}", goal.goal))}</p></div>` : ""}
+      </div>
+      ${r.no_photo && r.no_photo.length ? `<section class="lc-sec"><h3>${esc(T.see)}</h3><div class="lc-dishes">${r.no_photo.map(card).join("")}</div></section>` : ""}
+      <div class="lc-cols" style="border-top:1px solid var(--line)">
+        <div><h3>${esc(T.fixes)}</h3>${(r.fixes || []).map((f, i) => `<div class="lc-fix"><span>${i + 1}</span><p>${esc(f)}</p></div>`).join("")}</div>
+        <div><h3>${esc(T.parts)}</h3>${(r.parts || []).map((p) => `<div class="lc-part"><div><b>${esc(p.name)}</b><small>${esc(p.detail)}</small></div>
+          <div class="lc-track"><i style="background:${color(100 * p.got / p.max)}" data-w="${Math.max(3, Math.round(100 * p.got / p.max))}"></i></div><em>${p.got}/${p.max}</em></div>`).join("")}</div>
+      </div>
+      <footer class="lc-foot"><div class="ic">✉️</div><div><h3>${esc(T.next_h)}</h3><p>${esc(T.next)}</p><p class="lc-to">${esc(email)} · ${esc(T.spam)}</p></div>
+        <div class="lc-cta"><a class="btn primary" href="${yes}">${esc(T.yes)} <span class="arr">→</span></a><a class="btn" href="pricing.html">${esc(T.prices)}</a></div></footer>
+    </article></div>`;
+    show("lcResult");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.querySelectorAll("#lcResult [data-w]").forEach((i) => (i.style.width = i.dataset.w + "%"));
+      $("lcArc").setAttribute("stroke-dasharray", `${r.score} 100`);
+      const t0 = performance.now(), num = $("lcNum");
+      const tick = (t) => { const k = Math.min(1, (t - t0) / 1400); num.textContent = Math.round(r.score * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    }));
+    try { window.goatcounter && window.goatcounter.count({ path: "live-check-done", title: location.pathname, event: true }); } catch (x) {}
+  };
+
+  liveForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const v = (id) => $(id).value.trim();
+    const err = $("lErr"), say = (m) => { err.textContent = m; err.hidden = !m; };
+    const url = v("lUrl");
+    if (!/^https:\/\/(www\.)?ubereats\.com\/([a-z]{2}(-[a-z]{2})?\/)?store\/[^\/?#\s]+\/[A-Za-z0-9_-]+/.test(url)) return say(T.bad_url);
+    if (!liveForm.checkValidity()) { liveForm.reportValidity(); return; }
+    say("");
+    const btn = liveForm.querySelector("button"); btn.disabled = true;
+    const email = v("lEmail");
+    try {
+      let job = null;
+      if (!window.MF_DEMO) job = await post({ url, email, first: v("lFirst"), consent: $("lConsent").checked, lang: liveForm.dataset.lang || "en",
+                                              website: v("lSite"), via: typeof VIA !== "undefined" ? VIA || "" : "", ref: RID, from: FROM });
+      show("lcWait"); window.scrollTo({ top: 0 }); progress();
+      try { window.goatcounter && window.goatcounter.count({ path: "live-check-start", title: location.pathname, event: true }); } catch (x) {}
+      let r = null;
+      if (window.MF_DEMO) { await sleep(window.MF_DEMO.wait || 24000); r = window.MF_DEMO.result; }
+      for (let i = 0; !r && i < 90; i++) {
+        await sleep(1500);
+        const s = await post({ t: job.t });
+        if (s.stage === "done") r = s.result;
+        else if (s.stage === "error") throw Object.assign(new Error(s.error || T.error), { late: true });
+      }
+      if (!r) throw Object.assign(new Error(T.error), { late: true });
+      await finish();
+      render(r, email);
+    } catch (x) {
+      clearInterval(timer);
+      btn.disabled = false;
+      if (x.late) { $("lcWaitErr").textContent = x.message; $("lcWaitErr").hidden = false; $("lcBar").style.width = "100%"; return; }
+      show("lcStart");
+      say(x.message || T.error);
     }
-    checkForm.hidden = true;
-    document.getElementById("checkThanks").hidden = false;
-    try { window.goatcounter && window.goatcounter.count({ path: "check-sent", title: location.pathname, event: true }); } catch (x) {}
-  } catch (x) {
-    btn.disabled = false;
-    say(checkForm.dataset.error);
-  }
-});
+  });
+}
 
 // Before and after sliders.
 document.querySelectorAll(".ba").forEach((ba) => {

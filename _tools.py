@@ -68,15 +68,15 @@ TOOLS_TEXT = {
     "en": {"dir": "tools/", "eyebrow": "Free tools", "one": "Free tool", "h2": "Check your page in seconds", "go": "Open the tool",
            "lead": "Simple checks that run in your browser. Nothing you add is uploaded or saved.", "guides": "guides/index.html",
            "cta_h": "Want the whole page done?",
-           "cta_p": "We rewrite your menu and enhance photos of your real dishes. Start with a free mockup, no payment and no obligation."},
+           "cta_p": "We rewrite your menu and enhance photos of your real dishes. Start with a free page check: your score in 30 seconds, no payment and no obligation."},
     "fr": {"dir": "fr/outils/", "eyebrow": "Outils gratuits", "one": "Outil gratuit", "h2": "Vérifiez votre page en quelques secondes", "go": "Ouvrir l'outil",
            "lead": "Des vérifications simples, directement dans votre navigateur. Rien n'est envoyé ni enregistré.", "guides": "fr/guides/index.html",
            "cta_h": "Envie que toute votre page soit refaite ?",
-           "cta_p": "Nous réécrivons votre menu et améliorons les photos de vos vrais plats. Commencez par une maquette gratuite, sans paiement et sans engagement."},
+           "cta_p": "Nous réécrivons votre menu et améliorons les photos de vos vrais plats. Commencez par une analyse gratuite : votre score en 30 secondes, sans paiement et sans engagement."},
     "es": {"dir": "es/herramientas/", "eyebrow": "Herramientas gratis", "one": "Herramienta gratis", "h2": "Revise su página en unos segundos", "go": "Abrir la herramienta",
            "lead": "Comprobaciones sencillas que funcionan en su navegador. No se sube ni se guarda nada.", "guides": "es/guias/index.html",
            "cta_h": "¿Prefiere que mejoremos toda la página?",
-           "cta_p": "Reescribimos su carta y mejoramos las fotos de sus platos reales. Empiece con una maqueta gratis, sin pago y sin compromiso."},
+           "cta_p": "Reescribimos su carta y mejoramos las fotos de sus platos reales. Empiece con un análisis gratis: su puntuación en 30 segundos, sin pago y sin compromiso."},
 }
 
 
@@ -243,7 +243,7 @@ SCORE = {
                      (0, "Your page is holding your food back. Start with the first fix below this week.")],
            "none": "Nothing important to fix. Keep your photos and prices up to date.",
            "next_h": "Want a real person to check your actual page?",
-           "next_p": "Send us your Uber Eats link and we email you a free page check with your real dish names, plus a free mockup of your new page. No login, no card.",
+           "next_p": "Paste your Uber Eats link: your page score in 30 seconds with your real dish names, then your page today and after the fix by email. No login, no card.",
            "next_btn": "Get my free page check", "next_href": "/check.html",
            "q": [
                _q("photos", 20, [("All or almost all", 20), ("About half", 10), ("Only a few or none", 0)],
@@ -303,7 +303,7 @@ SCORE = {
                      (0, "Votre page dessert votre cuisine. Commencez cette semaine par la première correction ci dessous.")],
            "none": "Rien d'important à corriger. Gardez vos photos et vos prix à jour.",
            "next_h": "Envie qu'une vraie personne vérifie votre page ?",
-           "next_p": "Envoyez nous le lien de votre page Uber Eats : nous vous envoyons par email une analyse gratuite avec vos vrais plats, et une maquette gratuite de votre nouvelle page. Sans connexion, sans carte.",
+           "next_p": "Collez le lien de votre page Uber Eats : le score de votre page en 30 secondes avec vos vrais plats, puis votre page aujourd'hui et après notre travail par email. Sans connexion, sans carte.",
            "next_btn": "Recevoir mon analyse gratuite", "next_href": "/fr/check.html",
            "q": [
                _q("photos", 20, [("Tous ou presque", 20), ("Environ la moitié", 10), ("Peu ou aucun", 0)],
@@ -363,7 +363,7 @@ SCORE = {
                      (0, "Su página está frenando su cocina. Empiece esta semana por la primera mejora de abajo.")],
            "none": "Nada importante que mejorar. Mantenga sus fotos y precios al día.",
            "next_h": "¿Quiere que una persona revise su página real?",
-           "next_p": "Envíenos el enlace de su página de Uber Eats y le mandamos por correo un análisis gratis con sus platos reales, y una maqueta gratis de su nueva página. Sin acceso a su cuenta, sin tarjeta.",
+           "next_p": "Pegue el enlace de su página de Uber Eats: la puntuación de su página en 30 segundos con sus platos reales, y después su página hoy y tras nuestro trabajo por correo. Sin acceso a su cuenta, sin tarjeta.",
            "next_btn": "Quiero mi análisis gratis", "next_href": "/es/check.html",
            "q": [
                _q("photos", 20, [("Todos o casi todos", 20), ("Más o menos la mitad", 10), ("Pocos o ninguno", 0)],

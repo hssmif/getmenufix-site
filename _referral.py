@@ -1,6 +1,6 @@
 """The public referral program page in English, French and Spanish: referral.html, fr/parrainage.html,
 es/referidos.html. Built by _build.py. Honest terms only: the referrer gets 30% of what a restaurant actually paid.
-The sign up form posts to MenuFix (site.js, #refForm, /api/public/form), like the free mockup form."""
+The sign up form posts to MenuFix (site.js, #refForm, /api/public/form), like the contact form."""
 
 PAGES = {
     "en": {
@@ -36,7 +36,7 @@ PAGES = {
         "th": "Thank you, we've got your request.", "tp": "We'll email you your personal link within one working day. If you don't see it, look in your spam folder.",
         "faq_h": "Questions",
         "faq": [("Does the restaurant pay more?", "No. It pays the same price as any other restaurant."),
-                ("How do you know a restaurant came through my link?", "Your link saves a code in the restaurant's browser for 60 days. When they ask for their free mockup from that browser, the code comes with their request and stays with them until they pay. If they write to us another way, tell us and we'll look into it."),
+                ("How do you know a restaurant came through my link?", "Your link saves a code in the restaurant's browser for 60 days. When they ask for their free page check from that browser, the code comes with their request and stays with them until they pay. If they write to us another way, tell us and we'll look into it."),
                 ("When do I get paid?", "Within 7 days after the restaurant's payment, by bank transfer or PayPal.")],
     },
     "fr": {
@@ -55,7 +55,7 @@ PAGES = {
                       ("bag", "Fournisseurs de caisses et d'emballages", "Vous livrez cafés et restaurants chaque semaine."),
                       ("chef", "Cuisines partagées", "Beaucoup de vos cuisines vendent sur Uber Eats."),
                       ("salad", "Tous ceux qui connaissent des restaurateurs", "Un ami, un habitué ou un client satisfait.")],
-        "gets": "Le restaurant commence par une maquette gratuite de sa propre page Uber Eats et ne paie que s'il veut notre aide. Il paie le même prix que tout le monde.",
+        "gets": "Le restaurant commence par une analyse gratuite de sa propre page Uber Eats et ne paie que s'il veut notre aide. Il paie le même prix que tout le monde.",
         "terms": "Les conditions", "terms_h": "Simples et honnêtes.",
         "terms_list": ["Vous recevez 30 % du montant réellement payé par le restaurant. Les paiements remboursés ne comptent pas.",
                        "Nous vous payons par virement bancaire ou PayPal dans les 7 jours suivant le paiement du restaurant.",
@@ -72,7 +72,7 @@ PAGES = {
         "th": "Merci, nous avons bien reçu votre demande.", "tp": "Nous vous enverrons votre lien personnel par email sous un jour ouvré. Si vous ne le voyez pas, regardez dans vos spams.",
         "faq_h": "Questions fréquentes",
         "faq": [("Le restaurant paie il plus cher ?", "Non. Il paie le même prix que n'importe quel autre restaurant."),
-                ("Comment savez vous qu'un restaurant vient de mon lien ?", "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il demande sa maquette gratuite depuis ce navigateur, le code accompagne sa demande et reste lié à lui jusqu'au paiement. S'il nous contacte autrement, prévenez nous et nous vérifierons."),
+                ("Comment savez vous qu'un restaurant vient de mon lien ?", "Votre lien enregistre un code dans le navigateur du restaurant pendant 60 jours. Quand il demande son analyse gratuite depuis ce navigateur, le code accompagne sa demande et reste lié à lui jusqu'au paiement. S'il nous contacte autrement, prévenez nous et nous vérifierons."),
                 ("Quand suis je payé ?", "Dans les 7 jours suivant le paiement du restaurant, par virement bancaire ou PayPal.")],
     },
     "es": {
@@ -91,7 +91,7 @@ PAGES = {
                       ("bag", "Proveedores de TPV y envases", "Abastece a cafeterías y locales cada semana."),
                       ("chef", "Cocinas compartidas", "Muchas de sus cocinas venden en Uber Eats."),
                       ("salad", "Cualquiera que conozca a dueños de restaurantes", "Un amigo, un cliente habitual o un cliente contento.")],
-        "gets": "El restaurante empieza con una maqueta gratis de su propia página de Uber Eats y solo paga si quiere nuestra ayuda. Paga el mismo precio que cualquier otro.",
+        "gets": "El restaurante empieza con un análisis gratis de su propia página de Uber Eats y solo paga si quiere nuestra ayuda. Paga el mismo precio que cualquier otro.",
         "terms": "Las condiciones", "terms_h": "Sencillas y honestas.",
         "terms_list": ["Recibe un 30 % del importe que el restaurante pagó realmente. Los pagos reembolsados no cuentan.",
                        "Le pagamos por transferencia bancaria o PayPal en los 7 días siguientes al pago del restaurante.",
@@ -108,7 +108,7 @@ PAGES = {
         "th": "Gracias, hemos recibido su solicitud.", "tp": "Le enviaremos su enlace personal por correo en un día laborable. Si no lo ve, mire en su carpeta de spam.",
         "faq_h": "Preguntas frecuentes",
         "faq": [("¿El restaurante paga más?", "No. Paga el mismo precio que cualquier otro restaurante."),
-                ("¿Cómo saben que un restaurante llegó por mi enlace?", "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando pide su maqueta gratis desde ese navegador, el código va con su solicitud y queda unido a él hasta el pago. Si nos contacta de otra forma, avísenos y lo revisaremos."),
+                ("¿Cómo saben que un restaurante llegó por mi enlace?", "Su enlace guarda un código en el navegador del restaurante durante 60 días. Cuando pide su análisis gratis desde ese navegador, el código va con su solicitud y queda unido a él hasta el pago. Si nos contacta de otra forma, avísenos y lo revisaremos."),
                 ("¿Cuándo cobro?", "En los 7 días siguientes al pago del restaurante, por transferencia bancaria o PayPal.")],
     },
 }

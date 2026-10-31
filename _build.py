@@ -66,7 +66,7 @@ def ld(name):
     org = {"@type": "Organization", "@id": "https://getmenufix.com/#org", "name": "MenuFix", "url": "https://getmenufix.com/",
            "logo": "https://getmenufix.com/img/logo-mark.png", "email": "hello@getmenufix.com",
            "alternateName": ["MenuFix (getmenufix.com)", "getmenufix"],
-           "description": "MenuFix is an independent done for you Uber Eats menu optimisation service: menu rewrite, photo enhancement of real dishes and Uber Eats page set up, with a free mockup first.",
+           "description": "MenuFix is an independent done for you Uber Eats menu optimisation service: menu rewrite, photo enhancement of real dishes and Uber Eats page set up, with a free page check first.",
            "disambiguatingDescription": "MenuFix at getmenufix.com, an Uber Eats page makeover service. Not menufix.com and not affiliated with Uber.",
            "knowsAbout": ["Uber Eats menu optimisation", "Uber Eats menu descriptions", "Uber Eats food photos", "Delivery app menus",
                           "Uber Eats account management", "Uber Eats error charge disputes"],
@@ -98,31 +98,31 @@ NAV_FR = [("fr/services.html", "Services"), ("fr/examples.html", "Exemples"), ("
 NAV_ES = [("es/services.html", "Servicios"), ("es/examples.html", "Ejemplos"), ("es/how-it-works.html", "Cómo funciona"),
           ("es/pricing.html", "Precios"), ("es/guias/index.html", "Guías"), ("es/about.html", "Nosotros"), ("es/faq.html", "Preguntas")]
 CHROME = {
-    "en": {"home": "index.html", "nav": NAV, "cta_href": "contact.html", "cta": "Free mockup",
+    "en": {"home": "index.html", "nav": NAV, "cta_href": "check.html", "cta": "Free page check",
            "blurb": "Uber Eats page makeovers for independent restaurants, cafés and bakeries. Clear menus, better photos of your real food, done for you.",
            "cols": [("Services", [("services.html", "Menu rewrite"), ("services.html#photos", "Photo enhancement"), ("uber-eats-menu-makeover-service.html", "Done for you"), ("examples.html", "Examples")]),
                     ("Company", [("about.html", "About"), ("guides/index.html", "Guides"), ("how-it-works.html", "How it works"), ("pricing.html", "Pricing"), ("faq.html", "FAQ"), ("referral.html", "Earn 30%"), ("rider.html", "Delivery riders: earn 30%")]),
                     ("Who we help", [("uber-eats/cafes.html", "Cafés"), ("uber-eats/pizza.html", "Pizza shops"), ("uber-eats/asian-restaurants.html", "Asian restaurants"), ("uber-eats/takeaways.html", "Takeaways"), ("uber-eats/index.html", "Cities we work with")]),
                     ("Free tools", [("tools/uber-eats-photo-checker.html", "Photo checker"), ("tools/menu-description-checker.html", "Description checker"), ("tools/uber-eats-page-score.html", "Page score")]),
-                    ("Get started", [("contact.html", "Free mockup"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
+                    ("Get started", [("check.html", "Free page check"), ("contact.html", "Contact"), ("mailto", "hello@getmenufix.com"), ("privacy.html", "Privacy"), ("terms.html", "Terms")])],
            "promo": ("referral.html", "Know restaurant owners? <b>Earn 30%</b> for every restaurant you send us.", "See how"),
            "follow": "Follow us",
            "rights": "© 2026 MenuFix. All rights reserved.", "indep": "MenuFix is independent and not affiliated with Uber or Uber Eats."},
-    "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/contact.html", "cta": "Maquette gratuite",
+    "fr": {"home": "fr/index.html", "nav": NAV_FR, "cta_href": "fr/check.html", "cta": "Analyse gratuite",
            "blurb": "Refonte des pages Uber Eats pour restaurants indépendants, cafés et boulangeries. Menus clairs, meilleures photos de vos vrais plats, tout pris en charge.",
            "cols": [("Services", [("fr/services.html", "Réécriture du menu"), ("fr/services.html#photos", "Amélioration des photos"), ("fr/services.html#done", "Clé en main"), ("fr/examples.html", "Exemples")]),
                     ("Entreprise", [("fr/about.html", "À propos"), ("fr/guides/index.html", "Guides"), ("fr/how-it-works.html", "Comment ça marche"), ("fr/pricing.html", "Tarifs"), ("fr/faq.html", "FAQ"), ("fr/parrainage.html", "Gagnez 30 %")]),
                     ("Outils gratuits", [("fr/outils/verificateur-photo-uber-eats.html", "Vérificateur de photo"), ("fr/outils/verificateur-description-menu.html", "Vérificateur de description"), ("fr/outils/score-page-uber-eats.html", "Score de page")]),
-                    ("Commencer", [("fr/contact.html", "Maquette gratuite"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
+                    ("Commencer", [("fr/check.html", "Analyse gratuite"), ("fr/contact.html", "Contact"), ("mailto", "hello@getmenufix.com"), ("fr/privacy.html", "Confidentialité"), ("fr/terms.html", "Conditions")])],
            "promo": ("fr/parrainage.html", "Vous connaissez des restaurateurs ? <b>Gagnez 30 %</b> pour chaque restaurant recommandé.", "En savoir plus"),
            "follow": "Suivez nous",
            "rights": "© 2026 MenuFix. Tous droits réservés.", "indep": "MenuFix est indépendant et n'est pas affilié à Uber ni à Uber Eats."},
-    "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/contact.html", "cta": "Maqueta gratis",
+    "es": {"home": "es/index.html", "nav": NAV_ES, "cta_href": "es/check.html", "cta": "Análisis gratis",
            "blurb": "Mejoramos páginas de Uber Eats para restaurantes independientes, cafeterías y panaderías. Cartas claras, mejores fotos de sus platos reales y todo hecho por nosotros.",
            "cols": [("Servicios", [("es/services.html", "Reescritura de la carta"), ("es/services.html#photos", "Mejora de fotos"), ("es/services.html#done", "Hecho por nosotros"), ("es/examples.html", "Ejemplos")]),
                     ("Empresa", [("es/about.html", "Quiénes somos"), ("es/guias/index.html", "Guías"), ("es/how-it-works.html", "Cómo funciona"), ("es/pricing.html", "Precios"), ("es/faq.html", "Preguntas frecuentes"), ("es/referidos.html", "Gane un 30 %")]),
                     ("Herramientas gratis", [("es/herramientas/comprobador-fotos-uber-eats.html", "Comprobador de fotos"), ("es/herramientas/comprobador-descripciones-menu.html", "Comprobador de descripciones"), ("es/herramientas/puntuacion-pagina-uber-eats.html", "Puntuación de página")]),
-                    ("Empezar", [("es/contact.html", "Maqueta gratis"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
+                    ("Empezar", [("es/check.html", "Análisis gratis"), ("es/contact.html", "Contacto"), ("mailto", "hello@getmenufix.com"), ("es/privacy.html", "Privacidad"), ("es/terms.html", "Condiciones")])],
            "promo": ("es/referidos.html", "¿Conoce a dueños de restaurantes? <b>Gane un 30 %</b> por cada restaurante que nos recomiende.", "Ver cómo"),
            "follow": "Síganos",
            "rights": "© 2026 MenuFix. Todos los derechos reservados.", "indep": "MenuFix es independiente y no está afiliado a Uber ni a Uber Eats."},
@@ -317,11 +317,11 @@ def mockpair(key, note=True):
 
 
 def cta(title="See your page improved, free.",
-        text="Tell us your restaurant, café or bakery on Uber Eats. We'll send you a free mockup of how your page could look. No payment, no obligation.",
+        text="Paste your Uber Eats link and see your page score in 30 seconds. Then we email you your page today next to how it will look after we fix it. Free, no obligation.",
         img="delivery"):
     return f"""<section class="tight"><div class="wrap"><div class="cta reveal">
-  <div class="txt"><span class="eyebrow">Free mockup</span><h2>{title}</h2><p class="lead">{text}</p>
-    <div class="row"><a class="btn" href="contact.html">Get my free mockup <span class="arr">→</span></a><a class="btn ghost" href="pricing.html">See pricing</a></div></div>
+  <div class="txt"><span class="eyebrow">Free page check</span><h2>{title}</h2><p class="lead">{text}</p>
+    <div class="row"><a class="btn" href="check.html">Get my free page check <span class="arr">→</span></a><a class="btn ghost" href="pricing.html">See pricing</a></div></div>
   <div class="pic"><img class="bg" src="img/{img}.jpg" alt="" loading="lazy">
     {floaty("burger", "left:-34px;top:40px")}{floaty("bubbletea", "right:24px;bottom:24px", 3)}</div>
 </div></div></section>"""
@@ -347,7 +347,7 @@ CUR = """<p class="curnote">Prices in <b data-curname>your currency</b>, charged
 
 FAQ = [
     ("Do I need to give you my password?", "No. You add us as a user on your Uber Eats Manager, and you can remove us any time. We never ask for your password."),
-    ("Do you use fake food photos?", "Never. We only enhance photos of your real dishes: better light, a clean background and the right size. Customers should get exactly what they see, and Uber Eats requires real photos too. The free mockup is a concept preview only."),
+    ("Do you use fake food photos?", "Never. We only enhance photos of your real dishes: better light, a clean background and the right size. Customers should get exactly what they see, and Uber Eats requires real photos too. The before and after in your free page check can show example photos, clearly marked Example, only to show the look."),
     ("How long does it take?", "Usually two to three working days after we have your photos and access to your Uber Eats Manager. A website takes a few days more."),
     ("Will this guarantee more orders?", "No one can honestly promise that. What we do is make your page clearer and more appetising, which is what helps people choose you."),
     ("What if I don't like it?", "You don't pay. We make your finished page first and send it to you, before and after, with every change listed. If you're happy, you pay. If not, tell us what to change, or simply say no and you owe nothing."),
@@ -389,7 +389,7 @@ FEAT = "".join(f"""<a class="fcard reveal" href="examples.html"><div class="ph">
 
 # ------------------------------------------------------------------------------------------------ home
 page("index.html", "Uber Eats Menu Optimisation and Food Photos | MenuFix",
-     "We make your Uber Eats page show how good your food is: clear names, descriptions that sell, the right order and better photos of your real food. Done for you. Free mockup first.",
+     "We make your Uber Eats page show how good your food is: clear names, descriptions that sell, the right order and better photos of your real food. Done for you. Free page check first.",
 f"""<header class="hero">
   {floaty("pizza", "left:45%;bottom:4%", 1)}{floaty("sushi", "left:44%;top:6%", 4)}{floaty("coffee", "right:2%;bottom:4%", 2)}
   <div class="wrap">
@@ -397,11 +397,11 @@ f"""<header class="hero">
     <span class="chip"><img src="img/icons/bag.png" alt="">For restaurants, cafés and bakeries on Uber Eats</span>
     <h1>Make hungry people choose <span class="hl">you.</span></h1>
     <p class="lead">Customers order what looks good. We rewrite your menu, put your best sellers first and make photos of your real food look delicious. We can even make every change on your page for you.</p>
-    <form class="search" action="contact.html" method="get">
-      <img src="img/icons/menu.png" alt=""><input name="biz" placeholder="Your restaurant or café name" aria-label="Your restaurant or café name">
-      <button class="btn primary" type="submit">Get my free mockup <span class="arr">→</span></button>
+    <form class="search" action="check.html" method="get">
+      <img src="img/icons/menu.png" alt=""><input name="url" inputmode="url" placeholder="Paste your Uber Eats link" aria-label="Your Uber Eats store link">
+      <button class="btn primary" type="submit">Check my page free <span class="arr">→</span></button>
     </form>
-    <div class="trust"><span>Free mockup first</span><span>One time price</span><span>Real food only</span></div>
+    <div class="trust"><span>Your score in 30 seconds</span><span>One time price</span><span>Real food only</span></div>
   </div>
   <div class="hero-visual reveal">
     <div class="hero-photo"><img src="img/spread.jpg" alt="A table full of takeaway dishes" fetchpriority="high"></div>
@@ -434,10 +434,10 @@ f"""<header class="hero">
 </div></section>
 
 <section class="bg-peach"><div class="wrap">
-  <div class="head reveal"><div><span class="eyebrow">Your free mockup</span><h2>See your whole page, before you pay.</h2></div>
-    <p class="lead">Every restaurant we talk to gets a free concept mockup of its own page, like this one. You see exactly what we'd change, with no obligation.</p></div>
+  <div class="head reveal"><div><span class="eyebrow">Your free page check</span><h2>See your page fixed, before you pay.</h2></div>
+    <p class="lead">Every free page check shows your score, what to fix first, and your page today next to how it will look after we fix it, like this example. No obligation.</p></div>
   {mockpair("mock2")}
-  <div class="row" style="justify-content:center;margin-top:34px"><a class="btn primary" href="contact.html">Get my free mockup <span class="arr">→</span></a></div>
+  <div class="row" style="justify-content:center;margin-top:34px"><a class="btn primary" href="check.html">Get my free page check <span class="arr">→</span></a></div>
 </div></section>
 
 <section><div class="wrap">
@@ -453,7 +453,7 @@ f"""<header class="hero">
 <section class="bg-butter"><div class="wrap">
   <div class="head center reveal"><span class="eyebrow">How it works</span><h2>Simple, from start to finish.</h2></div>
   <div class="steps">
-    <div class="step reveal"><span class="n">1</span>{ic("gift")}<h3>Free mockup</h3><p>We look at your Uber Eats page and show you how it could look. Free.</p></div>
+    <div class="step reveal"><span class="n">1</span>{ic("gift")}<h3>Free page check</h3><p>Your score in 30 seconds, then your page today and after the fix by email. Free.</p></div>
     <div class="step reveal"><span class="n">2</span>{ic("menu")}<h3>Choose a package</h3><p>One time price, paid securely by card. No subscription.</p></div>
     <div class="step reveal"><span class="n">3</span>{ic("phone")}<h3>Send your photos</h3><p>For photo packages, snap your dishes on your phone and email them.</p></div>
     <div class="step reveal"><span class="n">4</span>{ic("rocket")}<h3>Your new page</h3><p>We update it for you, or send it ready to copy with a simple guide.</p></div>
@@ -526,7 +526,7 @@ f"""{head("Services", "Everything that makes people <span class='hl'>order.</spa
 # AI assistants (ChatGPT, Perplexity) that look for a company doing the whole job, not tips.
 SERVICE_FAQ = [
     ("Is there a service that optimises my Uber Eats menu for me?",
-     "Yes. MenuFix (getmenufix.com) rewrites your Uber Eats menu, enhances photos of your real dishes and makes every change on your Uber Eats page for you. You see a free mockup first."),
+     "Yes. MenuFix (getmenufix.com) rewrites your Uber Eats menu, enhances photos of your real dishes and makes every change on your Uber Eats page for you. You get a free page check first."),
     ("How is MenuFix different from doing it myself in Uber Eats Manager?",
      "Uber Eats Manager lets you edit your page, but you still have to write every description, fix every photo and choose the order. MenuFix does that work for you and hands it back ready, or updates the page itself."),
     ("Do you need my Uber Eats password?",
@@ -537,9 +537,9 @@ SERVICE_FAQ = [
      "Usually two to three working days after we have your photos and access to your Uber Eats Manager."),
 ]
 page("uber-eats-menu-makeover-service.html", "Done for You Uber Eats Menu Makeover Service | MenuFix",
-     "MenuFix is a done for you Uber Eats menu optimisation service: we rewrite your menu, enhance photos of your real dishes and update your Uber Eats page for you. Free mockup first.",
+     "MenuFix is a done for you Uber Eats menu optimisation service: we rewrite your menu, enhance photos of your real dishes and update your Uber Eats page for you. Free page check first.",
 f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span class='hl'>for you.</span>",
-        "MenuFix is a done for you service for restaurants, cafés and bakeries on Uber Eats. We rewrite the menu, enhance photos of your real dishes and make the changes on your page ourselves. You see a free mockup before you pay anything.", ("burger", "sushi"))}
+        "MenuFix is a done for you service for restaurants, cafés and bakeries on Uber Eats. We rewrite the menu, enhance photos of your real dishes and make the changes on your page ourselves. You see a free page check, with your page today and after the fix, before you pay anything.", ("burger", "sushi"))}
 
 <section class="tight"><div class="wrap">{mockpair("mock2")}</div></section>
 
@@ -549,7 +549,7 @@ f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span c
     <div class="card reveal">{ic("pen")}<h3>Menu rewrite</h3><p>Clear dish names and a short description that sells for every item. Your real dishes and prices only.</p></div>
     <div class="card reveal">{ic("camera")}<h3>Photo enhancement</h3><p>Photos of your real food made bright and sharp, sized to Uber Eats rules (5:4, at least 550 × 440 pixels).</p></div>
     <div class="card reveal">{ic("chef")}<h3>Page set up</h3><p>Best sellers first, categories in a clear order, and the changes made on your Uber Eats page for you.</p></div>
-    <div class="card reveal">{ic("coffee")}<h3>Free mockup first</h3><p>See your page improved before you decide. No payment, no obligation.</p></div>
+    <div class="card reveal">{ic("coffee")}<h3>Free page check first</h3><p>See your score and your page fixed before you decide. No payment, no obligation.</p></div>
   </div>
 </div></section>
 
@@ -561,7 +561,7 @@ f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span c
     <tr><td>Photos of your dishes</td><td>Your phone photos</td><td>New shoot at your venue</td><td>Your photos, enhanced</td></tr>
     <tr><td>Menu order and categories</td><td>You decide</td><td>No</td><td>Yes</td></tr>
     <tr><td>Changes made on Uber Eats</td><td>You make them</td><td>No</td><td>Yes, we make every change</td></tr>
-    <tr><td>Preview before paying</td><td>No</td><td>No</td><td>Free mockup</td></tr>
+    <tr><td>Preview before paying</td><td>No</td><td>No</td><td>Free page check</td></tr>
     <tr><td>Price</td><td>Your time</td><td>Often several hundred a shoot</td><td>From <span data-p="full_makeover"></span>, one time</td></tr>
   </table></div>
   <p class="note" style="text-align:center;margin-top:14px">Compare all our prices on the <a href="pricing.html">pricing page</a>. Uber Eats Makeover <span data-p="full_makeover"></span>, one time, no subscription.</p>
@@ -570,7 +570,7 @@ f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span c
 <section class="tight bg-butter"><div class="wrap">
   <div class="head center reveal"><span class="eyebrow">How it works</span><h2>Three steps.</h2></div>
   <div class="grid3">
-    <div class="card reveal"><h3>1. Send your Uber Eats page</h3><p>Your store link or name is enough. We send a free mockup, usually within one or two working days.</p></div>
+    <div class="card reveal"><h3>1. Check your Uber Eats page</h3><p>Paste your store link: your score shows in 30 seconds, and your before and after comes by email.</p></div>
     <div class="card reveal"><h3>2. Say yes and choose a plan</h3><p>The Uber Eats Makeover, Makeover Plus, or Makeover and Website. All done for you.</p></div>
     <div class="card reveal"><h3>3. Your page goes live</h3><p>You check everything first. Nothing changes on your page until you say ok.</p></div>
   </div>
@@ -586,7 +586,7 @@ f"""{head("Uber Eats menu makeover service", "We fix your Uber Eats page <span c
     {"@type": "Service", "name": "Done for you Uber Eats menu makeover", "serviceType": "Uber Eats menu optimisation",
      "provider": {"@id": "https://getmenufix.com/#org"}, "areaServed": ["AU", "GB", "IE", "US", "FR", "NZ"],
      "url": "https://getmenufix.com/uber-eats-menu-makeover-service.html",
-     "description": "Menu rewrite, photo enhancement of real dishes and Uber Eats page set up, done for the restaurant. Free mockup first."},
+     "description": "Menu rewrite, photo enhancement of real dishes and Uber Eats page set up, done for the restaurant. Free page check first."},
     {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in SERVICE_FAQ]}]},
     ensure_ascii=False) + "</script>")
 
@@ -596,7 +596,7 @@ page("examples.html", "Uber Eats Menu Before and After Examples | MenuFix", "Bef
 f"""{head("Examples", "See the <span class='hl'>difference.</span>", "Whole page mockups first, then dish by dish. Drag each slider to compare.", ("taco", "cake"))}
 <section style="padding-top:30px"><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Page mockups</span><h2>Whole page makeovers</h2></div>
-    <p class="lead">The free mockup we send shows your full page after the makeover: banner, best sellers first, clear names and descriptions, appetising photos.</p></div>
+    <p class="lead">The free page check shows your full page after the makeover: banner, best sellers first, clear names and descriptions, appetising photos.</p></div>
   {mockpair("mock1", False)}
   <div style="height:70px"></div>
   {mockpair("mock3", False)}
@@ -610,15 +610,15 @@ f"""{head("Examples", "See the <span class='hl'>difference.</span>", "Whole page
   <div class="grid2" style="gap:56px 32px">{grid}</div>
   <p class="note" style="margin-top:40px">Illustrative examples for fictional dishes and places, with images made with AI for this website. For your page we only work from photos of your real dishes.</p>
 </div></section>
-{cta("Want to see your own page?", "Send us your restaurant or café on Uber Eats and we'll show you a free mockup of yours.")}
+{cta("Want to see your own page?", "Paste your Uber Eats link: your score in 30 seconds, and your own before and after by email.")}
 """, "examples.html")
 
 # ------------------------------------------------------------------------------------------------ how it works
-page("how-it-works.html", "How Our Uber Eats Menu Makeover Works | MenuFix", "From free mockup to your new Uber Eats page in four simple steps, all by email.",
+page("how-it-works.html", "How Our Uber Eats Menu Makeover Works | MenuFix", "From a free page check to your new Uber Eats page in four simple steps.",
 f"""{head("How it works", "Four simple <span class='hl'>steps.</span>", "Everything can be done by email. You see the idea before you pay anything.", ("noodles", "croissant"))}
 <section class="tight"><div class="wrap split">
-  <div class="reveal">{ic("gift")}<span class="eyebrow" style="display:block">Step 1</span><h2>Your free mockup</h2>
-    <p class="lead" style="margin-top:18px">Tell us your restaurant or café on Uber Eats. We look at your page and send you a mockup of how it could look, with the main things we'd change. No payment, no obligation.</p></div>
+  <div class="reveal">{ic("gift")}<span class="eyebrow" style="display:block">Step 1</span><h2>Your free page check</h2>
+    <p class="lead" style="margin-top:18px">Paste your Uber Eats link on our website. Your score and the fixes that matter most show in 30 seconds, then we email you your page today next to how it will look after we fix it. No payment, no obligation.</p></div>
   <div class="reveal" style="display:flex;justify-content:center"><div class="device solo"><img src="img/mock1-after.jpg" alt="A concept mockup of a restaurant page" loading="lazy"></div></div>
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
@@ -695,7 +695,7 @@ f"""<header class="page-head" style="padding-top:40px"><div class="wrap"><div cl
   <div class="head center reveal"><span class="eyebrow">What we believe</span><h2>How we work</h2></div>
   <div class="grid3">
     <div class="card reveal">{ic("salad")}<h3>Real food only</h3><p>We enhance photos of your real dishes. We never use fake food or add ingredients that aren't there.</p></div>
-    <div class="card reveal">{ic("check")}<h3>Honest</h3><p>Clear prices, no hidden fees, and no promises we can't keep. A free mockup first, so you know what you're getting.</p></div>
+    <div class="card reveal">{ic("check")}<h3>Honest</h3><p>Clear prices, no hidden fees, and no promises we can't keep. A free page check first, so you know what you're getting.</p></div>
     <div class="card reveal">{ic("rocket")}<h3>Simple</h3><p>Everything done for you in a few days, so you don't have to touch anything.</p></div>
   </div>
   <p class="lead reveal" style="text-align:center;margin:40px auto 0">Know restaurant owners? <a href="referral.html">Earn 30% for every restaurant you send us</a>.</p>
@@ -711,11 +711,11 @@ f"""{head("FAQ", "Questions and <span class='hl'>answers.</span>", "Can't find w
 """, "faq.html")
 
 # ------------------------------------------------------------------------------------------------ contact
-page("contact.html", "Free Uber Eats Page Mockup | MenuFix", "Get a free mockup of your Uber Eats page. No payment, no obligation.",
+page("contact.html", "Contact MenuFix | Uber Eats Page Makeover", "Write to MenuFix: questions, a special request or no Uber Eats link yet. We answer within one working day.",
 f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class="wrap split" style="align-items:start">
-  <div><span class="eyebrow">Free mockup</span><h1>See your page improved, <span class="hl">free.</span></h1>
-    <p class="lead">Tell us where to find you on Uber Eats. We'll email you a mockup of how your page could look and the main things we'd change. No payment, no obligation.</p>
-    <ul class="ticks"><li>Usually within one or two working days</li><li>No payment details needed</li><li>You only pay once you're happy</li></ul>
+  <div><span class="eyebrow">Contact</span><h1>Talk to us. <span class="hl">We answer.</span></h1>
+    <p class="lead">Questions, a special request or no Uber Eats link yet? Write to us here and we'll answer within one working day. Want your score now? Use the <a href="check.html">free page check</a>: 30 seconds.</p>
+    <ul class="ticks"><li>An answer within one working day</li><li>No payment details needed</li><li>You only pay once you're happy</li></ul>
     <div class="img reveal" style="margin-top:40px"><img src="img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
     <form id="mockForm" data-lang="en" data-error="Sorry, something went wrong. Please try again in a minute, or email us at hello@getmenufix.com." novalidate>
@@ -726,12 +726,12 @@ f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class
       <div class="f"><label for="name">Your name</label><input id="name" maxlength="60" autocomplete="given-name" placeholder="First name"></div>
       <div class="f"><label for="msg">Anything we should know? (optional)</label><textarea id="msg" maxlength="1500" rows="4" placeholder="e.g. we just opened, our best seller is..."></textarea></div>
       <div class="hp" aria-hidden="true"><label for="mSite">Website</label><input id="mSite" tabindex="-1" autocomplete="off"></div>
-      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Email me my free mockup</span></label>
+      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Email me my free page check</span></label>
       <p class="err" id="mErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Send my request <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">We use your email only for your mockup. See our <a href='privacy.html'>privacy policy</a>.</p>
+      <p class="note" style="margin:14px 0 0">We use your email only for your request. See our <a href='privacy.html'>privacy policy</a>.</p>
     </form>
-    <div id="mockThanks" class="thanks" hidden><h3>Thank you, we've got your request.</h3><p>We'll email you your free mockup, usually within one or two working days. If you don't see it, look in your spam folder.</p></div>
+    <div id="mockThanks" class="thanks" hidden><h3>Thank you, we've got your request.</h3><p>We'll email you within one working day. If you don't see it, look in your spam folder.</p></div>
   </div>
 </div></header>
 """)
@@ -883,13 +883,13 @@ def build_guides(guides, lang, cta_html):
 
 
 CTA_FR = cta("Voyez votre page améliorée, gratuitement.",
-             "Envoyez le nom de votre restaurant, café ou boulangerie sur Uber Eats : vous recevez une maquette gratuite de votre future page. Sans paiement, sans engagement.").replace(
-    "Free mockup", "Maquette gratuite").replace("Get my free mockup", "Recevoir ma maquette gratuite").replace(
-    "See pricing", "Voir les tarifs").replace('href="contact.html"', 'href="fr/contact.html"').replace('href="pricing.html"', 'href="fr/pricing.html"')
+             "Collez le lien de votre restaurant sur Uber Eats : le score de votre page en 30 secondes, puis votre page aujourd'hui et après notre travail par email. Gratuit, sans engagement.").replace(
+    "Free page check", "Analyse gratuite").replace("Get my free page check", "Analyser ma page gratuitement").replace(
+    "See pricing", "Voir les tarifs").replace('href="check.html"', 'href="fr/check.html"').replace('href="pricing.html"', 'href="fr/pricing.html"')
 CTA_ES = cta("Vea su página mejorada, gratis.",
-             "Díganos el nombre de su restaurante, cafetería o panadería en Uber Eats y le enviaremos una maqueta gratuita de cómo podría quedar su página. Sin pago y sin compromiso.").replace(
-    "Free mockup", "Maqueta gratis").replace("Get my free mockup", "Quiero mi maqueta gratis").replace(
-    "See pricing", "Ver precios").replace('href="contact.html"', 'href="es/contact.html"').replace('href="pricing.html"', 'href="es/pricing.html"')
+             "Pegue el enlace de su restaurante en Uber Eats: la puntuación de su página en 30 segundos, y después su página hoy y tras nuestro trabajo por correo. Gratis, sin compromiso.").replace(
+    "Free page check", "Análisis gratis").replace("Get my free page check", "Analizar mi página gratis").replace(
+    "See pricing", "Ver precios").replace('href="check.html"', 'href="es/check.html"').replace('href="pricing.html"', 'href="es/pricing.html"')
 GUIDE_PAGES = build_guides(GUIDES, "en", cta()) + build_guides(GUIDES_FR, "fr", CTA_FR) + build_guides(GUIDES_ES, "es", CTA_ES)
 
 # ------------------------------------------------------------------------------------------------ landing pages

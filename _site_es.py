@@ -25,7 +25,7 @@ CATS = [("pizza", "Pizza"), ("burger", "Hamburguesas"), ("sushi", "Sushi"), ("no
 
 FAQ = [
     ("¿Tengo que darles mi contraseña?", "No. Usted nos añade como usuario en su Uber Eats Manager y puede quitarnos el acceso cuando quiera. Nunca le pediremos su contraseña."),
-    ("¿Usan fotos falsas de comida?", "Nunca. Solo mejoramos fotos de sus platos reales: mejor luz, un fondo limpio y el tamaño correcto. El cliente debe recibir exactamente lo que ve. La maqueta gratis es solo una vista previa del concepto."),
+    ("¿Usan fotos falsas de comida?", "Nunca. Solo mejoramos fotos de sus platos reales: mejor luz, un fondo limpio y el tamaño correcto. El cliente debe recibir exactamente lo que ve. El antes y después de su análisis gratis puede mostrar fotos de ejemplo, marcadas Example, solo para enseñar el resultado."),
     ("¿Cuánto tarda?", "Normalmente dos o tres días laborables desde que tenemos sus fotos y el acceso a su Uber Eats Manager."),
     ("¿Me garantizan más pedidos?", "Nadie puede prometerlo con honestidad. Lo que hacemos es que su página sea más clara y más apetecible, que es lo que ayuda a que la gente le elija."),
     ("¿Y si no me gusta?", "No paga. Primero preparamos su página terminada y se la enviamos, antes y después, con cada cambio indicado. Si le gusta, paga. Si no, díganos qué cambiar, o simplemente diga que no y no nos debe nada."),
@@ -54,11 +54,11 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 </div>""" + ('<p class="note" style="text-align:center;margin-top:18px">Maqueta conceptual de un restaurante ficticio, hecha con IA para esta web.</p>' if note else "")
 
     def cta(title="Vea su página mejorada, gratis.",
-            text="Díganos el nombre de su restaurante, cafetería o panadería en Uber Eats y le enviaremos una maqueta gratuita de cómo podría quedar su página. Sin pago y sin compromiso.",
+            text="Pegue el enlace de su restaurante en Uber Eats y vea la puntuación de su página en 30 segundos. Después le enviamos su página hoy junto a cómo quedará después de nuestro trabajo. Gratis, sin compromiso.",
             img="delivery"):
         return f"""<section class="tight"><div class="wrap"><div class="cta reveal">
-  <div class="txt"><span class="eyebrow">Maqueta gratis</span><h2>{title}</h2><p class="lead">{text}</p>
-    <div class="row"><a class="btn" href="es/contact.html">Quiero mi maqueta gratis <span class="arr">→</span></a><a class="btn ghost" href="es/pricing.html">Ver precios</a></div></div>
+  <div class="txt"><span class="eyebrow">Análisis gratis</span><h2>{title}</h2><p class="lead">{text}</p>
+    <div class="row"><a class="btn" href="es/check.html">Analizar mi página gratis <span class="arr">→</span></a><a class="btn ghost" href="es/pricing.html">Ver precios</a></div></div>
   <div class="pic"><img class="bg" src="img/{img}.jpg" alt="" loading="lazy">
     {floaty("burger", "left:-34px;top:40px")}{floaty("bubbletea", "right:24px;bottom:24px", 3)}</div>
 </div></div></section>"""
@@ -89,7 +89,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 
     # ------------------------------------------------------------------------------------------------ home
     page("es/index.html", "Mejoramos su página de Uber Eats: carta y fotos | MenuFix",
-         "Hacemos que su página de Uber Eats muestre lo bueno que es su plato: nombres claros, descripciones que venden, el orden correcto y mejores fotos de su comida real. Maqueta gratis primero.",
+         "Hacemos que su página de Uber Eats muestre lo bueno que es su plato: nombres claros, descripciones que venden, el orden correcto y mejores fotos de su comida real. Análisis gratis primero.",
          f"""<header class="hero">
   {floaty("pizza", "left:45%;bottom:4%", 1)}{floaty("sushi", "left:44%;top:6%", 4)}{floaty("coffee", "right:2%;bottom:4%", 2)}
   <div class="wrap">
@@ -97,11 +97,11 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
     <span class="chip"><img src="img/icons/bag.png" alt="">Para restaurantes, cafeterías y panaderías en Uber Eats</span>
     <h1>Que los clientes con hambre le elijan a <span class="hl">usted.</span></h1>
     <p class="lead">El cliente pide lo que le entra por los ojos. Reescribimos su carta, ponemos arriba lo que más vende y hacemos que las fotos de su comida real den hambre. Incluso podemos hacer todos los cambios en su página por usted.</p>
-    <form class="search" action="es/contact.html" method="get">
-      <img src="img/icons/menu.png" alt=""><input name="biz" placeholder="Nombre de su restaurante o cafetería" aria-label="Nombre de su restaurante o cafetería">
-      <button class="btn primary" type="submit">Quiero mi maqueta gratis <span class="arr">→</span></button>
+    <form class="search" action="es/check.html" method="get">
+      <img src="img/icons/menu.png" alt=""><input name="url" inputmode="url" placeholder="Pegue su enlace de Uber Eats" aria-label="El enlace de su restaurante en Uber Eats">
+      <button class="btn primary" type="submit">Analizar mi página gratis <span class="arr">→</span></button>
     </form>
-    <div class="trust"><span>Maqueta gratis primero</span><span>Precio único</span><span>Solo comida real</span></div>
+    <div class="trust"><span>Su puntuación en 30 segundos</span><span>Precio único</span><span>Solo comida real</span></div>
   </div>
   <div class="hero-visual reveal">
     <div class="hero-photo"><img src="img/spread.jpg" alt="Una mesa llena de platos para llevar" fetchpriority="high"></div>
@@ -134,10 +134,10 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 </div></section>
 
 <section class="bg-peach"><div class="wrap">
-  <div class="head reveal"><div><span class="eyebrow">Su maqueta gratis</span><h2>Vea su página entera antes de pagar.</h2></div>
-    <p class="lead">Cada restaurante con el que hablamos recibe gratis una maqueta conceptual de su propia página, como esta. Verá exactamente qué cambiaríamos, sin ningún compromiso.</p></div>
+  <div class="head reveal"><div><span class="eyebrow">Su análisis gratis</span><h2>Vea su página mejorada antes de pagar.</h2></div>
+    <p class="lead">Cada análisis gratis muestra su puntuación, qué mejorar primero y su página hoy junto a cómo quedará después de nuestro trabajo, como este ejemplo. Sin compromiso.</p></div>
   {mockpair("mock2")}
-  <div class="row" style="justify-content:center;margin-top:34px"><a class="btn primary" href="es/contact.html">Quiero mi maqueta gratis <span class="arr">→</span></a></div>
+  <div class="row" style="justify-content:center;margin-top:34px"><a class="btn primary" href="es/check.html">Analizar mi página gratis <span class="arr">→</span></a></div>
 </div></section>
 
 <section><div class="wrap">
@@ -153,7 +153,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 <section class="bg-butter"><div class="wrap">
   <div class="head center reveal"><span class="eyebrow">Cómo funciona</span><h2>Sencillo, de principio a fin.</h2></div>
   <div class="steps">
-    <div class="step reveal"><span class="n">1</span>{ic("gift")}<h3>Maqueta gratis</h3><p>Miramos su página de Uber Eats y le enseñamos cómo podría quedar. Gratis.</p></div>
+    <div class="step reveal"><span class="n">1</span>{ic("gift")}<h3>Análisis gratis</h3><p>Su puntuación en 30 segundos, y su página hoy y después por correo. Gratis.</p></div>
     <div class="step reveal"><span class="n">2</span>{ic("menu")}<h3>Elija un paquete</h3><p>Precio único, con pago seguro con tarjeta. Sin suscripción.</p></div>
     <div class="step reveal"><span class="n">3</span>{ic("phone")}<h3>Envíe sus fotos</h3><p>Para los paquetes con fotos, haga fotos de sus platos con el móvil y envíenoslas por correo.</p></div>
     <div class="step reveal"><span class="n">4</span>{ic("rocket")}<h3>Su nueva página</h3><p>La actualizamos por usted, o se la enviamos lista para copiar con una guía sencilla.</p></div>
@@ -220,7 +220,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
          f"""{head("Ejemplos", "Vea la <span class='hl'>diferencia.</span>", "Primero, páginas completas. Después, plato a plato. Deslice cada control para comparar.", ("taco", "cake"))}
 <section style="padding-top:30px"><div class="wrap">
   <div class="head reveal"><div><span class="eyebrow">Maquetas de página</span><h2>Renovaciones de la página completa</h2></div>
-    <p class="lead">La maqueta gratis que enviamos muestra su página entera después de la renovación: portada, lo más vendido primero, nombres y descripciones claros y fotos apetecibles.</p></div>
+    <p class="lead">El análisis gratis muestra su página entera después de la renovación: portada, lo más vendido primero, nombres y descripciones claros y fotos apetecibles.</p></div>
   {mockpair("mock1", False)}
   <div style="height:70px"></div>
   {mockpair("mock3", False)}
@@ -234,16 +234,16 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
   <div class="grid2" style="gap:56px 32px">{grid}</div>
   <p class="note" style="margin-top:40px">Ejemplos ilustrativos de platos y locales ficticios, con imágenes hechas con IA para esta web. Para su página solo trabajamos con fotos de sus platos reales.</p>
 </div></section>
-{cta("¿Quiere ver su propia página?", "Envíenos el nombre de su restaurante o cafetería en Uber Eats y le enseñaremos gratis una maqueta de la suya.")}
+{cta("¿Quiere ver su propia página?", "Pegue el enlace de su restaurante en Uber Eats: su puntuación en 30 segundos, y su propio antes y después por correo.")}
 """, "es/examples.html", lang="es")
 
     # ------------------------------------------------------------------------------------------------ how it works
     page("es/how-it-works.html", "Cómo funciona la renovación de su carta de Uber Eats | MenuFix",
-         "De la maqueta gratis a su nueva página de Uber Eats en cuatro pasos sencillos, todo por correo electrónico.",
+         "Del análisis gratis a su nueva página de Uber Eats en cuatro pasos sencillos.",
          f"""{head("Cómo funciona", "Cuatro pasos <span class='hl'>sencillos.</span>", "Todo se puede hacer por correo electrónico. Verá la idea antes de pagar nada.", ("noodles", "croissant"))}
 <section class="tight"><div class="wrap split">
-  <div class="reveal">{ic("gift")}<span class="eyebrow" style="display:block">Paso 1</span><h2>Su maqueta gratis</h2>
-    <p class="lead" style="margin-top:18px">Díganos cuál es su restaurante o cafetería en Uber Eats. Miramos su página y le enviamos una maqueta de cómo podría quedar, con los cambios principales que haríamos. Sin pago y sin compromiso.</p></div>
+  <div class="reveal">{ic("gift")}<span class="eyebrow" style="display:block">Paso 1</span><h2>Su análisis gratis</h2>
+    <p class="lead" style="margin-top:18px">Pegue el enlace de su restaurante en Uber Eats en nuestra web. Su puntuación y las mejoras que más importan aparecen en 30 segundos, y después le enviamos su página hoy junto a cómo quedará después de nuestro trabajo. Sin pago y sin compromiso.</p></div>
   <div class="reveal" style="display:flex;justify-content:center"><div class="device solo"><img src="img/mock1-after.jpg" alt="Maqueta conceptual de la página de un restaurante" loading="lazy"></div></div>
 </div></section>
 <section class="tight bg-cream"><div class="wrap split rev">
@@ -308,7 +308,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
   <div class="head center reveal"><span class="eyebrow">En qué creemos</span><h2>Cómo trabajamos</h2></div>
   <div class="grid3">
     <div class="card reveal">{ic("salad")}<h3>Solo comida real</h3><p>Mejoramos fotos de sus platos reales. Nunca usamos comida falsa ni añadimos ingredientes que no están.</p></div>
-    <div class="card reveal">{ic("check")}<h3>Honestidad</h3><p>Precios claros, sin costes ocultos y sin promesas que no podemos cumplir. Primero una maqueta gratis, para que sepa lo que recibe.</p></div>
+    <div class="card reveal">{ic("check")}<h3>Honestidad</h3><p>Precios claros, sin costes ocultos y sin promesas que no podemos cumplir. Primero un análisis gratis, para que sepa lo que recibe.</p></div>
     <div class="card reveal">{ic("rocket")}<h3>Sencillez</h3><p>Todo por correo electrónico, en pocos días. Todo hecho por nosotros, para que usted no tenga que tocar nada.</p></div>
   </div>
   <p class="lead reveal" style="text-align:center;margin:40px auto 0">¿Conoce a dueños de restaurantes? <a href="es/referidos.html">Gane un 30 % por cada restaurante que nos recomiende</a>.</p>
@@ -325,12 +325,12 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 """, "es/faq.html", lang="es", ld_extra=faq_ld(FAQ))
 
     # ------------------------------------------------------------------------------------------------ contact (email only)
-    page("es/contact.html", "Maqueta gratis de su página de Uber Eats | MenuFix",
-         "Reciba gratis una maqueta de su página de Uber Eats. Sin pago y sin compromiso.",
+    page("es/contact.html", "Contacto | MenuFix",
+         "Escriba a MenuFix: preguntas, una petición especial o aún sin enlace de Uber Eats. Respondemos en un día laborable.",
          f"""<header class="page-head">{floaty("gift", "left:3%;bottom:6%", 2)}<div class="wrap split" style="align-items:start">
-  <div><span class="eyebrow">Maqueta gratis</span><h1>Vea su página mejorada, <span class="hl">gratis.</span></h1>
-    <p class="lead">Díganos dónde encontrarle en Uber Eats. Le enviaremos por correo una maqueta de cómo podría quedar su página y los cambios principales que haríamos. Sin pago y sin compromiso.</p>
-    <ul class="ticks"><li>Normalmente en uno o dos días laborables</li><li>No necesitamos datos de pago</li><li>Solo paga cuando esté contento</li></ul>
+  <div><span class="eyebrow">Contacto</span><h1>Hable con nosotros. <span class="hl">Respondemos.</span></h1>
+    <p class="lead">¿Preguntas, una petición especial o aún sin enlace de Uber Eats? Escríbanos aquí y le responderemos en un día laborable. ¿Quiere su puntuación ya? Use el <a href="es/check.html">análisis gratis</a>: 30 segundos.</p>
+    <ul class="ticks"><li>Respuesta en un día laborable</li><li>No necesitamos datos de pago</li><li>Solo paga cuando esté contento</li></ul>
     <div class="img reveal" style="margin-top:40px"><img src="img/spread.jpg" alt="" loading="lazy"></div></div>
   <div class="card reveal" style="padding:40px">
     <form id="mockForm" data-lang="es" data-error="Lo sentimos, algo ha fallado. Inténtelo de nuevo en un minuto o escríbanos a hello@getmenufix.com." novalidate>
@@ -341,12 +341,12 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
       <div class="f"><label for="name">Su nombre</label><input id="name" maxlength="60" autocomplete="given-name" placeholder="Nombre"></div>
       <div class="f"><label for="msg">¿Algo que debamos saber? (opcional)</label><textarea id="msg" maxlength="1500" rows="4" placeholder="Por ejemplo: acabamos de abrir, nuestro plato estrella es..."></textarea></div>
       <div class="hp" aria-hidden="true"><label for="mSite">Website</label><input id="mSite" tabindex="-1" autocomplete="off"></div>
-      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Envíenme mi maqueta gratis por correo</span></label>
+      <label class="consent"><input id="mConsent" type="checkbox" required> <span>Envíenme mi análisis gratis por correo</span></label>
       <p class="err" id="mErr" role="alert" hidden></p>
       <button class="btn primary" type="submit" style="width:100%">Enviar mi solicitud <span class="arr">→</span></button>
-      <p class="note" style="margin:14px 0 0">Usamos su correo solo para su maqueta. Consulte nuestra <a href='privacy.html'>política de privacidad</a>.</p>
+      <p class="note" style="margin:14px 0 0">Usamos su correo solo para su solicitud. Consulte nuestra <a href='privacy.html'>política de privacidad</a>.</p>
     </form>
-    <div id="mockThanks" class="thanks" hidden><h3>Gracias, hemos recibido su solicitud.</h3><p>Le enviaremos su maqueta gratis por correo, normalmente en uno o dos días laborables. Si no la ve, mire en su carpeta de spam.</p></div>
+    <div id="mockThanks" class="thanks" hidden><h3>Gracias, hemos recibido su solicitud.</h3><p>Le responderemos por correo en un día laborable. Si no la ve, mire en su carpeta de spam.</p></div>
   </div>
 </div></header>
 """, "", lang="es")
@@ -360,7 +360,7 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 
   <h2>Qué datos recogemos</h2>
   <ul>
-    <li><b>Datos del negocio que ya son públicos:</b> el nombre de su negocio, su página de Uber Eats y los datos de contacto que su negocio publica (por ejemplo en su web o en redes sociales), para poder enviarle una maqueta gratis.</li>
+    <li><b>Datos del negocio que ya son públicos:</b> el nombre de su negocio, su página de Uber Eats y los datos de contacto que su negocio publica (por ejemplo en su web o en redes sociales), para poder enviarle un análisis gratis.</li>
     <li><b>Lo que nos envía:</b> correos, mensajes, fotos de sus platos y todo lo que comparta con nosotros para poder hacer el trabajo.</li>
     <li><b>Datos de pago:</b> los pagos los gestiona Stripe. Vemos su nombre, su correo y lo que ha comprado, pero nunca el número completo de su tarjeta.</li>
     <li><b>Llamadas:</b> si nos pide que le llamemos, la llamada puede grabarse para no equivocarnos con los detalles. Se lo diremos al principio de la llamada.</li>
@@ -382,13 +382,13 @@ def build_site_es(page, head, ic, floaty, faq_html, guide_card, guides):
 
   <h2>Cambios</h2>
   <p>Si cambiamos esta página, actualizaremos la fecha de arriba.</p>"""),
-        "es/terms.html": ("Condiciones", "Condiciones de MenuFix: qué hacemos, la maqueta gratis, el pago, la entrega, su contenido y por qué no prometemos resultados.", """<p>Última actualización: octubre de 2026</p>
+        "es/terms.html": ("Condiciones", "Condiciones de MenuFix: qué hacemos, el análisis gratis, el pago, la entrega, su contenido y por qué no prometemos resultados.", """<p>Última actualización: octubre de 2026</p>
 
   <h2>Qué hacemos</h2>
   <p>MenuFix mejora el contenido de su página de Uber Eats: los nombres de los productos, las descripciones, el orden de su carta y las fotos de sus platos reales. Lo que incluye cada paquete se describe en nuestra web y al pagar.</p>
 
-  <h2>Maqueta gratis</h2>
-  <p>La maqueta gratis es una vista previa del concepto para enseñarle la idea. No es un diseño final y nunca se usa en su página sin su acuerdo.</p>
+  <h2>Análisis gratis</h2>
+  <p>El antes y después del análisis gratis es una vista previa para enseñarle la idea. Puede mostrar fotos de ejemplo marcadas Example. No es un diseño final y nunca se usa en su página sin su acuerdo.</p>
 
   <h2>Pago</h2>
   <p>Los precios son precios únicos que se muestran al pagar. El pago lo cobra Stripe de forma segura cuando hace el pedido.</p>
